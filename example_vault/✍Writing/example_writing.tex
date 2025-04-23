@@ -1,33 +1,51 @@
-\documentclass{article}
+\documentclass{extarticle}
+
+
+% Loading packages that were defined in `src\get_parameters.py`
+\usepackage[table]{xcolor}
 \usepackage{hyperref}
 \usepackage{graphicx}
-\usepackage{subcaption}
-\usepackage{amssymb}
-\usepackage{titlesec}
-\usepackage{xcolor, soul}
+\usepackage{subcaption} % for subfigures
+\usepackage{amssymb} % need more symbols
+\usepackage{titlesec} % so that we can add more subsections (using 'paragraph')
+\usepackage{xcolor, soul} % for the highlighter
 \usepackage{amsmath}
 \usepackage{amsfonts}
 \usepackage{cancel}
 \usepackage{minted}
-\usepackage{apacite}
-\usepackage{caption}
-\usepackage{cleveref}
+\usepackage{apacite} % apa citation style
+\usepackage{caption} % to set smaller vertical spacing between two figures
+\usepackage{cleveref} % for clever references
 \usepackage{tcolorbox}
-\usepackage{float}
+\usepackage{float} % to make the figures stay between the text at which they are defined
 \usepackage{pdfpages}
+\usepackage{totcount}
+\usepackage{lipsum}
+\usepackage{ragged2e} % can wrap text for tables in the tabularx environment
+\usepackage{natbib} % Such that we avoid the error (`Illegal parameter number in definition of \reserved@a`) of not being able to add citations in captions
+\usepackage{pdfcomment} % for popup comments in the .pdf
+\usepackage{booktabs} % so that the toprule command works
+\usepackage{soul} % to strikeout text using \st{}
+\usepackage{twemojis} % for twemojis
+\usepackage{rotating} % for rotating text on tables
 \usepackage{tabularx}
+\usepackage{longtable}
+\usepackage{tabularray}
+\usepackage{enumitem,amssymb}
+\setlist[todolist]{label=$\square$}
+\newtotcounter{citnum} %From the package documentation
+\def\oldbibitem{} \let\oldbibitem=\bibitem
+\def\bibitem{\stepcounter{citnum}\oldbibitem}
 \setlength{\parindent}{0pt}
 \usepackage[margin=0.9in]{geometry}
 
-\hypersetup{
-colorlinks   = true,    % Colours links instead of ugly boxes
-urlcolor     = blue,    % Colour for external hyperlinks
-linkcolor    = blue,    % Colour of internal links
-citecolor    = blue      % Colour of citations
-}
-\usepackage{enumitem,amssymb}
-\newlist{todolist}{itemize}{2}
-\setlist[todolist]{label=$\square$}
+    \hypersetup{
+    colorlinks   = true,    % Colours links instead of ugly boxes
+    urlcolor     = blue,    % Colour for external hyperlinks
+    linkcolor    = blue,    % Colour of internal links
+    citecolor    = blue      % Colour of citations
+    }
+    
 
 \sethlcolor{yellow}
 
@@ -37,49 +55,36 @@ citecolor    = blue      % Colour of citations
 \setlength{\parskip}{7pt} % paragraph spacing
 \let\oldmarginpar\marginpar
 \renewcommand\marginpar[1]{\oldmarginpar{\tiny #1}} % Change "small" to your desired font size]
-\begin{document}
-\date{}
-\author{Marios Gkionis}
-\title{e}
-\maketitle
 
-\tableofcontents 
- \newpage
+
+\newcommand{\ignore}[1]{}
+% CUSTOM FUNCTIONS
+% =======================================
+
+
+
+\begin{document}
+
+
+\author{Marios Gkionis}
+
+
+
+\section{Warnings to users}
+
+!\twemoji{warning} warning to users
+
+
 
 \section{Development Tasks}
 
-
-% Start obsidian ref:
-%dev-tasks
-\begin{todolist}
-\item Allow user to create more complex configurations
-\item Tables
-\begin{todolist}
-\item Use the QuickAdd logic for tables
-\item Allow user to modify the column widths from Obsidian
-\item Allow entries be empty
-\item Fancy formatting
-\end{todolist}
-\item Allow the user to change settings from Obsidian, instead of Python
-\end{todolist}
-% End obsidian ref
-
+!dev-tasks
 
 \section{Formatting}
 
 
 
-
-% Start obsidian ref:
-%formatting
-\textit{italic text}
-
-\textbf{bold text}
-
-\hl{highlighted text}
-
-% End obsidian ref
-
+!formatting
 
 
 
@@ -144,13 +149,19 @@ Command: just mention that link that pertains to the literature file. I use the 
 
 
 
-Example: In \cite{p1}, we see that...  \hypertarget{ad3b86}{} \label{ead3b86}
+Example: In \cite{p1}, we see that...  \hypertarget{ad3b86}{}
 
 
 
 \section{Equations}
 
 Both equations and subfigures are written in the form of embedded notes, since they are encoded as notes.
+
+\begin{tcolorbox}[width=1.0\textwidth,colback={red},title={warning},outer arc=0mm,colupper=white]
+
+If you write an equation outside of the designated template in an embedded note, then the conversion will be faulty!
+
+\end{tcolorbox}
 
 \subsection{Writing the equation}
 
@@ -165,38 +176,19 @@ Steps:
 \end{enumerate}
 
 
-
-% Start obsidian ref:
-%eq__block_Einsteinexpr
-\begin{equation} \label{eq:Einstein}
-	E=mc^{2}
-\end{equation}
-
-% End obsidian ref
+!\Cref{eq:Einstein\#expr}
 
 
 
-
-It supports the aligned equations, as seen in \cref{eq:1}.
-
+It supports the aligned equations, as seen in \Cref{eq:1}.
 
 
 
-% Start obsidian ref:
-%eq__block_1expr
-\begin{equation}\label{eq:1}
-\begin{aligned}
-\Delta W_{rg} = -\alpha \sum_{s}&[R+\gamma V(s')-V(s)]  \\
-&[\nabla_{w} \gamma V(s')-\nabla_{w}V(s)]
-\end{aligned}
-\end{equation}
-
-% End obsidian ref
-
+!\Cref{eq:1\#expr}
 
 \subsection{Referencing the equation}
 
-In \cref{eq:Einstein}, we see that...
+In \Cref{eq:Einstein}, we see that...
 
 \section{Figures}
 
@@ -204,51 +196,22 @@ In \cref{eq:Einstein}, we see that...
 
 \subsubsection{No subfigures}
 
-
-% Start obsidian ref:
-%figure__block_gradient_stepsfig
-\begin{figure}[H]
-\centering
-\includegraphics[width=0.4\linewidth]{"C:/Users/mariosg/OneDrive - NTNU/FILES/workTips/Literature/Straightforward-Obsidian2Latex/example_vault/✍Writing/figure blocks/Pasted image 20240609012140.png"}
-\caption[]{The caption.}
-
-\label{fig:gradient_steps}
-\end{figure}
-% End obsidian ref
-
+!\Cref{fig:gradient_steps\#fig}
 
 
 
 \subsubsection{With subfigures}
 
+See \Cref{fig:1}.
+
+
+
+
+
 \begin{itemize}
-\item \textbf{TODO: }  Allow user to create more complex configurations
+\item \twemoji{plus}  Allow user to create more complex configurations
 \end{itemize}
-
-% Start obsidian ref:
-%figure__block_1fig
-\begin{figure}[H]
-\centering
-\begin{subfigure}[b]{0.5\textwidth}
-\centering
-\includegraphics[width=\linewidth]{"C:/Users/mariosg/OneDrive - NTNU/FILES/workTips/Literature/Straightforward-Obsidian2Latex/example_vault/✍Writing/figure blocks/Pasted image 20240609012221.png"}
-\caption[]
-
-
-\end{subfigure}\hfill
-\begin{subfigure}[b]{0.5\textwidth}
-\centering
-\includegraphics[width=\linewidth]{"C:/Users/mariosg/OneDrive - NTNU/FILES/workTips/Literature/Straightforward-Obsidian2Latex/example_vault/✍Writing/figure blocks/Pasted image 20240609012251.png"}
-\caption[]
-
-
-\end{subfigure}\hfill
-\caption{}
-\label{fig:1}
-\end{figure}
-
-% End obsidian ref
-
+!\Cref{fig:1\#fig}
 
 
 
@@ -256,7 +219,7 @@ In \cref{eq:Einstein}, we see that...
 
 \subsection{Referencing figures}
 
-In \cref{fig:1}, we can notice that...
+In \Cref{fig:1}, we can notice that...
 
 
 
@@ -268,7 +231,7 @@ If you write admonition blocks, they are translated into something similar in la
 
 \textbf{Example}
 
-\begin{tcolorbox}[width=\textwidth,colback={red},title={warning},outer arc=0mm,colupper=white]
+\begin{tcolorbox}[width=1.0\textwidth,colback={red},title={warning},outer arc=0mm,colupper=white]
 
 This is a warning
 
@@ -276,7 +239,7 @@ This is a warning
 
 
 
-\begin{tcolorbox}[width=\textwidth,colback={white},title={note},outer arc=0mm,colupper=black]
+\begin{tcolorbox}[width=1.0\textwidth,colback={white},title={note},outer arc=0mm,colupper=black]
 
 This is a note
 
@@ -300,7 +263,7 @@ print("this is another code block")
 
 \section{Cross-reference of section}
 
-Check \hyperref[sec:Adding-citations]{this section}: \autoref{sec:Adding-citations} about adding citations.
+Check \hyperref[sec:Adding-citations]{this section} (\autoref{sec:Adding-citations}) about adding citations.
 
 
 
@@ -316,7 +279,7 @@ example
 
 The sections from embedded notes can assume the hierarchy of the file wherein they are embedded.
 
-\begin{tcolorbox}[width=\textwidth,colback={white},title={note},outer arc=0mm,colupper=black]
+\begin{tcolorbox}[width=1.0\textwidth,colback={white},title={note},outer arc=0mm,colupper=black]
 
 Notice in the latex file that the section hierarchy has been modified to adhere to the hierarchy of the file that embeds the note.
 
@@ -324,13 +287,7 @@ Notice in the latex file that the section hierarchy has been modified to adhere 
 
 
 
-
-% Start obsidian ref:
-%embedded with sections
-\subsection{Section 1 of embedded}
-\subsubsection{subsection 1 of embedded}
-% End obsidian ref
-
+!embedded with sections
 
 
 
@@ -346,19 +303,58 @@ Click \href{https://www.youtube.com/}{here}.
 
 
 
-\newcolumntype{Y}{>{\centering\arraybackslash}X}
-\renewcommand\tabularxcolumn[1]{m{#1}}
-\begin{center}
-\begin{tabularx}{\textwidth}{|Y|Y|Y|Y|}
-   \hline
-    \textbf{Col1} & \textbf{Col2} & \textbf{Col3} & \textbf{Col4} \\ \hline
-    a11 & a12 & Some more text & even more text \\ \hline
-    a21 & Equation: $E=mc^{2}$ & Some more textSome more textSome more textSome more textSome more textSome more text & even more text even more text even more text even more text even more text \\ \hline
-    Reference \cref{eq:1} & 1 & 1 & 1 \\ \hline
-   \hline
-\end{tabularx}
-\end{center}
+See \Cref{tab:1}, \Cref{tab:2}, and \Cref{tab:long}.
+
+
+
+!\Cref{tab:1\#table}
+
+
+
+!\Cref{tab:2\#table}
+
+
+
+!\Cref{tab:long\#table}
+
+
+
+\section{Latex commands}
+
+When there is something niche, or some translation functionality that hasn't been developed yet, you can write a latex command within the code-block functionality of Obsidian, and the translator will not touch it. Use the syntax according to the following example:
+
+
+
+
+
+\lipsum[1-4]
+
+
+
+
+
+\section{Inline code parameterization}
+
+Open this note to modify the fields and add more.
+
+We used method_1. We use this method, because it's awesome. 
+
+
+
+
+
+\appendix
+
+!example_writing--Appendix
+
+
 \newpage 
- \bibliographystyle{apacite}
+ \newpage 
+ 
+
+
+
+
+\bibliographystyle{apacite}
 \bibliography{BIBTEX}
 \end{document}

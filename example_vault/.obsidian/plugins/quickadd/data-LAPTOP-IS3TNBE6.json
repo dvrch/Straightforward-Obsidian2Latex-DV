@@ -1,0 +1,387 @@
+{
+  "choices": [
+    {
+      "id": "d8c047f7-b17d-43c4-a0b1-38f2ec79de10",
+      "name": "➕/RL/Understanding-Urgent",
+      "type": "Template",
+      "command": true,
+      "templatePath": "Automations/➕templ-RL--understanding--Urgent.md",
+      "fileNameFormat": {
+        "enabled": true,
+        "format": "Understand__"
+      },
+      "folder": {
+        "enabled": true,
+        "folders": [
+          "P-Tasks/➕/👨‍🎓"
+        ],
+        "chooseWhenCreatingNote": false,
+        "createInSameFolderAsActiveFile": false
+      },
+      "appendLink": false,
+      "incrementFileName": true,
+      "openFileInNewTab": {
+        "enabled": false,
+        "direction": "vertical",
+        "focus": true
+      },
+      "openFile": true,
+      "openFileInMode": "default"
+    },
+    {
+      "id": "26728d2f-834f-4eb8-a498-2f8e786d1f89",
+      "name": "➕/RL",
+      "type": "Template",
+      "command": true,
+      "templatePath": "Automations/➕templ-RL.md",
+      "fileNameFormat": {
+        "enabled": true,
+        "format": "➕RL--"
+      },
+      "folder": {
+        "enabled": true,
+        "folders": [
+          "",
+          "P-Tasks/➕"
+        ],
+        "chooseWhenCreatingNote": false,
+        "createInSameFolderAsActiveFile": false
+      },
+      "appendLink": false,
+      "incrementFileName": true,
+      "openFileInNewTab": {
+        "enabled": false,
+        "direction": "vertical",
+        "focus": true
+      },
+      "openFile": true,
+      "openFileInMode": "default"
+    },
+    {
+      "id": "ba18e771-e944-4d8a-8a8c-a01a95afa8d1",
+      "name": "➕/Bureaucratic",
+      "type": "Template",
+      "command": true,
+      "templatePath": "Automations/➕💼bureaucratic.md",
+      "fileNameFormat": {
+        "enabled": true,
+        "format": "afile"
+      },
+      "folder": {
+        "enabled": true,
+        "folders": [
+          "P-Tasks/➕"
+        ],
+        "chooseWhenCreatingNote": false,
+        "createInSameFolderAsActiveFile": false
+      },
+      "appendLink": false,
+      "incrementFileName": false,
+      "openFileInNewTab": {
+        "enabled": false,
+        "direction": "vertical",
+        "focus": true
+      },
+      "openFile": true,
+      "openFileInMode": "default"
+    },
+    {
+      "id": "d80cd7d1-535a-4064-9114-b11da2daabb8",
+      "name": "➕/Wait-reply",
+      "type": "Template",
+      "command": true,
+      "templatePath": "Automations/➕wait reply.md",
+      "fileNameFormat": {
+        "enabled": true,
+        "format": "from--"
+      },
+      "folder": {
+        "enabled": true,
+        "folders": [
+          "P-Tasks/➕"
+        ],
+        "chooseWhenCreatingNote": false,
+        "createInSameFolderAsActiveFile": false
+      },
+      "appendLink": false,
+      "incrementFileName": true,
+      "openFileInNewTab": {
+        "enabled": false,
+        "direction": "vertical",
+        "focus": true
+      },
+      "openFile": true,
+      "openFileInMode": "default"
+    },
+    {
+      "id": "4ca29c9b-38a2-4dd1-9797-a9ba9cf38719",
+      "name": "➕/RL/What-Is-That❓",
+      "type": "Template",
+      "command": true,
+      "templatePath": "Automations/➕RL--What-Is.md",
+      "fileNameFormat": {
+        "enabled": true,
+        "format": "🤷‍♂️"
+      },
+      "folder": {
+        "enabled": true,
+        "folders": [
+          "P-Tasks/➕/👨‍🎓"
+        ],
+        "chooseWhenCreatingNote": false,
+        "createInSameFolderAsActiveFile": false
+      },
+      "appendLink": false,
+      "incrementFileName": true,
+      "openFileInNewTab": {
+        "enabled": false,
+        "direction": "vertical",
+        "focus": true
+      },
+      "openFile": true,
+      "openFileInMode": "default"
+    },
+    {
+      "id": "80d82a2d-5aab-4eac-a573-74343724a752",
+      "name": "➕/RL/Understanding",
+      "type": "Template",
+      "command": true,
+      "templatePath": "Automations/➕RL--Understanding.md",
+      "fileNameFormat": {
+        "enabled": true,
+        "format": "🤔"
+      },
+      "folder": {
+        "enabled": true,
+        "folders": [
+          "P-Tasks/➕/👨‍🎓"
+        ],
+        "chooseWhenCreatingNote": false,
+        "createInSameFolderAsActiveFile": false
+      },
+      "appendLink": false,
+      "incrementFileName": true,
+      "openFileInNewTab": {
+        "enabled": false,
+        "direction": "vertical",
+        "focus": true
+      },
+      "openFile": true,
+      "openFileInMode": "default"
+    },
+    {
+      "id": "65f2b3d0-4f1d-4914-bd79-14bc928e7ac6",
+      "name": "➕/Download/Lit",
+      "type": "Template",
+      "command": true,
+      "templatePath": "Automations/➕downl--📚.md",
+      "fileNameFormat": {
+        "enabled": true,
+        "format": "➕📚👇"
+      },
+      "folder": {
+        "enabled": true,
+        "folders": [
+          "P-Tasks/➕"
+        ],
+        "chooseWhenCreatingNote": false,
+        "createInSameFolderAsActiveFile": false
+      },
+      "appendLink": false,
+      "incrementFileName": true,
+      "openFileInNewTab": {
+        "enabled": false,
+        "direction": "vertical",
+        "focus": true
+      },
+      "openFile": true,
+      "openFileInMode": "default"
+    },
+    {
+      "id": "c37f8216-42d2-4f23-a55c-779282a2e765",
+      "name": "➕/Bureaucratic/HR",
+      "type": "Template",
+      "command": true,
+      "templatePath": "Automations/➕HR-related.md",
+      "fileNameFormat": {
+        "enabled": true,
+        "format": "➕💼HR"
+      },
+      "folder": {
+        "enabled": true,
+        "folders": [
+          "P-Tasks/➕"
+        ],
+        "chooseWhenCreatingNote": false,
+        "createInSameFolderAsActiveFile": false
+      },
+      "appendLink": false,
+      "incrementFileName": true,
+      "openFileInNewTab": {
+        "enabled": false,
+        "direction": "vertical",
+        "focus": true
+      },
+      "openFile": true,
+      "openFileInMode": "default"
+    },
+    {
+      "id": "6db9f9f6-5b56-435d-a9c1-482dcc369f5a",
+      "name": "➕/RL/Why-Is-That❓",
+      "type": "Template",
+      "command": true,
+      "templatePath": "Automations/➕RL-Why-is-this.md",
+      "fileNameFormat": {
+        "enabled": true,
+        "format": "Why--"
+      },
+      "folder": {
+        "enabled": true,
+        "folders": [
+          "P-Tasks/➕/👨‍🎓"
+        ],
+        "chooseWhenCreatingNote": false,
+        "createInSameFolderAsActiveFile": false
+      },
+      "appendLink": false,
+      "incrementFileName": true,
+      "openFileInNewTab": {
+        "enabled": false,
+        "direction": "vertical",
+        "focus": true
+      },
+      "openFile": true,
+      "openFileInMode": "default"
+    },
+    {
+      "id": "bf1cf81e-4a01-49cb-8fcd-79c4935d1f17",
+      "name": "➕/Research/Check-Result",
+      "type": "Template",
+      "command": true,
+      "templatePath": "Automations/➕--Research--Check-result.md",
+      "fileNameFormat": {
+        "enabled": true,
+        "format": "Check--"
+      },
+      "folder": {
+        "enabled": true,
+        "folders": [
+          "P-Tasks/➕",
+          "P-Tasks/➕/👨‍🎓/🧪"
+        ],
+        "chooseWhenCreatingNote": false,
+        "createInSameFolderAsActiveFile": false
+      },
+      "appendLink": false,
+      "incrementFileName": true,
+      "openFileInNewTab": {
+        "enabled": false,
+        "direction": "vertical",
+        "focus": true
+      },
+      "openFile": true,
+      "openFileInMode": "default"
+    },
+    {
+      "id": "d80ad50f-c563-4c2b-8a3b-96cc7dff4e98",
+      "name": "➕/Read/Self-Study",
+      "type": "Template",
+      "command": true,
+      "templatePath": "Automations/➕to-read--self-study.md",
+      "fileNameFormat": {
+        "enabled": true,
+        "format": "➕--📖--"
+      },
+      "folder": {
+        "enabled": true,
+        "folders": [
+          "P-Tasks/➕/👨‍🎓"
+        ],
+        "chooseWhenCreatingNote": false,
+        "createInSameFolderAsActiveFile": false
+      },
+      "appendLink": false,
+      "incrementFileName": true,
+      "openFileInNewTab": {
+        "enabled": false,
+        "direction": "vertical",
+        "focus": true
+      },
+      "openFile": true,
+      "openFileInMode": "default"
+    },
+    {
+      "id": "04030f83-eeb7-4d56-9f4d-8591a154b46a",
+      "name": "➕/RL/Simulate",
+      "type": "Template",
+      "command": true,
+      "templatePath": "Automations/➕RL--Simulate.md",
+      "fileNameFormat": {
+        "enabled": true,
+        "format": "👨‍💻"
+      },
+      "folder": {
+        "enabled": true,
+        "folders": [
+          "P-Tasks/➕/👨‍🎓/🧪"
+        ],
+        "chooseWhenCreatingNote": false,
+        "createInSameFolderAsActiveFile": false
+      },
+      "appendLink": false,
+      "incrementFileName": true,
+      "openFileInNewTab": {
+        "enabled": false,
+        "direction": "vertical",
+        "focus": true
+      },
+      "openFile": true,
+      "openFileInMode": "default"
+    },
+    {
+      "id": "db89d4ac-552f-4d75-8833-31b5b1f60b1b",
+      "name": "➕/📧/Quick",
+      "type": "Template",
+      "command": true,
+      "templatePath": "Automations/➕📧--Quick.md",
+      "fileNameFormat": {
+        "enabled": true,
+        "format": "📧"
+      },
+      "folder": {
+        "enabled": true,
+        "folders": [
+          "P-Tasks/➕"
+        ],
+        "chooseWhenCreatingNote": false,
+        "createInSameFolderAsActiveFile": false
+      },
+      "appendLink": false,
+      "incrementFileName": true,
+      "openFileInNewTab": {
+        "enabled": false,
+        "direction": "vertical",
+        "focus": true
+      },
+      "openFile": true,
+      "openFileInMode": "default"
+    }
+  ],
+  "macros": [
+    {
+      "name": "move-to-task-completed",
+      "id": "020d4867-d057-4035-806b-3ac60d6012a9",
+      "commands": [
+        {
+          "name": "Move current file to another folder",
+          "type": "Obsidian",
+          "id": "0a9be7e1-93ea-49ac-a6c1-be695dc4e516",
+          "commandId": "file-explorer:move-file"
+        }
+      ],
+      "runOnStartup": false
+    }
+  ],
+  "inputPrompt": "multi-line",
+  "devMode": false
+}

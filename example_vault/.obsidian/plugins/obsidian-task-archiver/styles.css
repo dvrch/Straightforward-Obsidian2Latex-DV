@@ -1,0 +1,23 @@
+textarea {
+    resize: none;
+}
+
+.archiver-setting-sub-item {
+    padding-left: 2rem;
+}
+
+.archiver-placeholders-description {
+    vertical-align: top;
+}
+
+.archiver-rule-container {
+    border: 2px solid var(--interactive-accent);
+    border-radius: 10px;
+    padding-left: 10px;
+    padding-right: 10px;
+    margin-top: 0.75em;
+}
+
+.archiver-status-examples {
+    list-style: none;
+}

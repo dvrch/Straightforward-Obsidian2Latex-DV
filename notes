@@ -1,0 +1,171 @@
+notes
+
+Merci pour ton travail.
+Merci d'avoir pensé a faire cela . Je n arrivais pas a  trouver de solution qui me suffise.
+Le concept de ton projet est exactement ce qu'il me faillait et en mieux. 
+Mais je n arrives pas a faire fonctionner chez moi j usqu ici , mais je pense qu on est pas loin
+
+Je suis sus winndws, je rapporte ce que j ai fait pour resoudre:
+
+## 0. renomer mon dossier en "Straightforward-Obsidian2Latex-main" en "Straightforward-Obsidian2Latex" et decompresser en ".obsidian" dans "example_vault"
+---
+## 1. dans convert_to_latex.md >>
+
+convert_note:: [[example_writing]]
+---
+
+code_run:: [1. 👨‍💻🖱convert](<file:///C:\Users\user_name\Desktop\Memoire 2024\convAll-tex2obs\Straightforward-Obsidian2Latex\converter.py>) , [2. 👨‍💻compile to .pdf](<file:///C:\Users\dvrch\Desktop\Memoire 2024\convAll-tex2obs\Straightforward-Obsidian2Latex\example_vault\✍Writing\compile_and_open.sh>)
+---
+
+
+files:: [📁tex file](<file:///C:\Users\user_name\Desktop\Memoire 2024\convAll-tex2obs\Straightforward-Obsidian2Latex\example_vault\✍Writing\texFile.tex>), [📁.pdf file](<file:///C:\Users\dvrch\Desktop\Memoire 2024\convAll-tex2obs\Straightforward-Obsidian2Latex\example_vault\✍Writing\pdfFile.pdf>) 
+---
+---
+## 2.  deplcer `compile_and_open.sh` dans le dossier `✍Writing`
+---
+## 3. dans `get_parameters.py` >> definir le chemin du vaut comme ceci :
+```python
+    # USER PARAMETERS
+    # path_vault          = 'C:\\Users\\mariosg\\OneDrive - NTNU\\FILES\\workTips\\'
+    path_vault          = r'C:\Users\user_name\Desktop\Memoire 2024\convAll-tex2obs\Straightforward-Obsidian2Latex\example_vault'+"\\"
+```
+
+## A erreur
+
+---
+PS C:\Users\dvrch\Desktop\Memoire 2024\convAll-tex2obs\Straightforward-Obsidian2Latex> & C:/Python312/python.exe "c:/Users/dvrch/Desktop/Memoire 2024/convAll-tex2obs/Straightforward-Obsidian2Latex/converter.py"
+c:\Users\dvrch\Desktop\Memoire 2024\convAll-tex2obs\Straightforward-Obsidian2Latex\converter.py:88: SyntaxWarning: invalid escape sequence '\s'
+  out.append('\setlist[todolist]{label=$\square$}')
+c:\Users\dvrch\Desktop\Memoire 2024\convAll-tex2obs\Straightforward-Obsidian2Latex\converter.py:91: SyntaxWarning: invalid escape sequence '\d'
+  out.append('\def\oldbibitem{} \let\oldbibitem=\\bibitem')
+c:\Users\dvrch\Desktop\Memoire 2024\convAll-tex2obs\Straightforward-Obsidian2Latex\converter.py:92: SyntaxWarning: invalid escape sequence '\d'
+  out.append('\def\\bibitem{\stepcounter{citnum}\oldbibitem}')
+c:\Users\dvrch\Desktop\Memoire 2024\convAll-tex2obs\Straightforward-Obsidian2Latex\converter.py:113: SyntaxWarning: invalid escape sequence '\['
+  markup_regex = '\[({0})]\(\s*({1})\s*\)'.format(name_regex, url_regex)
+c:\Users\dvrch\Desktop\Memoire 2024\convAll-tex2obs\Straightforward-Obsidian2Latex\converter.py:201: SyntaxWarning: invalid escape sequence '\*'
+  style_char = '\*\*'
+c:\Users\dvrch\Desktop\Memoire 2024\convAll-tex2obs\Straightforward-Obsidian2Latex\converter.py:207: SyntaxWarning: invalid escape sequence '\='
+  style_char = '\=\='
+c:\Users\dvrch\Desktop\Memoire 2024\convAll-tex2obs\Straightforward-Obsidian2Latex\converter.py:208: SyntaxWarning: invalid escape sequence '\h'
+  replacement_func = lambda repl, string:  repl.append(['=='+string+'==', '\hl{' + string + '}'])
+c:\Users\dvrch\Desktop\Memoire 2024\convAll-tex2obs\Straightforward-Obsidian2Latex\converter.py:213: SyntaxWarning: invalid escape sequence '\*'
+  style_char = '\*'
+c:\Users\dvrch\Desktop\Memoire 2024\convAll-tex2obs\Straightforward-Obsidian2Latex\converter.py:219: SyntaxWarning: invalid escape sequence '\~'
+  style_char = '\~\~'
+c:\Users\dvrch\Desktop\Memoire 2024\convAll-tex2obs\Straightforward-Obsidian2Latex\converter.py:277: SyntaxWarning: invalid escape sequence '\c'
+  '     \centering',
+c:\Users\dvrch\Desktop\Memoire 2024\convAll-tex2obs\Straightforward-Obsidian2Latex\converter.py:278: SyntaxWarning: invalid escape sequence '\i'
+  f'    \includegraphics[width={figure_width}\linewidth]'+\
+c:\Users\dvrch\Desktop\Memoire 2024\convAll-tex2obs\Straightforward-Obsidian2Latex\converter.py:278: SyntaxWarning: invalid escape sequence '\l'        
+  f'    \includegraphics[width={figure_width}\linewidth]'+\
+c:\Users\dvrch\Desktop\Memoire 2024\convAll-tex2obs\Straightforward-Obsidian2Latex\converter.py:280: SyntaxWarning: invalid escape sequence '\c'        
+  f'    \caption[{caption_short}]{{{caption_long}}}',
+c:\Users\dvrch\Desktop\Memoire 2024\convAll-tex2obs\Straightforward-Obsidian2Latex\converter.py:281: SyntaxWarning: invalid escape sequence '\c'        
+  '   \captionsetup{skip=-10pt} % Adjust the skip value as needed'*PARAMETERS['reduce spacing between figures'],  
+c:\Users\dvrch\Desktop\Memoire 2024\convAll-tex2obs\Straightforward-Obsidian2Latex\converter.py:282: SyntaxWarning: invalid escape sequence '\l'        
+  '     \label{fig:'+label_img+'}',   
+c:\Users\dvrch\Desktop\Memoire 2024\convAll-tex2obs\Straightforward-Obsidian2Latex\converter.py:283: SyntaxWarning: invalid escape sequence '\e'        
+  '\end{figure}']))
+c:\Users\dvrch\Desktop\Memoire 2024\convAll-tex2obs\Straightforward-Obsidian2Latex\converter.py:437: SyntaxWarning: invalid escape sequence '\&'        
+  table_new_col_symbol = [['&',               '\&',                     1]] 
+c:\Users\dvrch\Desktop\Memoire 2024\convAll-tex2obs\Straightforward-Obsidian2Latex\converter.py:532: SyntaxWarning: invalid escape sequence '\&'        
+  table_new_col_symbol_reverse = [['\&',               '&',                 
+    1]]
+c:\Users\dvrch\Desktop\Memoire 2024\convAll-tex2obs\Straightforward-Obsidian2Latex\converter.py:560: SyntaxWarning: invalid escape sequence '\#'        
+  content = [x.replace("#", "\#") for x in content]
+c:\Users\dvrch\Desktop\Memoire 2024\convAll-tex2obs\Straightforward-Obsidian2Latex\converter.py:585: SyntaxWarning: invalid escape sequence '\#'        
+  LATEX = symbol_replacement(LATEX, [['\#&', '&', 1]])
+c:\Users\dvrch\Desktop\Memoire 2024\convAll-tex2obs\Straightforward-Obsidian2Latex\converter.py:639: SyntaxWarning: invalid escape sequence '\c'        
+  [is_ifac*'\counterwithin*{section}{part}'] +\
+c:\Users\dvrch\Desktop\Memoire 2024\convAll-tex2obs\Straightforward-Obsidian2Latex\converter.py:640: SyntaxWarning: invalid escape sequence '\g'        
+  ['% Loading packages that were defined in `src\get_parameters.py`'] +\    
+c:\Users\dvrch\Desktop\Memoire 2024\convAll-tex2obs\Straightforward-Obsidian2Latex\converter.py:642: SyntaxWarning: invalid escape sequence '\s'        
+  ['\n'] + ['\sethlcolor{yellow}'] + ['\n'] + ['\n'*2] +\
+c:\Users\dvrch\Desktop\Memoire 2024\convAll-tex2obs\Straightforward-Obsidian2Latex\converter.py:643: SyntaxWarning: invalid escape sequence '\s'        
+  ['\setcounter{secnumdepth}{4}'] +\  
+c:\Users\dvrch\Desktop\Memoire 2024\convAll-tex2obs\Straightforward-Obsidian2Latex\converter.py:644: SyntaxWarning: invalid escape sequence '\s'        
+  ['\setlength{\parskip}{7pt} % paragraph spacing'] +\
+c:\Users\dvrch\Desktop\Memoire 2024\convAll-tex2obs\Straightforward-Obsidian2Latex\converter.py:645: SyntaxWarning: invalid escape sequence '\l'        
+  ['\let\oldmarginpar\marginpar'] +\  
+c:\Users\dvrch\Desktop\Memoire 2024\convAll-tex2obs\Straightforward-Obsidian2Latex\converter.py:646: SyntaxWarning: invalid escape sequence '\m'        
+  ['\\renewcommand\marginpar[1]{\oldmarginpar{\\tiny #1}} % Change "small" to your desired font size]'] + ['\n'*2] +\
+c:\Users\dvrch\Desktop\Memoire 2024\convAll-tex2obs\Straightforward-Obsidian2Latex\converter.py:647: SyntaxWarning: invalid escape sequence '\i'        
+  ['\\newcommand{\ignore}[1]{}']+\    
+c:\Users\dvrch\Desktop\Memoire 2024\convAll-tex2obs\Straightforward-Obsidian2Latex\converter.py:653: SyntaxWarning: invalid escape sequence '\d'        
+  ['\date{}'*PARS['⚙']['use_date']]+\ 
+c:\Users\dvrch\Desktop\Memoire 2024\convAll-tex2obs\Straightforward-Obsidian2Latex\converter.py:655: SyntaxWarning: invalid escape sequence '\m'        
+  [f'\\title{title}\n\maketitle'*(len(title)>0)]+\
+c:\Users\dvrch\Desktop\Memoire 2024\convAll-tex2obs\Straightforward-Obsidian2Latex\converter.py:665: SyntaxWarning: invalid escape sequence '\e'        
+  ['\\bibliography{' + PATHS['bibtex_file_name'] + '}'] + ['\end{document}']
+Searching within the vault for (⚠NOTE: Searching within the vault for a note takes time, but then this note will not have to be searched again!):       
+--------------------------------------------------------------------------------------------------------------------------------------------------      
+        example_writing--Appendix.md. 
+Traceback (most recent call last):
+  File "c:\Users\dvrch\Desktop\Memoire 2024\convAll-tex2obs\Straightforward-Obsidian2Latex\src\embedded_notes.py", line 493, in unfold_embedded_notes   
+    path_embedded_reference = get_embedded_reference_path(embedded_ref, PARS, search_in=where_to_search_for_embedded_notes)
+                              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "c:\Users\dvrch\Desktop\Memoire 2024\convAll-tex2obs\Straightforward-Obsidian2Latex\src\path_searching.py", line 98, in get_embedded_reference_path
+    raise Exception(f"No information found for '{fileName}' in the provided text file and unable to find an alternative path.")
+Exception: No information found for 'example_writing--Appendix' in the provided text file and unable to find an alternative path.
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):    
+  File "c:\Users\dvrch\Desktop\Memoire 2024\convAll-tex2obs\Straightforward-Obsidian2Latex\converter.py", line 384, in <module>
+    [content, md_notes_embedded] = unfold_all_embedded_notes(content, PARS) 
+                                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ 
+  File "c:\Users\dvrch\Desktop\Memoire 2024\convAll-tex2obs\Straightforward-Obsidian2Latex\src\embedded_notes.py", line 84, in unfold_all_embedded_notes
+    [S, md__files_embedded_new] = lambda__unfold_embedded_notes(S, md__files_embedded_prev)
+                                  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "c:\Users\dvrch\Desktop\Memoire 2024\convAll-tex2obs\Straightforward-Obsidian2Latex\src\embedded_notes.py", line 82, in <lambda>
+    lambda__unfold_embedded_notes = lambda x, y: unfold_embedded_notes(x, y, PARS, mode='normal')
+                                      
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "c:\Users\dvrch\Desktop\Memoire 2024\convAll-tex2obs\Straightforward-Obsidian2Latex\src\embedded_notes.py", line 495, in unfold_embedded_notes   
+    raise Exception("Error")
+Exception: Error
+PS C:\Users\dvrch\Desktop\Memoire 2024\convAll-tex2obs\Straightforward-Obsidian2Latex>
+
+
+## B erreur
+
+---
+ll-tex2obs\Straightforward-Obsidian2Latex> & C:/Python312/python.exe "c:/Users/dvrch/Desktop/Memoire 2024/convAll-tex2obs/Straightforward-Obsidian2Latex/converter.py"
+c:\Users\dvrch\Desktop\Memoire 2024\convAll-tex2obs\Straightforward-Obsidian2Latex\converter.py:282: SyntaxWarning: invalid escape sequence '\e'
+  '\end{figure}']))
+Traceback (most recent call last):
+  File "c:\Users\dvrch\Desktop\Memoire 2024\convAll-tex2obs\Straightforward-Obsidian2Latex\converter.py", line 479, in <module>
+    [content, md__equations_embedded_new] = unfold_embedded_notes(content, [], PARS, mode='equation_blocks_only')
+                                            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "c:\Users\dvrch\Desktop\Memoire 2024\convAll-tex2obs\Straightforward-Obsidian2Latex\src\embedded_notes.py", line 517, in unfold_embedded_notes
+    content__unfold = TABLES__get_table(content__unfold, embedded_ref, path_embedded_reference, PARS)
+                      ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "c:\Users\dvrch\Desktop\Memoire 2024\convAll-tex2obs\Straightforward-Obsidian2Latex\src\equations.py", line 395, in TABLES__get_table
+    embedded_tables_text = convert__tables(content__unfold, caption, package, label, widths, use_hlines, use_vlines, datav__file_column_name, PARS)
+                           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "c:\Users\dvrch\Desktop\Memoire 2024\convAll-tex2obs\Straightforward-Obsidian2Latex\src\equations.py", line 585, in convert__tables
+    raise NotImplementedError
+NotImplementedError
+PS C:\Users\dvrch\Desktop\Memoire 2024\convAll-tex2obs\Straightforward-Obsidian2Latex>  
+
+## C erreur 
+
+Succès ! Le script s'est exécuté correctement sans erreur. Voici un résumé des problèmes et des solutions que nous avons apportées :
+Séquences d'échappement invalides dans les chaînes de caractères
+Nous avons corrigé les séquences comme \setlist, \implies, etc. en utilisant des chaînes raw (r"...") ou en doublant les backslashes (\\).
+Cette correction a été appliquée dans les fichiers converter.py, embedded_notes.py, get_parameters.py et equations.py.
+Problème avec le fichier manquant example_writing--Appendix.md
+Nous avons créé ce fichier manquant qui était référencé dans example_writing.md.
+Erreur d'échappement dans les expressions régulières
+Le problème final venait de la façon dont symbol_replacements.py utilisait re.sub() pour les remplacements de type 2, ce qui causait l'erreur bad escape \m.
+Nous avons résolu ce problème en utilisant s1.replace() à la place de re.sub() pour tous les types de remplacement.
+Pour anticiper les futures erreurs similaires, voici mes recommandations :
+Utilisez toujours des chaînes raw (r-strings) pour les commandes LaTeX ou les expressions régulières : r"\command{}" au lieu de "\\command{}".
+Évitez d'utiliser re.sub() pour des remplacements simples. Utilisez la méthode replace() des chaînes de caractères à la place.
+Si vous devez utiliser re.sub(), assurez-vous d'échapper correctement les caractères spéciaux avec re.escape().
+Ajoutez des mécanismes de détection pour identifier les fichiers manquants et créer des fichiers vides temporaires plutôt que d'échouer.
+Mettez à jour votre documentation pour indiquer clairement quels fichiers sont nécessaires pour que le script fonctionne correctement.
+Ces changements ont rendu votre code plus robuste et moins susceptible de générer des erreurs à l'avenir.
+~
+
+$$$$$$$$$$$$$ 

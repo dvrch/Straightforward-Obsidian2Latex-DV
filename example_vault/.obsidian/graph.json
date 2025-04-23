@@ -1,0 +1,44 @@
+{
+  "collapse-filter": false,
+  "search": "path:P-Tasks",
+  "showTags": true,
+  "showAttachments": false,
+  "hideUnresolved": false,
+  "showOrphans": true,
+  "collapse-color-groups": false,
+  "colorGroups": [
+    {
+      "query": "path:P-Tasks/✔",
+      "color": {
+        "a": 1,
+        "rgb": 9625682
+      }
+    },
+    {
+      "query": "path:P-Tasks/➕",
+      "color": {
+        "a": 1,
+        "rgb": 14701261
+      }
+    },
+    {
+      "query": "path:P-Tasks/💭",
+      "color": {
+        "a": 1,
+        "rgb": 5422560
+      }
+    }
+  ],
+  "collapse-display": false,
+  "showArrow": true,
+  "textFadeMultiplier": 0,
+  "nodeSizeMultiplier": 3.15589910113417,
+  "lineSizeMultiplier": 5,
+  "collapse-forces": false,
+  "centerStrength": 0.491410488245931,
+  "repelStrength": 16.2680596733964,
+  "linkStrength": 1,
+  "linkDistance": 250,
+  "scale": 0.0714100565232183,
+  "close": true
+}

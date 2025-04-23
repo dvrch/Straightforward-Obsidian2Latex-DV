@@ -1,0 +1,143 @@
+{
+  "splitDirection": "vertical",
+  "typedLinkPrefix": "-",
+  "useImgServer": false,
+  "imgServerPort": 3837,
+  "debug": false,
+  "globalStyleGroups": [],
+  "globalGraphRibbon": true,
+  "graphSettings": {
+    "animateLayout": true,
+    "autoAddNodes": true,
+    "autoExpand": false,
+    "autoZoom": false,
+    "coreStore": "Obsidian",
+    "expandInitial": true,
+    "fdgdLayout": "d3-force",
+    "filter": "",
+    "height": "100%",
+    "hoverEdges": false,
+    "layout": {
+      "name": "dagre",
+      "animate": true,
+      "animationDuration": 500,
+      "spacingFactor": 0.5,
+      "fit": false,
+      "padding": 30,
+      "nodeDimensionsIncludeLabels": true,
+      "avoidOverlap": true
+    },
+    "limit": 10000,
+    "mergeEdges": true,
+    "metaKeyHover": false,
+    "mode": "workspace",
+    "navigator": true,
+    "openWithShift": false,
+    "readContent": true,
+    "styleGroups": [
+      {
+        "filter": "path:➕",
+        "color": "#b95f22",
+        "shape": "triangle",
+        "icon": {
+          "name": "No icon",
+          "path": "",
+          "color": "white"
+        },
+        "showInPane": true,
+        "show": true,
+        "size": 1.04273480414228
+      },
+      {
+        "filter": "path:✔",
+        "color": "#3b9c07",
+        "shape": "ellipse",
+        "icon": {
+          "name": "No icon",
+          "path": "",
+          "color": "white"
+        },
+        "showInPane": true,
+        "show": true,
+        "size": 0.613628095452499
+      },
+      {
+        "filter": "path:⏳",
+        "color": "#c355b5",
+        "shape": "rhomboid",
+        "icon": {
+          "name": "No icon",
+          "path": "",
+          "color": "white"
+        },
+        "showInPane": true,
+        "show": true,
+        "size": 1
+      },
+      {
+        "filter": "",
+        "color": "black",
+        "shape": "ellipse",
+        "icon": {
+          "name": "No icon",
+          "path": "",
+          "color": "white"
+        },
+        "showInPane": true,
+        "show": true,
+        "size": 1
+      }
+    ],
+    "toolbar": true,
+    "width": "100%",
+    "zoomSpeed": 1
+  },
+  "embedSettings": {
+    "animateLayout": true,
+    "autoAddNodes": false,
+    "autoExpand": false,
+    "autoZoom": false,
+    "coreStore": "Obsidian",
+    "expandInitial": true,
+    "fdgdLayout": "cola",
+    "filter": "",
+    "height": "400px",
+    "hoverEdges": false,
+    "layout": "force-directed",
+    "limit": 1000,
+    "mergeEdges": true,
+    "metaKeyHover": false,
+    "mode": "local",
+    "navigator": false,
+    "openWithShift": false,
+    "readContent": true,
+    "styleGroups": [],
+    "toolbar": false,
+    "width": "100%",
+    "zoomSpeed": 1
+  },
+  "globalGraphSettings": {
+    "animateLayout": true,
+    "autoAddNodes": true,
+    "autoExpand": false,
+    "autoZoom": false,
+    "coreStore": "Obsidian",
+    "expandInitial": false,
+    "fdgdLayout": "cola",
+    "filter": "-class:dangling -class:file",
+    "height": "100%",
+    "width": "100%",
+    "limit": 10000,
+    "hoverEdges": false,
+    "layout": "force-directed",
+    "mergeEdges": true,
+    "metaKeyHover": false,
+    "mode": "workspace",
+    "navigator": true,
+    "openWithShift": false,
+    "readContent": false,
+    "styleGroups": [],
+    "toolbar": true,
+    "zoomSpeed": 1
+  }
+}

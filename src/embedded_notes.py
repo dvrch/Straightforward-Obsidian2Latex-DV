@@ -132,7 +132,7 @@ def internal_links__enforcer(S, sections_blocks, internal_links, options):
         for block in blocks:
             line_of_block, block_text = block
             block_text_1 = '^' + block_text
-            S[line_of_block] = S[line_of_block].replace(block_text_1, ' \hypertarget{' + block_text + '}{}')
+            S[line_of_block] = S[line_of_block].replace(block_text_1, r' \hypertarget{' + block_text + '}{}')
     else:
         raise Exception("NOTHING CODED FOR THIS CASE YET!")
 
@@ -159,7 +159,7 @@ def internal_links__enforcer(S, sections_blocks, internal_links, options):
                         label_latex_format = type_of_link[iS] + section_i.replace(' ', '-')
                         hyperref_text = Ii_sb_i[-1].replace('|', '')
 
-                        latex_cmd = '\hypertarget' if type_of_link[iS]!='sec:' else '\label'
+                        latex_cmd = r'\hypertarget' if type_of_link[iS]!='sec:' else r'\label'
                         label_of_source = f'{latex_cmd}{{{label_latex_format}}}'
 
                         hyperref_text = '{' + hyperref_text + '}' if len(hyperref_text) != 0 else '{' + 'ADD\\_NAME' + '}'
@@ -169,7 +169,7 @@ def internal_links__enforcer(S, sections_blocks, internal_links, options):
                             # Has not already been replaced
 
                             label__in_line = S[sections_blocks[iS][idx][0]].replace('\n', '')
-                            add__S_repl = ' \label{' + type_of_link[iS] + section_i.replace(' ', '-') + '}'
+                            add__S_repl = r' \label{' + type_of_link[iS] + section_i.replace(' ', '-') + '}'
 
                             # Perform replacements on the label
                             if is_section_block:
@@ -181,12 +181,12 @@ def internal_links__enforcer(S, sections_blocks, internal_links, options):
                         cnd__use_hyperhyperlink = (is_internal_ref_block) and (not (cnd__use_hyperref))
 
                         if cnd__use_hyperref:
-                            hyperref = f'\hyperref[{label_latex_format}]{hyperref_text}'
+                            hyperref = fr'\hyperref[{label_latex_format}]{hyperref_text}'
                             if options['add_section_number_after_referencing']:
                                 hyperref += f" (\\autoref{{{label_latex_format}}})"
                         elif cnd__use_hyperhyperlink:
                             # for blocks, better write "hyperlink"
-                            hyperref = f'\hyperlink{{{label_latex_format}}}{hyperref_text}'
+                            hyperref = fr'\hyperlink{{{label_latex_format}}}{hyperref_text}'
                         else:
                             raise NotImplementedError
                         
@@ -215,18 +215,18 @@ def embedded_references_recognizer(S, options, mode):
     # repeated conditions
     cnd__mode_is__normal                = mode=='normal'
 
-    all_chars = '\w' + SPECIAL_CHARACTERS + '\-'
+    all_chars = r'\w' + SPECIAL_CHARACTERS + r'\-'
     if not isinstance(S, list):
         raise Exception('Input of the function must be a list of strings!')
         return np.nan
 
-    pattern_embedded_with_section_0 = '!\[\[([\.'+all_chars+']+)(\#['+all_chars+']+)?(\|[' + all_chars + ']+)?\]\]'
+    pattern_embedded_with_section_0 = r'!\[\[([\.'+ re.escape(all_chars) +r']+)(\#['+ re.escape(all_chars) +r']+)?(\|[' + re.escape(all_chars) + r']+)?\]\]'
 
     # Pattern recognizing text starting with "[[eq__block"
     pattern_eq_block = r'\[\[eq__block.*'
 
     discard_special_cases = (cnd__mode_is__normal) and options['treat_equation_blocks_separately']
-    pattern_embedded_with_section = pattern_embedded_with_section_0
+    pattern_embedded_with_section = r'\[\[([\.'+ re.escape(all_chars) +r']+)(\#['+ re.escape(all_chars) +r']+)?(\|[' + re.escape(all_chars) + r']+)?\]\]'
     
 
     # The following commented if clause was commented because both me and ChatGPT can't find a proper regex expression
@@ -303,12 +303,12 @@ def non_embedded_references_recognizer(S):
     # BUG2: SOMEHOW THE "SPECIAL_CHARACTERS" VARIABLE IS NOT GLOBALLY CORRECT. CHANGES IN THE GLOBAL VARIABLE NOT APPLIED IN THE FUNCTION, THEREFORE WRITING IT HERE FOR NOW
     SPECIAL_CHARACTERS = get_special_characters()
 
-    all_chars = '\w' + SPECIAL_CHARACTERS + '\-'
+    all_chars = r'\w' + SPECIAL_CHARACTERS + r'\-'
     if not isinstance(S, list):
         raise Exception('Input of the function must be a list of strings!')
 
     # pattern_embedded = '\[\[([\.'+all_chars+']+)(\|[' + all_chars + ']+)?\]\]'
-    pattern_embedded_with_section = '\[\[([\.'+all_chars+']+)(\#['+all_chars+']+)?(\|[' + all_chars + ']+)?\]\]'
+    pattern_embedded_with_section = r'\[\[([\.'+all_chars+']+)(\#['+all_chars+']+)?(\|[' + all_chars + ']+)?\]\]'
     MATCHES = []
     for i, s in enum(S):
         match_pattern_embedded = re.findall(pattern_embedded_with_section, s)
@@ -391,7 +391,7 @@ def formatting_rule__notes_with_tags(note_path, initial_text, formatting_paramet
 
 def content_filter_2_name_latex_command(s, x, mref):
     if not is_part_of_list(s):
-        return ['\n% Start obsidian ref:\n\t%' + mref.replace("![[", "").replace("]]", "").replace("#", "\##")] + ['\n'] + x + ['\n% End obsidian ref\n']
+        return [r'\n% Start obsidian ref:\n\t%' + mref.replace("![[", "").replace("]]", "").replace("#", r"\##")] + ['\n'] + x + [r'\n% End obsidian ref\n']
     else:
         return x
 

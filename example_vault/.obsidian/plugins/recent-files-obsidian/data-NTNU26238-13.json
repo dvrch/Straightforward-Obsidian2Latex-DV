@@ -1,0 +1,207 @@
+{
+  "recentFiles": [
+    {
+      "basename": "Sliding-Mode-based--Extremum-Seeking",
+      "path": "Literature/Theory/Methods/Sliding-Mode-based--Extremum-Seeking.md"
+    },
+    {
+      "basename": "🔗NTNU",
+      "path": "NTNU/Org/🔗NTNU.md"
+    },
+    {
+      "basename": "DQN--code",
+      "path": "Literature/Notes/🔗/👩‍💻/GitHub/DQN--code.md"
+    },
+    {
+      "basename": "Software",
+      "path": "Literature/Notes/Sources/Software.md"
+    },
+    {
+      "basename": "ELIGIBILITY TRACES",
+      "path": "Literature/Theory/Theory/Reinforcement-Learning/ELIGIBILITY TRACES.md"
+    },
+    {
+      "basename": "datav--Pubs--DIGIWELLS--ABS",
+      "path": "Literature/datav--Pubs--DIGIWELLS--ABS.md"
+    },
+    {
+      "basename": "p478",
+      "path": "Literature/Notes/p478.md"
+    },
+    {
+      "basename": "🧪--PhD-NTNU--Projects--Sleeve-Slip-Problem",
+      "path": "NTNU/Org/🧪Projects/Sleeve-Slip--DigiWells/🧪--PhD-NTNU--Projects--Sleeve-Slip-Problem.md"
+    },
+    {
+      "basename": "🤔--HOW DOES DQN PULL THOSE OFF❓❓",
+      "path": "Literature/Notes/💭 Arguments/mismatches with my understanding-opinion/🤔--HOW DOES DQN PULL THOSE OFF❓❓.md"
+    },
+    {
+      "basename": "🏨Ohio-State-uni",
+      "path": "NTNU/Org/🧑People/🏨Ohio-State-uni.md"
+    },
+    {
+      "basename": "🏨Deep-Mind",
+      "path": "NTNU/Org/🧑People/🏨Deep-Mind.md"
+    },
+    {
+      "basename": "datav--Tasks",
+      "path": "datav--Tasks.md"
+    },
+    {
+      "basename": "p478--3",
+      "path": "Literature/Notes/p478--3.md"
+    },
+    {
+      "basename": "eq--RL--weight-update-equation--backward-view-eligibility-traces",
+      "path": "Literature/Theory/Theory/Reinforcement-Learning/Equations/update equations/eq--RL--weight-update-equation--backward-view-eligibility-traces.md"
+    },
+    {
+      "basename": "eq--RL--eligibility-trace-update-equation",
+      "path": "Literature/Theory/Theory/Reinforcement-Learning/Equations/update equations/eq--RL--eligibility-trace-update-equation.md"
+    },
+    {
+      "basename": "⚠RL--training-dataset-is-not-static",
+      "path": "Literature/Theory/Theory/Reinforcement-Learning/⚠RL--training-dataset-is-not-static.md"
+    },
+    {
+      "basename": "⚠RL--sensitivity-to-hyperparameters",
+      "path": "Literature/Theory/Theory/Reinforcement-Learning/⚠RL--sensitivity-to-hyperparameters.md"
+    },
+    {
+      "basename": "eq--RL--proof-ratio",
+      "path": "Literature/Theory/Theory/Reinforcement-Learning/Equations/eq--RL--proof-ratio.md"
+    },
+    {
+      "basename": "eq--RL--learning-rate",
+      "path": "Literature/Theory/Theory/Reinforcement-Learning/Equations/eq--RL--learning-rate.md"
+    },
+    {
+      "basename": "eq--RL--greedy-action-selection",
+      "path": "Literature/Theory/Theory/Reinforcement-Learning/Equations/eq--RL--greedy-action-selection.md"
+    },
+    {
+      "basename": "eq--RL--gamma-discounted-future-state-distribution",
+      "path": "Literature/Theory/Theory/Reinforcement-Learning/Equations/eq--RL--gamma-discounted-future-state-distribution.md"
+    },
+    {
+      "basename": "eq--RL--Policy-Advantage",
+      "path": "Literature/Theory/Theory/Reinforcement-Learning/Equations/eq--RL--Policy-Advantage.md"
+    },
+    {
+      "basename": "Connection between value function and action-value function",
+      "path": "Literature/Theory/Theory/Reinforcement-Learning/Equations/Connection between value function and action-value function.md"
+    },
+    {
+      "basename": "Bellman-Equation",
+      "path": "Literature/Theory/Theory/Reinforcement-Learning/Equations/Bellman-Equation.md"
+    },
+    {
+      "basename": "eq--Mean-Square-TD-Error",
+      "path": "Literature/Theory/Theory/Reinforcement-Learning/Equations/eq--Mean-Square-TD-Error.md"
+    },
+    {
+      "basename": "eq--Semi-gradient TD(0) update",
+      "path": "Literature/Theory/Theory/Reinforcement-Learning/Equations/update equations/eq--Semi-gradient TD(0) update.md"
+    },
+    {
+      "basename": "actual-optimal-policy",
+      "path": "Literature/Theory/Theory/Reinforcement-Learning/Equations/actual-optimal-policy.md"
+    },
+    {
+      "basename": "eq--RL--Stochastic-Gradient-Descent",
+      "path": "Literature/Theory/Theory/Reinforcement-Learning/Equations/update equations/eq--RL--Stochastic-Gradient-Descent.md"
+    },
+    {
+      "basename": "eq--RL--policy-gradient-general-update",
+      "path": "Literature/Theory/Theory/Reinforcement-Learning/Equations/update equations/eq--RL--policy-gradient-general-update.md"
+    },
+    {
+      "basename": "eq--expected update for state-action pair",
+      "path": "Literature/Theory/Theory/Reinforcement-Learning/Equations/update equations/eq--expected update for state-action pair.md"
+    },
+    {
+      "basename": "eq--TD-error",
+      "path": "Literature/Theory/Theory/Reinforcement-Learning/Equations/error terms/eq--TD-error.md"
+    },
+    {
+      "basename": "eq--RL--Return-Error",
+      "path": "Literature/Theory/Theory/Reinforcement-Learning/Equations/error terms/eq--RL--Return-Error.md"
+    },
+    {
+      "basename": "eq--RL--n_step-error",
+      "path": "Literature/Theory/Theory/Reinforcement-Learning/Equations/error terms/eq--RL--n_step-error.md"
+    },
+    {
+      "basename": "eq--RL--weight-update--truncated-λ-return",
+      "path": "Literature/Theory/Theory/Reinforcement-Learning/Equations/update equations/eq--RL--weight-update--truncated-λ-return.md"
+    },
+    {
+      "basename": "eq--RL--REINFORCE-update",
+      "path": "Literature/Theory/Theory/Reinforcement-Learning/Equations/update equations/eq--RL--REINFORCE-update.md"
+    },
+    {
+      "basename": "eq--RL--truncated-λ-return",
+      "path": "Literature/Theory/Theory/Reinforcement-Learning/Equations/update equations/eq--RL--truncated-λ-return.md"
+    },
+    {
+      "basename": "eq--RL--sampled update for state-action pair",
+      "path": "Literature/Theory/Theory/Reinforcement-Learning/Equations/update equations/eq--RL--sampled update for state-action pair.md"
+    },
+    {
+      "basename": "eq--RL--Naive-Residual-Gradient-Algorithm-update",
+      "path": "Literature/Theory/Theory/Reinforcement-Learning/Equations/update equations/eq--RL--Naive-Residual-Gradient-Algorithm-update.md"
+    },
+    {
+      "basename": "Temporal-Difference--Value-Update-Method",
+      "path": "Literature/Theory/Theory/Reinforcement-Learning/Equations/update equations/Temporal-Difference--Value-Update-Method.md"
+    },
+    {
+      "basename": "eq--expected update for state-action pair",
+      "path": "Literature/Theory/Theory/Reinforcement-Learning/Equations/update equations/eq--expected update for state-action pair.pdf"
+    },
+    {
+      "basename": "value-function-Equation",
+      "path": "Literature/Theory/Theory/Reinforcement-Learning/Equations/value-function-Equation.md"
+    },
+    {
+      "basename": "restart distribution",
+      "path": "Literature/Theory/Theory/Reinforcement-Learning/Equations/restart distribution.md"
+    },
+    {
+      "basename": "on-policy--distribution",
+      "path": "Literature/Theory/Theory/Reinforcement-Learning/Equations/on-policy--distribution.md"
+    },
+    {
+      "basename": "Iterative-Policy-Evaluation-Equation",
+      "path": "Literature/Theory/Theory/Reinforcement-Learning/Equations/Iterative-Policy-Evaluation-Equation.md"
+    },
+    {
+      "basename": "eq-RL--Policy-Improvement-Theorem-on-ε-greedy-Monte-Carlo",
+      "path": "Literature/Theory/Theory/Reinforcement-Learning/Equations/eq-RL--Policy-Improvement-Theorem-on-ε-greedy-Monte-Carlo.md"
+    },
+    {
+      "basename": "eq-RL--Monte-Carlo-New-Environment",
+      "path": "Literature/Theory/Theory/Reinforcement-Learning/Equations/eq-RL--Monte-Carlo-New-Environment.md"
+    },
+    {
+      "basename": "eq--RL--Vanilla-policy-gradient-expression-with-advantage-function",
+      "path": "Literature/Theory/Theory/Reinforcement-Learning/Equations/eq--RL--Vanilla-policy-gradient-expression-with-advantage-function.md"
+    },
+    {
+      "basename": "eq--RL--time-spent-in-state",
+      "path": "Literature/Theory/Theory/Reinforcement-Learning/Equations/eq--RL--time-spent-in-state.md"
+    },
+    {
+      "basename": "eq--RL--Policy-Gradient-Theorem",
+      "path": "Literature/Theory/Theory/Reinforcement-Learning/Equations/eq--RL--Policy-Gradient-Theorem.md"
+    },
+    {
+      "basename": "eq--RL--observation-space",
+      "path": "Literature/Theory/Theory/Reinforcement-Learning/Equations/eq--RL--observation-space.md"
+    }
+  ],
+  "omittedPaths": [],
+  "maxLength": null,
+  "openType": "tab"
+}

@@ -84,12 +84,11 @@ def package_loader():
     out += [f"{(pkg[1]==doc_class)*'%💀'}\\usepackage{{{pkg[0]}}}{(' % ' + pkg[2]) if len(pkg[2]) > 0 else ''}" for pkg in packages_to_load]
 
     out.append('\\usepackage{enumitem,amssymb}')
-    out.append('\\newlist{todolist}{itemize}{2}')
-    out.append('\setlist[todolist]{label=$\square$}')
+    out.append(r'\setlist[todolist]{label=$\square$}')
     
     out.append('\\newtotcounter{citnum} %From the package documentation')
-    out.append('\def\oldbibitem{} \let\oldbibitem=\\bibitem')
-    out.append('\def\\bibitem{\stepcounter{citnum}\oldbibitem}')
+    out.append(r'\def\oldbibitem{} \let\oldbibitem=\bibitem')
+    out.append(r'\def\bibitem{\stepcounter{citnum}\oldbibitem}')
 
     paragraph_indent = f"\\setlength{{\\parindent}}{{{str(settings['paragraph']['indent_length_of_first_line'])+'pt'}}}"
     out.append(paragraph_indent)
@@ -110,7 +109,7 @@ def replace_hyperlinks(S):
     # http:// or https:// followed by anything but a closing paren
     url_regex = "http[s]?://[^)]+"
 
-    markup_regex = '\[({0})]\(\s*({1})\s*\)'.format(name_regex, url_regex)
+    markup_regex = r'\[({0})]\(\s*({1})\s*\)'.format(name_regex, url_regex)
     markup_regex_no_alias = r'(http[s]?://\S+)' # Non-greedy regex to match URLs, stopping at the first space or punctuation after the URL
 
     S_1 = []
@@ -198,25 +197,25 @@ def simple_stylistic_replacements(S, type=None):
     '''
 
     if type == ID__STYLE__BOLD:
-        style_char = '\*\*'
+        style_char = r'\*\*'
         replacement_func = lambda repl, string:  repl.append(['**'+string+'**', '\\textbf{' + string + '}'])
         l = 2
         is_pair = True
     
     elif type == ID__STYLE__HIGHLIGHTER:
-        style_char = '\=\='
-        replacement_func = lambda repl, string:  repl.append(['=='+string+'==', '\hl{' + string + '}'])
+        style_char = r'\=\='
+        replacement_func = lambda repl, string:  repl.append(['=='+string+'==', r'\hl{' + string + '}'])
         l = 2
         is_pair = True
 
     elif type == ID__STYLE__ITALIC:
-        style_char = '\*'
+        style_char = r'\*'
         replacement_func = lambda repl, string:  repl.append(['*'+string+'*', '\\textit{' + string + '}'])
         l = 1
         is_pair = True
     
     elif type == ID__STYLE__STRIKEOUT:
-        style_char = '\~\~'
+        style_char = r'\~\~'
         replacement_func = lambda repl, string:  repl.append([f'~~{string}~~', f'\\st{{{string}}}'])
         l = 2
         is_pair = True
@@ -274,13 +273,13 @@ def images_converter(images, PARAMETERS):
         figure_width = 0.7
         TO_PRINT.append(' \n'.join([
         '\\begin{figure}',
-        '	\centering',
-        f'	\includegraphics[width={figure_width}\linewidth]'+\
+        '    \\centering',
+        f'    \\includegraphics[width={figure_width}\\linewidth]'+\
             '{"'+path_img+'"}',
-        f'	\caption[{caption_short}]{{{caption_long}}}',
-        '   \captionsetup{skip=-10pt} % Adjust the skip value as needed'*PARAMETERS['reduce spacing between figures'],
-        '	\label{fig:'+label_img+'}',
-        '\end{figure}']))
+        f'    \\caption[{caption_short}]{{{caption_long}}}',
+        '   \\captionsetup{skip=-10pt} % Adjust the skip value as needed'*PARAMETERS['reduce spacing between figures'],
+        '    \\label{fig:'+label_img+'}',
+        r'\end{figure}']))
 
     return TO_PRINT
 
@@ -434,7 +433,7 @@ for i in range(Lc+1):
 
 # \==================================================\==================================================
 
-table_new_col_symbol = [['&',               '\&',                     1]]
+table_new_col_symbol = [['&',               '\\&',                     1]]
 content = symbol_replacement(content, table_new_col_symbol)
 
 # find reference blocks \==================================================
@@ -529,7 +528,7 @@ if not PARS['⚙']['SEARCH_IN_FILE']['condition']:
     else:
         step = 1
     
-    table_new_col_symbol_reverse = [['\&',               '&',                     1]]
+    table_new_col_symbol_reverse = [['\\&',               '&',                 1]]
     
 
     for i in range(int(len(tmp1)/2)):
@@ -557,7 +556,7 @@ if not PARS['⚙']['SEARCH_IN_FILE']['condition']:
         content = non_embedded_references_converter(content, PARS) 
 
     # Replace "#" with "" (temporary patch ➕)
-    content = [x.replace("#", "\#") for x in content]
+    content = [x.replace("#", "\\#") for x in content]
 
     LATEX = []
     i0 = IDX__TABLES[0]
@@ -582,7 +581,7 @@ if not PARS['⚙']['SEARCH_IN_FILE']['condition']:
     
 
     LATEX = code_block_converter(LATEX, PARS)
-    LATEX = symbol_replacement(LATEX, [['\#&', '&', 1]])
+    LATEX = symbol_replacement(LATEX, [['\\#&', '&', 1]])
 
 
     # Replace "%" with "\%" (after having replaced obsidian comments of course)
@@ -636,23 +635,23 @@ if not PARS['⚙']['SEARCH_IN_FILE']['condition']:
     
     PREAMBLE = [f"\\documentclass{doc_class_fontsize}{{{document_class['class']}}}"] +\
             [is_ifac*'\\newcounter{part} % fix the issue in the class'] +\
-            [is_ifac*'\counterwithin*{section}{part}'] +\
-            ['% Loading packages that were defined in `src\get_parameters.py`'] +\
+            [is_ifac*r'\counterwithin*{section}{part}'] +\
+            ['% Loading packages that were defined in `src\\get_parameters.py`'] +\
             package_loader() +\
-            ['\n'] + ['\sethlcolor{yellow}'] + ['\n'] + ['\n'*2] +\
-            ['\setcounter{secnumdepth}{4}'] +\
-            ['\setlength{\parskip}{7pt} % paragraph spacing'] +\
-            ['\let\oldmarginpar\marginpar'] +\
-            ['\\renewcommand\marginpar[1]{\oldmarginpar{\\tiny #1}} % Change "small" to your desired font size]'] + ['\n'*2] +\
-            ['\\newcommand{\ignore}[1]{}']+\
+            ['\n'] + ['\\sethlcolor{yellow}'] + ['\n'] + ['\n'*2] +\
+            ['\\setcounter{secnumdepth}{4}'] +\
+            ['\\setlength{\\parskip}{7pt} % paragraph spacing'] +\
+            ['\\let\\oldmarginpar\\marginpar'] +\
+            ['\\renewcommand\\marginpar[1]{\\oldmarginpar{\\tiny #1}} % Change "small" to your desired font size]'] + ['\n'*2] +\
+            ['\\newcommand{\\ignore}[1]{}']+\
             ['% CUSTOM FUNCTIONS'] +\
             custom_latex+\
             ['% ======================================='] +\
             ['\n'*3] + ['\\begin{document}']+\
             ['\\allowdisplaybreaks' if paragraph['allowdisplaybreaks'] else '']+\
-            ['\date{}'*PARS['⚙']['use_date']]+\
+            ['\\date{}'*PARS['⚙']['use_date']]+\
             [f"\\author{{{PARS['⚙']['author']}}}"*(len(PARS['⚙']['author'])>0)]+\
-            [f'\\title{title}\n\maketitle'*(len(title)>0)]+\
+            [f'\\title{title}\\n\\maketitle'*(len(title)>0)]+\
             [text_before_first_section]+\
             ['\\tableofcontents \n \\newpage'*paragraph['add_table_of_contents']]
 
@@ -662,7 +661,7 @@ if not PARS['⚙']['SEARCH_IN_FILE']['condition']:
         LATEX1.append(escape_underscores_in_texttt(line))
 
     LATEX = PREAMBLE + LATEX1 + [('\\newpage \n '*2)*paragraph['add_new_page_before_bibliography'] + '\n'*5 + '\\bibliographystyle{apacite}']+\
-        ['\\bibliography{' + PATHS['bibtex_file_name'] + '}'] + ['\end{document}']
+        ['\\bibliography{' + PATHS['bibtex_file_name'] + '}'] + ['\\end{document}']
 
     # if '[[✍⌛writing--FaultDiag--Drillstring--MAIN]]' in markdown_file:
     #     LATEX_1 = []

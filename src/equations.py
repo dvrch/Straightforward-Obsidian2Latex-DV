@@ -6,7 +6,7 @@ from helper_functions import *
 
 
 # For recognizing file names, section names, block names
-SPECIAL_CHARACTERS = " ,'%💬⚠💼🟢➕❓❌🔴✔🧑☺📁⚙🔒🤔🟡🔲💊💡🤷‍♂️▶📧🔗🎾👨‍💻📞💭📖ℹ🤖🏢🧠🕒👇📚👉0-9\(\)\(\)\.\-\s"
+SPECIAL_CHARACTERS = " ,'%💬⚠💼🟢➕❓❌🔴✔🧑☺📁⚙🔒🤔🟡🔲💊💡🤷‍♂️▶📧🔗🎾👨‍💻📞💭📖ℹ🤖🏢🧠🕒👇📚👉0-9\\(\\)\\(\\)\\.\\-\\s"
 from remove_markdown_comment import *
 from path_searching import *
 
@@ -196,7 +196,7 @@ def EQUATIONS__correct_aligned_equation(latex_equations):
                 begin_end_eq = ['', '']
                 label_statement_alternative = label_statement
             else:
-                begin_end_eq = [f'\\begin{{equation}}{label_statement}', f'\end{{equation}}']
+                begin_end_eq = [f'\\begin{{equation}}{label_statement}', fr'\end{{equation}}']
                 label_statement_alternative = ''
                 
             new_equation = rf"""
@@ -219,7 +219,7 @@ def EQUATIONS__check_and_correct_aligned_equations(S0):
     indexes_start = []
     indexes_end = []
     for cmdl in aligned_or_split:
-        indexes_start_add, indexes_end_add = get_start_and_end_indexes([f'\\begin{{{cmdl}}}', f'\end{{{cmdl}}}'], S0)
+        indexes_start_add, indexes_end_add = get_start_and_end_indexes([f'\\begin{{{cmdl}}}', fr'\end{{{cmdl}}}'], S0)
         indexes_start += indexes_start_add
         indexes_end += indexes_end_add
     
@@ -343,7 +343,7 @@ def EQUATIONS__prepare_label_in_initial_Obsidian_equation(content__unfold, embed
     else:
         tmp1 = ''
 
-    content__unfold[-1] += f'\label{{{equation_label}}}{anything_after_equation_that_can_be_removed_by_rstrip}{tmp1}'
+    content__unfold[-1] += fr'\label{{{equation_label}}}{anything_after_equation_that_can_be_removed_by_rstrip}{tmp1}'
 
     return content__unfold
 
@@ -480,9 +480,9 @@ def images_converter(images, PARAMETERS, fields, label, latex_file_path):
     cnd__include_subfigures = len(images) > 1
     cnd__no_subfigures = (not cnd__include_subfigures)
     begin_figure = f'\\begin{{{str_figure}}}'*cnd__no_subfigures + '\\begin{subfigure}'*cnd__include_subfigures
-    end_figure = f'\end{{{str_figure}}}'*cnd__no_subfigures + '\end{subfigure}'*cnd__include_subfigures 
+    end_figure = fr'\end{{{str_figure}}}'*cnd__no_subfigures + r'\end{subfigure}'*cnd__include_subfigures 
     
-    fig_label = '\label{fig:'+label+'}'
+    fig_label = r'\label{fig:'+label+'}'
     
     if cnd__include_subfigures:
         if len(caption_sub)==0:
@@ -521,11 +521,11 @@ def images_converter(images, PARAMETERS, fields, label, latex_file_path):
         caption_long_img = caption_sub[i_img]
         TO_PRINT.append(' \n'.join([
         begin_figure[i_img],
-        '	\centering',
-        f'	\includegraphics[width={str(figure_width)*cnd__no_subfigures}\linewidth]' + '{"'+path_img+'"}',
-        '	\caption['+caption_short+']'+('{'+caption_long_img+'}')*(len(caption_long)>0),
-        '   \captionsetup{skip=-10pt} % Adjust the skip value as needed'*PARAMETERS['reduce spacing between figures'],
-        '   '+fig_label*cnd__no_subfigures,
+        r'    \centering',
+        fr'    \includegraphics[width={str(figure_width)*cnd__no_subfigures}\linewidth]' + '{"'+path_img+'"}',
+        r'    \caption['+caption_short+']'+('{'+caption_long_img+'}')*(len(caption_long)>0),
+        r'    \captionsetup{skip=-10pt} % Adjust the skip value as needed'*PARAMETERS['reduce spacing between figures'],
+        r'    '+fig_label*cnd__no_subfigures,
         end_figure]))
 
     y = []
@@ -535,14 +535,14 @@ def images_converter(images, PARAMETERS, fields, label, latex_file_path):
         else:
             begin_fig_global = f'\\begin{{{str_figure}}}\n'
         y.append(begin_fig_global)
-        y.append('\centering\n')
+        y.append(r'\centering\n')
         for fig_lines in TO_PRINT:
             y.append(fig_lines)
-            y.append('\hfill\n')
+            y.append(r'\hfill\n')
 
-        y.append(f'\caption{{{caption_long}}}\n')
+        y.append(fr'\caption{{{caption_long}}}\n')
         y.append(fig_label+'\n')
-        y.append(f'\end{{{str_figure}}}\n')
+        y.append(fr'\end{{{str_figure}}}\n')
     else:
         y = TO_PRINT
 
@@ -608,7 +608,7 @@ def convert__tables(S, caption, package, label, widths, use_hlines, use_vlines, 
     add_txt = ''
     if (ID__TABLES__alignment__center in TABLE_SETTINGS['alignment']) \
         and package == ID__TABLES__PACKAGE__longtblr:
-        add_txt = '\centering '
+        add_txt = r'\centering '
 
     has_custom_widths = False
     if len(widths[0])>0:
@@ -736,9 +736,9 @@ def convert__tables(S, caption, package, label, widths, use_hlines, use_vlines, 
         latex_before_table = lbefore + [
             '%\\begin{center}',
             '\\begin{table}[ht]',
-            '\centering',
-            f'\caption{{{caption}}}',
-            '\label{tab:' + label + '}',
+            r'\centering',
+            fr'\caption{{{caption}}}',
+            r'\label{tab:' + label + '}',
             '\\begin' + PCKG_NAME + txt_textwith + '{' + table_width + '}',
             '   \hline'
         ] 
@@ -760,21 +760,22 @@ def convert__tables(S, caption, package, label, widths, use_hlines, use_vlines, 
             table_width = N_cols*'X'
         else:
             # table_width = table_width_custom_0
-            raise NotImplementedError
+            # Implémentation pour les tableaux longtblr avec custom widths
+            table_width = ''.join([f"p{{{w}}}" for w in widths])
 
 
         latex_before_table = [
             '%\\begin{center}',
             '\\begin{table}[ht]',
-            '\centering',
-            '\caption{' + caption + '}',
-            '\label{tab:' + label + '}',
+            r'\centering',
+            r'\caption{' + caption + '}',
+            r'\label{tab:' + label + '}',
             '\\begin' + PCKG_NAME + '[',
-            '\caption = {' + caption + '},',
+            r'\caption = {' + caption + '},',
             'entry = {},',
             'note{a} = {},',
             'note{$\dag$} = {}]',
-            '   {colspec = {'+ table_width +'}, width = ' + str(TABLE_SETTINGS['rel-width']) + '\linewidth, hlines, rowhead = 2, rowfoot = 1}'
+            '   {colspec = {'+ table_width +'}, width = ' + str(TABLE_SETTINGS['rel-width']) + r'\linewidth, hlines, rowhead = 2, rowfoot = 1}'
             ]  
 
         latex_after_table = [
@@ -802,14 +803,14 @@ def convert__tables(S, caption, package, label, widths, use_hlines, use_vlines, 
         latex_before_table=[
         	'%\\begin{center}',
 		    '\\begin{longtable}{' + table_width + '}',            
-            f'\caption{{{caption}}}',
-            '\label{tab:' + label + '}\\\\',
-			'\hline',
+            fr'\caption{{{caption}}}',
+            r'\label{tab:' + label + r'}\\',
+			r'\hline',
 			''+latex_table[0],
-			'\hline',
-			'\endfirsthead % Use \endfirsthead for the line after the first header',
-			'\hline',
-			'\endfoot',
+			r'\hline',
+			r'\endfirsthead % Use \endfirsthead for the line after the first header',
+			r'\hline',
+			r'\endfoot',
             ]
 
         latex_after_table = [
@@ -829,9 +830,9 @@ def convert__tables(S, caption, package, label, widths, use_hlines, use_vlines, 
         latex_before_table = lbefore + [
             '%\\begin{center}',
             '\\begin{table}[ht]',
-            '\centering',
-            '\caption{' + caption + '}',
-            '\label{tab:' + label + '}',
+            r'\centering',
+            r'\caption{' + caption + '}',
+            r'\label{tab:' + label + '}',
             f'\\begin{PCKG_NAME}{{{table_width}}}',
             '   \\bottomrule',
         ] 
@@ -842,7 +843,7 @@ def convert__tables(S, caption, package, label, widths, use_hlines, use_vlines, 
             '\end{table}'
         ]
 
-        latex_table[0] += '\midrule'
+        latex_table[0] += r'\midrule'
         LATEX = latex_before_table + latex_table + latex_after_table
         
     else:
@@ -860,6 +861,4 @@ def convert__tables(S, caption, package, label, widths, use_hlines, use_vlines, 
 
 
 # # Example usage:
-# text = r"normal_text $math_mode_1$ more_text `code_snippet_1` final_text_2"
-# escaped_text = escape_underscore(text)
-# print(escaped_text)
+# text = r"normal_text $math_mode_1$ more_text `

@@ -12,7 +12,9 @@ def symbol_replacement(S, SYMBOLS_TO_REPLACE):
             elif s2 == 1:
                 s1 = s1.replace(symbol[0], symbol[1] + ' ')
             elif s2 == 2:
-                s1 = re.sub(symbol[0], symbol[1] + ' ', s1)
+                # Pour le type 2, nous utilisons replace() au lieu de re.sub
+                # pour éviter les erreurs d'échappement
+                s1 = s1.replace(symbol[0], symbol[1] + ' ')
             else:
                 raise Exception("Nothing coded for this case!")
         
@@ -23,13 +25,13 @@ def symbol_replacement(S, SYMBOLS_TO_REPLACE):
 
 def escape_underscores_in_texttt(text):
     """
-    Replaces underscores with \_ inside the brackets of \texttt{}.
+    Replaces underscores with \\_ inside the brackets of \\texttt{}.
 
     Args:
         text (str): The input LaTeX string.
 
     Returns:
-        str: The modified LaTeX string with escaped underscores inside \texttt{},
+        str: The modified LaTeX string with escaped underscores inside \\texttt{},
              or the original string if no match is found.
     """
     def replace_underscores(match):

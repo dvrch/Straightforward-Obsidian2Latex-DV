@@ -1,0 +1,207 @@
+{
+  "recentFiles": [
+    {
+      "basename": "datav--Tasks",
+      "path": "datav--Tasks.md"
+    },
+    {
+      "basename": "Reinforcement Learning Map",
+      "path": "Literature/Theory/Reinforcement Learning/Reinforcement Learning Map.canvas"
+    },
+    {
+      "basename": "Obsidian Notes",
+      "path": "Literature/Notes/🔗/👩‍💻/Obsidian/Obsidian Notes.md"
+    },
+    {
+      "basename": "Reinforcement learning--Self-study-report",
+      "path": "P-Tasks/➕/👨‍🎓/Reinforcement learning--Self-study-report.md"
+    },
+    {
+      "basename": "p220",
+      "path": "Literature/Notes/p220.md"
+    },
+    {
+      "basename": "p220--85",
+      "path": "Literature/Notes/p220--85.md"
+    },
+    {
+      "basename": "2023-01-31 readTHIS11",
+      "path": "Literature/Notes/2023-01-31 readTHIS11.md"
+    },
+    {
+      "basename": "(Every W) Ole123)",
+      "path": "Meetings/(Every W) Ole123).md"
+    },
+    {
+      "basename": "p220--83",
+      "path": "Literature/Notes/p220--83.md"
+    },
+    {
+      "basename": "2023-01-25 readTHIS",
+      "path": "Literature/2023-01-25 readTHIS.md"
+    },
+    {
+      "basename": "eq--expected update for state-action pair",
+      "path": "Literature/Theory/Theory/Reinforcement-Learning/Equations/update equations/eq--expected update for state-action pair.md"
+    },
+    {
+      "basename": "Estimation error comparison, expected VS sampled update",
+      "path": "Literature/Theory/Reinforcement Learning/Estimation error comparison, expected VS sampled update.md"
+    },
+    {
+      "basename": "eq--sampled update for state-action pair",
+      "path": "Literature/Theory/Theory/Reinforcement-Learning/Equations/update equations/eq--sampled update for state-action pair.md"
+    },
+    {
+      "basename": "p220--Monte Carlo Averages Returns",
+      "path": "Literature/Notes/p220--Monte Carlo Averages Returns.md"
+    },
+    {
+      "basename": "eq-RL--Monte-Carlo-New-Environment",
+      "path": "Literature/Theory/Theory/Reinforcement-Learning/Equations/eq-RL--Monte-Carlo-New-Environment.md"
+    },
+    {
+      "basename": "p220--monte carlo and simulations",
+      "path": "Literature/Notes/p220--monte carlo and simulations.md"
+    },
+    {
+      "basename": "Temporal-Difference--Value-Update-Method",
+      "path": "Literature/Theory/Theory/Reinforcement-Learning/Equations/Temporal-Difference--Value-Update-Method.md"
+    },
+    {
+      "basename": "LAB",
+      "path": "LAB.md"
+    },
+    {
+      "basename": "has--RL--learning-rate",
+      "path": "Literature/Properties/in Pubs/has--RL--learning-rate.md"
+    },
+    {
+      "basename": "p220--86",
+      "path": "Literature/Notes/p220--86.md"
+    },
+    {
+      "basename": "💭 In-favor-of--RL--n-step-bootstrapping",
+      "path": "Literature/Notes/💭 Arguments/in favor of/💭 In-favor-of--RL--n-step-bootstrapping.md"
+    },
+    {
+      "basename": "p220--84",
+      "path": "Literature/Notes/p220--84.md"
+    },
+    {
+      "basename": "💭 Against--RL--Least-Squares-Methods",
+      "path": "Literature/Notes/💭 Arguments/against/💭 Against--RL--Least-Squares-Methods.md"
+    },
+    {
+      "basename": "Why--3",
+      "path": "P-Tasks/➕/👨‍🎓/Why--3.md"
+    },
+    {
+      "basename": "MONTE CARLO METHODS",
+      "path": "Literature/Theory/Theory/Reinforcement-Learning/MONTE CARLO METHODS.md"
+    },
+    {
+      "basename": "💭 In-favor-of--RL--Non-Parametric-Function-Memory-Based-Function-Approximation-Methods",
+      "path": "Literature/Notes/💭 Arguments/in favor of/💭 In-favor-of--RL--Non-Parametric-Function-Memory-Based-Function-Approximation-Methods.md"
+    },
+    {
+      "basename": "p220--82",
+      "path": "Literature/Notes/p220--82.md"
+    },
+    {
+      "basename": "has--comparison--methods",
+      "path": "Literature/Properties/in Pubs/has--comparison--methods.md"
+    },
+    {
+      "basename": "p220--76",
+      "path": "Literature/Notes/p220--76.md"
+    },
+    {
+      "basename": "p220--77",
+      "path": "Literature/Notes/p220--77.md"
+    },
+    {
+      "basename": "💭In-favor-of--maximum-likelihood-as-loss-function-in-Machine-learning",
+      "path": "Literature/Notes/💭 Arguments/in favor of/💭In-favor-of--maximum-likelihood-as-loss-function-in-Machine-learning.md"
+    },
+    {
+      "basename": "💭 In-favor-of--RL--Temporal-Difference-Learning",
+      "path": "Literature/Notes/💭 Arguments/in favor of/💭 In-favor-of--RL--Temporal-Difference-Learning.md"
+    },
+    {
+      "basename": "💭 In-favor-of--RL--Tile-Coding",
+      "path": "Literature/Notes/💭 Arguments/in favor of/💭 In-favor-of--RL--Tile-Coding.md"
+    },
+    {
+      "basename": "💭 In-favor-of--ANNs",
+      "path": "Literature/Notes/💭 Arguments/in favor of/💭 In-favor-of--ANNs.md"
+    },
+    {
+      "basename": "💭 In-favor-of--Deep-Convolutional-Neural-Networks",
+      "path": "Literature/Notes/💭 Arguments/in favor of/💭 In-favor-of--Deep-Convolutional-Neural-Networks.md"
+    },
+    {
+      "basename": "💭 In-favor-of--Extremum--Seeking",
+      "path": "Literature/Notes/💭 Arguments/in favor of/💭 In-favor-of--Extremum--Seeking.md"
+    },
+    {
+      "basename": "💭 In-favor-of--Integral-Adaptive-Law--against-Instantaneous-Adaptive-Law",
+      "path": "Literature/Notes/💭 Arguments/in favor of/💭 In-favor-of--Integral-Adaptive-Law--against-Instantaneous-Adaptive-Law.md"
+    },
+    {
+      "basename": "💭 In-favor-of--Iterative-Learning--Control",
+      "path": "Literature/Notes/💭 Arguments/in favor of/💭 In-favor-of--Iterative-Learning--Control.md"
+    },
+    {
+      "basename": "💭 In-favor-of--RL--Linear-Methods",
+      "path": "Literature/Notes/💭 Arguments/in favor of/💭 In-favor-of--RL--Linear-Methods.md"
+    },
+    {
+      "basename": "💭 In-favor-of--RL--sample-updates",
+      "path": "Literature/Notes/💭 Arguments/in favor of/💭 In-favor-of--RL--sample-updates.md"
+    },
+    {
+      "basename": "💭 In-favor-of--RL--Radial-Basis-Functions",
+      "path": "Literature/Notes/💭 Arguments/in favor of/💭 In-favor-of--RL--Radial-Basis-Functions.md"
+    },
+    {
+      "basename": "💭 In-favor-of--RL--Monte-Carlo",
+      "path": "Literature/Notes/💭 Arguments/in favor of/💭 In-favor-of--RL--Monte-Carlo.md"
+    },
+    {
+      "basename": "💭 In-favor-of--RL--expected-updates",
+      "path": "Literature/Notes/💭 Arguments/in favor of/💭 In-favor-of--RL--expected-updates.md"
+    },
+    {
+      "basename": "💭 In-favor-of--Cerebral-Model-Articulation-Controller",
+      "path": "Literature/Notes/💭 Arguments/in favor of/💭 In-favor-of--Cerebral-Model-Articulation-Controller.md"
+    },
+    {
+      "basename": "💭 In-favor-of--RL--approximating-value-functions",
+      "path": "Literature/Notes/💭 Arguments/in favor of/💭 In-favor-of--RL--approximating-value-functions.md"
+    },
+    {
+      "basename": "p220--81",
+      "path": "Literature/Notes/p220--81.md"
+    },
+    {
+      "basename": "💭 In-favor-of--RL--Q-Learning",
+      "path": "Literature/Notes/💭 Arguments/in favor of/💭 In-favor-of--RL--Q-Learning.md"
+    },
+    {
+      "basename": "has-history",
+      "path": "Literature/Properties/in Pubs/has-history.md"
+    },
+    {
+      "basename": "p220--80",
+      "path": "Literature/Notes/p220--80.md"
+    },
+    {
+      "basename": "➕RL--do some freestyle thinking on putting all the details from RL together, so that I can be able to explain the details to novices",
+      "path": "P-Tasks/➕/➕RL--do some freestyle thinking on putting all the details from RL together, so that I can be able to explain the details to novices.md"
+    }
+  ],
+  "omittedPaths": [],
+  "maxLength": null,
+  "openType": "tab"
+}
