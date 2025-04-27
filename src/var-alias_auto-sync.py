@@ -18,6 +18,7 @@ def sync_aliases():
             gbl[alias] = gbl[varname]
 
 
+
 # --- DÉFINITION DES VARIABLES ---
 cle = "clé_exemple"
 motif = "motif_exemple"
@@ -67,9 +68,9 @@ parsed_yaml = yaml.safe_load(fl)
 # On force tous les motifs à être des chaînes (sinon "")
 f = motifs = {a: str(
             (yaml.safe_load(open("fl.md", encoding="utf-8"))
-            if Path("fl.md").is_file()
-            else {}).get(a) or val or None
-                    ) for a, val in parsed_yaml.items()}
+            if Path("fl.md").is_file() else {}
+            ).get(a)    or val      or None) 
+            for a, val in parsed_yaml.items()}
 
 g = cle_pattern_paths = {
     a: ((f"{b} --> {c[0]}" if c else None)
