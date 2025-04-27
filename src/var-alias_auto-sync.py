@@ -63,19 +63,22 @@ def recherche_motifs(d, b, dossier1st='d'):
 e = recherche_motifs  # alias
 
 # Parsing YAML du string fl
-parsed_yaml = yaml.safe_load(fl)
+md = Path("src/fl.md").resolve()
+if md.exists():
+    with open(md, encoding="utf-8") as f:
+        pars = yaml.safe_load(f)
+else:
+    pars = {}
 
-# On force tous les motifs à être des chaînes (sinon "")
-f = motifs = {a: str(
-            (yaml.safe_load(open("fl.md", encoding="utf-8"))
-            if Path("fl.md").is_file() else {}
-            ).get(a)    or val      or None) 
-            for a, val in parsed_yaml.items()}
+p1 = parsed_yaml_var = yaml.safe_load(fl)
+p2 = pars = yaml.safe_load(open(md, encoding="utf-8"))
+             
+f = motifs = {ll: lli  for ll, lli in p2.items() or P1.items() }
 
 g = cle_pattern_paths = {
     a: ((f"{b} --> {c[0]}" if c else None)
     or (f"{b}" if Path(f"{b}").exists() else None)
-    or "-- path non trouvé--".strip()
+    or "--path non trouvé--".strip()
     )
     for a, b in f.items()
     for c in [e(d, b)]
