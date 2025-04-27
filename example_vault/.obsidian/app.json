@@ -1,0 +1,17 @@
+{
+  "alwaysUpdateLinks": true,
+  "newFileLocation": "current",
+  "legacyEditor": false,
+  "pdfExportSettings": {
+    "includeName": false,
+    "pageSize": "A4",
+    "landscape": false,
+    "margin": "0",
+    "downscalePercent": 70
+  },
+  "showInlineTitle": false,
+  "spellcheck": true,
+  "attachmentFolderPath": "./",
+  "promptDelete": false,
+  "readableLineLength": false
+}

@@ -1,0 +1,207 @@
+{
+  "recentFiles": [
+    {
+      "basename": "example_writing",
+      "path": "✍Writing/example_writing.md"
+    },
+    {
+      "basename": "dev-tasks",
+      "path": "dev-tasks.md"
+    },
+    {
+      "basename": "figure__block_1",
+      "path": "✍Writing/figure blocks/figure__block_1.md"
+    },
+    {
+      "basename": "formatting",
+      "path": "✍Writing/formatting.md"
+    },
+    {
+      "basename": "p821",
+      "path": "Literature/Notes/p821.md"
+    },
+    {
+      "basename": "choosing MTL architectures",
+      "path": "Literature/Notes/Comparisons/between methods/choosing MTL architectures.canvas"
+    },
+    {
+      "basename": "csMTL",
+      "path": "Literature/Theory/Methods/in Machine Learning/csMTL.md"
+    },
+    {
+      "basename": "p706--model-equations",
+      "path": "Literature/Notes/Comparisons/between methods/p706--model-equations.md"
+    },
+    {
+      "basename": "💭Regarding the different MTL architectures",
+      "path": "small parts/💭reasoning (if not moved elsewhere)/💭Regarding the different MTL architectures.md"
+    },
+    {
+      "basename": "p819",
+      "path": "Literature/Notes/p819.md"
+    },
+    {
+      "basename": "💭csMTL vs other contextual based MTL methods",
+      "path": "small parts/💭reasoning (if not moved elsewhere)/💭csMTL vs other contextual based MTL methods.md"
+    },
+    {
+      "basename": "comparison--csMTL--other-contextual-input-methods-in-p706",
+      "path": "Literature/Notes/Comparisons/between methods/comparison--csMTL--other-contextual-input-methods-in-p706.md"
+    },
+    {
+      "basename": "➕meeting with Ole and Nils on PINNs",
+      "path": "📺Meetings/➕meeting with Ole and Nils on PINNs.md"
+    },
+    {
+      "basename": "p706",
+      "path": "Literature/Notes/p706.md"
+    },
+    {
+      "basename": "💭15",
+      "path": "small parts/💭reasoning (if not moved elsewhere)/💭15.md"
+    },
+    {
+      "basename": "eq__block_single__159",
+      "path": "✍Writing/equation blocks/eq__block_single__159.md"
+    },
+    {
+      "basename": "eq__block_single__158",
+      "path": "✍Writing/equation blocks/eq__block_single__158.md"
+    },
+    {
+      "basename": "group and overlap model",
+      "path": "Literature/Theory/Methods/in Machine Learning/group and overlap model.md"
+    },
+    {
+      "basename": "p816--notes",
+      "path": "Literature/Notes/p816--notes.md"
+    },
+    {
+      "basename": "logics in variational inference",
+      "path": "Literature/Theory/Methods/logics in variational inference.md"
+    },
+    {
+      "basename": "weight initialization",
+      "path": "Literature/Theory/Theory/Properties/in Machine Learning/of Neural Networks/weight initialization.md"
+    },
+    {
+      "basename": "➕add-to-report--First working document",
+      "path": "P-Tasks/➕/➕add-to-report--First working document.md"
+    },
+    {
+      "basename": "my thoughts on Meta-Learning",
+      "path": "Literature/Notes/my thoughts on Meta-Learning.md"
+    },
+    {
+      "basename": "CosReg",
+      "path": "✍Writing/CosReg.md"
+    },
+    {
+      "basename": "✍⌛writing--visible tasks in the working document",
+      "path": "P-Tasks/➕/✍⌛writing--visible tasks in the working document.md"
+    },
+    {
+      "basename": "eq__block_single__131",
+      "path": "✍Writing/equation blocks/eq__block_single__131.md"
+    },
+    {
+      "basename": "figure__block_MTL_example__basic",
+      "path": "✍Writing/figure blocks/figure__block_MTL_example__basic.md"
+    },
+    {
+      "basename": "👨‍💻simple_solve_weight_dynamics.ipynb",
+      "path": "Analyses/numerical simulations/simple_solve_weight_dynamics/👨‍💻simple_solve_weight_dynamics.ipynb.md"
+    },
+    {
+      "basename": "eq__block__gradient_descent_dynamics_general_equation",
+      "path": "✍Writing/equation blocks/eq__block__gradient_descent_dynamics_general_equation.md"
+    },
+    {
+      "basename": "eq__block_RL__generic_update_equation",
+      "path": "✍Writing/equation blocks/eq__block_RL__generic_update_equation.md"
+    },
+    {
+      "basename": "conceptual--map--in--text",
+      "path": "✍Writing/RL--report/conceptual--map--in--text.md"
+    },
+    {
+      "basename": "👆👆RL--writing--1",
+      "path": "✍Writing/RL--report/👆👆RL--writing--1.md"
+    },
+    {
+      "basename": "p588--transfer learning VS MTL",
+      "path": "Literature/Notes/p588--transfer learning VS MTL.md"
+    },
+    {
+      "basename": "comparison--MTL--Transfer-Learning",
+      "path": "Literature/Notes/Comparisons/between methods/comparison--MTL--Transfer-Learning.md"
+    },
+    {
+      "basename": "💭🟢 In-favor-of--RL--Residual-Gradients",
+      "path": "Literature/Notes/💭 Arguments/in favor of/in Reinforcement Learning/💭🟢 In-favor-of--RL--Residual-Gradients.md"
+    },
+    {
+      "basename": "code_block__21",
+      "path": "small parts/👨‍💻code snippets/code_block__21.md"
+    },
+    {
+      "basename": "code_block__19",
+      "path": "small parts/👨‍💻code snippets/code_block__19.md"
+    },
+    {
+      "basename": "💭5",
+      "path": "small parts/💭reasoning (if not moved elsewhere)/💭5.md"
+    },
+    {
+      "basename": "💡--idea--MTL-1",
+      "path": "small parts/💡ideas/💡--idea--MTL-1.md"
+    },
+    {
+      "basename": "code_block__1",
+      "path": "small parts/👨‍💻code snippets/code_block__1.md"
+    },
+    {
+      "basename": "figure__block_comparisons_literature__different_MTL_algorithms",
+      "path": "✍Writing/figure blocks/figure__block_comparisons_literature__different_MTL_algorithms.md"
+    },
+    {
+      "basename": "figure__block_MTL_architecture_example_medical__COVID",
+      "path": "✍Writing/figure blocks/figure__block_MTL_architecture_example_medical__COVID.md"
+    },
+    {
+      "basename": "code_block__24",
+      "path": "small parts/👨‍💻code snippets/code_block__24.md"
+    },
+    {
+      "basename": "code_block__16",
+      "path": "small parts/👨‍💻code snippets/code_block__16.md"
+    },
+    {
+      "basename": "code_block__13",
+      "path": "small parts/👨‍💻code snippets/code_block__13.md"
+    },
+    {
+      "basename": "code_block__5",
+      "path": "small parts/👨‍💻code snippets/code_block__5.md"
+    },
+    {
+      "basename": "➕--MTL_Dynamics",
+      "path": "👨‍💻Automations/➕--MTL_Dynamics.md"
+    },
+    {
+      "basename": "comparison--MTL--Meta-Learning",
+      "path": "Literature/Notes/Comparisons/between methods/comparison--MTL--Meta-Learning.md"
+    },
+    {
+      "basename": "p706--8",
+      "path": "Literature/Notes/p706--8.md"
+    },
+    {
+      "basename": "💭🟢 In-favor-of--ML--Meta-Learning",
+      "path": "Literature/Notes/💭 Arguments/in favor of/in Machine Learning/💭🟢 In-favor-of--ML--Meta-Learning.md"
+    }
+  ],
+  "omittedPaths": [],
+  "maxLength": null,
+  "openType": "tab"
+}

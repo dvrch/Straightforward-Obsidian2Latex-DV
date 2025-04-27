@@ -1,0 +1,206 @@
+{
+  "recentFiles": [
+    {
+      "basename": "Interpretation--Cross-entropy",
+      "path": "P-Tasks/➕/👨‍🎓/🧪/Interpretation--Cross-entropy.md"
+    },
+    {
+      "basename": "simulating the double pendulum",
+      "path": "P-Tasks/➕/⏳/simulating the double pendulum.md"
+    },
+    {
+      "basename": "ill-conditioning",
+      "path": "Literature/Theory/Theory/ill-conditioning.md"
+    },
+    {
+      "basename": "double pendulum",
+      "path": "P-Tasks/➕/double pendulum.md"
+    },
+    {
+      "basename": "cross-entropy",
+      "path": "Literature/Theory/Theory/cross-entropy.md"
+    },
+    {
+      "basename": "✔❓ Is entropy the minimum of cross entropy",
+      "path": "P-Tasks/✔/✔❓ Is entropy the minimum of cross entropy.md"
+    },
+    {
+      "basename": "➕ 30% Learn TensorFlow",
+      "path": "P-Tasks/➕/⏳/➕ 30% Learn TensorFlow.md"
+    },
+    {
+      "basename": "AVOID REINVENTING WEEK",
+      "path": "workTips/Advice-PhD-NTNU/AVOID REINVENTING WEEK.md"
+    },
+    {
+      "basename": "🔗NTNU",
+      "path": "NTNU/Org/🔗NTNU.md"
+    },
+    {
+      "basename": "p298",
+      "path": "Literature/Notes/p298.md"
+    },
+    {
+      "basename": "p298--Ill conditioning Hessian",
+      "path": "Literature/Notes/p298--Ill conditioning Hessian.md"
+    },
+    {
+      "basename": "datav--Pubs-all",
+      "path": "datav--Pubs-all.md"
+    },
+    {
+      "basename": "⚠ Vanishing Gradient problem",
+      "path": "Literature/Notes/🔗/⚠ Vanishing Gradient problem.md"
+    },
+    {
+      "basename": "has--implemetation--information--I-might-find-useful-in-the-future",
+      "path": "Literature/Properties/has--implemetation--information--I-might-find-useful-in-the-future.md"
+    },
+    {
+      "basename": "ADVICE",
+      "path": "workTips/Advice-PhD-NTNU/ADVICE.md"
+    },
+    {
+      "basename": "ℹ GUIDE TO THIS VAULT",
+      "path": "P-Tasks/➕/ℹ GUIDE TO THIS VAULT.md"
+    },
+    {
+      "basename": "➕ fill previous notes falling into this category",
+      "path": "P-Tasks/➕/➕ fill previous notes falling into this category.md"
+    },
+    {
+      "basename": "Hochreiters Gradient problem",
+      "path": "Literature/Notes/🔗/Hochreiters Gradient problem.md"
+    },
+    {
+      "basename": "p334",
+      "path": "Literature/Notes/p334.md"
+    },
+    {
+      "basename": "p334--4",
+      "path": "Literature/Notes/p334--4.md"
+    },
+    {
+      "basename": "Software",
+      "path": "Literature/Notes/Sources/Software.md"
+    },
+    {
+      "basename": "has-history",
+      "path": "Literature/Properties/in Pubs/has-history.md"
+    },
+    {
+      "basename": "p334--3",
+      "path": "Literature/Notes/p334--3.md"
+    },
+    {
+      "basename": "p334--Depth of Neural Network",
+      "path": "Literature/Notes/p334--Depth of Neural Network.md"
+    },
+    {
+      "basename": "p334--2",
+      "path": "Literature/Notes/p334--2.md"
+    },
+    {
+      "basename": "CMD__GET_PUB",
+      "path": "CMD__GET_PUB.md"
+    },
+    {
+      "basename": "➕ Create dataset pipeline",
+      "path": "P-Tasks/➕/➕ Create dataset pipeline.md"
+    },
+    {
+      "basename": "2021-12-15_14h16_36",
+      "path": "Applications/BOSCH Motion Control/2021-12-15_14h16_36.png"
+    },
+    {
+      "basename": "3 body problem",
+      "path": "Literature/DeepL--tomerge/3 body problem.pdf"
+    },
+    {
+      "basename": "⚠ trained ANNs can work as integrators",
+      "path": "Literature/Notes/⚠ trained ANNs can work as integrators.md"
+    },
+    {
+      "basename": "2021-12-15_14h11_45",
+      "path": "Applications/BOSCH Motion Control/2021-12-15_14h11_45.png"
+    },
+    {
+      "basename": "2021-12-15_14h07_29",
+      "path": "Applications/BOSCH Motion Control/2021-12-15_14h07_29.png"
+    },
+    {
+      "basename": "MARIOS_GKIONIS__CV",
+      "path": "Applications/Ascento Robotics/MARIOS_GKIONIS__CV.pdf"
+    },
+    {
+      "basename": "MARIOS_GKIONIS__CV",
+      "path": "Applications/Apple_Simulations_Engineer/MARIOS_GKIONIS__CV.pdf"
+    },
+    {
+      "basename": "Reinforcement learning",
+      "path": "Literature/Theory/Reinforcement Learning/Reinforcement learning.md"
+    },
+    {
+      "basename": "🔢Cesaro summation",
+      "path": "Literature/MATH/🔢Cesaro summation.md"
+    },
+    {
+      "basename": "🔢-iterative-learning-gain",
+      "path": "Literature/MATH/🔢-iterative-learning-gain.md"
+    },
+    {
+      "basename": "🔢--Problem-Formulation--Iterative-Learning",
+      "path": "Literature/MATH/🔢--Problem-Formulation--Iterative-Learning.md"
+    },
+    {
+      "basename": "🔢 why use discrete plants in Iterative Learning Control",
+      "path": "Literature/MATH/🔢 why use discrete plants in Iterative Learning Control.md"
+    },
+    {
+      "basename": "🔢 generalizing-is-intractable",
+      "path": "Literature/MATH/🔢 generalizing-is-intractable.md"
+    },
+    {
+      "basename": "🔢 training error asymptotes",
+      "path": "Literature/MATH/🔢 training error asymptotes.md"
+    },
+    {
+      "basename": "💭 Double pendulum",
+      "path": "P-Tasks/➕/💭 Double pendulum.md"
+    },
+    {
+      "basename": "Gradient descent",
+      "path": "Literature/Theory/Theory/Gradient descent.md"
+    },
+    {
+      "basename": "p333",
+      "path": "Literature/Notes/p333.md"
+    },
+    {
+      "basename": "Why we need computational graphs",
+      "path": "Literature/Notes/Why we need computational graphs.md"
+    },
+    {
+      "basename": "animation__runs__11_12",
+      "path": "NTNU/Courses/Deep NNs/simulations/animation__runs__11_12.mp4"
+    },
+    {
+      "basename": "animation__runs__9_10",
+      "path": "NTNU/Courses/Deep NNs/simulations/animation__runs__9_10.mp4"
+    },
+    {
+      "basename": "Assignment--8",
+      "path": "P-Tasks/➕/Assignment--8.md"
+    },
+    {
+      "basename": "👨‍🎓--deep-learning",
+      "path": "P-Tasks/➕/👨‍🎓--deep-learning.md"
+    },
+    {
+      "basename": "➕ Check Bayes update",
+      "path": "P-Tasks/➕/👨‍🎓/🧪/➕ Check Bayes update.md"
+    }
+  ],
+  "omittedPaths": [],
+  "maxLength": null
+}

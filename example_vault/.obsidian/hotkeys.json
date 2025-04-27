@@ -1,0 +1,36 @@
+{
+  "meld-calc:encrypt-calc": [
+    {
+      "modifiers": [
+        "Alt"
+      ],
+      "key": "V"
+    }
+  ],
+  "file-explorer:move-file": [
+    {
+      "modifiers": [
+        "Shift"
+      ],
+      "key": "2"
+    }
+  ],
+  "insert-template": [
+    {
+      "modifiers": [
+        "Alt",
+        "Shift"
+      ],
+      "key": "4"
+    }
+  ],
+  "smart-random-note:open-random-note-from-search": [
+    {
+      "modifiers": [
+        "Alt",
+        "Mod"
+      ],
+      "key": "R"
+    }
+  ]
+}

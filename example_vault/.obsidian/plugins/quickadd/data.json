@@ -1,0 +1,118 @@
+{
+  "choices": [
+    {
+      "id": "16664af0-c43c-46e6-be40-e7097987e6e9",
+      "name": "equation_block_single",
+      "type": "Template",
+      "command": true,
+      "templatePath": "👨‍💻Automations/equation_block",
+      "fileNameFormat": {
+        "enabled": true,
+        "format": "eq__block_"
+      },
+      "folder": {
+        "enabled": true,
+        "folders": [
+          "✍Writing/equation blocks"
+        ],
+        "chooseWhenCreatingNote": false,
+        "createInSameFolderAsActiveFile": false,
+        "chooseFromSubfolders": false
+      },
+      "appendLink": true,
+      "openFileInNewTab": {
+        "enabled": true,
+        "direction": "vertical",
+        "focus": true
+      },
+      "openFile": true,
+      "openFileInMode": "default",
+      "fileExistsMode": "Increment the file name",
+      "setFileExistsBehavior": true
+    },
+    {
+      "id": "4c3c9daa-bd74-4b29-b911-43b182faa7f9",
+      "name": "figure_block",
+      "type": "Template",
+      "command": true,
+      "templatePath": "👨‍💻Automations/figure_block",
+      "fileNameFormat": {
+        "enabled": true,
+        "format": "figure__block_"
+      },
+      "folder": {
+        "enabled": true,
+        "folders": [
+          "✍Writing/figure blocks"
+        ],
+        "chooseWhenCreatingNote": false,
+        "createInSameFolderAsActiveFile": false,
+        "chooseFromSubfolders": false
+      },
+      "appendLink": true,
+      "openFileInNewTab": {
+        "enabled": true,
+        "direction": "vertical",
+        "focus": true
+      },
+      "openFile": true,
+      "openFileInMode": "default",
+      "fileExistsMode": "Increment the file name",
+      "setFileExistsBehavior": true
+    },
+    {
+      "id": "6867c780-8930-48d4-8ea0-02b2deef3424",
+      "name": "add--warning",
+      "type": "Template",
+      "command": true,
+      "templatePath": "👨‍💻Automations/add--warning",
+      "fileNameFormat": {
+        "enabled": true,
+        "format": "warning-"
+      },
+      "folder": {
+        "enabled": true,
+        "folders": [
+          "small parts/warnings"
+        ],
+        "chooseWhenCreatingNote": false,
+        "createInSameFolderAsActiveFile": false,
+        "chooseFromSubfolders": false
+      },
+      "appendLink": true,
+      "openFileInNewTab": {
+        "enabled": false,
+        "direction": "vertical",
+        "focus": true
+      },
+      "openFile": true,
+      "openFileInMode": "default",
+      "fileExistsMode": "Increment the file name",
+      "setFileExistsBehavior": false
+    }
+  ],
+  "macros": [
+    {
+      "name": "move-to-task-completed",
+      "id": "020d4867-d057-4035-806b-3ac60d6012a9",
+      "commands": [
+        {
+          "name": "Move current file to another folder",
+          "type": "Obsidian",
+          "id": "0a9be7e1-93ea-49ac-a6c1-be695dc4e516",
+          "commandId": "file-explorer:move-file"
+        }
+      ],
+      "runOnStartup": false
+    }
+  ],
+  "inputPrompt": "multi-line",
+  "devMode": false,
+  "templateFolderPath": "Automations",
+  "migrations": {
+    "migrateToMacroIDFromEmbeddedMacro": true,
+    "useQuickAddTemplateFolder": true,
+    "incrementFileNameSettingMoveToDefaultBehavior": true,
+    "mutualExclusionInsertAfterAndWriteToBottomOfFile": true
+  }
+}

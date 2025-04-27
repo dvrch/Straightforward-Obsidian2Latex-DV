@@ -1,0 +1,207 @@
+{
+  "recentFiles": [
+    {
+      "basename": "p545",
+      "path": "Literature/Notes/p545.md"
+    },
+    {
+      "basename": "p538",
+      "path": "Literature/Notes/p538.md"
+    },
+    {
+      "basename": "➕Brainstorm ideas for directions in Multitask-Learning for improvement of algorithms",
+      "path": "P-Tasks/➕/➕Brainstorm ideas for directions in Multitask-Learning for improvement of algorithms.md"
+    },
+    {
+      "basename": "READ-ME--Device-Query",
+      "path": "Literature/Notes/🔗/👩‍💻/Machine Learning/READ-ME--Device-Query.md"
+    },
+    {
+      "basename": "💻PATHS",
+      "path": "💻PATHS/💻PATHS.md"
+    },
+    {
+      "basename": "CUDAnn",
+      "path": "Literature/Notes/🔗/👩‍💻/Machine Learning/CUDAnn.md"
+    },
+    {
+      "basename": "p538--why training deep neural networks is difficult",
+      "path": "Literature/Notes/p538--why training deep neural networks is difficult.md"
+    },
+    {
+      "basename": "low curvature regions due to saturating nonlinearities",
+      "path": "Literature/Theory/Theory/Phenomena/in Machine Learning/gradient-related/low curvature regions due to saturating nonlinearities.md"
+    },
+    {
+      "basename": "opt--low curvature regions due to saturating nonlinearities",
+      "path": "Literature/Theory/Theory/Phenomena/in Optimization/opt--low curvature regions due to saturating nonlinearities.md"
+    },
+    {
+      "basename": "PHENOMENA",
+      "path": "Literature/Theory/Theory/Phenomena/PHENOMENA.md"
+    },
+    {
+      "basename": "ALL ISSUES",
+      "path": "Literature/Notes/🔗/👩‍💻/⚒⚠Issues and fixes/ALL ISSUES.md"
+    },
+    {
+      "basename": "ℹLinux-Notes",
+      "path": "Literature/Notes/🔗/👩‍💻/ℹLinux-Notes.md"
+    },
+    {
+      "basename": "Error--cuda_runtime.h not found, which is a header file",
+      "path": "Literature/Notes/🔗/👩‍💻/⚒⚠Issues and fixes/⚠Potential issues/Error--cuda_runtime.h not found, which is a header file.md"
+    },
+    {
+      "basename": "Malformed entry 50 in lists file etc-apt-sources.list (Component)",
+      "path": "Literature/Notes/🔗/👩‍💻/⚒⚠Issues and fixes/⚠Potential issues/Malformed entry 50 in lists file etc-apt-sources.list (Component).md"
+    },
+    {
+      "basename": "❌issue with installing Tensorflow 2.10",
+      "path": "Literature/Notes/🔗/👩‍💻/⚒⚠Issues and fixes/⚠Potential issues/❌issue with installing Tensorflow 2.10.md"
+    },
+    {
+      "basename": "🔴ERROR--Not recognizing GPU after I've installed CUDA",
+      "path": "Literature/Notes/🔗/👩‍💻/⚒⚠Issues and fixes/⚠Potential issues/🔴ERROR--Not recognizing GPU after I've installed CUDA.md"
+    },
+    {
+      "basename": "⌛ERROR Could not install packages due to an OSError WinError 5 Access is denied. Check permissions",
+      "path": "Literature/Notes/🔗/👩‍💻/⚒⚠Issues and fixes/⚠Potential issues/⌛ERROR Could not install packages due to an OSError WinError 5 Access is denied. Check permissions.md"
+    },
+    {
+      "basename": "Error--permission-denied-error-13",
+      "path": "Literature/Notes/🔗/👩‍💻/⚒⚠Issues and fixes/⚠Potential issues/Error--permission-denied-error-13.md"
+    },
+    {
+      "basename": "code--install-cuda-samples--12-2",
+      "path": "Literature/Notes/🔗/👩‍💻/⚒⚠Issues and fixes/code--install-cuda-samples--12-2.md"
+    },
+    {
+      "basename": "cuda--apt-cache-search-results",
+      "path": "Literature/Notes/🔗/👩‍💻/cuda--apt-cache-search-results.md"
+    },
+    {
+      "basename": "error--System has not been booted with systemd as init system (PID 1). Can't operate",
+      "path": "Literature/Notes/🔗/👩‍💻/⚒⚠Issues and fixes/⚠Potential issues/error--System has not been booted with systemd as init system (PID 1). Can't operate.md"
+    },
+    {
+      "basename": "failed to create symbolic link",
+      "path": "Literature/Notes/🔗/👩‍💻/⚒⚠Issues and fixes/⚠Potential issues/failed to create symbolic link.md"
+    },
+    {
+      "basename": "error--nvidia-docker-repository-not-safe",
+      "path": "Literature/Notes/🔗/👩‍💻/⚒⚠Issues and fixes/⚠Potential issues/error--nvidia-docker-repository-not-safe.md"
+    },
+    {
+      "basename": "docker--permission denied while trying to connect to the Docker daemon socket at unix---var-run-docker-sock",
+      "path": "Literature/Notes/🔗/👩‍💻/⚒⚠Issues and fixes/⚠Potential issues/docker--permission denied while trying to connect to the Docker daemon socket at unix---var-run-docker-sock.md"
+    },
+    {
+      "basename": "AssertionError",
+      "path": "Literature/Notes/🔗/👩‍💻/⚒⚠Issues and fixes/⚠Potential issues/AssertionError.md"
+    },
+    {
+      "basename": "Temporary Directory",
+      "path": "Literature/Notes/🔗/👩‍💻/⚒⚠Issues and fixes/⚒General Fixes/Temporary Directory.md"
+    },
+    {
+      "basename": "datav--pubs--ML--DeepL",
+      "path": "Literature/datav--pubs--ML--DeepL.md"
+    },
+    {
+      "basename": "p543--intuition of SVD using max and min variance",
+      "path": "Literature/Notes/p543--intuition of SVD using max and min variance.md"
+    },
+    {
+      "basename": "🔭SVD produces inaccurate singular vectors when we do not mean-center",
+      "path": "🔭Observations/🏫for learning/Linear Algebra/🔭SVD produces inaccurate singular vectors when we do not mean-center.md"
+    },
+    {
+      "basename": "printenv results in WSL",
+      "path": "Literature/Notes/🔗/👩‍💻/printenv results in WSL.md"
+    },
+    {
+      "basename": "📽not finding eigenvectors in real domain",
+      "path": "📽Media/Linear Algebra/📽not finding eigenvectors in real domain.md"
+    },
+    {
+      "basename": "📽SVD--playing",
+      "path": "📽Media/Linear Algebra/📽SVD--playing.md"
+    },
+    {
+      "basename": "📽nullspace-of-a-matrix",
+      "path": "📽Media/Linear Algebra/📽nullspace-of-a-matrix.md"
+    },
+    {
+      "basename": "📽eigenvectors of orthogonal matrices",
+      "path": "📽Media/Linear Algebra/📽eigenvectors of orthogonal matrices.md"
+    },
+    {
+      "basename": "🔗NTNU",
+      "path": "NTNU/Org/🔗NTNU.md"
+    },
+    {
+      "basename": "Check CUDA installation",
+      "path": "Literature/Notes/🔗/👩‍💻/Check CUDA installation.md"
+    },
+    {
+      "basename": "authors of Learning Dynamics",
+      "path": "Literature/authors of Learning Dynamics.md"
+    },
+    {
+      "basename": "datav--Pubs--ML--Learning-Dynamics",
+      "path": "Literature/datav--Pubs--ML--Learning-Dynamics.md"
+    },
+    {
+      "basename": "🤷‍♀️datav--Pubs--that-I-do-not-understand",
+      "path": "Literature/🤷‍♀️datav--Pubs--that-I-do-not-understand.md"
+    },
+    {
+      "basename": "datav--⏳",
+      "path": "datav--⏳.md"
+    },
+    {
+      "basename": "🔗🌐--RAPIDS--GPU-accelerated-science",
+      "path": "Literature/Notes/🔗/👩‍💻/🔗🌐Internet search/🔗🌐--RAPIDS--GPU-accelerated-science.md"
+    },
+    {
+      "basename": "🔗🌐--CUDA-installation-guide",
+      "path": "Literature/Notes/🔗/👩‍💻/🔗🌐Internet search/Installations/🔗🌐--CUDA-installation-guide.md"
+    },
+    {
+      "basename": "header file",
+      "path": "Literature/Notes/🔗/👩‍💻/header file.md"
+    },
+    {
+      "basename": "Error--Unable-to-locate-package-cuda-samples",
+      "path": "Literature/Notes/🔗/👩‍💻/⚒⚠Issues and fixes/⚠Potential issues/Error--Unable-to-locate-package-cuda-samples.md"
+    },
+    {
+      "basename": "my Ubuntu packages",
+      "path": "Literature/Notes/🔗/👩‍💻/my Ubuntu packages.md"
+    },
+    {
+      "basename": "🔗🌐--List-installed-packages--Ubuntu",
+      "path": "Literature/Notes/🔗/👩‍💻/🔗🌐Internet search/🔗🌐--List-installed-packages--Ubuntu.md"
+    },
+    {
+      "basename": "🔗🌐--easy-introduction-cuda-c-and-c",
+      "path": "Literature/Notes/🔗/👩‍💻/🔗🌐Internet search/🔗🌐--easy-introduction-cuda-c-and-c.md"
+    },
+    {
+      "basename": "🔗🌐fatal error cuda_runtime.h No such file or directory",
+      "path": "Literature/Notes/🔗/👩‍💻/🔗🌐Internet search/🔗🌐fatal error cuda_runtime.h No such file or directory.md"
+    },
+    {
+      "basename": "🔗🌐--verify_cuda_install",
+      "path": "Literature/Notes/🔗/👩‍💻/🔗🌐Internet search/Installations/🔗🌐--verify_cuda_install.md"
+    },
+    {
+      "basename": "Install-NVIDIA-container-toolkit",
+      "path": "Literature/Notes/🔗/👩‍💻/Machine Learning/Install-NVIDIA-container-toolkit.md"
+    }
+  ],
+  "omittedPaths": [],
+  "maxLength": null,
+  "openType": "tab"
+}

@@ -1,0 +1,2103 @@
+{
+  "workspaces": {
+    "Iterative-Learning-Control": {
+      "main": {
+        "id": "5fdfc609244a7604",
+        "type": "split",
+        "children": [
+          {
+            "id": "8f97ebb7a0aebbc2",
+            "type": "leaf",
+            "dimension": 67.54617414248021,
+            "pinned": true,
+            "state": {
+              "type": "localgraph",
+              "state": {
+                "file": "Literature/Notes/p297.md",
+                "options": {
+                  "collapse-filter": false,
+                  "search": "",
+                  "localJumps": 4,
+                  "localBacklinks": true,
+                  "localForelinks": true,
+                  "localInterlinks": true,
+                  "showTags": false,
+                  "showAttachments": false,
+                  "hideUnresolved": false,
+                  "collapse-color-groups": false,
+                  "colorGroups": [
+                    {
+                      "query": "path:\"Literature/Notes\"",
+                      "color": {
+                        "a": 1,
+                        "rgb": 2433570
+                      }
+                    },
+                    {
+                      "query": "path:P-Tasks/➕",
+                      "color": {
+                        "a": 1,
+                        "rgb": 14950877
+                      }
+                    },
+                    {
+                      "query": "path:\"Literature/Properties\"",
+                      "color": {
+                        "a": 1,
+                        "rgb": 5089607
+                      }
+                    },
+                    {
+                      "query": "path:Literature/MATH",
+                      "color": {
+                        "a": 1,
+                        "rgb": 1749692
+                      }
+                    }
+                  ],
+                  "collapse-display": true,
+                  "showArrow": true,
+                  "textFadeMultiplier": -3,
+                  "nodeSizeMultiplier": 2.01660715266714,
+                  "lineSizeMultiplier": 3.46375322748997,
+                  "collapse-forces": false,
+                  "centerStrength": 0.234761932378356,
+                  "repelStrength": 19.3933770225599,
+                  "linkStrength": 1,
+                  "linkDistance": 500,
+                  "scale": 0.07058167567046474,
+                  "close": true
+                }
+              },
+              "pinned": true
+            }
+          },
+          {
+            "id": "fecab005f7ee8163",
+            "type": "leaf",
+            "dimension": 32.45382585751979,
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "Literature/MATH/Numerical Methods/🔢 contraction mapping.md",
+                "mode": "preview",
+                "backlinks": true,
+                "source": false
+              }
+            }
+          }
+        ],
+        "direction": "vertical"
+      },
+      "left": {
+        "id": "772f8d5aaf74934d",
+        "type": "split",
+        "children": [
+          {
+            "id": "f3d3a0bd8128f0f4",
+            "type": "tabs",
+            "children": [
+              {
+                "id": "586dbd90f247edb1",
+                "type": "leaf",
+                "state": {
+                  "type": "recent-files",
+                  "state": {}
+                }
+              },
+              {
+                "id": "04b5bb24270f2066",
+                "type": "leaf",
+                "state": {
+                  "type": "file-explorer",
+                  "state": {}
+                }
+              },
+              {
+                "id": "5de365f78311734a",
+                "type": "leaf",
+                "state": {
+                  "type": "search",
+                  "state": {
+                    "query": "network",
+                    "matchingCase": false,
+                    "explainSearch": false,
+                    "collapseAll": true,
+                    "extraContext": false,
+                    "sortOrder": "alphabetical"
+                  }
+                }
+              },
+              {
+                "id": "1e5066e4cc922f82",
+                "type": "leaf",
+                "state": {
+                  "type": "starred",
+                  "state": {}
+                }
+              }
+            ],
+            "currentTab": 1
+          }
+        ],
+        "direction": "horizontal",
+        "width": 383.50680351257324
+      },
+      "right": {
+        "id": "88e25f987b523923",
+        "type": "split",
+        "children": [
+          {
+            "id": "d5f6e0ce6d8a7e45",
+            "type": "tabs",
+            "children": [
+              {
+                "id": "58542a20ba1aba52",
+                "type": "leaf",
+                "state": {
+                  "type": "backlink",
+                  "state": {
+                    "file": "Literature/Notes/p297.md",
+                    "collapseAll": false,
+                    "extraContext": false,
+                    "sortOrder": "alphabetical",
+                    "showSearch": false,
+                    "searchQuery": "",
+                    "backlinkCollapsed": false,
+                    "unlinkedCollapsed": true
+                  }
+                }
+              },
+              {
+                "id": "464cd7541a21b07d",
+                "type": "leaf",
+                "state": {
+                  "type": "outgoing-link",
+                  "state": {
+                    "file": "Literature/Notes/p297.md",
+                    "linksCollapsed": false,
+                    "unlinkedCollapsed": true
+                  }
+                }
+              },
+              {
+                "id": "0fca21c017e2f1fd",
+                "type": "leaf",
+                "state": {
+                  "type": "tag",
+                  "state": {
+                    "sortOrder": "frequency",
+                    "useHierarchy": true
+                  }
+                }
+              },
+              {
+                "id": "1604697c94460b04",
+                "type": "leaf",
+                "state": {
+                  "type": "outline",
+                  "state": {
+                    "file": "Literature/Notes/p297.md"
+                  }
+                }
+              },
+              {
+                "id": "57f00e2417f844a3",
+                "type": "leaf",
+                "state": {
+                  "type": "juggl_nodes",
+                  "state": {}
+                }
+              },
+              {
+                "id": "2d83e2cae6d83ff8",
+                "type": "leaf",
+                "state": {
+                  "type": "juggl_style",
+                  "state": {}
+                }
+              },
+              {
+                "id": "990dfebf2b45c1f1",
+                "type": "leaf",
+                "state": {
+                  "type": "review-queue-list-view",
+                  "state": {}
+                }
+              }
+            ],
+            "currentTab": 3
+          }
+        ],
+        "direction": "horizontal",
+        "width": 278.51220703125,
+        "collapsed": true
+      },
+      "active": "8f97ebb7a0aebbc2"
+    },
+    "Deep-Learning": {
+      "main": {
+        "id": "5fdfc609244a7604",
+        "type": "split",
+        "children": [
+          {
+            "id": "33711b3d4aa23998",
+            "type": "leaf",
+            "dimension": 34.32956381260097,
+            "pinned": true,
+            "state": {
+              "type": "localgraph",
+              "state": {
+                "file": "P-Tasks/➕/DeepLearning Book.md",
+                "options": {
+                  "collapse-filter": false,
+                  "search": "",
+                  "localJumps": 5,
+                  "localBacklinks": true,
+                  "localForelinks": true,
+                  "localInterlinks": true,
+                  "showTags": false,
+                  "showAttachments": false,
+                  "hideUnresolved": false,
+                  "collapse-color-groups": false,
+                  "colorGroups": [
+                    {
+                      "query": "path:P-Tasks/➕",
+                      "color": {
+                        "a": 1,
+                        "rgb": 14048454
+                      }
+                    },
+                    {
+                      "query": "path:Literature/Theory",
+                      "color": {
+                        "a": 1,
+                        "rgb": 14014423
+                      }
+                    }
+                  ],
+                  "collapse-display": false,
+                  "showArrow": true,
+                  "textFadeMultiplier": -2.6,
+                  "nodeSizeMultiplier": 1.77760835804038,
+                  "lineSizeMultiplier": 4.19797637535884,
+                  "collapse-forces": false,
+                  "centerStrength": 0.279119017365523,
+                  "repelStrength": 15.3409572215163,
+                  "linkStrength": 1,
+                  "linkDistance": 250,
+                  "scale": 0.07932857096163165,
+                  "close": true
+                }
+              },
+              "pinned": true
+            }
+          },
+          {
+            "id": "188377b0542f5c19",
+            "type": "leaf",
+            "dimension": 65.67043618739903,
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "Literature/Notes/p298.md",
+                "mode": "preview",
+                "backlinks": true,
+                "source": false
+              }
+            }
+          }
+        ],
+        "direction": "vertical"
+      },
+      "left": {
+        "id": "772f8d5aaf74934d",
+        "type": "split",
+        "children": [
+          {
+            "id": "f3d3a0bd8128f0f4",
+            "type": "tabs",
+            "children": [
+              {
+                "id": "04b5bb24270f2066",
+                "type": "leaf",
+                "state": {
+                  "type": "file-explorer",
+                  "state": {}
+                }
+              },
+              {
+                "id": "5de365f78311734a",
+                "type": "leaf",
+                "state": {
+                  "type": "search",
+                  "state": {
+                    "query": "network",
+                    "matchingCase": false,
+                    "explainSearch": false,
+                    "collapseAll": true,
+                    "extraContext": false,
+                    "sortOrder": "alphabetical"
+                  }
+                }
+              },
+              {
+                "id": "1e5066e4cc922f82",
+                "type": "leaf",
+                "state": {
+                  "type": "starred",
+                  "state": {}
+                }
+              },
+              {
+                "id": "586dbd90f247edb1",
+                "type": "leaf",
+                "state": {
+                  "type": "recent-files",
+                  "state": {}
+                }
+              }
+            ],
+            "currentTab": 2
+          }
+        ],
+        "direction": "horizontal",
+        "width": 383.50680351257324,
+        "collapsed": true
+      },
+      "right": {
+        "id": "88e25f987b523923",
+        "type": "split",
+        "children": [
+          {
+            "id": "d5f6e0ce6d8a7e45",
+            "type": "tabs",
+            "children": [
+              {
+                "id": "58542a20ba1aba52",
+                "type": "leaf",
+                "state": {
+                  "type": "backlink",
+                  "state": {
+                    "file": "P-Tasks/➕/DeepLearning Book.md",
+                    "collapseAll": false,
+                    "extraContext": false,
+                    "sortOrder": "alphabetical",
+                    "showSearch": false,
+                    "searchQuery": "",
+                    "backlinkCollapsed": false,
+                    "unlinkedCollapsed": true
+                  }
+                }
+              },
+              {
+                "id": "464cd7541a21b07d",
+                "type": "leaf",
+                "state": {
+                  "type": "outgoing-link",
+                  "state": {
+                    "file": "P-Tasks/➕/DeepLearning Book.md",
+                    "linksCollapsed": false,
+                    "unlinkedCollapsed": true
+                  }
+                }
+              },
+              {
+                "id": "0fca21c017e2f1fd",
+                "type": "leaf",
+                "state": {
+                  "type": "tag",
+                  "state": {
+                    "sortOrder": "frequency",
+                    "useHierarchy": true
+                  }
+                }
+              },
+              {
+                "id": "1604697c94460b04",
+                "type": "leaf",
+                "state": {
+                  "type": "outline",
+                  "state": {
+                    "file": "P-Tasks/➕/DeepLearning Book.md"
+                  }
+                }
+              },
+              {
+                "id": "57f00e2417f844a3",
+                "type": "leaf",
+                "state": {
+                  "type": "juggl_nodes",
+                  "state": {}
+                }
+              },
+              {
+                "id": "2d83e2cae6d83ff8",
+                "type": "leaf",
+                "state": {
+                  "type": "juggl_style",
+                  "state": {}
+                }
+              },
+              {
+                "id": "990dfebf2b45c1f1",
+                "type": "leaf",
+                "state": {
+                  "type": "review-queue-list-view",
+                  "state": {}
+                }
+              }
+            ],
+            "currentTab": 3
+          }
+        ],
+        "direction": "horizontal",
+        "width": 278.51220703125,
+        "collapsed": true
+      },
+      "floating": {
+        "id": "6984434ec254abbf",
+        "type": "floating",
+        "children": [
+          {
+            "id": "bd2ac48777caddc6",
+            "type": "window",
+            "children": [
+              {
+                "id": "00d9fce868a34b51",
+                "type": "leaf",
+                "pinned": true,
+                "state": {
+                  "type": "graph",
+                  "state": {},
+                  "pinned": true
+                }
+              }
+            ],
+            "direction": "vertical",
+            "x": -991,
+            "y": 220,
+            "width": 601,
+            "height": 655,
+            "maximize": true,
+            "zoom": 0
+          }
+        ]
+      },
+      "active": "33711b3d4aa23998"
+    },
+    "Deep-Learning--DoublePendulumAssignment": {
+      "main": {
+        "id": "5fdfc609244a7604",
+        "type": "split",
+        "children": [
+          {
+            "id": "1be2ea80b1827921",
+            "type": "tabs",
+            "children": [
+              {
+                "id": "33711b3d4aa23998",
+                "type": "leaf",
+                "pinned": true,
+                "state": {
+                  "type": "localgraph",
+                  "state": {
+                    "file": "P-Tasks/➕/DeepLearning Book.md",
+                    "options": {
+                      "collapse-filter": false,
+                      "search": "",
+                      "localJumps": 5,
+                      "localBacklinks": true,
+                      "localForelinks": true,
+                      "localInterlinks": true,
+                      "showTags": false,
+                      "showAttachments": false,
+                      "hideUnresolved": false,
+                      "collapse-color-groups": false,
+                      "colorGroups": [
+                        {
+                          "query": "path:P-Tasks/➕",
+                          "color": {
+                            "a": 1,
+                            "rgb": 14048454
+                          }
+                        },
+                        {
+                          "query": "path:Literature/Theory",
+                          "color": {
+                            "a": 1,
+                            "rgb": 2500391
+                          }
+                        },
+                        {
+                          "query": "path:Literature/Notes",
+                          "color": {
+                            "a": 1,
+                            "rgb": 1513239
+                          }
+                        }
+                      ],
+                      "collapse-display": true,
+                      "showArrow": true,
+                      "textFadeMultiplier": -2.6,
+                      "nodeSizeMultiplier": 1.77760835804038,
+                      "lineSizeMultiplier": 4.19797637535884,
+                      "collapse-forces": false,
+                      "centerStrength": 0.279119017365523,
+                      "repelStrength": 15.3409572215163,
+                      "linkStrength": 1,
+                      "linkDistance": 250,
+                      "scale": 0.36288736930120785,
+                      "close": false
+                    }
+                  },
+                  "pinned": true
+                }
+              },
+              {
+                "id": "a4e95b2e424cef56",
+                "type": "leaf",
+                "pinned": true,
+                "state": {
+                  "type": "markdown",
+                  "state": {
+                    "file": "P-Tasks/➕/double pendulum.md",
+                    "mode": "source",
+                    "backlinks": true,
+                    "source": false
+                  },
+                  "pinned": true
+                },
+                "group": "1ce2bf43104aa1ec"
+              },
+              {
+                "id": "a941207ff934f5ad",
+                "type": "leaf",
+                "pinned": true,
+                "state": {
+                  "type": "localgraph",
+                  "state": {
+                    "file": "P-Tasks/➕/double pendulum.md",
+                    "options": {
+                      "collapse-filter": false,
+                      "search": "",
+                      "localJumps": 3,
+                      "localBacklinks": true,
+                      "localForelinks": true,
+                      "localInterlinks": false,
+                      "showTags": false,
+                      "showAttachments": false,
+                      "hideUnresolved": false,
+                      "collapse-color-groups": false,
+                      "colorGroups": [
+                        {
+                          "query": "path:P-Tasks/➕",
+                          "color": {
+                            "a": 1,
+                            "rgb": 14629547
+                          }
+                        },
+                        {
+                          "query": "path:Literature/Theory",
+                          "color": {
+                            "a": 1,
+                            "rgb": 2697513
+                          }
+                        },
+                        {
+                          "query": "path:Literature/Notes",
+                          "color": {
+                            "a": 1,
+                            "rgb": 2829355
+                          }
+                        }
+                      ],
+                      "collapse-display": false,
+                      "showArrow": true,
+                      "textFadeMultiplier": -2.4,
+                      "nodeSizeMultiplier": 2.15949519683556,
+                      "lineSizeMultiplier": 4.06171521848317,
+                      "collapse-forces": false,
+                      "centerStrength": 0.130985119608212,
+                      "repelStrength": 16.941043511019,
+                      "linkStrength": 1,
+                      "linkDistance": 408,
+                      "scale": 0.21860383599018585,
+                      "close": true
+                    }
+                  },
+                  "pinned": true
+                },
+                "group": "1ce2bf43104aa1ec"
+              },
+              {
+                "id": "0f6f7e64eaca6ec8",
+                "type": "leaf",
+                "state": {
+                  "type": "markdown",
+                  "state": {
+                    "file": "P-Tasks/➕/double pendulum.md",
+                    "mode": "source",
+                    "backlinks": true,
+                    "source": false
+                  }
+                }
+              }
+            ],
+            "currentTab": 2
+          }
+        ],
+        "direction": "vertical"
+      },
+      "left": {
+        "id": "772f8d5aaf74934d",
+        "type": "split",
+        "children": [
+          {
+            "id": "f3d3a0bd8128f0f4",
+            "type": "tabs",
+            "children": [
+              {
+                "id": "04b5bb24270f2066",
+                "type": "leaf",
+                "state": {
+                  "type": "file-explorer",
+                  "state": {
+                    "sortOrder": "alphabetical"
+                  }
+                }
+              },
+              {
+                "id": "5de365f78311734a",
+                "type": "leaf",
+                "state": {
+                  "type": "search",
+                  "state": {
+                    "query": "linux",
+                    "matchingCase": false,
+                    "explainSearch": false,
+                    "collapseAll": true,
+                    "extraContext": false,
+                    "sortOrder": "alphabetical"
+                  }
+                }
+              },
+              {
+                "id": "1e5066e4cc922f82",
+                "type": "leaf",
+                "state": {
+                  "type": "starred",
+                  "state": {}
+                }
+              },
+              {
+                "id": "586dbd90f247edb1",
+                "type": "leaf",
+                "state": {
+                  "type": "recent-files",
+                  "state": {}
+                }
+              }
+            ],
+            "currentTab": 3
+          }
+        ],
+        "direction": "horizontal",
+        "width": 383.50680351257324,
+        "collapsed": true
+      },
+      "right": {
+        "id": "88e25f987b523923",
+        "type": "split",
+        "children": [
+          {
+            "id": "d5f6e0ce6d8a7e45",
+            "type": "tabs",
+            "children": [
+              {
+                "id": "58542a20ba1aba52",
+                "type": "leaf",
+                "state": {
+                  "type": "backlink",
+                  "state": {
+                    "file": "P-Tasks/➕/double pendulum.md",
+                    "collapseAll": false,
+                    "extraContext": false,
+                    "sortOrder": "alphabetical",
+                    "showSearch": false,
+                    "searchQuery": "",
+                    "backlinkCollapsed": false,
+                    "unlinkedCollapsed": true
+                  }
+                }
+              },
+              {
+                "id": "464cd7541a21b07d",
+                "type": "leaf",
+                "state": {
+                  "type": "outgoing-link",
+                  "state": {
+                    "file": "P-Tasks/➕/double pendulum.md",
+                    "linksCollapsed": false,
+                    "unlinkedCollapsed": true
+                  }
+                }
+              },
+              {
+                "id": "0fca21c017e2f1fd",
+                "type": "leaf",
+                "state": {
+                  "type": "tag",
+                  "state": {
+                    "sortOrder": "frequency",
+                    "useHierarchy": true
+                  }
+                }
+              },
+              {
+                "id": "1604697c94460b04",
+                "type": "leaf",
+                "state": {
+                  "type": "outline",
+                  "state": {
+                    "file": "P-Tasks/➕/double pendulum.md"
+                  }
+                }
+              },
+              {
+                "id": "57f00e2417f844a3",
+                "type": "leaf",
+                "state": {
+                  "type": "juggl_nodes",
+                  "state": {}
+                }
+              },
+              {
+                "id": "2d83e2cae6d83ff8",
+                "type": "leaf",
+                "state": {
+                  "type": "juggl_style",
+                  "state": {}
+                }
+              },
+              {
+                "id": "990dfebf2b45c1f1",
+                "type": "leaf",
+                "state": {
+                  "type": "review-queue-list-view",
+                  "state": {}
+                }
+              }
+            ],
+            "currentTab": 3
+          }
+        ],
+        "direction": "horizontal",
+        "width": 278.51220703125,
+        "collapsed": true
+      },
+      "ribbon": {
+        "mostRecentAction": ""
+      },
+      "floating": {
+        "id": "6984434ec254abbf",
+        "type": "floating",
+        "children": [
+          {
+            "id": "bd2ac48777caddc6",
+            "type": "window",
+            "children": [
+              {
+                "id": "101faa101efdaa7a",
+                "type": "tabs",
+                "children": [
+                  {
+                    "id": "00d9fce868a34b51",
+                    "type": "leaf",
+                    "pinned": true,
+                    "state": {
+                      "type": "graph",
+                      "state": {},
+                      "pinned": true
+                    }
+                  }
+                ]
+              }
+            ],
+            "direction": "vertical",
+            "x": -991,
+            "y": 220,
+            "width": 601,
+            "height": 655,
+            "maximize": false,
+            "zoom": 0
+          }
+        ]
+      },
+      "active": "a941207ff934f5ad"
+    },
+    "LIT--Multitask-Learning": {
+      "main": {
+        "id": "5fdfc609244a7604",
+        "type": "split",
+        "children": [
+          {
+            "id": "7192cab050549290",
+            "type": "tabs",
+            "children": [
+              {
+                "id": "b49ab9b55277eb0a",
+                "type": "leaf",
+                "pinned": true,
+                "state": {
+                  "type": "markdown",
+                  "state": {
+                    "file": "Literature/Notes/p522.md",
+                    "mode": "source",
+                    "backlinks": true,
+                    "source": false
+                  },
+                  "pinned": true
+                }
+              },
+              {
+                "id": "54b6c884ac7699c9",
+                "type": "leaf",
+                "pinned": true,
+                "state": {
+                  "type": "canvas",
+                  "state": {
+                    "file": "Literature/Theory/Methods/in Machine Learning/Learning Dynamics Studies.canvas",
+                    "viewState": {
+                      "x": -1889,
+                      "y": 355.6275488069414,
+                      "zoom": -0.5788994302532153
+                    }
+                  },
+                  "pinned": true
+                }
+              },
+              {
+                "id": "0f6a390eb210fc01",
+                "type": "leaf",
+                "pinned": true,
+                "state": {
+                  "type": "markdown",
+                  "state": {
+                    "file": "Literature/datav--pubs--ML--Multitask-Learning.md",
+                    "mode": "preview",
+                    "backlinks": true,
+                    "source": false
+                  },
+                  "pinned": true
+                }
+              },
+              {
+                "id": "3436931826f534f6",
+                "type": "leaf",
+                "state": {
+                  "type": "markdown",
+                  "state": {
+                    "file": "Literature/Theory/Methods/in Extremum Seeking/Stochastic Extremum Seeking Control (SESC).md",
+                    "mode": "source",
+                    "backlinks": true,
+                    "source": false
+                  }
+                },
+                "group": "a8cbb60fef54019e"
+              },
+              {
+                "id": "5d412edc0aecd9db",
+                "type": "leaf",
+                "state": {
+                  "type": "localgraph",
+                  "state": {
+                    "file": "Literature/Theory/Methods/in Extremum Seeking/Stochastic Extremum Seeking Control (SESC).md",
+                    "options": {
+                      "collapse-filter": false,
+                      "search": "",
+                      "localJumps": 5,
+                      "localBacklinks": true,
+                      "localForelinks": true,
+                      "localInterlinks": false,
+                      "showTags": false,
+                      "showAttachments": false,
+                      "hideUnresolved": false,
+                      "collapse-color-groups": true,
+                      "colorGroups": [],
+                      "collapse-display": false,
+                      "showArrow": true,
+                      "textFadeMultiplier": -3,
+                      "nodeSizeMultiplier": 1.26476667710617,
+                      "lineSizeMultiplier": 2.51209520826809,
+                      "collapse-forces": false,
+                      "centerStrength": 0.404071406201065,
+                      "repelStrength": 14.896335734419,
+                      "linkStrength": 1,
+                      "linkDistance": 321,
+                      "scale": 0.08844393894897495,
+                      "close": true
+                    }
+                  }
+                },
+                "group": "a8cbb60fef54019e"
+              },
+              {
+                "id": "8544f767b88eb3ff",
+                "type": "leaf",
+                "pinned": true,
+                "state": {
+                  "type": "markdown",
+                  "state": {
+                    "file": "Literature/Notes/p552.md",
+                    "mode": "preview",
+                    "backlinks": true,
+                    "source": false
+                  },
+                  "pinned": true
+                }
+              },
+              {
+                "id": "ffc17dd8bf414c9d",
+                "type": "leaf",
+                "pinned": true,
+                "state": {
+                  "type": "markdown",
+                  "state": {
+                    "file": "Literature/Notes/p552--how do they work.md",
+                    "mode": "source",
+                    "backlinks": true,
+                    "source": false
+                  },
+                  "pinned": true
+                }
+              },
+              {
+                "id": "70ff4de335ae3257",
+                "type": "leaf",
+                "state": {
+                  "type": "markdown",
+                  "state": {
+                    "file": "Literature/Theory/Methods/in Machine Learning/➕⏳Singular Value Decomposition (SVD) for cross-covariance matrices.md",
+                    "mode": "source",
+                    "backlinks": true,
+                    "source": false
+                  }
+                }
+              },
+              {
+                "id": "4ec7704aa173fd90",
+                "type": "leaf",
+                "state": {
+                  "type": "pdf",
+                  "state": {
+                    "file": "📺Meetings/Conversations/Project Description/Meeting-Notes--Bjarne-draft.pdf"
+                  }
+                }
+              },
+              {
+                "id": "c5f36fcad95a3771",
+                "type": "leaf",
+                "pinned": true,
+                "state": {
+                  "type": "localgraph",
+                  "state": {
+                    "file": "Literature/Notes/p507.md",
+                    "options": {
+                      "collapse-filter": true,
+                      "search": "",
+                      "localJumps": 3,
+                      "localBacklinks": true,
+                      "localForelinks": true,
+                      "localInterlinks": false,
+                      "showTags": false,
+                      "showAttachments": false,
+                      "hideUnresolved": false,
+                      "collapse-color-groups": false,
+                      "colorGroups": [
+                        {
+                          "query": "tag:#Topic/ML/Multitask-Learning",
+                          "color": {
+                            "a": 1,
+                            "rgb": 7459143
+                          }
+                        }
+                      ],
+                      "collapse-display": false,
+                      "showArrow": true,
+                      "textFadeMultiplier": -2.8,
+                      "nodeSizeMultiplier": 1,
+                      "lineSizeMultiplier": 1,
+                      "collapse-forces": true,
+                      "centerStrength": 0.518713248970312,
+                      "repelStrength": 10,
+                      "linkStrength": 1,
+                      "linkDistance": 250,
+                      "scale": 0.9999999999999988,
+                      "close": true
+                    }
+                  },
+                  "pinned": true
+                }
+              },
+              {
+                "id": "397f748c048087d7",
+                "type": "leaf",
+                "state": {
+                  "type": "markdown",
+                  "state": {
+                    "file": "Literature/Notes/p499.md",
+                    "mode": "source",
+                    "backlinks": true,
+                    "source": false
+                  }
+                }
+              },
+              {
+                "id": "d8706345b106ac34",
+                "type": "leaf",
+                "state": {
+                  "type": "markdown",
+                  "state": {
+                    "file": "Literature/Notes/p507.md",
+                    "mode": "source",
+                    "backlinks": true,
+                    "source": false
+                  }
+                }
+              }
+            ],
+            "currentTab": 9
+          }
+        ],
+        "direction": "vertical"
+      },
+      "left": {
+        "id": "772f8d5aaf74934d",
+        "type": "split",
+        "children": [
+          {
+            "id": "f3d3a0bd8128f0f4",
+            "type": "tabs",
+            "children": [
+              {
+                "id": "04b5bb24270f2066",
+                "type": "leaf",
+                "state": {
+                  "type": "file-explorer",
+                  "state": {
+                    "sortOrder": "alphabetical"
+                  }
+                }
+              },
+              {
+                "id": "5de365f78311734a",
+                "type": "leaf",
+                "state": {
+                  "type": "search",
+                  "state": {
+                    "query": "tag:#Topic/ML/Multitask-Learning",
+                    "matchingCase": false,
+                    "explainSearch": false,
+                    "collapseAll": true,
+                    "extraContext": false,
+                    "sortOrder": "alphabetical"
+                  }
+                }
+              },
+              {
+                "id": "788b4a8e77c46cc1",
+                "type": "leaf",
+                "state": {
+                  "type": "bookmarks",
+                  "state": {}
+                }
+              },
+              {
+                "id": "f847a65ba313d78f",
+                "type": "leaf",
+                "state": {
+                  "type": "recent-files",
+                  "state": {}
+                }
+              }
+            ],
+            "currentTab": 1
+          }
+        ],
+        "direction": "horizontal",
+        "width": 229.50043487548828,
+        "collapsed": true
+      },
+      "right": {
+        "id": "88e25f987b523923",
+        "type": "split",
+        "children": [
+          {
+            "id": "d5f6e0ce6d8a7e45",
+            "type": "tabs",
+            "children": [
+              {
+                "id": "58542a20ba1aba52",
+                "type": "leaf",
+                "state": {
+                  "type": "backlink",
+                  "state": {
+                    "file": "Literature/Notes/p507.md",
+                    "collapseAll": false,
+                    "extraContext": false,
+                    "sortOrder": "alphabetical",
+                    "showSearch": false,
+                    "searchQuery": "",
+                    "backlinkCollapsed": false,
+                    "unlinkedCollapsed": true
+                  }
+                }
+              },
+              {
+                "id": "464cd7541a21b07d",
+                "type": "leaf",
+                "state": {
+                  "type": "outgoing-link",
+                  "state": {
+                    "file": "Literature/Notes/p507.md",
+                    "linksCollapsed": false,
+                    "unlinkedCollapsed": true
+                  }
+                }
+              },
+              {
+                "id": "1604697c94460b04",
+                "type": "leaf",
+                "state": {
+                  "type": "outline",
+                  "state": {
+                    "file": "Literature/Notes/p507.md"
+                  }
+                }
+              },
+              {
+                "id": "0fca21c017e2f1fd",
+                "type": "leaf",
+                "state": {
+                  "type": "tag",
+                  "state": {
+                    "sortOrder": "frequency",
+                    "useHierarchy": true
+                  }
+                }
+              },
+              {
+                "id": "57f00e2417f844a3",
+                "type": "leaf",
+                "state": {
+                  "type": "juggl_nodes",
+                  "state": {}
+                }
+              },
+              {
+                "id": "2d83e2cae6d83ff8",
+                "type": "leaf",
+                "state": {
+                  "type": "juggl_style",
+                  "state": {}
+                }
+              },
+              {
+                "id": "0a51a6dc92a2c6e6",
+                "type": "leaf",
+                "state": {
+                  "type": "calendar",
+                  "state": {}
+                }
+              },
+              {
+                "id": "fde989ff476731f9",
+                "type": "leaf",
+                "state": {
+                  "type": "advanced-tables-toolbar",
+                  "state": {}
+                }
+              },
+              {
+                "id": "c86bd29ee3bf8ef1",
+                "type": "leaf",
+                "state": {
+                  "type": "mermaid-toolbar-view",
+                  "state": {}
+                }
+              },
+              {
+                "id": "d7a277fd28dd3d14",
+                "type": "leaf",
+                "state": {
+                  "type": "review-queue-list-view",
+                  "state": {}
+                }
+              }
+            ],
+            "currentTab": 2
+          }
+        ],
+        "direction": "horizontal",
+        "width": 209.5,
+        "collapsed": true
+      },
+      "left-ribbon": {
+        "hiddenItems": {
+          "juggl:Juggl global graph": false,
+          "table-editor-obsidian:Advanced Tables Toolbar": false,
+          "smart-random-note:Open Random Note from Search": false,
+          "templater-obsidian:Templater": false,
+          "obsidian-extract-pdf-highlights:PDF Highlights": false,
+          "graph:Open graph view": false,
+          "obsidian-full-calendar:Open Full Calendar": false,
+          "tq-obsidian:tq": false,
+          "mermaid-tools:Open Mermaid Toolbar": false,
+          "switcher:Open quick switcher": false,
+          "canvas:Create new canvas": false,
+          "templates:Insert template": false,
+          "markdown-importer:Open format converter": false,
+          "command-palette:Open command palette": false,
+          "zk-prefixer:Create new unique note": false,
+          "audio-recorder:Start/stop recording": false,
+          "workspaces:Manage workspace layouts": false,
+          "obsidian-spaced-repetition:Review flashcards": false
+        }
+      },
+      "floating": {
+        "id": "2102166bdc2e9452",
+        "type": "floating",
+        "children": [
+          {
+            "id": "e079cd285450105c",
+            "type": "window",
+            "children": [
+              {
+                "id": "663370a9d996b1ec",
+                "type": "tabs",
+                "children": [
+                  {
+                    "id": "134c03e6bcafc848",
+                    "type": "leaf",
+                    "state": {
+                      "type": "empty",
+                      "state": {}
+                    }
+                  }
+                ]
+              }
+            ],
+            "direction": "vertical",
+            "x": 341,
+            "y": 80,
+            "width": 1030,
+            "height": 801,
+            "maximize": false,
+            "zoom": 3
+          },
+          {
+            "id": "2f8e0aa5130eedd8",
+            "type": "window",
+            "children": [
+              {
+                "id": "34eb767489b97264",
+                "type": "tabs",
+                "children": [
+                  {
+                    "id": "379817e4af885dbd",
+                    "type": "leaf",
+                    "pinned": true,
+                    "state": {
+                      "type": "markdown",
+                      "state": {
+                        "file": "Literature/datav--Pubs--ML--Learning-Dynamics.md",
+                        "mode": "preview",
+                        "backlinks": true,
+                        "source": false
+                      },
+                      "pinned": true
+                    }
+                  },
+                  {
+                    "id": "bda3d91dc7ffaec3",
+                    "type": "leaf",
+                    "pinned": true,
+                    "state": {
+                      "type": "markdown",
+                      "state": {
+                        "file": "Literature/authors of Learning Dynamics.md",
+                        "mode": "preview",
+                        "backlinks": true,
+                        "source": false
+                      },
+                      "pinned": true
+                    }
+                  },
+                  {
+                    "id": "f13362df85a8fc9d",
+                    "type": "leaf",
+                    "pinned": true,
+                    "state": {
+                      "type": "markdown",
+                      "state": {
+                        "file": "Literature/datav--Pubs--SESC.md",
+                        "mode": "preview",
+                        "backlinks": true,
+                        "source": false
+                      },
+                      "pinned": true
+                    }
+                  },
+                  {
+                    "id": "df28274548b25518",
+                    "type": "leaf",
+                    "state": {
+                      "type": "markdown",
+                      "state": {
+                        "file": "Literature/Notes/p550.md",
+                        "mode": "preview",
+                        "backlinks": true,
+                        "source": false
+                      }
+                    }
+                  },
+                  {
+                    "id": "6a6279c1a4da6444",
+                    "type": "leaf",
+                    "state": {
+                      "type": "markdown",
+                      "state": {
+                        "file": "Literature/Notes/p521.md",
+                        "mode": "preview",
+                        "backlinks": true,
+                        "source": false
+                      }
+                    }
+                  },
+                  {
+                    "id": "0658697fb453fba4",
+                    "type": "leaf",
+                    "state": {
+                      "type": "markdown",
+                      "state": {
+                        "file": "Literature/Notes/p542--2.md",
+                        "mode": "source",
+                        "backlinks": true,
+                        "source": false
+                      }
+                    }
+                  },
+                  {
+                    "id": "06a8508e71f38611",
+                    "type": "leaf",
+                    "state": {
+                      "type": "markdown",
+                      "state": {
+                        "file": "Literature/Notes/p514.md",
+                        "mode": "source",
+                        "backlinks": true,
+                        "source": false
+                      }
+                    }
+                  },
+                  {
+                    "id": "d472e8b28ac766f5",
+                    "type": "leaf",
+                    "state": {
+                      "type": "markdown",
+                      "state": {
+                        "file": "Literature/Notes/Properties/➕Task-related/Messages/Ole/Multitask Learning/➕add to message to Ole--MTL--Existing-methods-for-improvement.md",
+                        "mode": "preview",
+                        "backlinks": true,
+                        "source": false
+                      }
+                    }
+                  },
+                  {
+                    "id": "9f094fa82198c7ae",
+                    "type": "leaf",
+                    "state": {
+                      "type": "markdown",
+                      "state": {
+                        "file": "Literature/Notes/💭 Arguments/against/in Machine Learning/💭 Against--ML--Multitask-Learning.md",
+                        "mode": "preview",
+                        "backlinks": true,
+                        "source": false
+                      }
+                    }
+                  },
+                  {
+                    "id": "ff949451b845c976",
+                    "type": "leaf",
+                    "state": {
+                      "type": "markdown",
+                      "state": {
+                        "file": "Literature/Notes/p515.md",
+                        "mode": "preview",
+                        "backlinks": true,
+                        "source": false
+                      }
+                    }
+                  },
+                  {
+                    "id": "8ef1cb24c32bbfc2",
+                    "type": "leaf",
+                    "state": {
+                      "type": "markdown",
+                      "state": {
+                        "file": "Literature/Theory/Methods/in Machine Learning/➕⏳Singular Value Decomposition (SVD) for cross-covariance matrices.md",
+                        "mode": "source",
+                        "backlinks": true,
+                        "source": false
+                      }
+                    }
+                  }
+                ],
+                "currentTab": 7
+              }
+            ],
+            "direction": "vertical",
+            "x": 664,
+            "y": -8,
+            "width": 513,
+            "height": 290,
+            "maximize": false,
+            "zoom": 2
+          }
+        ]
+      },
+      "active": "c5f36fcad95a3771"
+    },
+    "Multitask-Learning": {
+      "main": {
+        "id": "5fdfc609244a7604",
+        "type": "split",
+        "children": [
+          {
+            "id": "7192cab050549290",
+            "type": "tabs",
+            "children": [
+              {
+                "id": "000127ef97b147f5",
+                "type": "leaf",
+                "pinned": true,
+                "state": {
+                  "type": "markdown",
+                  "state": {
+                    "file": "P-Tasks/➕/➕Brainstorm ideas for directions in Multitask-Learning for improvement of algorithms.md",
+                    "mode": "source",
+                    "backlinks": true,
+                    "source": false
+                  },
+                  "pinned": true
+                }
+              },
+              {
+                "id": "afd8709c2365079f",
+                "type": "leaf",
+                "state": {
+                  "type": "markdown",
+                  "state": {
+                    "file": "Literature/Theory/Methods/in Machine Learning/Multitask-Learning.md",
+                    "mode": "source",
+                    "backlinks": true,
+                    "source": false
+                  }
+                },
+                "group": "bc0aa19979be0d10"
+              },
+              {
+                "id": "7d5a760463da8ce6",
+                "type": "leaf",
+                "state": {
+                  "type": "localgraph",
+                  "state": {
+                    "file": "Literature/Theory/Methods/in Machine Learning/Multitask-Learning.md",
+                    "options": {
+                      "collapse-filter": false,
+                      "search": "",
+                      "localJumps": 3,
+                      "localBacklinks": true,
+                      "localForelinks": true,
+                      "localInterlinks": false,
+                      "showTags": false,
+                      "showAttachments": false,
+                      "hideUnresolved": false,
+                      "collapse-color-groups": false,
+                      "colorGroups": [
+                        {
+                          "query": "path:P-Tasks/➕",
+                          "color": {
+                            "a": 1,
+                            "rgb": 15861511
+                          }
+                        },
+                        {
+                          "query": "file:has-",
+                          "color": {
+                            "a": 1,
+                            "rgb": 1331199
+                          }
+                        },
+                        {
+                          "query": "file:💭",
+                          "color": {
+                            "a": 1,
+                            "rgb": 11392604
+                          }
+                        },
+                        {
+                          "query": "tag:#Topic/ML/Multitask-Learning tag:#Topic/ML/Multitask-Learning",
+                          "color": {
+                            "a": 1,
+                            "rgb": 14724830
+                          }
+                        }
+                      ],
+                      "collapse-display": false,
+                      "showArrow": true,
+                      "textFadeMultiplier": -3,
+                      "nodeSizeMultiplier": 2.62995302223614,
+                      "lineSizeMultiplier": 1.77548387096774,
+                      "collapse-forces": true,
+                      "centerStrength": 0.243720638897588,
+                      "repelStrength": 15.1368618853743,
+                      "linkStrength": 1,
+                      "linkDistance": 343,
+                      "scale": 0.13168724279835334,
+                      "close": false
+                    }
+                  }
+                },
+                "group": "bc0aa19979be0d10"
+              },
+              {
+                "id": "f76f77144ca63f41",
+                "type": "leaf",
+                "state": {
+                  "type": "markdown",
+                  "state": {
+                    "file": "Literature/Notes/p566--3.md",
+                    "mode": "source",
+                    "backlinks": true,
+                    "source": false
+                  }
+                }
+              },
+              {
+                "id": "70236b34c3b8b21b",
+                "type": "leaf",
+                "state": {
+                  "type": "markdown",
+                  "state": {
+                    "file": "Literature/Notes/p566.md",
+                    "mode": "source",
+                    "backlinks": true,
+                    "source": false
+                  }
+                }
+              }
+            ],
+            "currentTab": 2
+          }
+        ],
+        "direction": "vertical"
+      },
+      "left": {
+        "id": "772f8d5aaf74934d",
+        "type": "split",
+        "children": [
+          {
+            "id": "f3d3a0bd8128f0f4",
+            "type": "tabs",
+            "children": [
+              {
+                "id": "04b5bb24270f2066",
+                "type": "leaf",
+                "state": {
+                  "type": "file-explorer",
+                  "state": {
+                    "sortOrder": "alphabetical"
+                  }
+                }
+              },
+              {
+                "id": "5de365f78311734a",
+                "type": "leaf",
+                "state": {
+                  "type": "search",
+                  "state": {
+                    "query": "assignment 1",
+                    "matchingCase": false,
+                    "explainSearch": false,
+                    "collapseAll": true,
+                    "extraContext": false,
+                    "sortOrder": "alphabetical"
+                  }
+                }
+              },
+              {
+                "id": "788b4a8e77c46cc1",
+                "type": "leaf",
+                "state": {
+                  "type": "bookmarks",
+                  "state": {}
+                }
+              },
+              {
+                "id": "f847a65ba313d78f",
+                "type": "leaf",
+                "state": {
+                  "type": "recent-files",
+                  "state": {}
+                }
+              }
+            ],
+            "currentTab": 2
+          }
+        ],
+        "direction": "horizontal",
+        "width": 200,
+        "collapsed": true
+      },
+      "right": {
+        "id": "88e25f987b523923",
+        "type": "split",
+        "children": [
+          {
+            "id": "d5f6e0ce6d8a7e45",
+            "type": "tabs",
+            "children": [
+              {
+                "id": "58542a20ba1aba52",
+                "type": "leaf",
+                "state": {
+                  "type": "backlink",
+                  "state": {
+                    "file": "Literature/Notes/p566--3.md",
+                    "collapseAll": false,
+                    "extraContext": false,
+                    "sortOrder": "alphabetical",
+                    "showSearch": false,
+                    "searchQuery": "",
+                    "backlinkCollapsed": false,
+                    "unlinkedCollapsed": true
+                  }
+                }
+              },
+              {
+                "id": "464cd7541a21b07d",
+                "type": "leaf",
+                "state": {
+                  "type": "outgoing-link",
+                  "state": {
+                    "file": "Literature/Notes/p566--3.md",
+                    "linksCollapsed": false,
+                    "unlinkedCollapsed": true
+                  }
+                }
+              },
+              {
+                "id": "1604697c94460b04",
+                "type": "leaf",
+                "state": {
+                  "type": "outline",
+                  "state": {
+                    "file": "Literature/Notes/p566--3.md"
+                  }
+                }
+              },
+              {
+                "id": "0fca21c017e2f1fd",
+                "type": "leaf",
+                "state": {
+                  "type": "tag",
+                  "state": {
+                    "sortOrder": "frequency",
+                    "useHierarchy": true
+                  }
+                }
+              },
+              {
+                "id": "57f00e2417f844a3",
+                "type": "leaf",
+                "state": {
+                  "type": "juggl_nodes",
+                  "state": {}
+                }
+              },
+              {
+                "id": "2d83e2cae6d83ff8",
+                "type": "leaf",
+                "state": {
+                  "type": "juggl_style",
+                  "state": {}
+                }
+              },
+              {
+                "id": "0a51a6dc92a2c6e6",
+                "type": "leaf",
+                "state": {
+                  "type": "calendar",
+                  "state": {}
+                }
+              },
+              {
+                "id": "fde989ff476731f9",
+                "type": "leaf",
+                "state": {
+                  "type": "advanced-tables-toolbar",
+                  "state": {}
+                }
+              },
+              {
+                "id": "c86bd29ee3bf8ef1",
+                "type": "leaf",
+                "state": {
+                  "type": "mermaid-toolbar-view",
+                  "state": {}
+                }
+              },
+              {
+                "id": "d7a277fd28dd3d14",
+                "type": "leaf",
+                "state": {
+                  "type": "review-queue-list-view",
+                  "state": {}
+                }
+              }
+            ],
+            "currentTab": 2
+          }
+        ],
+        "direction": "horizontal",
+        "width": 380.5,
+        "collapsed": true
+      },
+      "left-ribbon": {
+        "hiddenItems": {
+          "juggl:Juggl global graph": false,
+          "table-editor-obsidian:Advanced Tables Toolbar": false,
+          "smart-random-note:Open Random Note from Search": false,
+          "templater-obsidian:Templater": false,
+          "obsidian-extract-pdf-highlights:PDF Highlights": false,
+          "graph:Open graph view": false,
+          "obsidian-full-calendar:Open Full Calendar": false,
+          "tq-obsidian:tq": false,
+          "mermaid-tools:Open Mermaid Toolbar": false,
+          "switcher:Open quick switcher": false,
+          "canvas:Create new canvas": false,
+          "templates:Insert template": false,
+          "markdown-importer:Open format converter": false,
+          "command-palette:Open command palette": false,
+          "zk-prefixer:Create new unique note": false,
+          "audio-recorder:Start/stop recording": false,
+          "workspaces:Manage workspace layouts": false,
+          "obsidian-spaced-repetition:Review flashcards": false
+        }
+      },
+      "active": "7d5a760463da8ce6"
+    },
+    "Adaptive-Control-Revision": {
+      "main": {
+        "id": "5fdfc609244a7604",
+        "type": "split",
+        "children": [
+          {
+            "id": "7192cab050549290",
+            "type": "tabs",
+            "children": [
+              {
+                "id": "f37f50a916c27624",
+                "type": "leaf",
+                "pinned": true,
+                "state": {
+                  "type": "markdown",
+                  "state": {
+                    "file": "Literature/Theory/Theory/Math/Equations/Lyapunov Stability.md",
+                    "mode": "source",
+                    "backlinks": true,
+                    "source": false
+                  },
+                  "pinned": true
+                }
+              },
+              {
+                "id": "fe7009cd885ef904",
+                "type": "leaf",
+                "pinned": true,
+                "state": {
+                  "type": "markdown",
+                  "state": {
+                    "file": "Literature/Notes/Adaptive Control Revision/adaptive-control--revision.md",
+                    "mode": "source",
+                    "backlinks": true,
+                    "source": false
+                  },
+                  "pinned": true
+                }
+              },
+              {
+                "id": "6f6ce92b3c0db616",
+                "type": "leaf",
+                "pinned": true,
+                "state": {
+                  "type": "markdown",
+                  "state": {
+                    "file": "Literature/Theory/Theory/Math/Equations/Lyapunov Stability.md",
+                    "mode": "source",
+                    "backlinks": true,
+                    "source": false
+                  },
+                  "pinned": true
+                }
+              },
+              {
+                "id": "4248acca43df2273",
+                "type": "leaf",
+                "pinned": true,
+                "state": {
+                  "type": "markdown",
+                  "state": {
+                    "file": "NTNU/Courses/Adaptive Control/Assignments/1st-Assignment/WRITING.md",
+                    "mode": "preview",
+                    "backlinks": true,
+                    "source": false
+                  },
+                  "pinned": true
+                }
+              },
+              {
+                "id": "538e08238f2fc6da",
+                "type": "leaf",
+                "pinned": true,
+                "state": {
+                  "type": "markdown",
+                  "state": {
+                    "file": "NTNU/Courses/Adaptive Control/Assignments/2nd-Assignment/Assignment--2.md",
+                    "mode": "source",
+                    "backlinks": true,
+                    "source": false
+                  },
+                  "pinned": true
+                }
+              },
+              {
+                "id": "e08e100e97c09ec0",
+                "type": "leaf",
+                "state": {
+                  "type": "markdown",
+                  "state": {
+                    "file": "Literature/Theory/Theory/Math/Equations/Decreascent function V(t, x).md",
+                    "mode": "source",
+                    "backlinks": true,
+                    "source": false
+                  }
+                }
+              }
+            ],
+            "currentTab": 2
+          }
+        ],
+        "direction": "vertical"
+      },
+      "left": {
+        "id": "772f8d5aaf74934d",
+        "type": "split",
+        "children": [
+          {
+            "id": "f3d3a0bd8128f0f4",
+            "type": "tabs",
+            "children": [
+              {
+                "id": "04b5bb24270f2066",
+                "type": "leaf",
+                "state": {
+                  "type": "file-explorer",
+                  "state": {
+                    "sortOrder": "alphabetical"
+                  }
+                }
+              },
+              {
+                "id": "5de365f78311734a",
+                "type": "leaf",
+                "state": {
+                  "type": "search",
+                  "state": {
+                    "query": "debug",
+                    "matchingCase": false,
+                    "explainSearch": false,
+                    "collapseAll": true,
+                    "extraContext": false,
+                    "sortOrder": "alphabetical"
+                  }
+                }
+              },
+              {
+                "id": "788b4a8e77c46cc1",
+                "type": "leaf",
+                "state": {
+                  "type": "bookmarks",
+                  "state": {}
+                }
+              },
+              {
+                "id": "927d6bfb5908cbe8",
+                "type": "leaf",
+                "state": {
+                  "type": "recent-files",
+                  "state": {}
+                }
+              }
+            ],
+            "currentTab": 3
+          }
+        ],
+        "direction": "horizontal",
+        "width": 382.5030632019043,
+        "collapsed": true
+      },
+      "right": {
+        "id": "88e25f987b523923",
+        "type": "split",
+        "children": [
+          {
+            "id": "d5f6e0ce6d8a7e45",
+            "type": "tabs",
+            "children": [
+              {
+                "id": "58542a20ba1aba52",
+                "type": "leaf",
+                "state": {
+                  "type": "backlink",
+                  "state": {
+                    "file": "Literature/Theory/Theory/Math/Equations/Lyapunov Stability.md",
+                    "collapseAll": false,
+                    "extraContext": false,
+                    "sortOrder": "alphabetical",
+                    "showSearch": false,
+                    "searchQuery": "",
+                    "backlinkCollapsed": false,
+                    "unlinkedCollapsed": true
+                  }
+                }
+              },
+              {
+                "id": "464cd7541a21b07d",
+                "type": "leaf",
+                "state": {
+                  "type": "outgoing-link",
+                  "state": {
+                    "file": "Literature/Theory/Theory/Math/Equations/Lyapunov Stability.md",
+                    "linksCollapsed": false,
+                    "unlinkedCollapsed": true
+                  }
+                }
+              },
+              {
+                "id": "1604697c94460b04",
+                "type": "leaf",
+                "state": {
+                  "type": "outline",
+                  "state": {
+                    "file": "Literature/Theory/Theory/Math/Equations/Lyapunov Stability.md"
+                  }
+                }
+              },
+              {
+                "id": "0fca21c017e2f1fd",
+                "type": "leaf",
+                "state": {
+                  "type": "tag",
+                  "state": {
+                    "sortOrder": "frequency",
+                    "useHierarchy": true
+                  }
+                }
+              },
+              {
+                "id": "57f00e2417f844a3",
+                "type": "leaf",
+                "state": {
+                  "type": "juggl_nodes",
+                  "state": {}
+                }
+              },
+              {
+                "id": "2d83e2cae6d83ff8",
+                "type": "leaf",
+                "state": {
+                  "type": "juggl_style",
+                  "state": {}
+                }
+              },
+              {
+                "id": "0a51a6dc92a2c6e6",
+                "type": "leaf",
+                "state": {
+                  "type": "calendar",
+                  "state": {}
+                }
+              },
+              {
+                "id": "fde989ff476731f9",
+                "type": "leaf",
+                "state": {
+                  "type": "advanced-tables-toolbar",
+                  "state": {}
+                }
+              },
+              {
+                "id": "c86bd29ee3bf8ef1",
+                "type": "leaf",
+                "state": {
+                  "type": "mermaid-toolbar-view",
+                  "state": {}
+                }
+              },
+              {
+                "id": "d7a277fd28dd3d14",
+                "type": "leaf",
+                "state": {
+                  "type": "review-queue-list-view",
+                  "state": {}
+                }
+              }
+            ],
+            "currentTab": 2
+          }
+        ],
+        "direction": "horizontal",
+        "width": 200,
+        "collapsed": true
+      },
+      "left-ribbon": {
+        "hiddenItems": {
+          "juggl:Juggl global graph": false,
+          "table-editor-obsidian:Advanced Tables Toolbar": false,
+          "smart-random-note:Open Random Note from Search": false,
+          "templater-obsidian:Templater": false,
+          "obsidian-extract-pdf-highlights:PDF Highlights": false,
+          "graph:Open graph view": false,
+          "obsidian-full-calendar:Open Full Calendar": false,
+          "tq-obsidian:tq": false,
+          "mermaid-tools:Open Mermaid Toolbar": false,
+          "switcher:Open quick switcher": false,
+          "audio-recorder:Start/stop recording": false,
+          "canvas:Create new canvas": false,
+          "templates:Insert template": false,
+          "markdown-importer:Open format converter": false,
+          "command-palette:Open command palette": false,
+          "zk-prefixer:Create new unique note": false,
+          "workspaces:Manage workspace layouts": false,
+          "obsidian-spaced-repetition:Review flashcards": false,
+          "obsidian-journey-plugin:Find Journey": false
+        }
+      },
+      "active": "6f6ce92b3c0db616"
+    }
+  },
+  "active": "Deep-Learning"
+}

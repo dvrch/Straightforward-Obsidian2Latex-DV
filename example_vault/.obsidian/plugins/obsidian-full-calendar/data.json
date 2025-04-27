@@ -1,0 +1,27 @@
+{
+  "calendarSources": [
+    {
+      "type": "ical",
+      "color": "#05e63d",
+      "url": "https://calendar.google.com/calendar/u/0/r"
+    },
+    {
+      "type": "local",
+      "color": "#7c2727",
+      "directory": "Literature"
+    },
+    {
+      "type": "local",
+      "color": "#7a5086",
+      "directory": "Meetings"
+    }
+  ],
+  "defaultCalendar": 0,
+  "recursiveLocal": true,
+  "firstDay": 0,
+  "initialView": {
+    "desktop": "timeGridWeek",
+    "mobile": "timeGrid3Days"
+  },
+  "timeFormat24h": true
+}

@@ -1,0 +1,356 @@
+{
+  "main": {
+    "id": "5fdfc609244a7604",
+    "type": "split",
+    "children": [
+      {
+        "id": "47ec2075762d6fb6",
+        "type": "tabs",
+        "children": [
+          {
+            "id": "2d5a421b327386ab",
+            "type": "leaf",
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "dev-tasks.md",
+                "mode": "source",
+                "backlinks": true,
+                "source": false
+              }
+            }
+          },
+          {
+            "id": "7bd727e6d229d4f5",
+            "type": "leaf",
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "✍Writing/example_writing.md",
+                "mode": "source",
+                "backlinks": true,
+                "source": false
+              }
+            }
+          },
+          {
+            "id": "a006773ba17b29e5",
+            "type": "leaf",
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "✍Writing/formatting.md",
+                "mode": "source",
+                "backlinks": true,
+                "source": false
+              }
+            }
+          },
+          {
+            "id": "547884bf52d5560e",
+            "type": "leaf",
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "✍Writing/figure blocks/figure__block_1.md",
+                "mode": "source",
+                "backlinks": true,
+                "source": false
+              }
+            }
+          }
+        ],
+        "currentTab": 1
+      }
+    ],
+    "direction": "vertical"
+  },
+  "left": {
+    "id": "772f8d5aaf74934d",
+    "type": "split",
+    "children": [
+      {
+        "id": "f3d3a0bd8128f0f4",
+        "type": "tabs",
+        "children": [
+          {
+            "id": "04b5bb24270f2066",
+            "type": "leaf",
+            "state": {
+              "type": "file-explorer",
+              "state": {
+                "sortOrder": "alphabetical"
+              }
+            }
+          },
+          {
+            "id": "5de365f78311734a",
+            "type": "leaf",
+            "state": {
+              "type": "search",
+              "state": {
+                "query": "",
+                "matchingCase": true,
+                "explainSearch": false,
+                "collapseAll": true,
+                "extraContext": false,
+                "sortOrder": "alphabetical"
+              }
+            }
+          },
+          {
+            "id": "1a397bff9a2fc925",
+            "type": "leaf",
+            "state": {
+              "type": "bookmarks",
+              "state": {}
+            }
+          },
+          {
+            "id": "36626ac6da9827d3",
+            "type": "leaf",
+            "state": {
+              "type": "recent-files",
+              "state": {}
+            }
+          }
+        ],
+        "currentTab": 3
+      }
+    ],
+    "direction": "horizontal",
+    "width": 328.5049018859863,
+    "collapsed": true
+  },
+  "right": {
+    "id": "88e25f987b523923",
+    "type": "split",
+    "children": [
+      {
+        "id": "d5f6e0ce6d8a7e45",
+        "type": "tabs",
+        "children": [
+          {
+            "id": "58542a20ba1aba52",
+            "type": "leaf",
+            "state": {
+              "type": "backlink",
+              "state": {
+                "file": "✍Writing/example_writing.md",
+                "collapseAll": false,
+                "extraContext": false,
+                "sortOrder": "alphabetical",
+                "showSearch": false,
+                "searchQuery": "",
+                "backlinkCollapsed": false,
+                "unlinkedCollapsed": true
+              }
+            }
+          },
+          {
+            "id": "464cd7541a21b07d",
+            "type": "leaf",
+            "state": {
+              "type": "outgoing-link",
+              "state": {
+                "file": "✍Writing/example_writing.md",
+                "linksCollapsed": false,
+                "unlinkedCollapsed": true
+              }
+            }
+          },
+          {
+            "id": "0fca21c017e2f1fd",
+            "type": "leaf",
+            "state": {
+              "type": "tag",
+              "state": {
+                "sortOrder": "frequency",
+                "useHierarchy": true
+              }
+            }
+          },
+          {
+            "id": "1604697c94460b04",
+            "type": "leaf",
+            "state": {
+              "type": "outline",
+              "state": {
+                "file": "✍Writing/example_writing.md"
+              }
+            }
+          },
+          {
+            "id": "57f00e2417f844a3",
+            "type": "leaf",
+            "state": {
+              "type": "juggl_nodes",
+              "state": {}
+            }
+          },
+          {
+            "id": "2d83e2cae6d83ff8",
+            "type": "leaf",
+            "state": {
+              "type": "juggl_style",
+              "state": {}
+            }
+          },
+          {
+            "id": "990dfebf2b45c1f1",
+            "type": "leaf",
+            "state": {
+              "type": "review-queue-list-view",
+              "state": {}
+            }
+          },
+          {
+            "id": "e0e56ddce154fbcb",
+            "type": "leaf",
+            "state": {
+              "type": "calendar",
+              "state": {}
+            }
+          },
+          {
+            "id": "4f867e2ab96daf98",
+            "type": "leaf",
+            "state": {
+              "type": "advanced-tables-toolbar",
+              "state": {}
+            }
+          },
+          {
+            "id": "8b41c2bbb8a12f82",
+            "type": "leaf",
+            "state": {
+              "type": "full-calendar-view",
+              "state": {}
+            }
+          },
+          {
+            "id": "9659b84c04a81acb",
+            "type": "leaf",
+            "state": {
+              "type": "mermaid-toolbar-view",
+              "state": {}
+            }
+          },
+          {
+            "id": "32e2b9b265632e22",
+            "type": "leaf",
+            "state": {
+              "type": "smart-connections-view",
+              "state": {}
+            }
+          },
+          {
+            "id": "445224429c6898ff",
+            "type": "leaf",
+            "state": {
+              "type": "smart-connections-chat-view",
+              "state": {}
+            }
+          },
+          {
+            "id": "a0e6c5cbc6fdb4a7",
+            "type": "leaf",
+            "state": {
+              "type": "Strange New Worlds",
+              "state": {}
+            }
+          }
+        ],
+        "currentTab": 2
+      }
+    ],
+    "direction": "horizontal",
+    "width": 488.5,
+    "collapsed": true
+  },
+  "left-ribbon": {
+    "hiddenItems": {
+      "random-note:Open random note": false,
+      "graph:Open graph view": false,
+      "switcher:Open quick switcher": false,
+      "canvas:Create new canvas": false,
+      "templates:Insert template": false,
+      "markdown-importer:Open format converter": false,
+      "command-palette:Open command palette": false,
+      "zk-prefixer:Create new unique note": false,
+      "audio-recorder:Start/stop recording": false,
+      "workspaces:Manage workspace layouts": false,
+      "juggl:Juggl global graph": false,
+      "table-editor-obsidian:Advanced Tables Toolbar": false,
+      "smart-random-note:Open Random Note from Search": false,
+      "templater-obsidian:Templater": false,
+      "obsidian-spaced-repetition:Review flashcards": false,
+      "obsidian-extract-pdf-highlights:PDF Highlights": false,
+      "obsidian-full-calendar:Open Full Calendar": false,
+      "tq-obsidian:tq": false,
+      "mermaid-tools:Open Mermaid Toolbar": false,
+      "obsidian-journey-plugin:Find Journey": false,
+      "obsidian-projects:Open projects": false,
+      "smart-connections:Open: View Smart Connections": false,
+      "smart-connections:Open: Smart Chat Conversation": false
+    }
+  },
+  "active": "7bd727e6d229d4f5",
+  "lastOpenFiles": [
+    "dev-tasks.md",
+    "✍Writing/example_writing.md",
+    "✍Writing/figure blocks/figure__block_1.md",
+    "✍Writing/formatting.md",
+    "✍Writing/_minted-example_writing/3DB6A9C19A296A94B37692E7E3F5DBB584BD4F983A59ACC91A26EDB3D0AA1050.pygtex",
+    "✍Writing/_minted-example_writing/B46DD27F0CAD2D1F8A57270FD6D77D8B84BD4F983A59ACC91A26EDB3D0AA1050.pygtex",
+    "Untitled.md",
+    "✍Writing/example_writing.pyg",
+    "✍Writing/example_writing.aex",
+    "✍Writing/example_writing.synctex(busy)",
+    "✍Writing/_minted-example_writing/6763A1460049F34C1951E8CA7CDC257784BD4F983A59ACC91A26EDB3D0AA1050.pygtex",
+    "✍Writing/equation blocks/eq__block_1.md",
+    "✍Writing/embedded with sections.md",
+    "✍Writing/_minted-example_writing/default.pygstyle",
+    "📚Literature/Notes/p1.md",
+    "DO_NOT_DELETE__note_paths.txt",
+    "New Text Document.txt",
+    "✍Writing/example_writing.bbl",
+    "✍Writing/figure blocks/Pasted image 20240609012251.png",
+    "✍Writing/figure blocks/Pasted image 20240609012221.png",
+    "✍Writing/figure blocks/figure__block_gradient_steps.md",
+    "✍Writing/figure blocks/Pasted image 20240609012140.png",
+    "✍Writing/equation blocks/eq__block_Einstein.md",
+    "📚Literature/p1.md",
+    "📚Literature/p620.md",
+    "👨‍💻Automations/equation_block.md",
+    "👨‍💻Automations/figure_block.md",
+    "Literature/Straightforward-Obsidian2Latex/example_vault/Untitled.md",
+    "Literature/Straightforward-Obsidian2Latex/example_vault/Welcome.md",
+    "Literature/Notes/Comparisons/between methods/choosing MTL architectures.canvas",
+    "Literature/Notes/p821.md",
+    "Literature/Theory/Methods/in Machine Learning/csMTL.md",
+    "Literature/Notes/Comparisons/between methods/p706--model-equations.md",
+    "Literature/Notes/p819.md",
+    "small parts/💭reasoning (if not moved elsewhere)/💭csMTL vs other contextual based MTL methods.md",
+    "Literature/Notes/Comparisons/between methods/comparison--csMTL--other-contextual-input-methods-in-p706.md",
+    "📺Meetings/➕meeting with Ole and Nils on PINNs.md",
+    "small parts/💭reasoning (if not moved elsewhere)/💭Regarding the different MTL architectures.md",
+    "Literature/Notes/p706.md",
+    "✍Writing/figure blocks/Pasted image 20240606144706.png",
+    "📺Meetings/presentation--biweekly meeting 27.09.2023.canvas",
+    "✍Writing/figure blocks/Pasted image 20240321134414.png",
+    "✍Writing/figure blocks/Pasted image 20240604135545.png",
+    "✍Writing/figure blocks/Pasted image 20240604140512.png",
+    "✍Writing/figure blocks/Pasted image 20240604134105.png",
+    "✍Writing/figure blocks/Pasted image 20240604094358.png",
+    "Applications/FILES/PHOTO.png",
+    "📺Meetings/presentation--monthly-meeting--23-11-29.canvas",
+    "first meeting with Adil Rasheed.canvas",
+    "Literature/Theory/Theory/Random Perturbations.canvas",
+    "📺Meetings/Conversations/CANVASES/🌟Discussion with Ole to resolve the issue.canvas",
+    "📺Meetings/Obsidian presentation/Obsidian presentation.canvas",
+    "Literature/Notes/READ-LITERATURE--WRITE-WHAT-CONTRIBUTIONS-CAN-BE-DONE.canvas",
+    "📺Meetings/Conversations/CANVASES/Meeting--Marios-Bjarne--2023-06-14.canvas",
+    "Literature/Theory/Theory/Phenomena/PHENOMENA canvas.canvas"
+  ]
+}

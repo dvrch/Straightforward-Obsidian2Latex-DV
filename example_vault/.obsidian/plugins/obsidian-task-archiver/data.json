@@ -1,0 +1,34 @@
+{
+  "taskSortOrder": "Newest last",
+  "archiveHeading": "Archived",
+  "archiveHeadingDepth": 1,
+  "weeklyNoteFormat": "YYYY-MM-[W]-w",
+  "useWeeks": true,
+  "dailyNoteFormat": "YYYY-MM-DD",
+  "useDays": false,
+  "useAdditionalTaskPattern": false,
+  "additionalTaskPattern": "",
+  "addNewlinesAroundHeadings": true,
+  "archiveToSeparateFile": false,
+  "archiveUnderHeading": true,
+  "defaultArchiveFileName": "% (archive)",
+  "archiveAllCheckedTaskTypes": false,
+  "sortAlphabetically": false,
+  "dateFormat": "YYYY-MM-DD",
+  "rules": [],
+  "indentationSettings": {
+    "useTab": true,
+    "tabSize": 4
+  },
+  "textReplacement": {
+    "applyReplacement": false,
+    "regex": "#([A-Za-z-]+)",
+    "replacement": "@$1",
+    "replacementTest": "task #some-tag"
+  },
+  "additionalMetadataBeforeArchiving": {
+    "dateFormat": "YYYY-MM-DD",
+    "addMetadata": false,
+    "metadata": "(this was archived)"
+  }
+}

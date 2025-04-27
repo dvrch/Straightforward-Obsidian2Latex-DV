@@ -1,0 +1,14 @@
+{
+  "accentColor": "",
+  "theme": "moonstone",
+  "baseFontSize": 13,
+  "cssTheme": "",
+  "textFontFamily": "Constantia,Ink Free,MV Boli,Baskerville Old Face,Cambria,Harrington,Cambria Math",
+  "enabledCssSnippets": [
+    "quoteblocks",
+    "v-checkbox-no-strike-through"
+  ],
+  "translucency": false,
+  "baseFontSizeAction": true,
+  "interfaceFontFamily": "Ink Free"
+}

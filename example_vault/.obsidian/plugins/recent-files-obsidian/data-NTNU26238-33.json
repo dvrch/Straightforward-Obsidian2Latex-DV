@@ -1,0 +1,207 @@
+{
+  "recentFiles": [
+    {
+      "basename": "datav--Pubs--Extremum-Seeking",
+      "path": "Literature/Notes/datav--Pubs--Extremum-Seeking.md"
+    },
+    {
+      "basename": "p518",
+      "path": "Literature/Notes/p518.md"
+    },
+    {
+      "basename": "p469",
+      "path": "Literature/Notes/p469.md"
+    },
+    {
+      "basename": "p331",
+      "path": "Literature/Notes/p331.md"
+    },
+    {
+      "basename": "p173",
+      "path": "Literature/Notes/p173.md"
+    },
+    {
+      "basename": "p460",
+      "path": "Literature/Notes/p460.md"
+    },
+    {
+      "basename": "👨‍💻extremum_seeking_loop.slx",
+      "path": "Literature/Exercises/Extremum Seeking Control/👨‍💻extremum_seeking_loop.slx.md"
+    },
+    {
+      "basename": "p220--Universal approximation property of ANNs",
+      "path": "Literature/Notes/p220--Universal approximation property of ANNs.md"
+    },
+    {
+      "basename": "deep feedworward networks",
+      "path": "P-Tasks/➕/⏳/deep feedworward networks.md"
+    },
+    {
+      "basename": "p220--why we need many layers in ANNs",
+      "path": "Literature/Notes/p220--why we need many layers in ANNs.md"
+    },
+    {
+      "basename": "p220",
+      "path": "Literature/Notes/p220.md"
+    },
+    {
+      "basename": "p220--what is off-policy learning",
+      "path": "Literature/Notes/p220--what is off-policy learning.md"
+    },
+    {
+      "basename": "has-method--RL--Off-Policy-Control",
+      "path": "Literature/Properties/in Pubs/has-method--RL--Off-Policy-Control.md"
+    },
+    {
+      "basename": "p220--92",
+      "path": "Literature/Notes/p220--92.md"
+    },
+    {
+      "basename": "💭 Against--RL--Off-Policy-Methods",
+      "path": "Literature/Notes/💭 Arguments/against/in Reinforcement Learning/💭 Against--RL--Off-Policy-Methods.md"
+    },
+    {
+      "basename": "💭 In-favor-of--RL--Off-Policy",
+      "path": "Literature/Notes/💭 Arguments/in favor of/in Reinforcement Learning/💭 In-favor-of--RL--Off-Policy.md"
+    },
+    {
+      "basename": "p335",
+      "path": "Literature/Notes/p335.md"
+    },
+    {
+      "basename": "Adaptive Pole Placement Control (APPC)",
+      "path": "Literature/Notes/Adaptive Control Revision/Adaptive Pole Placement Control (APPC).md"
+    },
+    {
+      "basename": "Extremum Seeking",
+      "path": "Literature/Theory/Methods/in Extremum Seeking/Extremum Seeking.md"
+    },
+    {
+      "basename": "➕--📖-Evolutionary game theory",
+      "path": "P-Tasks/➕/👨‍🎓/➕--📖-Evolutionary game theory.md"
+    },
+    {
+      "basename": "Internal Model Principle",
+      "path": "Literature/Notes/Internal Model Principle.md"
+    },
+    {
+      "basename": "cost-function--estimation-error",
+      "path": "Literature/Notes/Adaptive Control Revision/cost-function--estimation-error.md"
+    },
+    {
+      "basename": "adaptive-control--revision",
+      "path": "Literature/Notes/Adaptive Control Revision/adaptive-control--revision.md"
+    },
+    {
+      "basename": "Lyapunov-like Functions",
+      "path": "Literature/Theory/Theory/Math/Equations/Lyapunov-like Functions.md"
+    },
+    {
+      "basename": "modes of variation",
+      "path": "Literature/Theory/Theory/Math/Equations/basic-math/modes of variation.md"
+    },
+    {
+      "basename": "the most general class of adaptive control schemes",
+      "path": "Factoids/adaptive control revision/the most general class of adaptive control schemes.md"
+    },
+    {
+      "basename": "Lyapunov, u.a.s. VS u.s.",
+      "path": "Factoids/adaptive control revision/Lyapunov, u.a.s. VS u.s..md"
+    },
+    {
+      "basename": "do we always care about parameter convergence❓",
+      "path": "Factoids/adaptive control revision/do we always care about parameter convergence❓.md"
+    },
+    {
+      "basename": "why were Lyapunov methods prefered over Gradient Methods❓",
+      "path": "Factoids/adaptive control revision/why were Lyapunov methods prefered over Gradient Methods❓.md"
+    },
+    {
+      "basename": "what does APPC offer that MRAC doesnt",
+      "path": "Factoids/adaptive control revision/what does APPC offer that MRAC doesnt.md"
+    },
+    {
+      "basename": "what is known as self-tuning regulators",
+      "path": "Factoids/adaptive control revision/what is known as self-tuning regulators.md"
+    },
+    {
+      "basename": "basic premise of Lyapunov's indirect method",
+      "path": "Factoids/adaptive control revision/basic premise of Lyapunov's indirect method.md"
+    },
+    {
+      "basename": "essense of SPR Lyapunov design approach",
+      "path": "Factoids/adaptive control revision/essense of SPR Lyapunov design approach.md"
+    },
+    {
+      "basename": "also known as self-tuning regulators in literature",
+      "path": "Literature/Notes/Adaptive Control Revision/also known as self-tuning regulators in literature.md"
+    },
+    {
+      "basename": "benefits and drawbacks of indirect APPC",
+      "path": "Factoids/adaptive control revision/benefits and drawbacks of indirect APPC.md"
+    },
+    {
+      "basename": "➕what are unsolved issues of adaptive control",
+      "path": "Factoids/adaptive control revision/➕what are unsolved issues of adaptive control.md"
+    },
+    {
+      "basename": "what is a Lyapunov-like function",
+      "path": "Factoids/adaptive control revision/what is a Lyapunov-like function.md"
+    },
+    {
+      "basename": "why we separate control problem from parameter identification problem",
+      "path": "Factoids/adaptive control revision/why we separate control problem from parameter identification problem.md"
+    },
+    {
+      "basename": "Assignment--10",
+      "path": "P-Tasks/✔/Assignment--10.md"
+    },
+    {
+      "basename": "APPC--goal",
+      "path": "Literature/Notes/Adaptive Control Revision/APPC--goal.md"
+    },
+    {
+      "basename": "Assignment--2",
+      "path": "NTNU/Courses/Adaptive Control/Assignments/2nd-Assignment/Assignment--2.md"
+    },
+    {
+      "basename": "p228--19",
+      "path": "Literature/Notes/p228--19.md"
+    },
+    {
+      "basename": "Model Reference Adaptive Control (MRAC)",
+      "path": "Literature/Notes/Adaptive Control Revision/Model Reference Adaptive Control (MRAC).md"
+    },
+    {
+      "basename": "eq--Sylvester-Matrix",
+      "path": "Literature/Notes/Equations/in Adaptive Control/eq--Sylvester-Matrix.md"
+    },
+    {
+      "basename": "eq--Sylvester-Equation",
+      "path": "Literature/Notes/Equations/in Adaptive Control/eq--Sylvester-Equation.md"
+    },
+    {
+      "basename": "🔗NTNU",
+      "path": "NTNU/Org/🔗NTNU.md"
+    },
+    {
+      "basename": "Lyapunov Matrix Equation",
+      "path": "Literature/Theory/Theory/Math/Equations/Lyapunov Matrix Equation.md"
+    },
+    {
+      "basename": "Adaptive Law",
+      "path": "Literature/Notes/Adaptive Control Revision/Adaptive Law.md"
+    },
+    {
+      "basename": "unsolved issue of adaptive control",
+      "path": "Literature/Notes/Adaptive Control Revision/unsolved issue of adaptive control.md"
+    },
+    {
+      "basename": "ℹLinux-Notes",
+      "path": "Literature/Notes/🔗/👩‍💻/ℹLinux-Notes.md"
+    }
+  ],
+  "omittedPaths": [],
+  "maxLength": null,
+  "openType": "tab"
+}
