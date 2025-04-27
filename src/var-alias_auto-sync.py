@@ -6,14 +6,8 @@ import sys
 
 # === EN-TÊTE : Table de correspondance ===
 alias_map = {
-    'a': 'cle',
-    'b': 'motif',
-    'c': 'chemins',
-    'd': 'racine',
-    'e': 'rmt',
-    'f': 'motifs',
-    'g': 'cle_pattern_paths',
-    'h': 'fl',
+    'a': 'cle', 'b': 'motif', 'c': 'chemins', 'd': 'racine', 'e': 'recherche_motifs', 
+    'f': 'motifs', 'g': 'cle_pattern_paths', 'h': 'fl', 'x': 'parsed_yaml',
 }
 
 # Fonction de synchronisation automatique des alias (robuste)
@@ -23,17 +17,18 @@ def sync_aliases():
         if varname in gbl:
             gbl[alias] = gbl[varname]
 
+
 # --- DÉFINITION DES VARIABLES ---
 cle = "clé_exemple"
 motif = "motif_exemple"
 chemins = ["chemin1", "chemin2"]
-racine = Path("/chemin/absolu/vers/racine")
-fl = """ 
-    base_path : "bbb"
-    lauch_sh : 
+racine = ""
+fl = rf""" 
+    base_path : 
+    lauch_sh : ".sh"
     launch_py : 
-    latex_file : writing.tex
-    pdf_file : writing.pdf
+    latex_file : 
+    pdf_file : 
     path_vault:   example_vault  
     path_writing:   ✍Writing  
     path_templates:   👨‍💻Automations  
@@ -44,50 +39,48 @@ fl = """
     path_list_note_paths:   DO_NOT_DELETE__note_paths.txt  
     path_BIBTEX:   BIBTEX  
 """
+parsed_yaml = yaml.safe_load(fl)
 
 # --- DÉFINITION DES FONCTIONS ET DICTIONNAIRES AVEC ALIAS ---
-racine = Path(__file__).resolve().parent
-e = rmt = lambda d, b, dossier1st='d': [
-    str(item)
-    for dossier, sous_dossiers, fichiers in os.walk(Path(d))
-    for item in (
-        [*(Path(dossier)/d for d in sous_dossiers), *(Path(dossier)/f for f in fichiers)]
-        if dossier1st == 'd'
-        else [*(Path(dossier)/f for f in fichiers), *(Path(dossier)/d for d in sous_dossiers)]
-    )
-    if re.search(b, item.name, re.I)
-]
+d = yaml.safe_load(fl)["base_path"] or Path(__file__).resolve().parent.parent
+
+def recherche_motifs(d, b, dossier1st='d'):
+    # On vérifie que b est bien une chaîne non vide
+    if not isinstance(b, str) or not b.strip():
+        return []
+    return [
+        str(item)
+        for dossier, sous_dossiers, fichiers in os.walk(Path(d))
+        for item in (
+            [*(Path(dossier)/d for d in sous_dossiers), *(Path(dossier)/f for f in fichiers)]
+            if dossier1st == 'd'
+            else [*(Path(dossier)/f for f in fichiers), *(Path(dossier)/d for d in sous_dossiers)]
+        )
+        if re.search(b, item.name, re.I)
+    ]
+
+e = recherche_motifs  # alias
 
 # Parsing YAML du string fl
 parsed_yaml = yaml.safe_load(fl)
 
-f = motifs = {
-    a: (yaml.safe_load(open("fl.md", encoding="utf-8")) 
-        if Path("fl.md").is_file() 
-        else {}).get(a) or val
-    for a, val in parsed_yaml.items()
-}
+# On force tous les motifs à être des chaînes (sinon "")
+f = motifs = {a: str(
+            (yaml.safe_load(open("fl.md", encoding="utf-8"))
+            if Path("fl.md").is_file()
+            else {}).get(a) or val or None
+                    ) for a, val in parsed_yaml.items()}
 
 g = cle_pattern_paths = {
-    a: f'{a} "{c[0]}"' if (c := e(racine, b)) else f'{a} "path non trouvé"'
+    a: ((f"{b} --> {c[0]}" if c else None)
+    or (f"{b}" if Path(f"{b}").exists() else None)
+    or "-- path non trouvé--".strip()
+    )
     for a, b in f.items()
-} # formule  verbeuse : g = {a: f"{a} {c}" for a, c in cle_pattern_paths.items()}
+    for c in [e(d, b)]
+}
 
 # Synchronisation initiale des alias (après définition des variables)
-sync_aliases()
-
-# --- UTILISATION DES ALIAS PARTOUT ---
-# print(g)      # ou print(cle_pattern_paths)
-# print(a)      # alias de cle
-# print(cle)    # idem
-# print(f)      # alias de motifs
-# print(motifs) # idem
-
-# Exemple d'accès à une variable intermédiaire :
-for a, b in f.items():
-    c = e(d, b)
-    print(f"{a}: {c}")
-
 # --- EXEMPLE DE MODIFICATION ET RESYNCHRONISATION ---
 # cle = "nouvelle_clé"
 sync_aliases()
