@@ -6,7 +6,7 @@ import sys
 
 # === EN-TÊTE : Table de correspondance ===
 alias_map = {
-    'a': 'cle', 'b': 'motif', 'c': 'chemins', 'd': 'racine', 'e': 'recherche_motifs', 
+    'a': 'cle', 'b': 'motif', 'c': 'chemins', 'd': 'racine', 'e': 'recherche_motifs',
     'f': 'motifs', 'g': 'cle_pattern_paths', 'h': 'fl', 'x': 'parsed_yaml',
 }
 
@@ -17,28 +17,26 @@ def sync_aliases():
         if varname in gbl:
             gbl[alias] = gbl[varname]
 
-
-
 # --- DÉFINITION DES VARIABLES ---
 cle = "clé_exemple"
 motif = "motif_exemple"
 chemins = ["chemin1", "chemin2"]
 racine = ""
-fl = rf""" 
-    base_path : 
+fl = rf"""
+    base_path :
     lauch_sh : ".sh"
-    launch_py : 
-    latex_file : 
-    pdf_file : 
-    path_vault:   example_vault  
-    path_writing:   ✍Writing  
-    path_templates:   👨‍💻Automations  
-    path_table_block_template:   table_block.md  
-    path_equation_block_template:   equation_block_single.md  
-    path_equation_blocks:   equation blocks  
-    path_table_blocks:   table blocks  
-    path_list_note_paths:   DO_NOT_DELETE__note_paths.txt  
-    path_BIBTEX:   BIBTEX  
+    launch_py :
+    latex_file :
+    pdf_file :
+    path_vault:   example_vault
+    path_writing:   ✍Writing
+    path_templates:   👨‍💻Automations
+    path_table_block_template:   table_block.md
+    path_equation_block_template:   equation_block_single.md
+    path_equation_blocks:   equation blocks
+    path_table_blocks:   table blocks
+    path_list_note_paths:   DO_NOT_DELETE__note_paths.txt
+    path_BIBTEX:   BIBTEX
 """
 parsed_yaml = yaml.safe_load(fl)
 
@@ -64,28 +62,37 @@ e = recherche_motifs  # alias
 
 # Parsing YAML du string fl
 md = Path("src/fl.md").resolve()
+pars = {}
 if md.exists():
     with open(md, encoding="utf-8") as f:
-        pars = yaml.safe_load(f)
-else:
-    pars = {}
+        try:
+            pars = yaml.safe_load(f)
+        except yaml.YAMLError as e:
+            print(f"Erreur de YAML dans {md}: {e}")
 
 p1 = parsed_yaml_var = yaml.safe_load(fl)
-p2 = pars = yaml.safe_load(open(md, encoding="utf-8"))
-             
-f = motifs = {ll: lli  for ll, lli in p2.items() or P1.items() }
+
+# Fusionner les dictionnaires p1 et pars
+f = motifs = {**p1, **pars}
 
 g = cle_pattern_paths = {
     a: ((f"{b} --> {c[0]}" if c else None)
-    or (f"{b}" if Path(f"{b}").exists() else None)
+    or (f"{Path(b)}" if Path(f"{b}").exists() else None)
     or "--path non trouvé--".strip()
     )
     for a, b in f.items()
     for c in [e(d, b)]
 }
 
+g1 = cle_pattern_paths = {
+    a: ((f" = {c[0]}" if c else None)
+    or (f"{Path(b)}" if Path(f"{b}").exists() else None)
+    or f"= --path non trouvé--".strip("'")
+    )
+    for a, b in f.items()
+    for c in [e(d, b)]
+}
+
 # Synchronisation initiale des alias (après définition des variables)
-# --- EXEMPLE DE MODIFICATION ET RESYNCHRONISATION ---
-# cle = "nouvelle_clé"
-sync_aliases()
+s = sync_aliases()
 # print(a)  # Affiche: "nouvelle_clé"

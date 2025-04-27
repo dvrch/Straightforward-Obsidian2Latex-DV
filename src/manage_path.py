@@ -37,6 +37,11 @@ recherche_motif = rmt = lambda racine, motif, dossier1st='d': [
 ]
 # Exemple d'utilisation :
 racine = Path(__file__).resolve().parent.parent
+
+
+
+
+
 # motif = r"BIBTEX.*\.bib"  
 
 # # ```python
@@ -68,8 +73,8 @@ fl = """
 base_path : "bbb"
 lauch_sh : r"*.sh"
 launch_py : 
-latex_file : whriting.tex
-pdf_file : whriting.pdf
+latex_file : writing.tex
+pdf_file : writing.pdf
 path_vault:   example_vault  
 path_writing:   ✍Writing  
 path_templates:   👨‍💻Automations  
@@ -81,17 +86,27 @@ path_list_note_paths:   DO_NOT_DELETE__note_paths.txt
 path_BIBTEX:   BIBTEX  
 """ # les valeurs prdefaut 
 
-motifs = {cle: (yaml.safe_load(open("fl.md", encoding="utf-8")) 
+motifs =f = {cle: (yaml.safe_load(open("fl.md", encoding="utf-8")) 
             if Path("fl.md").is_file() else {}).get(cle) 
                 or val for cle, val in yaml.safe_load(fl).items()}
 
 
+cle_pattern_paths = clpp = {
+    cle: f"{cle} {(f'\"{chemins[0]}\"' 
+                       if (chemins := rmt(racine, motif)) 
+                       else '\"affich non trouvé\"')}"
+    for cle, motif in motifs.items()
+}
 
-resultats = [f"{cle:<18} {(f'\"{chemins[0]}\"' if (chemins := rmt(racine, motif)) 
-                  else '\"affich non trouvé\"'):<60}"
-    for cle, motif in motifs.items()]
+f"{clpp[key]} = clpp[{clpp[key]}]"  for key in motifs.keys() 
 
-# resultats = [
+[f"{clpp[cle]} = {}" for clpp, motif in motifs.items() if motif]
+
+# resultats = [f"{cle:<18} {(f'\"{chemins[0]}\"' if (chemins := rmt(racine, motif)) 
+#                   else '\"affich non trouvé\"'):<60}"
+#     for cle, motif in motifs.items()]
+
+# resultats2 = [
 #     *[
 #         f"{i+1:<4} {cle:<12} {motif:<25} " f"{f'\"{chemins[0]}\"' 
 #                                               if (chemins := rmt(racine, motif)) 

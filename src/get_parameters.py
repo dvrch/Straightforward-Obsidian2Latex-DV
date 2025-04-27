@@ -3,7 +3,7 @@ import sys
 from pathlib import Path
 # Ajoute src au sys.path
 sys.path.insert(0, str(Path(__file__).resolve().parent))
-
+import yaml
 from manage_path import recherche_motif as rmt
 
 
@@ -63,11 +63,11 @@ def get_parameters(version = 'default'):
 
 
     # USER PARAMETERS
-    path_func = {cle: (yaml.safe_load(open("fl.yaml", encoding="utf-8")) 
-                if Path("fl.yaml").is_file() else {}).get(cle) 
-                or val for cle, val in motifs_defaut.items()}
+    # path_func = {cle: (yaml.safe_load(open("fl.yaml", encoding="utf-8")) 
+    #             if Path("fl.yaml").is_file() else {}).get(cle) 
+    #             or val for cle, val in motifs_defaut.items()}
 
-    path_func = {}
+    # path_func = {}
     path_vault =  Path(rmt(Path(__file__).resolve().parent.parent, 'vau')[0])
 
     # 'C:\\Users\\mariosg\\OneDrive - NTNU\\FILES\\workTips\\'
