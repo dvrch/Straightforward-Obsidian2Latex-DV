@@ -5,6 +5,9 @@ import os
 import yaml
 import sys
 
+import re
+from typing import List
+
 # === EN-TÊTE : Table de correspondance ===
 alias_map = {
     'a': 'cle', 'b': 'motif', 'c': 'chemins', 'd': 'racine', 'e': 'recherche_motifs',
@@ -50,17 +53,14 @@ d =path = yaml.safe_load(fl)["base_path"] or Path(__file__).resolve().parent.par
 def all_paths_in_folder(a__ = d):
     """Renvoie tous les chemins d'un répertoire donné."""
     A_paths =[os.path.join(root, file) 
-              for root, dirs, files in os.walk(path) 
+              for root, dirs, files in os.walk(a__) 
               for file in files]
     return A_paths
 
 # %%
 
 # Parsing YAML du string fl
-# md = Path("fl.md").resolve()
 
-import re
-from typing import List
 
 def find_matching_files(pattern: str, paths: List[str]) -> List[str]:
     """
@@ -87,6 +87,29 @@ def looks_like_regex(pattern: str) -> bool:
             return True
         i += 1
     return False
+# %%
+all_paths = all_paths_in_folder() or [
+    'C:/dossier/fl.md',
+    'C:/autre/dossier/FL.MD',
+    'C:/test.txt',
+    'C:/notes/literature.md'
+]
+
+# # Recherche textuelle automatique
+# print(find_matching_files('fl.md', all_paths)) 
+# # ['C:/dossier/fl.md', 'C:/autre/dossier/FL.MD']
+
+# # Recherche regex automatique
+# print(find_matching_files(r'fl\.md$', all_paths)) 
+# # ['C:/dossier/fl.md', 'C:/autre/dossier/FL.MD', 'C:/notes/literature.md']
+
+# # Mixte : texte avec caractère spécial échappé
+# print(find_matching_files(r'literature\.md', all_paths))
+# # ['C:/notes/literature.md']
+
+# %%
+zzz = find_matching_files(r'fl\.md$', all_paths)[0]
+md = Path(zzz ).resolve()
 
 def yaml_dict_content_from_file(md_file_path = md):
 
@@ -117,6 +140,7 @@ def yaml_dict_content_from_file(md_file_path = md):
             result[key] = value
     
     return result
+
 yaml_dict_content_from_file()
 
 
