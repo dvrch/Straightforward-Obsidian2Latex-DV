@@ -1,102 +1,103 @@
-Je vois que vous souhaitez restructurer votre code pour utiliser principalement `yaml_dict_content_from_file` comme point central de votre logique. Voici une version réorganisée et optimisée :
+Je comprends vos deux demandes : clarifier le mécanisme avec un diagramme Mermaid et modifier la recherche pour qu'elle ne parcoure pas les sous-dossiers. Voici la solution restructurée :
 
+### Version Simplifiée et Corrigée
 ```python
 import re
 from pathlib import Path
 import os
 import yaml
-from typing import Dict, Any, List
 
-def yaml_dict_content_from_file(md_file_path: str) -> Dict[str, Any]:
-    """Version améliorée avec recherche de motifs intégrée"""
-    with open(md_file_path, 'r', encoding='utf-8') as file:
-        content = file.read()
-
-    # Extraction des blocs YAML
-    yaml_blocks = re.findall(r'(?:^---\n)?(.+?)(?:\n---|\Z)', content, re.DOTALL)
-    merged_yaml = {}
-    
-    for block in yaml_blocks:
-        try:
-            parsed = yaml.safe_load(block.strip()) or {}
-            if isinstance(parsed, dict):
-                # Nettoyage des valeurs vides
-                parsed = {k: v for k, v in parsed.items() if v not in [None, ""]}
-                merged_yaml.update(parsed)
-        except yaml.YAMLError as e:
-            print(f"Erreur YAML dans {md_file_path}: {e}")
-    
-    return merged_yaml
-
-def find_paths_by_patterns(patterns: Dict[str, str], search_dir: str) -> Dict[str, List[str]]:
-    """Trouve les chemins correspondant aux motifs"""
-    all_paths = [
-        os.path.join(root, f) 
-        for root, _, files in os.walk(search_dir) 
-        for f in files
-    ]
-    
+def get_targets(config: dict, root_dir: Path) -> Dict[str, Path]:
+    """Trouve le fichier/dossier le plus pertinent pour chaque motif"""
     results = {}
-    for key, pattern in patterns.items():
-        try:
-            # Essai d'abord en tant que regex
-            regex = re.compile(pattern, re.IGNORECASE)
-            results[key] = [p for p in all_paths if regex.search(p)]
-        except re.error:
-            # Fallback sur recherche textuelle
-            pattern_lower = pattern.lower()
-            results[key] = [p for p in all_paths if pattern_lower in p.lower()]
+    for key, pattern in config.items():
+        if not pattern:  # Ignore les motifs vides
+            continue
+            
+        # Recherche dans le répertoire racine uniquement (pas de os.walk)
+        items = [f for f in os.listdir(root_dir) 
+                if re.search(pattern, f, re.IGNORECASE)]
+        
+        if items:  # Prend le premier match trouvé
+            results[key] = root_dir / items[0]
     
     return results
 
-# Utilisation
+# Chargement des configurations
 base_dir = Path(__file__).resolve().parent.parent
-fl_content = """
-base_path: .
-launch_sh: "run.sh"
-latex_file: "main.tex"
-"""
-
-# 1. Chargement des configurations
 p1 = yaml.safe_load(fl_content) or {}
-p2 = yaml_dict_content_from_file("votre_fichier.md")  # Remplacez par votre chemin
+p2 = yaml_dict_content_from_file("config.md")  # Votre fichier Markdown
 
-# 2. Fusion des motifs (p2 complète p1 sans écraser)
-patterns = {**p1, **{k: v for k, v in p2.items() if k not in p1 or not p1[k]}}
+# Fusion : p2 complète p1 sans écraser les valeurs existantes
+config = {**{k: v for k, v in p2.items() if v}, **p1}  # Priorité à p1
 
-# 3. Recherche des chemins
-search_dir = patterns.get('base_path', base_dir)
-found_paths = find_paths_by_patterns(patterns, search_dir)
+# Recherche des cibles
+root_dir = Path(config.get('base_path', base_dir))  # Racine de recherche
+targets = get_targets(config, root_dir)
 
-# 4. Affichage des résultats
-for pattern_name, paths in found_paths.items():
-    print(f"{pattern_name}:")
-    for path in paths:
-        print(f"  - {path}")
+
 # ```
 
-# ### Améliorations clés :
+# ### Diagramme Mermaid
+# ```mermaid
+# graph TD
+#     A[Fichier FL] -->|yaml.safe_load| B[Dict p1]
+#     C[Fichier MD] -->|yaml_dict_content_from_file| D[Dict p2]
+#     B --> E{Fusion}
+#     D --> E
+#     E --> F[Config finale]
+#     F --> G[base_path?]
+#     G -->|Oui| H[Racine = base_path]
+#     G -->|Non| I[Racine = dossier parent]
+#     H --> J[Recherche]
+#     I --> J
+#     J --> K[Scan dossier]
+#     K --> L[Filtre par motif]
+#     L --> M[Prend 1er match]
+#     M --> N[Dict targets]
+# ```
 
-# 1. **Unification de la logique** :
-#    - `yaml_dict_content_from_file` gère maintenant l'extraction et le nettoyage des données YAML
-#    - `find_paths_by_patterns` centralise la recherche de chemins
+# ### Explications :
 
-# 2. **Gestion des motifs** :
-#    - Auto-détection regex/texte simple
-#    - Maintien des motifs originaux dans le dictionnaire de résultats
+# 1. **Chemin de base** :
+#    - `base_dir` : Chemin par défaut (dossier parent du script)
+#    - `base_path` : Optionnel dans la config, sinon utilise `base_dir`
 
-# 3. **Robustesse accrue** :
-#    - Gestion propre des erreurs YAML
-#    - Nettoyage automatique des valeurs vides
-#    - Chemins résolus de manière systématique
+# 2. **Recherche simplifiée** :
+#    - Ne parcourt **que le dossier racine** (`os.listdir`)
+#    - Pour chaque motif, prend le **premier fichier/dossier correspondant** (`items[0]`)
 
-# 4. **Sortie structurée** :
-#    - Résultats organisés par nom de motif
-#    - Conservation du lien entre motifs et chemins trouvés
+# 3. **Logique de fusion** :
+#    ```python
+#    {**{k: v for k, v in p2.items() if v}, **p1}
+#    ```
+#    - Prend les valeurs non-vides de p2
+#    - Les valeurs de p1 ont priorité
 
-# ### Points forts :
-# - **Maintenabilité** : séparation claire des responsabilités
-# - **Flexibilité** : fonctionne avec tout type de motif
-# - **Compatibilité** : conserve votre structure de données existante
+# 4. **Sortie** :
+#    - Dictionnaire `targets` avec `{clé: chemin_absolu}`
 
-# devrait s'intégrer parfaitement  tout en étant plus robuste et maintenable. 
+# ### Exemple Résultat :
+# Si votre dossier contient :
+# ```
+# /projet/
+#   ├── main.tex
+#   ├── run.sh
+#   └── docs/
+# ```
+
+# Avec la config :
+# ```yaml
+# latex_file: "\.tex$"
+# launch_sh: "\.sh$"
+# ```
+
+# Le résultat sera :
+# ```python
+# {
+#     'latex_file': Path('/projet/main.tex'),
+#     'launch_sh': Path('/projet/run.sh')
+# }
+# ```
+
+# Cette version est plus précise et correspond mieux à votre besoin de ne pas explorer les sous-dossiers.
