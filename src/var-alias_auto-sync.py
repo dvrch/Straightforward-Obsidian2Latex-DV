@@ -1,3 +1,4 @@
+# %%
 import re
 from pathlib import Path
 import os
@@ -38,42 +39,62 @@ fl = rf"""
     path_list_note_paths:   DO_NOT_DELETE__note_paths.txt
     path_BIBTEX:   BIBTEX
 """
+
+# %%
 parsed_yaml = yaml.safe_load(fl)
 
 # --- DÉFINITION DES FONCTIONS ET DICTIONNAIRES AVEC ALIAS ---
-d = yaml.safe_load(fl)["base_path"] or Path(__file__).resolve().parent.parent
+d =path = yaml.safe_load(fl)["base_path"] or Path(__file__).resolve().parent.parent
 
-def recherche_motifs(d, b, dossier1st='d'):
-    # On vérifie que b est bien une chaîne non vide
-    if not isinstance(b, str) or not b.strip():
-        return []
-    return [
-        str(item)
-        for dossier, sous_dossiers, fichiers in os.walk(Path(d))
-        for item in (
-            [*(Path(dossier)/d for d in sous_dossiers), *(Path(dossier)/f for f in fichiers)]
-            if dossier1st == 'd'
-            else [*(Path(dossier)/f for f in fichiers), *(Path(dossier)/d for d in sous_dossiers)]
-        )
-        if re.search(b, item.name, re.I)
-    ]
+#  %%
+def all_paths_in_folder(a__ = d):
+    """Renvoie tous les chemins d'un répertoire donné."""
+    A_paths =[os.path.join(root, file) 
+              for root, dirs, files in os.walk(path) 
+              for file in files]
+    return A_paths
 
-e = recherche_motifs  # alias
+# %%
 
 # Parsing YAML du string fl
-md = Path("src/fl.md").resolve()
-pars = {}
-if md.exists():
-    with open(md, encoding="utf-8") as f:
-        try:
-            pars = yaml.safe_load(f)
-        except yaml.YAMLError as e:
-            print(f"Erreur de YAML dans {md}: {e}")
+# md = Path("fl.md").resolve()
+md = re.match(r"fl.md", all_paths_in_folder()) ; md = 
+def yaml_dict_content_from_file(md_file_path = md):
 
+    """Lit un fichier Markdown, découpe par paragraphes et extrait les paires clé:valeur."""
+    with open(md_file_path, 'r', encoding='utf-8') as file:
+        content = file.read()
+    
+    # Découpage en paragraphes (séparés par 2 sauts de ligne ou plus)
+    paragraphs = re.split(r'\n\s*\n', content.strip())
+    
+    result = {}
+    for para in paragraphs:
+        # Cherche une ligne "clé : valeur" au début du paragraphe
+        match = re.match(r'^\s*([^:\n]+?)\s*:\s*(.+?)(?=\n\S|$)', para, re.DOTALL)
+        if match:
+            key, value = match.groups()
+            key = key.strip()
+            value = value.strip()
+            
+            # Essaye de parser la valeur comme YAML si elle contient des structures
+            try:
+                parsed_value = yaml.safe_load(value)
+                if parsed_value is not None:  # Évite de convertir "None" en chaîne
+                    value = parsed_value
+            except:
+                pass  # Garde la valeur originale si le parsing échoue
+            
+            result[key] = value
+    
+    return result
+yaml_dict_content_from_file()
+
+
+# %%
 p1 = parsed_yaml_var = yaml.safe_load(fl)
-
-# Fusionner les dictionnaires p1 et pars
-f = motifs = {**p1, **pars}
+# Fusionner les dictionnaires p1 et dict_from_file
+f = motifs = {**p1, **dict_from_file}
 
 g = cle_pattern_paths = {
     a: ((f"{b} --> {c[0]}" if c else None)
@@ -92,7 +113,6 @@ g1 = cle_pattern_paths = {
     for a, b in f.items()
     for c in [e(d, b)]
 }
-
-# Synchronisation initiale des alias (après définition des variables)
-s = sync_aliases()
-# print(a)  # Affiche: "nouvelle_clé"
+m_a = ["vau", "path_writing", "path_templates"]
+m_t = [(k, v) for k, v in g1.items() if m_a in k or m_a in v]
+print(m_t)
