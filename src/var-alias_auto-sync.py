@@ -58,7 +58,36 @@ def all_paths_in_folder(a__ = d):
 
 # Parsing YAML du string fl
 # md = Path("fl.md").resolve()
-md = re.match(r"fl.md", all_paths_in_folder()) ; md = 
+
+import re
+from typing import List
+
+def find_matching_files(pattern: str, paths: List[str]) -> List[str]:
+    """
+    Trouve les fichiers correspondant au motif, en auto-détectant si c'est une regex ou un texte simple.
+    - Si le motif contient des caractères regex spéciaux non échappés => traité comme regex
+    - Sinon => traité comme texte simple (insensible à la casse)
+    """
+    # Détection automatique du type de motif
+    if looks_like_regex(pattern):
+        compiled_re = re.compile(pattern, re.IGNORECASE)
+        return [p for p in paths if compiled_re.search(p)]
+    else:
+        pattern_lower = pattern.lower()
+        return [p for p in paths if pattern_lower in p.lower()]
+
+def looks_like_regex(pattern: str) -> bool:
+    """Détecte si le motif semble être une regex (contient des caractères spéciaux non littéraux)."""
+    regex_chars = {'\\', '.', '^', '$', '*', '+', '?', '{', '}', '[', ']', '|', '(', ')'}
+    i = 0
+    while i < len(pattern):
+        if pattern[i] == '\\':
+            i += 1  # Skip le prochain caractère (échappement)
+        elif pattern[i] in regex_chars:
+            return True
+        i += 1
+    return False
+
 def yaml_dict_content_from_file(md_file_path = md):
 
     """Lit un fichier Markdown, découpe par paragraphes et extrait les paires clé:valeur."""
