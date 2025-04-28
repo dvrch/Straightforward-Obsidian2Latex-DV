@@ -2,11 +2,9 @@
 import re
 from pathlib import Path
 import os
-import yaml
 import sys
-
-import re
-from typing import List
+import yaml
+from typing import Dict, Any, List
 
 # === EN-TÊTE : Table de correspondance ===
 alias_map = {
@@ -111,61 +109,72 @@ all_paths = all_paths_in_folder() or [
 zzz = find_matching_files(r'fl\.md$', all_paths)[0]
 md = Path(zzz ).resolve()
 
-def yaml_dict_content_from_file(md_file_path = md):
 
-    """Lit un fichier Markdown, découpe par paragraphes et extrait les paires clé:valeur."""
+
+def yaml_dict_content_from_file(md_file_path: str) -> Dict[str, Any]:
+    """Extrait le contenu YAML d'un fichier Markdown, en gérant l'indentation."""
     with open(md_file_path, 'r', encoding='utf-8') as file:
         content = file.read()
-    
-    # Découpage en paragraphes (séparés par 2 sauts de ligne ou plus)
-    paragraphs = re.split(r'\n\s*\n', content.strip())
-    
-    result = {}
-    for para in paragraphs:
-        # Cherche une ligne "clé : valeur" au début du paragraphe
-        match = re.match(r'^\s*([^:\n]+?)\s*:\s*(.+?)(?=\n\S|$)', para, re.DOTALL)
-        if match:
-            key, value = match.groups()
-            key = key.strip()
-            value = value.strip()
-            
-            # Essaye de parser la valeur comme YAML si elle contient des structures
-            try:
-                parsed_value = yaml.safe_load(value)
-                if parsed_value is not None:  # Évite de convertir "None" en chaîne
-                    value = parsed_value
-            except:
-                pass  # Garde la valeur originale si le parsing échoue
-            
-            result[key] = value
-    
-    return result
 
-yaml_dict_content_from_file()
+    # Extrait tout le bloc YAML (entre les premiers --- ou depuis le début)
+    yaml_match = re.search(r'^(?:---\n)?(.+?)(?:\n---|\Z)', content, re.DOTALL)
+    if not yaml_match:
+        return {}
+
+    yaml_content = yaml_match.group(1).strip()
+    
+    # Nettoie l'indentation et parse avec PyYAML
+    try:
+        return yaml.safe_load(yaml_content) or {}
+    except yaml.YAMLError as e:
+        print(f"Erreur YAML dans {md_file_path}: {e}")
+        return {}
+
+# Exemple d'utilisation
+yaml_dict_content_from_file(md) 
 
 
 # %%
-p1 = parsed_yaml_var = yaml.safe_load(fl)
-# Fusionner les dictionnaires p1 et dict_from_file
-f = motifs = {**p1, **dict_from_file}
+# Chargement YAML et md
+p1 = parsed_data = yaml.safe_load(fl) or {}  # Garantit un dict même si le fichier est vide
+p2 = yaml_dict_content_from_file(md) # set values
 
-g = cle_pattern_paths = {
-    a: ((f"{b} --> {c[0]}" if c else None)
-    or (f"{Path(b)}" if Path(f"{b}").exists() else None)
-    or "--path non trouvé--".strip()
-    )
-    for a, b in f.items()
-    for c in [e(d, b)]
-}
+# Conversion en dict en liste
+pm = motifs_path_list = [p for p in (p1 or p2).values()]
+
+p3 = all_paths_in_folder(path) # all paths in the folder
+# match les motifs dans lite chemin
+koo = [ find_matching_files(rf'{pmi}', p3) for pmi in pm ]
+
+
+
+# Fusionner les dictionnaires p1 et dict_from_file
+# a= {**p1, **yaml_dict_content_from_file(md)}
+
+# g = cle_pattern_paths = {
+#     a: ((f"{b} --> {c}" if c else None)
+#     or (f"{Path(b)}" if Path(f"{b}").exists() else None)
+#     or "--path non trouvé--".strip()
+#     )
+#     for a, b in p2.items()
+#     for c in p3 
+# }
+# lpt = list((p1 or p2 or "pas de valeur" ).values) 
+#  #["writing/", "text", "pdf", "bibtex", "bib"]
+# lpt__ = find_matching_files(rf'{lpt}', all_paths)[0]
+# lpt__p =  [Path(lpt).resolve() for lpt in lpt__] 
+# %%
 
 g1 = cle_pattern_paths = {
-    a: ((f" = {c[0]}" if c else None)
+    ((f"{a} = {c}" if c else None)
     or (f"{Path(b)}" if Path(f"{b}").exists() else None)
     or f"= --path non trouvé--".strip("'")
     )
-    for a, b in f.items()
-    for c in [e(d, b)]
+    for a, b in p3
+    for c in  p3
 }
-m_a = ["vau", "path_writing", "path_templates"]
-m_t = [(k, v) for k, v in g1.items() if m_a in k or m_a in v]
-print(m_t)
+# m_a = ["vau", "path_writing", "path_templates"]
+# m_t = [(k, v) for k, v in g1.items() if m_a in k or m_a in v]
+# print(m_t)
+
+# %%
