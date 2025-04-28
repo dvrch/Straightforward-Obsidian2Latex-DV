@@ -19,6 +19,7 @@ def sync_aliases():
         if varname in gbl:
             gbl[alias] = gbl[varname]
 
+
 # --- DÉFINITION DES VARIABLES ---
 cle = "clé_exemple"
 motif = "motif_exemple"
