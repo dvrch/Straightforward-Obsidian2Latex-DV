@@ -21,13 +21,13 @@ convert_note:: [[example_writing]]
 
 ---
 
-code_run:: [1. 👨‍💻🖱convert](<file:///C:\Users\mariosg\OneDrive - NTNU\FILES\workTips\Literature\Straightforward-Obsidian2Latex\converter.py>) , [2. 👨‍💻compile to .pdf](<file:///C:\Users\mariosg\OneDrive - NTNU\FILES\workTips\✍Writing\compile_and_open.sh>)
+code_run:: [1. 👨‍💻🖱convert](<file:///C:\Users\dvrch\Desktop\Memoire 2024\Straightforward-Obsidian2Latex\Straightforward-Obsidian2Latex-main\converter.py>) , [2. 👨‍💻compile to .pdf](<file:///C:\Users\dvrch\Desktop\Memoire 2024\Straightforward-Obsidian2Latex\Straightforward-Obsidian2Latex-main\compile_and_open.sh>)
 --
 
 
 ---
 
 
-files:: [📁tex file](<file:///C:\Users\mariosg\OneDrive - NTNU\FILES\workTips\✍Writing\texFile.tex>), [📁.pdf file](<file:///C:\Users\mariosg\OneDrive - NTNU\FILES\workTips\✍Writing\pdfFile.pdf>) 
+files:: [📁tex file](<file:///C:\Users\dvrch\Desktop\Memoire 2024\Straightforward-Obsidian2Latex\Straightforward-Obsidian2Latex-main\example_vault\✍Writing\example_writing.tex>), [📁.pdf file](<file:///C:\Users\dvrch\Desktop\Memoire 2024\Straightforward-Obsidian2Latex\Straightforward-Obsidian2Latex-main\example_vault\✍Writing\example_writing.pdf>) 
 --
 
