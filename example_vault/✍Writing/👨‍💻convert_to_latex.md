@@ -29,5 +29,6 @@ code_run:: [1. 👨‍💻🖱convert](<file:///C:\Users\mariosg\OneDrive - NTNU
 
 
 files:: [📁tex file](<file:///C:\Users\mariosg\OneDrive - NTNU\FILES\workTips\✍Writing\texFile.tex>), [📁.pdf file](<file:///C:\Users\mariosg\OneDrive - NTNU\FILES\workTips\✍Writing\pdfFile.pdf>) 
---
+-- 
 
+---
