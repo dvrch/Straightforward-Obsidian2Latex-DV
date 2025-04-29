@@ -55,20 +55,20 @@ def get_parameters(version = 'default'):
 
 
     # USER PARAMETERS
-    work_dir_tex = Path(__file__).parent.parent
+    work_dir_tex =Path(os.getcwd()).parent 
 
 
-    path_vault          =  Path(work_dir_tex)/'example_vault'
+    path_vault          =  Path(work_dir_tex/'example_vault')
     # '\\'.join(os.path.abspath(__file__).split('\\')[0:-2]) + '\\obsidian\\vault\\'
-    path_writing        = Path(path_vault)/'✍Writing\\'
-    path_templates        = Path(path_vault)/'👨‍💻Automations\\'
-    path_table_block_template = Path(path_templates)/'table_block.md'
-    path_equation_block_template = Path(path_templates)/'equation_block_single.md'
+    path_writing        = Path(path_vault/'✍Writing')
+    path_templates        = Path(path_vault/'👨‍💻Automations')
+    path_table_block_template = Path(path_templates/'table_block.md')
+    path_equation_block_template = Path(path_templates/'equation_block_single.md')
+    path_table_blocks   = Path(path_writing/'table blocks')
 
-    path_equation_blocks = Path(path_writing)/'equation blocks'
-    path_table_blocks   = Path(path_writing)/'table blocks'
-    path_list_note_paths = Path(path_vault)/'DO_NOT_DELETE__note_paths.txt'
-    path_BIBTEX          = Path(path_writing)/'BIBTEX'
+    path_equation_blocks = Path(path_writing/'equation blocks')
+    path_list_note_paths = Path(path_vault/'DO_NOT_DELETE__note_paths.txt')
+    path_BIBTEX          = Path(path_writing/'BIBTEX')
     
     if not os.path.exists(path_list_note_paths):
         with open(path_list_note_paths, 'w', encoding='utf-8') as file:
