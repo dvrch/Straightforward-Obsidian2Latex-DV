@@ -1,5 +1,5 @@
 import os
-
+from pathlib import Path
 def get_parameters(version = 'default'):
     
     '''
@@ -55,16 +55,20 @@ def get_parameters(version = 'default'):
 
 
     # USER PARAMETERS
-    path_vault          = r'C:\Users\nameuser\Desktop\Memoire 2024\Straightforward-Obsidian2Latex\Straightforward-Obsidian2Latex-DV'+'\\'
-    path_writing        = path_vault + '✍Writing\\'
-    path_templates        = path_vault + '👨‍💻Automations\\'
-    path_table_block_template = path_templates + 'table_block.md'
-    path_equation_block_template = path_templates + 'equation_block_single.md'
+    work_dir_tex = Path(__file__).parent.parent
 
-    path_equation_blocks = path_writing + 'equation blocks'
-    path_table_blocks   = path_writing + 'table blocks'
-    path_list_note_paths = path_vault + 'DO_NOT_DELETE__note_paths.txt'
-    path_BIBTEX          = path_writing + 'BIBTEX'
+
+    path_vault          =  Path(work_dir_tex)/'example_vault'
+    # '\\'.join(os.path.abspath(__file__).split('\\')[0:-2]) + '\\obsidian\\vault\\'
+    path_writing        = Path(path_vault)/'✍Writing\\'
+    path_templates        = Path(path_vault)/'👨‍💻Automations\\'
+    path_table_block_template = Path(path_templates)/'table_block.md'
+    path_equation_block_template = Path(path_templates)/'equation_block_single.md'
+
+    path_equation_blocks = Path(path_writing)/'equation blocks'
+    path_table_blocks   = Path(path_writing)/'table blocks'
+    path_list_note_paths = Path(path_vault)/'DO_NOT_DELETE__note_paths.txt'
+    path_BIBTEX          = Path(path_writing)/'BIBTEX'
     
     if not os.path.exists(path_list_note_paths):
         with open(path_list_note_paths, 'w', encoding='utf-8') as file:
@@ -82,8 +86,8 @@ def get_parameters(version = 'default'):
         with open(path_equation_block_template, 'w', encoding='utf-8') as file:
             file.write(equation_block_text())
             
-    path_plugins = path_vault + '.obsidian\\plugins\\'
-    path_quick_add = path_plugins+'quickadd\\'
+    path_plugins = Path(path_vault / '.obsidian' / 'plugins')
+    path_quick_add = Path(path_plugins / 'quickadd')
 
     # if not os.path.exists(path_quick_add):
     #     shutil.copytree('\\'.join(os.path.abspath(__file__).split('\\')[0:-2]) + '\\obsidian\\.obsidian\\plugins\\quickadd', path_plugins)
@@ -179,13 +183,13 @@ def get_parameters(version = 'default'):
             }},
         '📁': # Paths 
             {
-                    'command_note': path_vault+'✍Writing\\👨‍💻convert_to_latex.md',
+                    'command_note': Path(path_vault/'✍Writing\\👨‍💻convert_to_latex.md'),
                            'vault': path_vault,
                  'equation_blocks': path_equation_blocks,
                 'list_paths_notes': path_list_note_paths, # saves time from searching of the note's path
-                     'bash_script': path_vault + '✍Writing\\compile_and_open.sh',
+                     'bash_script': Path(path_vault/'✍Writing\\compile_and_open.sh'),
                 'bibtex_file_name': 'BIBTEX',           # your bibtex file name 
-            'custom_latex_commands': path_vault + '✍Writing\\custom_latex_functions.tex',
+            'custom_latex_commands': Path(path_vault/'✍Writing\\custom_latex_functions.tex'),
                 },
         'par':
             {
