@@ -1,4 +1,8 @@
 import os
+import logging
+
+# Configure logging
+logging.basicConfig(level=logging.INFO, format='%(asctime)s - %(levelname)s - %(message)s')
 
 def count_calls(func):
     def wrapper(*args, **kwargs):
@@ -82,7 +86,8 @@ def get_embedded_reference_path(fileName, PARS, search_in = 'vault'):
                         file.writelines(lines)
                     return new_path
                 else:
-                    raise Exception(f"Path '{path}' not found. Also, unable to find an alternative path for '{fileName}'.")
+                    logging.warning(f"Path '{path}' not found. Also, unable to find an alternative path for '{fileName}'. Returning empty string.")
+                    return ""
             else:
                 return path
 
@@ -95,7 +100,8 @@ def get_embedded_reference_path(fileName, PARS, search_in = 'vault'):
                 update_list_of_embedded_note_paths(fileName, path_found, path_list_of_notes)
                 return path_found
             else:
-                raise Exception(f"No information found for '{fileName}' in the provided text file and unable to find an alternative path in the vault.")
+                logging.warning(f"No information found for '{fileName}' in the provided text file and unable to find an alternative path in the vault. Returning empty string.")
+                return ""
         else:
             path_found = PARS['📁']['vault'] + fileName
             update_list_of_embedded_note_paths(fileName, path_found, path_list_of_notes)

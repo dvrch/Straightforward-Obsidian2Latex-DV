@@ -423,7 +423,7 @@ def unfold_embedded_notes(S, md__files_embedded, PARS, mode='normal'):
     cnd__mode_is__normal                = mode=='normal'
     cnd__mode_is__equation_blocks_only  = mode=='equation_blocks_only'
     cnd__mode_is__figure_blocks_only    = mode=='figure_blocks_only'
-    cnd__mode_is__table_blocks_only     = mode=='table_blocks_only'
+    cnd__mode_is__table_blocks_only     = mode=='table_blocks'
     
     if cnd__mode_is__normal:
         where_to_search_for_embedded_notes = 'vault'
@@ -494,7 +494,10 @@ def unfold_embedded_notes(S, md__files_embedded, PARS, mode='normal'):
                 except:
                     raise Exception("Error")
 
-                if len(path_embedded_reference) == 0: raise Exception(f'File: {embedded_ref} cannot be found in {PARS["📁"][where_to_search_for_embedded_notes]}')
+                if len(path_embedded_reference) == 0:
+                    logging.warning(f"Skipping embedded note '{embedded_ref}' because its path could not be found.")
+                    S[line_number] = S[line_number].replace(markdown_ref, '')
+                    continue
 
                 section_name = section.lstrip('#')
                 content__unfold = extract_section_from_file(path_embedded_reference, section_name)
