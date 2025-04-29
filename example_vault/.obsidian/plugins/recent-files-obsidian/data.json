@@ -9,6 +9,10 @@
       "path": "dev-tasks.md"
     },
     {
+      "basename": "👨‍💻convert_to_latex",
+      "path": "✍Writing/👨‍💻convert_to_latex.md"
+    },
+    {
       "basename": "figure__block_1",
       "path": "✍Writing/figure blocks/figure__block_1.md"
     },
@@ -195,10 +199,6 @@
     {
       "basename": "p706--8",
       "path": "Literature/Notes/p706--8.md"
-    },
-    {
-      "basename": "💭🟢 In-favor-of--ML--Meta-Learning",
-      "path": "Literature/Notes/💭 Arguments/in favor of/in Machine Learning/💭🟢 In-favor-of--ML--Meta-Learning.md"
     }
   ],
   "omittedPaths": [],
