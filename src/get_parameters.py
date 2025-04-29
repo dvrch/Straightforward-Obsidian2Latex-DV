@@ -55,7 +55,9 @@ def get_parameters(version = 'default'):
 
 
     # USER PARAMETERS
-    work_dir_tex =Path(os.getcwd()).parent 
+    work_dir_tex =Path(os.getcwd())
+    # work_dir_tex =Path(os.getcwd()).parent 
+
 
 
     path_vault          =  Path(work_dir_tex/'example_vault')
@@ -329,3 +331,17 @@ def quick_add_table_block_text():
     """  
 
     return text
+
+if __name__ == '__main__':
+    # Code de test pour le débogage
+    import logging
+    logging.basicConfig(level=logging.DEBUG)
+    
+    # Test avec différentes versions
+    versions = ['default', '[[👆👆RL--writing--1]]']
+    
+    for version in versions:
+        logging.debug(f"Testing version: {version}")
+        params = get_parameters(version)
+        logging.debug(f"Document class: {params['⚙']['document_class']}")
+        logging.debug(f"Paths created: {list(params['📁'].keys())}")
