@@ -85,7 +85,8 @@ def get_parameters(version = 'default'):
         ]
     
     # On définit le chemin du dossier parent du fichier courant
-    par = Path(__file__).resolve().parent.parent
+    par = Path(__file__).resolve().parent.parent or Path.cwd().parent 
+    # obtenir le dossier courant cwd
     results = recherche_motifs(str(par), 'vaul', 'd') # alias
     path_vault = Path(results[0]) if results else None 
     # 'C:\\Users\\mariosg\\OneDrive - NTNU\\FILES\\workTips\\'    
@@ -111,15 +112,15 @@ def get_parameters(version = 'default'):
     
     bibtex_results = recherche_motifs(str(par), 'BIBTEX', 'd')
     path_BIBTEX = Path(bibtex_results[0]) if bibtex_results else path_vault / 'BIBTEX.bib'
-
-    # [path_vault, 
-    # path_writing, 
-    # path_templates, 
-    # path_table_block_template, 
-    # path_equation_block_template, 
-    # path_equation_blocks, 
-    # path_table_blocks, 
-    # path_list_note_paths]=[va1, te1, ta1, eq1, eq2, eq3, ta2, ta3] = [
+# %%
+    ssss=[path_vault, 
+    path_writing, 
+    path_templates, 
+    path_table_block_template, 
+    path_equation_block_template, 
+    path_equation_blocks, 
+    path_table_blocks, 
+    path_list_note_paths]  # [va1, te1, ta1, eq1, eq2, eq3, ta2, ta3]  #= [
     #     python_format_path(path) for path in [va1, te1, ta1, eq1, eq2, eq3, ta2, ta3]]
 #  %%
     if not os.path.exists(path_list_note_paths):
@@ -138,8 +139,8 @@ def get_parameters(version = 'default'):
         with open(path_equation_block_template, 'w', encoding='utf-8') as file:
             file.write(equation_block_text())
             
-    path_plugins = path_vault + '.obsidian\\plugins\\'
-    path_quick_add = path_plugins+'quickadd\\'
+    path_plugins = path_vault / '.obsidian\\plugins\\'
+    path_quick_add = path_plugins /'quickadd\\'
 
     # if not os.path.exists(path_quick_add):
     #     shutil.copytree('\\'.join(os.path.abspath(__file__).split('\\')[0:-2]) + '\\obsidian\\.obsidian\\plugins\\quickadd', path_plugins)
@@ -235,13 +236,13 @@ def get_parameters(version = 'default'):
             }},
         '📁': # Paths 
             {
-                    'command_note': path_vault+'✍Writing\\👨‍💻convert_to_latex.md',
+                    'command_note': path_vault/'✍Writing\\👨‍💻convert_to_latex.md',
                            'vault': path_vault,
                  'equation_blocks': path_equation_blocks,
                 'list_paths_notes': path_list_note_paths, # saves time from searching of the note's path
-                     'bash_script': path_vault + '✍Writing\\compile_and_open.sh',
+                     'bash_script': path_vault / '✍Writing\\compile_and_open.sh',
                 'bibtex_file_name': 'BIBTEX',           # your bibtex file name 
-            'custom_latex_commands': path_vault + '✍Writing\\custom_latex_functions.tex',
+            'custom_latex_commands': path_vault / '✍Writing\\custom_latex_functions.tex',
                 },
         'par':
             {
@@ -381,3 +382,19 @@ def quick_add_table_block_text():
     """  
 
     return text
+
+# if __name__ == "__main__":
+#     # Test de la fonction get_parameters
+#     try:
+#         print("Démarrage du test...")
+#         current_dir = Path(__file__).resolve().parent.parent
+#         print(f"Dossier courant : {current_dir}")
+        
+#         params = get_parameters()
+#         print("\nRésultats de la recherche :")
+#         print(f"path_vault : {params['📁']['vault'] if '📁' in params and 'vault' in params['📁'] else 'Non trouvé'}")
+        
+#     except Exception as e:
+#         print(f"Erreur : {str(e)}")
+#         import traceback
+#         traceback.print_exc()

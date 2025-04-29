@@ -23,8 +23,7 @@ from convert_code_blocks import *
 from helper_functions import *
 from equations import *
 from path_searching import *
-from get_parameters import *
-from manage_path import *   
+from get_parameters import get_parameters
 
 
 

@@ -1,7 +1,6 @@
-Je comprends vos deux demandes : clarifier le mécanisme avec un diagramme Mermaid et modifier la recherche pour qu'elle ne parcoure pas les sous-dossiers. Voici la solution restructurée :
 
 ### Version Simplifiée et Corrigée
-```python
+
 import re
 from pathlib import Path
 import os

@@ -18,7 +18,7 @@ import yaml
 #     str((Path(dossier) / item).resolve())
 #     for dossier, sous_dossiers, fichiers in os.walk(Path(racine))
 #     for item in (
-#         sous_dossiers + fichiers if dossier1st == 'dossier' else fichiers + sous_dossiers
+#          sous_dossiers + fichiers if dossier1st == 'dossier' else fichiers + sous_dossiers
 #     )
 #     if re.search(motif, item, re.I)
 # ]
@@ -83,7 +83,7 @@ path_equation_block_template:   equation_block_single.md
 path_equation_blocks:   equation blocks  
 path_table_blocks:   table blocks  
 path_list_note_paths:   DO_NOT_DELETE__note_paths.txt  
-path_BIBTEX:   BIBTEX  
+path_BIBTEX:   BIBT 
 """ # les valeurs prdefaut 
 
 motifs =f = {cle: (yaml.safe_load(open("fl.md", encoding="utf-8")) 
