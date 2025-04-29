@@ -95,7 +95,7 @@ def get_embedded_reference_path(fileName, PARS, search_in = 'vault'):
                 update_list_of_embedded_note_paths(fileName, path_found, path_list_of_notes)
                 return path_found
             else:
-                raise Exception(f"No information found for '{fileName}' in the provided text file and unable to find an alternative path.")
+                raise Exception(f"No information found for '{fileName}' in the provided text file and unable to find an alternative path in the vault.")
         else:
             path_found = PARS['📁']['vault'] + fileName
             update_list_of_embedded_note_paths(fileName, path_found, path_list_of_notes)

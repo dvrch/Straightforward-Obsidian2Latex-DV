@@ -85,11 +85,11 @@ def package_loader():
 
     out.append('\\usepackage{enumitem,amssymb}')
     out.append('\\newlist{todolist}{itemize}{2}')
-    out.append('\setlist[todolist]{label=$\square$}')
+    out.append(r'\setlist[todolist]{label=$\square$}')
     
     out.append('\\newtotcounter{citnum} %From the package documentation')
-    out.append('\def\oldbibitem{} \let\oldbibitem=\\bibitem')
-    out.append('\def\\bibitem{\stepcounter{citnum}\oldbibitem}')
+    out.append(r'\def\oldbibitem{} \let\oldbibitem=\\bibitem')
+    out.append(r'\def\\bibitem{\stepcounter{citnum}\oldbibitem}')
 
     paragraph_indent = f"\\setlength{{\\parindent}}{{{str(settings['paragraph']['indent_length_of_first_line'])+'pt'}}}"
     out.append(paragraph_indent)
@@ -110,7 +110,7 @@ def replace_hyperlinks(S):
     # http:// or https:// followed by anything but a closing paren
     url_regex = "http[s]?://[^)]+"
 
-    markup_regex = '\[({0})]\(\s*({1})\s*\)'.format(name_regex, url_regex)
+    markup_regex = r'\[({0})]\(\s*({1})\s*\)'.format(name_regex, url_regex)
     markup_regex_no_alias = r'(http[s]?://\S+)' # Non-greedy regex to match URLs, stopping at the first space or punctuation after the URL
 
     S_1 = []
@@ -198,26 +198,26 @@ def simple_stylistic_replacements(S, type=None):
     '''
 
     if type == ID__STYLE__BOLD:
-        style_char = '\*\*'
+        style_char = r'\*\*'
         replacement_func = lambda repl, string:  repl.append(['**'+string+'**', '\\textbf{' + string + '}'])
         l = 2
         is_pair = True
     
     elif type == ID__STYLE__HIGHLIGHTER:
-        style_char = '\=\='
-        replacement_func = lambda repl, string:  repl.append(['=='+string+'==', '\hl{' + string + '}'])
+        style_char = r'\=\='
+        replacement_func = lambda repl, string:  repl.append(['=='+string+'==', r'\hl{' + string + '}'])
         l = 2
         is_pair = True
 
     elif type == ID__STYLE__ITALIC:
-        style_char = '\*'
+        style_char = r'\*'
         replacement_func = lambda repl, string:  repl.append(['*'+string+'*', '\\textit{' + string + '}'])
         l = 1
         is_pair = True
     
     elif type == ID__STYLE__STRIKEOUT:
-        style_char = '\~\~'
-        replacement_func = lambda repl, string:  repl.append([f'~~{string}~~', f'\\st{{{string}}}'])
+        style_char = r'\~\~'
+        replacement_func = lambda repl, string:  repl.append([f'~~{string}~~', r'\st{{{string}}}'])
         l = 2
         is_pair = True
 
@@ -274,12 +274,12 @@ def images_converter(images, PARAMETERS):
         figure_width = 0.7
         TO_PRINT.append(' \n'.join([
         '\\begin{figure}',
-        '	\centering',
-        f'	\includegraphics[width={figure_width}\linewidth]'+\
+        ' \centering',
+        f' \includegraphics[width={figure_width}\\linewidth]'+\
             '{"'+path_img+'"}',
-        f'	\caption[{caption_short}]{{{caption_long}}}',
+        f' \caption[{caption_short}]{{{caption_long}}}',
         '   \captionsetup{skip=-10pt} % Adjust the skip value as needed'*PARAMETERS['reduce spacing between figures'],
-        '	\label{fig:'+label_img+'}',
+        '  \label{fig:'+label_img+'}',
         '\end{figure}']))
 
     return TO_PRINT
