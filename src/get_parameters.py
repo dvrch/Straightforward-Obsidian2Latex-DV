@@ -1,9 +1,10 @@
-import os
+#  %%import os
 import re
 import sys
+import os
 from pathlib import Path
 # Ajoute src au sys.path
-sys.path.insert(0, str(Path(__file__).resolve().parent))
+# sys.path.insert(0, str(Path(__file__).resolve().parent))
 import yaml
 # from manage_path import recherche_motif as rmt
 
@@ -62,54 +63,65 @@ def get_parameters(version = 'default'):
     #
 
 
-
     # USER PARAMETERS
     # path_func = {cle: (yaml.safe_load(open("fl.yaml", encoding="utf-8")) 
     #             if Path("fl.yaml").is_file() else {}).get(cle) 
     #             or val for cle, val in motifs_defaut.items()}
 
         # path_func = {}
-        
-    def recherche_motifs(d, b, dossier1st='d'):
+    def recherche_motifs(r_a, m_o, d_s1st='d'): # racine, motif, trouver d'abord les noms de dossiers
         # On vérifie que b est bien une chaîne non vide
-        if not isinstance(b, str) or not b.strip():
+        if not isinstance(r_a, str) or not r_a.strip():
             return []
         return [
             str(item)
-            for dossier, sous_dossiers, fichiers in os.walk(Path(d))
+            for d_s, s_d, fi in os.walk(Path(r_a))
             for item in (
-                [*(Path(dossier)/d for d in sous_dossiers), *(Path(dossier)/f for f in fichiers)]
-                if dossier1st == 'd'
-                else [*(Path(dossier)/f for f in fichiers), *(Path(dossier)/d for d in sous_dossiers)]
+                [*(Path(d_s)/d for d in s_d), *(Path(d_s)/f for f in fi)]
+                if d_s1st == 'd'
+                else [*(Path(d_s)/f for f in fi), *(Path(d_s)/d for d in s_d)]
             )
-            if re.search(b, item.name, re.I)
+            if re.search(m_o, item.name, re.I)
         ]
+    
+    # On définit le chemin du dossier parent du fichier courant
+    par = Path(__file__).resolve().parent.parent
+    results = recherche_motifs(str(par), 'vaul', 'd') # alias
+    path_vault = Path(results[0]) if results else None 
+    # 'C:\\Users\\mariosg\\OneDrive - NTNU\\FILES\\workTips\\'    
+    # path_writing = Path(path_vault / '✍Writing')
+    path_writing        =  Path(path_vault / '✍Writing')
+    template_results = recherche_motifs(str(par), '👨‍💻', 'd')
+    path_templates = Path(template_results[0]) if template_results else path_vault / '👨‍💻Automations'
+    
+    block_results = recherche_motifs(str(par), 'le_block.md', 'd')
+    path_table_block_template = Path(block_results[0]) if block_results else path_templates / 'table_block.md'
+    
+    equation_template_results = recherche_motifs(str(par), 'equation_block_single.md', 'd')
+    path_equation_block_template = Path(equation_template_results[0]) if equation_template_results else path_templates / 'equation_block_single.md'
 
-    e = recherche_motifs  # alias
-    f = Path(__file__).resolve().parent.parent
-    path_vault =  Path(e(f, 'vau')[0])
+    equation_blocks_results = recherche_motifs(str(par), 'quation blo', 'd')
+    path_equation_blocks = Path(equation_blocks_results[0]) if equation_blocks_results else Path(path_writing / 'equation blocks')
+    
+    table_blocks_results = recherche_motifs(str(par), 'table blocks', 'd')
+    path_table_blocks = Path(table_blocks_results[0]) if table_blocks_results else Path(path_writing / 'table blocks')
+    
+    note_paths_results = recherche_motifs(str(par), 'DO_NOT_DELETE__note_paths.txt', 'd')
+    path_list_note_paths = Path(note_paths_results[0]) if note_paths_results else path_vault / 'DO_NOT_DELETE__note_paths.txt'
+    
+    bibtex_results = recherche_motifs(str(par), 'BIBTEX', 'd')
+    path_BIBTEX = Path(bibtex_results[0]) if bibtex_results else path_vault / 'BIBTEX.bib'
 
-    # 'C:\\Users\\mariosg\\OneDrive - NTNU\\FILES\\workTips\\'
-    path_writing        = Path(path_vault / '✍Writing')
-    path_templates        = Path(e(f,  '👨‍💻')[0]) #|   Path(path_vault / '👨‍💻Automations')
-    path_table_block_template = Path(e(f, 'le_block.md')[0]) #|   path_templates / 'table_block.md'
-    path_equation_block_template = Path(e(f, 'equation_block_single.md')[0])  #|   path_templates / 'equation_block_single.md'
-
-    path_equation_blocks =Path(e(f, 'quation blo')[0])  #|   Path(path_writing / 'equation blocks')
-    path_table_blocks   = Path(e(f, 'table blocks')[0])  
-    path_list_note_paths = Path(e(f, 'DO_NOT_DELETE__note_paths.txt')[0])  
-    path_BIBTEX          = Path(e(f,  'BIBTEX')[0])  
-
-    [path_vault, 
-    path_writing, 
-    path_templates, 
-    path_table_block_template, 
-    path_equation_block_template, 
-    path_equation_blocks, 
-    path_table_blocks, 
-    path_list_note_paths]=[m,n,o,q,r,s,t,u] = [python_format_path(path) for path in [m,n,o,q,r,s,t,u]]
-  
-
+    # [path_vault, 
+    # path_writing, 
+    # path_templates, 
+    # path_table_block_template, 
+    # path_equation_block_template, 
+    # path_equation_blocks, 
+    # path_table_blocks, 
+    # path_list_note_paths]=[va1, te1, ta1, eq1, eq2, eq3, ta2, ta3] = [
+    #     python_format_path(path) for path in [va1, te1, ta1, eq1, eq2, eq3, ta2, ta3]]
+#  %%
     if not os.path.exists(path_list_note_paths):
         with open(path_list_note_paths, 'w', encoding='utf-8') as file:
             file.write('')
