@@ -55,14 +55,14 @@ def get_parameters(version = 'default'):
 
 
     # USER PARAMETERS
-    work_dir_tex =Path(os.getcwd())
-    work_dir_tex =Path(__file__
+    work_dir_tex =Path(os.getcwd())  # avec 🧡 et en guise de remerciement
+    # work_dir_tex =Path(__file__
 
     path_vault          =  Path(work_dir_tex/'example_vault')
     path_writing        = Path(path_vault/'✍Writing')
     path_templates        = Path(path_vault/'👨‍💻Automations')
     path_table_block_template = Path(path_templates/'table_block.md')
-    path_equation_block_template = Path(path_templates/'equation_block_single.md')
+    path_equation_block_template = Path(path_templates/'equation_block_single.md')  # corrected line
     path_table_blocks   = Path(path_writing/'table blocks')
 
     path_equation_blocks = Path(path_writing/'equation blocks')
