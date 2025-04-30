@@ -569,21 +569,26 @@ def convert__tables(S, caption, package, label, widths, use_hlines, use_vlines, 
     latex_table_prefix = '#Latex/Table/'
     latex_table_prefix_row_format_color = latex_table_prefix + 'Format/rowcolor/'
     TABLE_SETTINGS = PARS['⚙']['TABLES']
-    if not package:
-        package = TABLE_SETTINGS['package']
-    else:
-        latex_table_package_prefix = latex_table_prefix+'package/'
-        if latex_table_package_prefix+'longtable' in package:
-            package = ID__TABLES__PACKAGE__long_table
-        elif latex_table_package_prefix+'tabularx' in package:
-            package = ID__TABLES__PACKAGE__tabularx
-        elif latex_table_package_prefix+'longtblr' in package:
-            package = ID__TABLES__PACKAGE__longtblr
-        elif latex_table_package_prefix+'tabular' in package:
-            package = ID__TABLES__PACKAGE__tabular
-        else:
-            raise NotImplementedError
-        
+
+    # Determine the package ID
+    package_tag = package # Keep the original tag string if provided
+    determined_package_id = TABLE_SETTINGS['package'] # Default package ID
+
+    if package_tag: # If a package tag was specified in the note
+        latex_table_package_prefix = latex_table_prefix + 'package/'
+        if latex_table_package_prefix + 'longtable' in package_tag:
+            determined_package_id = ID__TABLES__PACKAGE__long_table
+        elif latex_table_package_prefix + 'tabularx' in package_tag:
+            determined_package_id = ID__TABLES__PACKAGE__tabularx
+        elif latex_table_package_prefix + 'longtblr' in package_tag:
+            determined_package_id = ID__TABLES__PACKAGE__longtblr
+        elif latex_table_package_prefix + 'tabular' in package_tag:
+            determined_package_id = ID__TABLES__PACKAGE__tabular
+        # else: If the tag doesn't match any known package, use the default ID
+
+    # Use the determined integer ID for subsequent comparisons
+    package = determined_package_id
+
     # Check if it is a dataview table
     if is_dataview_table(S):
         indexes_start_finish = [i for i, s in enumerate(S) if re.match(r'^\s*```', s)]

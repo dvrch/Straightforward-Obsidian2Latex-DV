@@ -65,7 +65,7 @@ doc_classes__2_cols = ['ifacconf'] # document classes that use 2 columns
 # REST OF CODE
 new_table_version = False # had it as a user parameter, but it should always be fixed to False
 def package_loader():
-
+ 
     packages_to_load    = []
     packages_to_load +=PARS['par']['packages-to-load']
     
@@ -434,7 +434,7 @@ for i in range(Lc+1):
 
 # \==================================================\==================================================
 
-table_new_col_symbol = [['&',               '\&',                     1]]
+table_new_col_symbol = [[r'&',               r'\&',                     1]]
 content = symbol_replacement(content, table_new_col_symbol)
 
 # find reference blocks \==================================================
@@ -529,7 +529,7 @@ if not PARS['⚙']['SEARCH_IN_FILE']['condition']:
     else:
         step = 1
     
-    table_new_col_symbol_reverse = [['\&',               '&',                     1]]
+    table_new_col_symbol_reverse = [[r'\&',               r'&',                     1]]
     
 
     for i in range(int(len(tmp1)/2)):
@@ -557,7 +557,7 @@ if not PARS['⚙']['SEARCH_IN_FILE']['condition']:
         content = non_embedded_references_converter(content, PARS) 
 
     # Replace "#" with "" (temporary patch ➕)
-    content = [x.replace("#", "\#") for x in content]
+    content = [x.replace("#", r"\#") for x in content]
 
     LATEX = []
     i0 = IDX__TABLES[0]
@@ -582,7 +582,7 @@ if not PARS['⚙']['SEARCH_IN_FILE']['condition']:
     
 
     LATEX = code_block_converter(LATEX, PARS)
-    LATEX = symbol_replacement(LATEX, [['\#&', '&', 1]])
+    LATEX = symbol_replacement(LATEX, [[r'\#&', '&', 1]])
 
 
     # Replace "%" with "\%" (after having replaced obsidian comments of course)
@@ -616,7 +616,7 @@ if not PARS['⚙']['SEARCH_IN_FILE']['condition']:
     tmp1 = paragraph['insert_new_line_symbol']
     LATEX_1 = []
     for l in LATEX:
-        if l.startswith(tmp1): l = l.replace(tmp1, '\\clearpage')
+        if l.startswith(tmp1): l = l.replace(tmp1, r'\clearpage')
         LATEX_1.append(l)
         
     LATEX = copy.copy(LATEX_1)
@@ -634,35 +634,35 @@ if not PARS['⚙']['SEARCH_IN_FILE']['condition']:
     except:
         custom_latex = []
     
-    PREAMBLE = [f"\\documentclass{doc_class_fontsize}{{{document_class['class']}}}"] +\
-            [is_ifac*'\\newcounter{part} % fix the issue in the class'] +\
-            [is_ifac*'\counterwithin*{section}{part}'] +\
-            ['% Loading packages that were defined in `src\get_parameters.py`'] +\
-            package_loader() +\
-            ['\n'] + ['\sethlcolor{yellow}'] + ['\n'] + ['\n'*2] +\
-            ['\setcounter{secnumdepth}{4}'] +\
-            ['\setlength{\parskip}{7pt} % paragraph spacing'] +\
-            ['\let\oldmarginpar\marginpar'] +\
-            ['\\renewcommand\marginpar[1]{\oldmarginpar{\\tiny #1}} % Change "small" to your desired font size]'] + ['\n'*2] +\
-            ['\\newcommand{\ignore}[1]{}']+\
-            ['% CUSTOM FUNCTIONS'] +\
-            custom_latex+\
-            ['% ======================================='] +\
-            ['\n'*3] + ['\\begin{document}']+\
-            ['\\allowdisplaybreaks' if paragraph['allowdisplaybreaks'] else '']+\
-            ['\date{}'*PARS['⚙']['use_date']]+\
-            [f"\\author{{{PARS['⚙']['author']}}}"*(len(PARS['⚙']['author'])>0)]+\
-            [f'\\title{title}\n\maketitle'*(len(title)>0)]+\
-            [text_before_first_section]+\
-            ['\\tableofcontents \n \\newpage'*paragraph['add_table_of_contents']]
+    PREAMBLE = [f"\\documentclass{doc_class_fontsize}{{{document_class['class']}}}"] + \
+            [(is_ifac * r'\newcounter{part} % fix the issue in the class')] + \
+            [(is_ifac * r'\counterwithin*{section}{part}')] + \
+            [r'% Loading packages that were defined in `src\get_parameters.py`'] + \
+            package_loader() + \
+            [r'\n'] + [r'\sethlcolor{yellow}'] + [r'\n'] + [r'\n'*2] + \
+            [r'\setcounter{secnumdepth}{4}'] + \
+            [r'\setlength{\parskip}{7pt} % paragraph spacing'] + \
+            [r'\let\oldmarginpar\marginpar'] + \
+            [r'\\renewcommand\marginpar[1]{\oldmarginpar{\tiny #1}} % Change "small" to your desired font size]'] + [r'\n'*2] + \
+            [r'\\newcommand{\ignore}[1]{}'] + \
+            [r'% CUSTOM FUNCTIONS'] + \
+            custom_latex + \
+            [r'% ======================================='] + \
+            [r'\n'*3] + [r'\begin{document}'] + \
+            [r'\allowdisplaybreaks' if paragraph['allowdisplaybreaks'] else ''] + \
+            [(r'\date{}' * PARS['⚙']['use_date'])] + \
+            [f"\\author{{{PARS['⚙']['author']}}}" * (len(PARS['⚙']['author']) > 0)] + \
+            [f'\\title{{{title}}}\n\\maketitle' * (len(title) > 0)] + \
+            [text_before_first_section] + \
+            [(r'\tableofcontents \n \newpage' * paragraph['add_table_of_contents'])]
 
     # LATEX = symbol_replacement(LATEX, [['_', '\_', 0]])
     LATEX1 = []
     for line in LATEX:
         LATEX1.append(escape_underscores_in_texttt(line))
 
-    LATEX = PREAMBLE + LATEX1 + [('\\newpage \n '*2)*paragraph['add_new_page_before_bibliography'] + '\n'*5 + '\\bibliographystyle{apacite}']+\
-        ['\\bibliography{' + PATHS['bibtex_file_name'] + '}'] + ['\end{document}']
+    LATEX = PREAMBLE + LATEX1 + [(r'\newpage \n '*2 * paragraph['add_new_page_before_bibliography']) + r'\n'*5 + r'\bibliographystyle{apacite}'] + \
+        [r'\bibliography{' + PATHS['bibtex_file_name'] + r'}'] + [r'\end{document}']
 
     # if '[[✍⌛writing--FaultDiag--Drillstring--MAIN]]' in markdown_file:
     #     LATEX_1 = []
