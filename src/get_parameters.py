@@ -56,7 +56,7 @@ def get_parameters(version = 'default'):
 
     # USER PARAMETERS
     work_dir_tex =Path(os.getcwd())
-    # work_dir_tex =Path(os.getcwd()).parent 
+    # work_dir_tex =Path(_FILE_).parent.parent
 
 
 
@@ -109,7 +109,7 @@ def get_parameters(version = 'default'):
     # apply parameter changes based on specific notes
         
     V__document_class = {'class': ID__DOCUMENT_CLASS__EXTARTICLE, 'fontsize': ''}
-    V__author = 'Marios Gkionis'
+    V__author = 'Marios Gkionis' # DJONTSO Victorien
         
     if version =='[[👆👆RL--writing--1]]':
         
