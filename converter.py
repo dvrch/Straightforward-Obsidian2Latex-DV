@@ -273,14 +273,14 @@ def images_converter(images, PARAMETERS):
         caption_long = 'Caption long'
         figure_width = 0.7
         TO_PRINT.append(' \n'.join([
-        '\\begin{figure}',
-        ' \centering',
-        f' \includegraphics[width={figure_width}\\linewidth]'+\
-            '{"'+path_img+'"}',
-        f' \caption[{caption_short}]{{{caption_long}}}',
-        '   \captionsetup{skip=-10pt} % Adjust the skip value as needed'*PARAMETERS['reduce spacing between figures'],
-        '  \label{fig:'+label_img+'}',
-        '\end{figure}']))
+        r'\begin{figure}',
+        r'    \centering',
+        f'    \\includegraphics[width={figure_width}\\linewidth]'+
+            '{"' + path_img + '"}',
+        f'    \\caption[{caption_short}]{{{caption_long}}}',
+        r'   \captionsetup{skip=-10pt} % Adjust the skip value as needed'*PARAMETERS['reduce spacing between figures'],
+        r'    \label{fig:'+label_img+r'}',
+        r'\end{figure}']))
 
     return TO_PRINT
 
