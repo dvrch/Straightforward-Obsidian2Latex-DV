@@ -56,12 +56,9 @@ def get_parameters(version = 'default'):
 
     # USER PARAMETERS
     work_dir_tex =Path(os.getcwd())
-    # work_dir_tex =Path(_FILE_).parent.parent
-
-
+    work_dir_tex =Path(__file__
 
     path_vault          =  Path(work_dir_tex/'example_vault')
-    # '\\'.join(os.path.abspath(__file__).split('\\')[0:-2]) + '\\obsidian\\vault\\'
     path_writing        = Path(path_vault/'✍Writing')
     path_templates        = Path(path_vault/'👨‍💻Automations')
     path_table_block_template = Path(path_templates/'table_block.md')
@@ -96,7 +93,7 @@ def get_parameters(version = 'default'):
     # else:
     #     raise Exception('Not implemented yet.')
                 
-    hyperlinkSetup="""
+    hyperlinkSetup = r"""
     \hypersetup{
     colorlinks   = true,    % Colours links instead of ugly boxes
     urlcolor     = blue,    % Colour for external hyperlinks
@@ -230,10 +227,10 @@ def get_parameters(version = 'default'):
             'symbols-to-replace': [       # Obsidian symbol, latex symbol,            type of replacement (1 or 2)
 											['✔',              '\\checkmark',            1],
 											['🟢',              '$\\\\blacklozenge$',    2],
-											['🔴',              '\\\maltese',            2],
+											['🔴',              r'\maltese',            2],
 											['➕',              '\\twemoji{plus}',            1],    # Alternatives: ['$\\\\boxplus$']
 											['🔗',              'LINK',                  1],
-											['\implies',        '\Rightarrow',            1],
+											[r'\implies',       r'\Rightarrow',         1],
 											['❓❓',              '?',                     1],
 											['❓',              '?',                      1],
 											['❌',              'NO',                    1],
