@@ -95,8 +95,8 @@ def get_parameters(version = 'default'):
     path_custom_latex_commands = get_path_or_default(config, 'path_custom_latex_commands', path_vault/'✍Writing'/'custom_latex_functions.tex')
     path_bibtex_file_name = get_path_or_default(config, 'path_bibtex_file_name', 'BIBTEX')  # your bibtex file name
     # path_command_note = get_path_or_default(config, 'path_command_note', path_vault/'✍Writing'/'👨‍💻convert_to_latex.md')
-    # path_quick_add = get_path_or_default(config, 'path_quick_add', path_vault/'.obsidian'/'plugins'/'quickadd')
-    # path_plugins = get_path_or_default(config, 'path_plugins', path_vault/'.obsidian'/'plugins')
+    # path_quick_add = get_path_or_default(config, 'path_quick_add', path_vault'.obsidian'/'plugins'/'quickadd')
+    # path_plugins = get_path_or_default(config, 'path_plugins', path_vault'.obsidian'/'plugins')
 
 
     
@@ -105,7 +105,7 @@ def get_parameters(version = 'default'):
     def update_paths():
         # Chemins des fichiers à modifier
         convert_file = get_path_or_default(config, 'convert_file', path_vault/'✍Writing'/'👨‍💻convert_to_latex.md')
-        compile_file = get_path_or_default(config, 'compile_file', work_dir_tex/'compile_and_open.sh')
+        compile_file = get_path_or_default(config, 'compile_file', path_vault/'✍Writing'/'compile_and_open.sh')  # work_dir_tex/'compile_and_open.sh') deplacer dans ✍Writing
         
         # Nouveaux chemins
         converter_path = path_converter
@@ -121,28 +121,28 @@ def get_parameters(version = 'default'):
 
             # Pour code_run::
             content = re.sub(
-                r'(code_run::.*?\[1\. 👨‍💻🖱convert\]\(<file:///)[^>]+(>)',
-                lambda m: f'{m.group(1)}{converter_path}{m.group(2)}',
+                r'(code_run::.*?\[1\. 👨‍💻🖱convert\]\(<file:///)[^>]+(>\))',
+                lambda m: f'{m.group(1)}{converter_path.as_uri()}{m.group(2)}',
                 content,
                 flags=re.DOTALL
             )
             content = re.sub(
-                r'(\[2\. 👨‍💻compile to \.pdf\]\(<file:///)[^>]+(>)',
-                lambda m: f'{m.group(1)}{compile_script_path}{m.group(2)}',
+                r'(\[2\. 👨‍💻compile to \.pdf\]\(<file:///)[^>]+(>\))',
+                lambda m: f'{m.group(1)}{compile_script_path.as_uri()}{m.group(2)}',
                 content,
                 flags=re.DOTALL
             )
 
             # Pour files::
             content = re.sub(
-                r'(files::.*?\[📁tex file\]\(<file:///)[^>]+(>)',
-                lambda m: f'{m.group(1)}{example_tex}{m.group(2)}',
+                r'(files::.*?\[📁tex file\]\(<file:///)[^>]+(>\))',
+                lambda m: f'{m.group(1)}{example_tex.as_uri()}{m.group(2)}',
                 content,
                 flags=re.DOTALL
             )
             content = re.sub(
-                r'(\[📁\.pdf file\]\(<file:///)[^>]+(>)',
-                lambda m: f'{m.group(1)}{example_pdf}{m.group(2)}',
+                r'(\[📁\.pdf file\]\(<file:///)[^>]+(>\))',
+                lambda m: f'{m.group(1)}{example_pdf.as_uri()}{m.group(2)}',
                 content,
                 flags=re.DOTALL
             )
@@ -159,7 +159,7 @@ def get_parameters(version = 'default'):
             # Mettre à jour les chemins dans le fichier bash
             for i, line in enumerate(content):
                 if line.startswith('BASE_PATH='):
-                    content[i] = f'BASE_PATH="{path_writing}"\n'
+                    content[i] = f'BASE_PATH="{str(path_writing)}"\n'
                 elif line.startswith('FILE_NAME='):
                     content[i] = 'FILE_NAME="example_writing"\n'
                     
