@@ -78,7 +78,7 @@ def get_parameters(version = 'default'):
     path_writing = get_path_or_default(config, 'path_writing', path_vault/'✍Writing')
     path_templates = get_path_or_default(config, 'path_templates', path_vault/'👨‍💻Automations')
     path_table_block_template = get_path_or_default(config, 'path_table_block_template', path_templates/'table_block.md')
-    path_equation_block_template = get_path_or_default(config, 'path_equation_block_template', path_templates/'equation_block_single.md')
+    path_equation_block_template = get_path_or_default(config, 'path_equation_block_template', path_vault/'✍Writing'/'compile_and_open.sh')  # work_dir_tex/'compile_and_open.sh') deplacer dans ✍Writing
     path_table_blocks = get_path_or_default(config, 'path_table_blocks', path_writing/'table blocks')
     path_equation_blocks = get_path_or_default(config, 'path_equation_blocks', path_writing/'equation blocks')
     path_list_note_paths = get_path_or_default(config, 'path_list_note_paths', path_vault/'DO_NOT_DELETE__note_paths.txt')
@@ -97,7 +97,8 @@ def get_parameters(version = 'default'):
     # path_command_note = get_path_or_default(config, 'path_command_note', path_vault/'✍Writing'/'👨‍💻convert_to_latex.md')
     # path_quick_add = get_path_or_default(config, 'path_quick_add', path_vault'.obsidian'/'plugins'/'quickadd')
     # path_plugins = get_path_or_default(config, 'path_plugins', path_vault'.obsidian'/'plugins')
-
+    # FILE_NAME="example_writing"
+    file_name4sh = get_path_or_default(config, 'file_name4sh', 'example_writing')  # your bibtex file name
 
     
     # Intégrer directement ici les scripts bash et python pour éviter la duplication des chemins et variables
@@ -121,28 +122,28 @@ def get_parameters(version = 'default'):
 
             # Pour code_run::
             content = re.sub(
-                r'(code_run::.*?\[1\. 👨‍💻🖱convert\]\(<file:///)[^>]+(>\))',
-                lambda m: f'{m.group(1)}{converter_path.as_uri()}{m.group(2)}',
+                r'(code_run::.*?\[1\. 👨‍💻🖱convert\]\(<file:/{1,2})([^>]+(>\)))',
+                lambda m: f'{m.group(1)}{converter_path.as_uri()}{m.group(3)}',
                 content,
                 flags=re.DOTALL
             )
             content = re.sub(
-                r'(\[2\. 👨‍💻compile to \.pdf\]\(<file:///)[^>]+(>\))',
-                lambda m: f'{m.group(1)}{compile_script_path.as_uri()}{m.group(2)}',
+                r'(\[2\. 👨‍💻compile to \.pdf\]\(<file:/{1,2})([^>]+(>\)))',
+                lambda m: f'{m.group(1)}{compile_script_path.as_uri()}{m.group(3)}',
                 content,
                 flags=re.DOTALL
             )
 
             # Pour files::
             content = re.sub(
-                r'(files::.*?\[📁tex file\]\(<file:///)[^>]+(>\))',
-                lambda m: f'{m.group(1)}{example_tex.as_uri()}{m.group(2)}',
+                r'(files::.*?\[📁tex file\]\(<file:/{1,2})([^>]+(>\)))',
+                lambda m: f'{m.group(1)}{example_tex.as_uri()}{m.group(3)}',
                 content,
                 flags=re.DOTALL
             )
             content = re.sub(
-                r'(\[📁\.pdf file\]\(<file:///)[^>]+(>\))',
-                lambda m: f'{m.group(1)}{example_pdf.as_uri()}{m.group(2)}',
+                r'(\[📁\.pdf file\]\(<file:/{1,2})([^>]+(>\)))',
+                lambda m: f'{m.group(1)}{example_pdf.as_uri()}{m.group(3)}',
                 content,
                 flags=re.DOTALL
             )
@@ -161,7 +162,7 @@ def get_parameters(version = 'default'):
                 if line.startswith('BASE_PATH='):
                     content[i] = f'BASE_PATH="{str(path_writing)}"\n'
                 elif line.startswith('FILE_NAME='):
-                    content[i] = 'FILE_NAME="example_writing"\n'
+                    content[i] = f'FILE_NAME="{str(file_name4sh)}"\n'
                     
             with open(compile_file, 'w', encoding='utf-8', newline='\n') as f:
                 f.writelines(content)
