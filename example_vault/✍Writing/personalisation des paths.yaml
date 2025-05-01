@@ -1,15 +1,16 @@
 ---
-work_dir_tex: "chemin/vers/votre/dossier"
-path_vault: "chemin/vers/vault"
-path_writing: "chemin/vers/writing"
-path_templates: "chemin/vers/templates"
-path_table_block_template: "chemin/vers/table_block.md"
-path_equation_block_template: "chemin/vers/equation_block_single.md"
-path_table_blocks: "chemin/vers/table_blocks"
-path_equation_blocks: "chemin/vers/equation_blocks"
+work_dir_tex: ""
+path_vault: ""  # sera défini automatiquement comme work_dir_tex/example_vault
+path_writing: "" # sera défini automatiquement comme path_vault/✍Writing
+path_templates: "" # sera défini automatiquement comme path_vault/👨‍💻Automations
+path_table_block_template: ""
+path_equation_block_template: ""
+path_table_blocks: ""
+path_equation_blocks: ""
 path_list_note_paths: ""
-path_BIBTEX: "chemin/vers/BIBTEX"
+path_BIBTEX: ""
 path_converter: ""
 path_compile_script: ""
 path_example_pdf: ""
 path_example_tex: ""
+path_example_bib: ""
