@@ -88,6 +88,16 @@ def get_parameters(version = 'default'):
     path_compile_script = get_path_or_default(config, 'path_compile_script', work_dir_tex/'compile_and_open.sh')
     path_example_pdf = get_path_or_default(config, 'path_example_pdf', path_writing/'example_writing.pdf')
     path_example_tex = get_path_or_default(config, 'path_example_tex', path_writing/'example_writing.tex')
+   
+    convert_file = get_path_or_default(config, 'convert_file', path_vault/'✍Writing'/'👨‍💻convert_to_latex.md')
+    compile_file = get_path_or_default(config, 'compile_file', work_dir_tex/'compile_and_open.sh')
+    path_custom_latex_commands = get_path_or_default(config, 'path_custom_latex_commands', path_vault/'✍Writing'/'custom_latex_functions.tex')
+    path_bibtex_file_name = get_path_or_default(config, 'path_bibtex_file_name', 'BIBTEX')  # your bibtex file name
+    # path_command_note = get_path_or_default(config, 'path_command_note', path_vault/'✍Writing'/'👨‍💻convert_to_latex.md')
+    # path_quick_add = get_path_or_default(config, 'path_quick_add', path_vault/'.obsidian'/'plugins'/'quickadd')
+    # path_plugins = get_path_or_default(config, 'path_plugins', path_vault/'.obsidian'/'plugins')
+
+
     
     # Intégrer directement ici les scripts bash et python pour éviter la duplication des chemins et variables
 
@@ -103,22 +113,46 @@ def get_parameters(version = 'default'):
         example_pdf = path_example_pdf
 
         # Mise à jour du fichier convert_to_latex.md
+
         if convert_file.exists():
             with open(convert_file, 'r', encoding='utf-8') as f:
-                content = f.read()
-                
-            # Remplacer les chemins
-            content = content.replace(
-                "code_run::", 
-                f'code_run:: [1. 👨‍💻🖱convert](<file:///{converter_path}>) , [2. 👨‍💻compile to .pdf](<file:///{compile_script_path}>)\n--'
+            content = f.read()
+
+            # Remplacer uniquement les chemins dans les liens file:///
+            def replace_path(match, new_path):
+            before = match.group(1)
+            return f'{before}{new_path}>'
+
+            # Pour code_run::
+            content = re.sub(
+            r'(code_run::.*?\[1\. 👨‍💻🖱convert\]\(<file:///)[^>]+(>)',
+            lambda m: f'{m.group(1)}{converter_path}{m.group(2)}',
+            content,
+            flags=re.DOTALL
             )
-            content = content.replace(
-                "files::", 
-                f'files::  [📁tex file](<file:///{example_tex}>), [📁.pdf file](<file:///{example_pdf}>)\n--'
+            content = re.sub(
+            r'(\[2\. 👨‍💻compile to \.pdf\]\(<file:///)[^>]+(>)',
+            lambda m: f'{m.group(1)}{compile_script_path}{m.group(2)}',
+            content,
+            flags=re.DOTALL
             )
-            
+
+            # Pour files::
+            content = re.sub(
+            r'(files::.*?\[📁tex file\]\(<file:///)[^>]+(>)',
+            lambda m: f'{m.group(1)}{example_tex}{m.group(2)}',
+            content,
+            flags=re.DOTALL
+            )
+            content = re.sub(
+            r'(\[📁\.pdf file\]\(<file:///)[^>]+(>)',
+            lambda m: f'{m.group(1)}{example_pdf}{m.group(2)}',
+            content,
+            flags=re.DOTALL
+            )
+
             with open(convert_file, 'w', encoding='utf-8') as f:
-                f.write(content)
+            f.write(content)
             print(f"✅ Mise à jour de {convert_file.name}")
 
         # Mise à jour du fichier compile_and_open.sh
@@ -420,6 +454,7 @@ def quick_add_table_block_text():
 if __name__ == '__main__':
     # Code de test pour le débogage
     import logging
+    import re
     logging.basicConfig(level=logging.DEBUG)
     
     # Test avec différentes versions
