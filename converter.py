@@ -252,7 +252,6 @@ def simple_stylistic_replacements(S, type=None):
         S1.append(s)
     
     return S1
-
  
 
 def images_converter(images, PARAMETERS):
@@ -533,8 +532,8 @@ if not PARS['⚙']['SEARCH_IN_FILE']['condition']:
     
 
     for i in range(int(len(tmp1)/2)):
-        raise Exception("You have tables outside the table note format! Please fix that!")
-        new_table = symbol_replacement(convert__tables(content[tmp1[2*i]:tmp1[2*i+1]:step]), table_new_col_symbol_reverse)
+        # raise Exception("You have tables outside the table note format! Please fix that!")
+        new_table = symbol_replacement(convert__tables(content[tmp1[2*i]:tmp1[2*i+1]]), table_new_col_symbol_reverse)
         LATEX_TABLES.append(new_table)
 
     # for i, L in enum(content):
@@ -662,7 +661,7 @@ if not PARS['⚙']['SEARCH_IN_FILE']['condition']:
         LATEX1.append(escape_underscores_in_texttt(line))
 
     LATEX = PREAMBLE + LATEX1 + [('\\newpage \n'*2 * paragraph['add_new_page_before_bibliography']) + '\n'*5 + r'\bibliographystyle{apacite}'] + \
-        [r'\bibliography{' + PATHS['bibtex_file_name'] + r'}'] + [r'\end{document}']
+        [r'\bibliography{' + PATHS['bibtex_file_name'].replace(".bib","") + r'}'] + [r'\end{document}']
 
     # if '[[✍⌛writing--FaultDiag--Drillstring--MAIN]]' in markdown_file:
     #     LATEX_1 = []

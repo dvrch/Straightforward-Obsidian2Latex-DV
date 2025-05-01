@@ -1,4 +1,6 @@
 #!/bin/bash
+# filepath: c:\Users\dvrch\Desktop\Memoire 2024\Straightforward-Obsidian2Latex\Straightforward-Obsidian2Latex-DV\example_vault\✍Writing\compile_and_open.sh
+
 # This file compiles the latex file to .pdf
 
 # Set base path and file name
@@ -11,12 +13,20 @@ PDFFILE="$BASE_PATH/$FILE_NAME.pdf"
 echo "TEXFILE: $TEXFILE"
 echo "PDFFILE: $PDFFILE"
 
+# Compile the bibliography
+bibtex "$BASE_PATH/$FILE_NAME"
+
 # Compile the LaTeX file
 pdflatex -interaction=nonstopmode -shell-escape "$TEXFILE"
 if [ $? -ne 0 ]; then
     echo "pdflatex compilation failed."
     exit 1
-f
+fi
+#
+
+# Compile the LaTeX file again for references
+pdflatex -interaction=nonstopmode -shell-escape "$TEXFILE"
+pdflatex -interaction=nonstopmode -shell-escape "$TEXFILE"
 
 # Open the resulting PDF file
 # Use 'start' on Windows (Git Bash) and 'xdg-open' on Linux/macOS
