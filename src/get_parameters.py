@@ -173,7 +173,55 @@ def get_parameters(version = 'default'):
 
     # Appeler la fonction à l'import si besoin
     update_paths()
+    # ------------
+    # def update_paths():
+    #     # Chemins des fichiers à modifier
+    #     convert_file = path_vault / "✍Writing" / "👨‍💻convert_to_latex.md"
+    #     compile_file = work_dir_tex / "compile_and_open.sh"
+        
+    #     # Nouveaux chemins
+    #     converter_path = path_converter
+    #     compile_script_path = path_compile_script
+    #     example_tex = path_example_tex
+    #     example_pdf = path_example_pdf
 
+    #     # Mise à jour du fichier convert_to_latex.md
+    #     if convert_file.exists():
+    #         with open(convert_file, 'r', encoding='utf-8') as f:
+    #             content = f.read()
+                
+    #         # Remplacer les chemins
+    #         content = content.replace(
+    #             "code_run::", 
+    #             f'code_run:: [1. 👨‍💻🖱convert](<file:///{converter_path}>) , [2. 👨‍💻compile to .pdf](<file:///{compile_script_path}>)\n--'
+    #         )
+    #         content = content.replace(
+    #             "files::", 
+    #             f'files::  [📁tex file](<file:///{example_tex}>), [📁.pdf file](<file:///{example_pdf}>)\n--'
+    #         )
+            
+    #         with open(convert_file, 'w', encoding='utf-8') as f:
+    #             f.write(content)
+    #         print(f"✅ Mise à jour de {convert_file.name}")
+
+    #     # Mise à jour du fichier compile_and_open.sh
+    #     if compile_file.exists():
+    #         with open(compile_file, 'r', encoding='utf-8') as f:
+    #             content = f.readlines()
+                
+    #         # Mettre à jour les chemins dans le fichier bash
+    #         for i, line in enumerate(content):
+    #             if line.startswith('BASE_PATH='):
+    #                 content[i] = f'BASE_PATH="{path_writing}"\n'
+    #             elif line.startswith('FILE_NAME='):
+    #                 content[i] = 'FILE_NAME="example_writing"\n'
+                    
+    #         with open(compile_file, 'w', encoding='utf-8', newline='\n') as f:
+    #             f.writelines(content)
+    #         print(f"✅ Mise à jour de {compile_file.name}")
+
+    # # Appeler la fonction à l'import si besoin
+    # update_paths()
     # %%
 
     
