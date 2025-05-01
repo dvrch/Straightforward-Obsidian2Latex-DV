@@ -1,5 +1,6 @@
 import os
 from pathlib import Path
+import re
 def get_parameters(version = 'default'):
     
     '''
@@ -72,7 +73,7 @@ def get_parameters(version = 'default'):
         else:
             return default_path
 
-    work_dir_tex = get_path_or_default(config, 'work_dir_tex', Path(os.getcwd()).parent) # work_dir_tex =Path(__file__).parent.parent  >>> a patir du fichier
+    work_dir_tex = get_path_or_default(config, 'work_dir_tex', Path(os.getcwd())) # work_dir_tex =Path(__file__).parent.parent  >>> a patir du fichier
     path_vault = get_path_or_default(config, 'path_vault', work_dir_tex/'example_vault')
     path_writing = get_path_or_default(config, 'path_writing', path_vault/'✍Writing')
     path_templates = get_path_or_default(config, 'path_templates', path_vault/'👨‍💻Automations')
@@ -103,8 +104,8 @@ def get_parameters(version = 'default'):
 
     def update_paths():
         # Chemins des fichiers à modifier
-        convert_file = path_vault / "✍Writing" / "👨‍💻convert_to_latex.md"
-        compile_file = work_dir_tex / "compile_and_open.sh"
+        convert_file = get_path_or_default(config, 'convert_file', path_vault/'✍Writing'/'👨‍💻convert_to_latex.md')
+        compile_file = get_path_or_default(config, 'compile_file', work_dir_tex/'compile_and_open.sh')
         
         # Nouveaux chemins
         converter_path = path_converter
@@ -116,43 +117,38 @@ def get_parameters(version = 'default'):
 
         if convert_file.exists():
             with open(convert_file, 'r', encoding='utf-8') as f:
-            content = f.read()
-
-            # Remplacer uniquement les chemins dans les liens file:///
-            def replace_path(match, new_path):
-            before = match.group(1)
-            return f'{before}{new_path}>'
+                content = f.read()
 
             # Pour code_run::
             content = re.sub(
-            r'(code_run::.*?\[1\. 👨‍💻🖱convert\]\(<file:///)[^>]+(>)',
-            lambda m: f'{m.group(1)}{converter_path}{m.group(2)}',
-            content,
-            flags=re.DOTALL
+                r'(code_run::.*?\[1\. 👨‍💻🖱convert\]\(<file:///)[^>]+(>)',
+                lambda m: f'{m.group(1)}{converter_path}{m.group(2)}',
+                content,
+                flags=re.DOTALL
             )
             content = re.sub(
-            r'(\[2\. 👨‍💻compile to \.pdf\]\(<file:///)[^>]+(>)',
-            lambda m: f'{m.group(1)}{compile_script_path}{m.group(2)}',
-            content,
-            flags=re.DOTALL
+                r'(\[2\. 👨‍💻compile to \.pdf\]\(<file:///)[^>]+(>)',
+                lambda m: f'{m.group(1)}{compile_script_path}{m.group(2)}',
+                content,
+                flags=re.DOTALL
             )
 
             # Pour files::
             content = re.sub(
-            r'(files::.*?\[📁tex file\]\(<file:///)[^>]+(>)',
-            lambda m: f'{m.group(1)}{example_tex}{m.group(2)}',
-            content,
-            flags=re.DOTALL
+                r'(files::.*?\[📁tex file\]\(<file:///)[^>]+(>)',
+                lambda m: f'{m.group(1)}{example_tex}{m.group(2)}',
+                content,
+                flags=re.DOTALL
             )
             content = re.sub(
-            r'(\[📁\.pdf file\]\(<file:///)[^>]+(>)',
-            lambda m: f'{m.group(1)}{example_pdf}{m.group(2)}',
-            content,
-            flags=re.DOTALL
+                r'(\[📁\.pdf file\]\(<file:///)[^>]+(>)',
+                lambda m: f'{m.group(1)}{example_pdf}{m.group(2)}',
+                content,
+                flags=re.DOTALL
             )
 
             with open(convert_file, 'w', encoding='utf-8') as f:
-            f.write(content)
+                f.write(content)
             print(f"✅ Mise à jour de {convert_file.name}")
 
         # Mise à jour du fichier compile_and_open.sh
