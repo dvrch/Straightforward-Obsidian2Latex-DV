@@ -122,30 +122,30 @@ def get_parameters(version = 'default'):
 
             # Pour code_run::
             content = re.sub(
-            r'(code_run::.*?\[1\. 👨‍💻🖱convert\]\(<file:/+)[^>]+(>\))',
-            lambda m: f'{m.group(1)}{converter_path.as_posix()}{m.group(2)}',
-            content,
-            flags=re.DOTALL
+                r'(code_run::.*?\[1\. 👨‍💻🖱convert\]\(<file:/{1,})([^>]+(>\)))',
+                lambda m: re.sub(r"file:///file:///", "file:///", f'{m.group(1)}file://{converter_path.as_uri().replace("file://", "")}{m.group(3)}'),
+                content,
+                flags=re.DOTALL
             )
             content = re.sub(
-            r'(\[2\. 👨‍💻compile to \.pdf\]\(<file:/+)[^>]+(>\))',
-            lambda m: f'{m.group(1)}{compile_script_path.as_posix()}{m.group(2)}',
-            content,
-            flags=re.DOTALL
+                r'(\[2\. 👨‍💻compile to \.pdf\]\(<file:/{1,})([^>]+(>\)))',
+                lambda m: re.sub(r"file:///file:///", "file:///", f'{m.group(1)}file://{compile_script_path.as_uri().replace("file://", "")}{m.group(3)}'),
+                content,
+                flags=re.DOTALL
             )
 
             # Pour files::
             content = re.sub(
-            r'(files::.*?\[📁tex file\]\(<file:/+)[^>]+(>\))',
-            lambda m: f'{m.group(1)}{example_tex.as_posix()}{m.group(2)}',
-            content,
-            flags=re.DOTALL
+                r'(files::.*?\[📁tex file\]\(<file:/{1,})([^>]+(>\)))',
+                lambda m: re.sub(r"file:///file:///", "file:///", f'{m.group(1)}file://{example_tex.as_uri().replace("file://", "")}{m.group(3)}'),
+                content,
+                flags=re.DOTALL
             )
             content = re.sub(
-            r'(\[📁\.pdf file\]\(<file:/+)[^>]+(>\))',
-            lambda m: f'{m.group(1)}{example_pdf.as_posix()}{m.group(2)}',
-            content,
-            flags=re.DOTALL
+                r'(\[📁\.pdf file\]\(<file:/{1,})([^>]+(>\)))',
+                lambda m: re.sub(r"file:///file:///", "file:///", f'{m.group(1)}file://{example_pdf.as_uri().replace("file://", "")}{m.group(3)}'),
+                content,
+                flags=re.DOTALL
             )
 
             with open(convert_file, 'w', encoding='utf-8') as f:
@@ -441,7 +441,7 @@ def table_block_text():
     text = """
 %%
 caption:: 
-widths:: {1.0\textwidth}
+widths:: 
 package:: #Latex/Table/package/  
 use_hlines:: 
 use_vlines:: 
