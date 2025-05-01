@@ -78,43 +78,27 @@ def get_parameters(version = 'default'):
     path_writing = get_path_or_default(config, 'path_writing', path_vault/'✍Writing')
     path_templates = get_path_or_default(config, 'path_templates', path_vault/'👨‍💻Automations')
     path_table_block_template = get_path_or_default(config, 'path_table_block_template', path_templates/'table_block.md')
-    path_equation_block_template = get_path_or_default(config, 'path_equation_block_template', path_vault/'✍Writing'/'compile_and_open.sh')  # work_dir_tex/'compile_and_open.sh') deplacer dans ✍Writing
+    path_equation_block_template = get_path_or_default(config, 'path_equation_block_template', path_vault/'👨‍💻Automations'/'equation_block_single.md')  # corrected line
     path_table_blocks = get_path_or_default(config, 'path_table_blocks', path_writing/'table blocks')
     path_equation_blocks = get_path_or_default(config, 'path_equation_blocks', path_writing/'equation blocks')
     path_list_note_paths = get_path_or_default(config, 'path_list_note_paths', path_vault/'DO_NOT_DELETE__note_paths.txt')
     path_BIBTEX = get_path_or_default(config, 'path_BIBTEX', path_writing/'BIBTEX')
 
     # Ajout des nouveaux chemins
+    convert_file = get_path_or_default(config, 'convert_file', path_vault/'✍Writing'/'👨‍💻convert_to_latex.md')
+    path_compile_script = get_path_or_default(config, 'path_compile_script', path_vault/'✍Writing'/'compile_and_open.sh')
     path_converter = get_path_or_default(config, 'path_converter', work_dir_tex/'converter.py')
-    path_compile_script = get_path_or_default(config, 'path_compile_script', work_dir_tex/'compile_and_open.sh')
     path_example_pdf = get_path_or_default(config, 'path_example_pdf', path_writing/'example_writing.pdf')
     path_example_tex = get_path_or_default(config, 'path_example_tex', path_writing/'example_writing.tex')
    
-    convert_file = get_path_or_default(config, 'convert_file', path_vault/'✍Writing'/'👨‍💻convert_to_latex.md')
-    compile_file = get_path_or_default(config, 'compile_file', work_dir_tex/'compile_and_open.sh')
-    path_custom_latex_commands = get_path_or_default(config, 'path_custom_latex_commands', path_vault/'✍Writing'/'custom_latex_functions.tex')
-    path_bibtex_file_name = get_path_or_default(config, 'path_bibtex_file_name', 'BIBTEX')  # your bibtex file name
-    # path_command_note = get_path_or_default(config, 'path_command_note', path_vault/'✍Writing'/'👨‍💻convert_to_latex.md')
-    # path_quick_add = get_path_or_default(config, 'path_quick_add', path_vault'.obsidian'/'plugins'/'quickadd')
-    # path_plugins = get_path_or_default(config, 'path_plugins', path_vault'.obsidian'/'plugins')
-    # FILE_NAME="example_writing"
     file_name4sh = get_path_or_default(config, 'file_name4sh', 'example_writing')  # your bibtex file name
+    path_custom_latex_commands = get_path_or_default(config, 'path_custom_latex_commands', path_vault/'✍Writing'/'custom_latex_functions.tex')
 
     
     # Intégrer directement ici les scripts bash et python pour éviter la duplication des chemins et variables
 
     def update_paths():
-        # Chemins des fichiers à modifier
-        convert_file = get_path_or_default(config, 'convert_file', path_vault/'✍Writing'/'👨‍💻convert_to_latex.md')
-        compile_file = get_path_or_default(config, 'compile_file', path_vault/'✍Writing'/'compile_and_open.sh')  # work_dir_tex/'compile_and_open.sh') deplacer dans ✍Writing
-        
-        # Nouveaux chemins
-        converter_path = path_converter
-        compile_script_path = path_compile_script
-        example_tex = path_example_tex
-        example_pdf = path_example_pdf
-
-        # Mise à jour du fichier convert_to_latex.md
+                # Mise à jour du fichier convert_to_latex.md
 
         if convert_file.exists():
             with open(convert_file, 'r', encoding='utf-8') as f:
@@ -122,39 +106,76 @@ def get_parameters(version = 'default'):
 
             # Pour code_run::
             content = re.sub(
-                r'(code_run::.*?\[1\. 👨‍💻🖱convert\]\(<file:/{1,})([^>]+(>\)))',
-                lambda m: re.sub(r"file:///file:///", "file:///", f'{m.group(1)}file://{converter_path.as_uri().replace("file://", "")}{m.group(3)}'),
-                content,
-                flags=re.DOTALL
+                r'(\[1\. 👨‍💻🖱convert\])\(<file:[^)]+>\)',
+                rf'\1(<file:///{path_converter.as_posix()}>)',
+                content
             )
             content = re.sub(
-                r'(\[2\. 👨‍💻compile to \.pdf\]\(<file:/{1,})([^>]+(>\)))',
-                lambda m: re.sub(r"file:///file:///", "file:///", f'{m.group(1)}file://{compile_script_path.as_uri().replace("file://", "")}{m.group(3)}'),
-                content,
-                flags=re.DOTALL
+                r'(\[2\. 👨‍💻compile to \.pdf\])\(<file:[^)]+>\)',
+                rf'\1(<file:///{path_compile_script.as_posix()}>)',
+                content
             )
 
             # Pour files::
             content = re.sub(
-                r'(files::.*?\[📁tex file\]\(<file:/{1,})([^>]+(>\)))',
-                lambda m: re.sub(r"file:///file:///", "file:///", f'{m.group(1)}file://{example_tex.as_uri().replace("file://", "")}{m.group(3)}'),
-                content,
-                flags=re.DOTALL
+                r'(\[📁tex file\])\(<file:[^)]+>\)',
+                rf'\1(<file:///{path_example_tex.as_posix()}>)',
+                content
             )
             content = re.sub(
-                r'(\[📁\.pdf file\]\(<file:/{1,})([^>]+(>\)))',
-                lambda m: re.sub(r"file:///file:///", "file:///", f'{m.group(1)}file://{example_pdf.as_uri().replace("file://", "")}{m.group(3)}'),
-                content,
-                flags=re.DOTALL
+                r'(\[📁\.pdf file\])\(<file:[^)]+>\)',
+                rf'\1(<file:///{path_example_pdf.as_posix()}>)',
+                content
             )
 
             with open(convert_file, 'w', encoding='utf-8') as f:
                 f.write(content)
                 print(f"✅ Mise à jour de {convert_file.name}")
+        else : # write the file whith r'''
+
+            with open(convert_file, 'w', encoding='utf-8') as f:
+                f.write(rf'''
+# %%
+# ℹ Instructions
+# - in the "convert_note" field, link the note you wish to convert (only one note)
+# - in the "code_run" field, set the paths of the python script and the .bat file accordingly
+# - in the "files" field, set the paths accordingly
+
+## Things that can create errors
+### Package irregularities
+
+# ![[table__block_latex_packages_that_should_not_be_combined#table]]
+
+
+# # Previous jobs
+# Can save previously converted notes here
+# %%
+
+# convert_note:: [[example_writing]]
+# --
+
+# ---
+
+# code_run:: [1. 👨‍💻🖱convert](<file:///{path_converter}# >) , [2. 👨‍💻compile to .pdf](<file:///{path_compile_script}>)
+# --
+
+
+# ---
+
+
+# files::  [📁tex file](<file:///{path_example_tex}>), [📁.pdf file](<file:///{path_example_pdf}>)
+# -- 
+
+# ---
+
+''')
+                print(f"✅ Création de {convert_file.name}")
+
+            
 
         # Mise à jour du fichier compile_and_open.sh
-        if compile_file.exists():
-            with open(compile_file, 'r', encoding='utf-8') as f:
+        if path_example_tex.exists():
+            with open(path_example_tex, 'r', encoding='utf-8') as f:
                 content = f.readlines()
                 
             # Mettre à jour les chemins dans le fichier bash
@@ -164,9 +185,42 @@ def get_parameters(version = 'default'):
                 elif line.startswith('FILE_NAME='):
                     content[i] = f'FILE_NAME="{str(file_name4sh)}"\n'
                     
-            with open(compile_file, 'w', encoding='utf-8', newline='\n') as f:
+            with open(path_example_tex, 'w', encoding='utf-8', newline='\n') as f:
                 f.writelines(content)
-            print(f"✅ Mise à jour de {compile_file.name}")
+            print(f"✅ Mise à jour de {path_example_tex.name}")
+        
+        else:
+            with open(path_example_tex, 'w', encoding='utf-8') as f:
+                f.write(rf'''
+#!/bin/bash
+# This file compiles the latex file to .pdf
+
+# Set base path and file name
+BASE_PATH="{str(path_writing)}"
+FILE_NAME="{str(file_name4sh)}"
+TEXFILE="$BASE_PATH/$FILE_NAME.tex"
+PDFFILE="$BASE_PATH/$FILE_NAME.pdf"
+
+# Print paths for debugging
+echo "TEXFILE: $TEXFILE"
+echo "PDFFILE: $PDFFILE"
+
+# Compile the LaTeX file
+pdflatex -interaction=nonstopmode -shell-escape "$TEXFILE"
+if [ $? -ne 0 ]; then
+    echo "pdflatex compilation failed."
+    exit 1
+f
+
+# Open the resulting PDF file
+# Use 'start' on Windows (Git Bash) and 'xdg-open' on Linux/macOS
+if [[ "$OSTYPE" == "msys" ]]; then
+  start "$PDFFILE"
+else
+  xdg-open "$PDFFILE"
+fi
+                        
+''')
 
     # Appeler la fonction à l'import si besoin
     update_paths()

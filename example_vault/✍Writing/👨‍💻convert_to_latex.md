@@ -19,14 +19,14 @@ convert_note:: [[example_writing]]
 
 ---
 
-code_run:: [1. 👨‍💻🖱convert](<file:///C:/Users/dvrch/Desktop/Memoire%202024/Straightforward-Obsidian2Latex/Straightforward-Obsidian2Latex-DV/converter.py>) , [2. 👨‍💻compile to .pdf](<file:///C:/Users/dvrch/Desktop/Memoire%202024/Straightforward-Obsidian2Latex/Straightforward-Obsidian2Latex-DV/compile_and_open.sh>)
+code_run:: [1. 👨‍💻🖱convert](<file:///C:/Users/dvrch/Desktop/Memoire 2024/Straightforward-Obsidian2Latex/Straightforward-Obsidian2Latex-DV/converter.py>) , [2. 👨‍💻compile to .pdf](<file:///C:/Users/dvrch/Desktop/Memoire 2024/Straightforward-Obsidian2Latex/Straightforward-Obsidian2Latex-DV/example_vault/✍Writing/compile_and_open.sh>)
 --
 
 
 ---
 
 
-files::  [📁tex file](<file:///C:/Users/dvrch/Desktop/Memoire%202024/Straightforward-Obsidian2Latex/Straightforward-Obsidian2Latex-DV/example_vault/%E2%9C%8DWriting/example_writing.tex>), [📁.pdf file](<file:///C:/Users/dvrch/Desktop/Memoire%202024/Straightforward-Obsidian2Latex/Straightforward-Obsidian2Latex-DV/example_vault/%E2%9C%8DWriting/example_writing.pdf>)
+files::  [📁tex file](<file:///C:/Users/dvrch/Desktop/Memoire 2024/Straightforward-Obsidian2Latex/Straightforward-Obsidian2Latex-DV/example_vault/✍Writing/example_writing.tex>), [📁.pdf file](<file:///C:/Users/dvrch/Desktop/Memoire 2024/Straightforward-Obsidian2Latex/Straightforward-Obsidian2Latex-DV/example_vault/✍Writing/example_writing.pdf>)
 -- 
 
 ---
