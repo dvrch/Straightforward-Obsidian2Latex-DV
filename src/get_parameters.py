@@ -122,35 +122,35 @@ def get_parameters(version = 'default'):
 
             # Pour code_run::
             content = re.sub(
-                r'(code_run::.*?\[1\. 👨‍💻🖱convert\]\(<file:/{1,2})([^>]+(>\)))',
-                lambda m: f'{m.group(1)}{converter_path.as_uri()}{m.group(3)}',
-                content,
-                flags=re.DOTALL
+            r'(code_run::.*?\[1\. 👨‍💻🖱convert\]\(<file:/+)[^>]+(>\))',
+            lambda m: f'{m.group(1)}{converter_path.as_posix()}{m.group(2)}',
+            content,
+            flags=re.DOTALL
             )
             content = re.sub(
-                r'(\[2\. 👨‍💻compile to \.pdf\]\(<file:/{1,2})([^>]+(>\)))',
-                lambda m: f'{m.group(1)}{compile_script_path.as_uri()}{m.group(3)}',
-                content,
-                flags=re.DOTALL
+            r'(\[2\. 👨‍💻compile to \.pdf\]\(<file:/+)[^>]+(>\))',
+            lambda m: f'{m.group(1)}{compile_script_path.as_posix()}{m.group(2)}',
+            content,
+            flags=re.DOTALL
             )
 
             # Pour files::
             content = re.sub(
-                r'(files::.*?\[📁tex file\]\(<file:/{1,2})([^>]+(>\)))',
-                lambda m: f'{m.group(1)}{example_tex.as_uri()}{m.group(3)}',
-                content,
-                flags=re.DOTALL
+            r'(files::.*?\[📁tex file\]\(<file:/+)[^>]+(>\))',
+            lambda m: f'{m.group(1)}{example_tex.as_posix()}{m.group(2)}',
+            content,
+            flags=re.DOTALL
             )
             content = re.sub(
-                r'(\[📁\.pdf file\]\(<file:/{1,2})([^>]+(>\)))',
-                lambda m: f'{m.group(1)}{example_pdf.as_uri()}{m.group(3)}',
-                content,
-                flags=re.DOTALL
+            r'(\[📁\.pdf file\]\(<file:/+)[^>]+(>\))',
+            lambda m: f'{m.group(1)}{example_pdf.as_posix()}{m.group(2)}',
+            content,
+            flags=re.DOTALL
             )
 
             with open(convert_file, 'w', encoding='utf-8') as f:
                 f.write(content)
-            print(f"✅ Mise à jour de {convert_file.name}")
+                print(f"✅ Mise à jour de {convert_file.name}")
 
         # Mise à jour du fichier compile_and_open.sh
         if compile_file.exists():
