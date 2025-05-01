@@ -26,7 +26,7 @@ code_run:: [1. 👨‍💻🖱convert](<file:///C:/Users/dvrch/Desktop/Memoire 2
 ---
 
 
-files::  [📁tex file](<file:///C:/Users/dvrch/Desktop/Memoire 2024/Straightforward-Obsidian2Latex/Straightforward-Obsidian2Latex-DV/example_vault/✍Writing/example_writing.tex>), [📁.pdf file](<file:///C:/Users/dvrch/Desktop/Memoire 2024/Straightforward-Obsidian2Latex/Straightforward-Obsidian2Latex-DV/example_vault/✍Writing/example_writing.pdf>)
+files::  [📁tex file](<file:///C:\Users\dvrch\Desktop\Memoire 2024\Straightforward-Obsidian2Latex\Straightforward-Obsidian2Latex-DV\example_vault\✍Writing\example_writing.tex>), [📁.pdf file](<file:///C:\Users\dvrch\Desktop\Memoire 2024\Straightforward-Obsidian2Latex\Straightforward-Obsidian2Latex-DV\example_vault\✍Writing\example_writing.pdf>)
 -- 
 
 ---
