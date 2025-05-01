@@ -661,7 +661,7 @@ if not PARS['⚙']['SEARCH_IN_FILE']['condition']:
     for line in LATEX:
         LATEX1.append(escape_underscores_in_texttt(line))
 
-    LATEX = PREAMBLE + LATEX1 + [(r'\newpage \n '*2 * paragraph['add_new_page_before_bibliography']) + r'\n'*5 + r'\bibliographystyle{apacite}'] + \
+    LATEX = PREAMBLE + LATEX1 + [('\\newpage \n'*2 * paragraph['add_new_page_before_bibliography']) + '\n'*5 + r'\bibliographystyle{apacite}'] + \
         [r'\bibliography{' + PATHS['bibtex_file_name'] + r'}'] + [r'\end{document}']
 
     # if '[[✍⌛writing--FaultDiag--Drillstring--MAIN]]' in markdown_file:

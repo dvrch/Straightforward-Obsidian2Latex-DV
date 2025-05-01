@@ -441,7 +441,7 @@ def table_block_text():
     text = """
 %%
 caption:: 
-widths:: 
+widths:: {1.0\textwidth}
 package:: #Latex/Table/package/  
 use_hlines:: 
 use_vlines:: 

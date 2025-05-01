@@ -62,6 +62,7 @@ In [[eq__block_Einstein]], we see that...
 ### No subfigures
 ![[figure__block_gradient_steps#fig]]
 
+![[DV Logo (128 carré ⬜ ) 1.jpg]]
 ### With subfigures
 See [[figure__block_1]].
 
