@@ -74,7 +74,7 @@ def package_loader():
     tables_package      = settings['TABLES']['package']
     page_margin         = settings['margin']
 
-    out = ['\\usepackage[table]{xcolor}']
+    out = [fr'\usepackage[table]{{xcolor}}']
     packages_to_load.append(['tabularx', None, ''])
     packages_to_load.append(['longtable', None, ''])
     packages_to_load.append(['tabularray', None, ''])
@@ -85,17 +85,17 @@ def package_loader():
 
     out.append('\\usepackage{enumitem,amssymb}')
     out.append('\\newlist{todolist}{itemize}{2}')
-    out.append(r'\setlist[todolist]{label=$\square$}')
+    out.append('\\setlist[todolist]{label=$\\square$}')
     
     out.append('\\newtotcounter{citnum} %From the package documentation')
-    out.append(r'\def\oldbibitem{} \let\oldbibitem=\\bibitem')
-    out.append(r'\def\\bibitem{\stepcounter{citnum}\oldbibitem}')
+    out.append('\\def\\oldbibitem{} \\let\\oldbibitem=\\bibitem')
+    out.append('\\def\\bibitem{\\stepcounter{citnum}\\oldbibitem}')
 
-    paragraph_indent = f"\\setlength{{\\parindent}}{{{str(settings['paragraph']['indent_length_of_first_line'])+'pt'}}}"
+    paragraph_indent = fr'\setlength{{\parindent}}{{{str(settings["paragraph"]["indent_length_of_first_line"])+"pt"}}}'
     out.append(paragraph_indent)
     
     if len(page_margin) > 0:
-        out.append('\\usepackage[margin='+ page_margin + ']{geometry}')
+        out.append(fr'\usepackage[margin={page_margin}]{{geometry}}')
  
     # out.append('\\usepackage[dvipsnames]{xcolor}') # creates bug
     out.append(settings['hyperlink_setup'])
@@ -119,7 +119,7 @@ def replace_hyperlinks(S):
         matched_with_alias = False
         for match in re.findall(markup_regex, s1):
             markdown_link = '[' + match[0] + '](' + match[1] + ')'
-            latex_link = "\\href{" + match[1] + "}{" + match[0] + "}"
+            latex_link = fr"\href{{" + match[1] + "}}{" + match[0] + "}"
             s1 = s1.replace(markdown_link, latex_link)
             matched_with_alias = True
         
@@ -127,7 +127,7 @@ def replace_hyperlinks(S):
             for match in re.findall(markup_regex_no_alias, s1):
                 match = match.rstrip('.,)')  # Remove trailing punctuation like .,)
                 markdown_link = match
-                latex_link = "\\url{"+match+"}"
+                latex_link = fr"\url{{"+match+"}}"
                 s1 = s1.replace(markdown_link, latex_link)
                 matched_with_alias = True
 
@@ -199,7 +199,7 @@ def simple_stylistic_replacements(S, type=None):
 
     if type == ID__STYLE__BOLD:
         style_char = r'\*\*'
-        replacement_func = lambda repl, string:  repl.append(['**'+string+'**', '\\textbf{' + string + '}'])
+        replacement_func = lambda repl, string:  repl.append(['**'+string+'**', r'\textbf{' + string + '}'])
         l = 2
         is_pair = True
     
@@ -211,13 +211,13 @@ def simple_stylistic_replacements(S, type=None):
 
     elif type == ID__STYLE__ITALIC:
         style_char = r'\*'
-        replacement_func = lambda repl, string:  repl.append(['*'+string+'*', '\\textit{' + string + '}'])
+        replacement_func = lambda repl, string:  repl.append(['*'+string+'*', r'\textit{' + string + '}'])
         l = 1
         is_pair = True
     
     elif type == ID__STYLE__STRIKEOUT:
         style_char = r'\~\~'
-        replacement_func = lambda repl, string:  repl.append([f'~~{string}~~', r'\st{{{string}}}'])
+        replacement_func = lambda repl, string:  repl.append([f'~~{string}~~', fr'\st{{{string}}}'])
         l = 2
         is_pair = True
 
@@ -274,9 +274,9 @@ def images_converter(images, PARAMETERS):
         TO_PRINT.append(' \n'.join([
         r'\begin{figure}',
         r'    \centering',
-        f'    \\includegraphics[width={figure_width}\\linewidth]'+
+        fr'    \includegraphics[width={figure_width}\linewidth]'+
             '{"' + path_img + '"}',
-        f'    \\caption[{caption_short}]{{{caption_long}}}',
+        fr'    \caption[{caption_short}]{{{caption_long}}}',
         r'   \captionsetup{skip=-10pt} % Adjust the skip value as needed'*PARAMETERS['reduce spacing between figures'],
         r'    \label{fig:'+label_img+r'}',
         r'\end{figure}']))
@@ -609,7 +609,7 @@ if not PARS['⚙']['SEARCH_IN_FILE']['condition']:
 
     # LATEX = symbol_replacement(LATEX, [['_', '\_', 1]]) # DON'T UNCOMMENT!
     # title = PARS['⚙']['title'] if PARS['⚙']['title'] else symbol_replacement(path_file.split('\\')[-1].replace('_', '\_'), PARS['par']['symbols-to-replace'])[0]
-    title = PARS['⚙']['title'] if PARS['⚙']['title'] else ''
+    title = PARS['⚙']['title'] if PARS['⚙']['title'] else 'Titre du document(default value)'
     
     # Replace the 
     tmp1 = paragraph['insert_new_line_symbol']
@@ -633,34 +633,58 @@ if not PARS['⚙']['SEARCH_IN_FILE']['condition']:
     except:
         custom_latex = []
     
-    PREAMBLE = [f"\\documentclass{doc_class_fontsize}{{{document_class['class']}}}"] + \
-            [(is_ifac * r'\newcounter{part} % fix the issue in the class')] + \
-            [(is_ifac * r'\counterwithin*{section}{part}')] + \
-            [r'% Loading packages that were defined in `src\get_parameters.py`'] + \
-            package_loader() + \
-            [r'\n'] + [r'\sethlcolor{yellow}'] + [r'\n'] + [r'\n'*2] + \
-            [r'\setcounter{secnumdepth}{4}'] + \
-            [r'\setlength{\parskip}{7pt} % paragraph spacing'] + \
-            [r'\let\oldmarginpar\marginpar'] + \
-            [r'\\renewcommand\marginpar[1]{\oldmarginpar{\tiny #1}} % Change "small" to your desired font size]'] + [r'\n'*2] + \
-            [r'\\newcommand{\ignore}[1]{}'] + \
-            [r'% CUSTOM FUNCTIONS'] + \
-            custom_latex + \
-            [r'% ======================================='] + \
-            [r'\n'*3] + [r'\begin{document}'] + \
-            [r'\allowdisplaybreaks' if paragraph['allowdisplaybreaks'] else ''] + \
-            [(r'\date{}' * PARS['⚙']['use_date'])] + \
-            [f"\\author{{{PARS['⚙']['author']}}}" * (len(PARS['⚙']['author']) > 0)] + \
-            [f'\\title{{{title}}}\n\\maketitle' * (len(title) > 0)] + \
-            [text_before_first_section] + \
-            [(r'\tableofcontents \n \newpage' * paragraph['add_table_of_contents'])]
+    PREAMBLE = (
+        # Class et options de base
+        [fr"\documentclass{doc_class_fontsize}{{{document_class['class']}}}",
+         "\n% Packages de base"] +
+        package_loader() +
+        
+        # Configuration principale
+        ["\n% Configuration principale",
+         r"\setlength{\parindent}{0pt}",
+         r"\usepackage[margin=0.9in]{geometry}",
+         
+         # Hyperref setup
+         fr"{PARS['⚙']['hyperlink_setup']}",
+
+         # Configuration des listes
+         r"\usepackage{enumitem,amssymb}",
+         r"\newlist{todolist}{itemize}{2}",
+         r"\setlist[todolist]{label=$\square$}",
+         
+         # Autres configurations
+         r"\sethlcolor{yellow}",
+         r"\setcounter{secnumdepth}{4}",
+         r"\setlength{\parskip}{7pt}",
+         r"\let\oldmarginpar\marginpar",
+         r"\renewcommand\marginpar[1]{\oldmarginpar{\tiny #1}}",
+         
+         # Commandes personnalisées
+         r"\newcommand{\ignore}[1]{}"] +
+        
+        # Fonctions LaTeX personnalisées
+        custom_latex +
+        
+        # Début du document
+        [r"\begin{document}"] +
+        
+        # En-tête du document
+        ([fr"\date{{}}"] if PARS['⚙']['use_date'] else []) +
+        [fr"\author{{{PARS['⚙']['author']}}}"*(len(PARS['⚙']['author'])>0),
+         fr"\title{{{PARS['⚙']['title'] if PARS['⚙']['title'] else 'Document sans titre'}}}",
+         r"\maketitle",
+         "\n"] +
+        
+        # Table des matières
+        [r"\tableofcontents" + "\n" + r"\newpage"]*paragraph['add_table_of_contents']
+    )
 
     # LATEX = symbol_replacement(LATEX, [['_', '\_', 0]])
     LATEX1 = []
     for line in LATEX:
         LATEX1.append(escape_underscores_in_texttt(line))
 
-    LATEX = PREAMBLE + LATEX1 + [('\\newpage \n'*2 * paragraph['add_new_page_before_bibliography']) + '\n'*5 + r'\bibliographystyle{apacite}'] + \
+    LATEX = PREAMBLE + LATEX1 + [(r'\newpage \n'*2 * paragraph['add_new_page_before_bibliography']) + '\n'*5 + r'\bibliographystyle{apacite}'] + \
         [r'\bibliography{' + PATHS['bibtex_file_name'].replace(".bib","") + r'}'] + [r'\end{document}']
 
     # if '[[✍⌛writing--FaultDiag--Drillstring--MAIN]]' in markdown_file:

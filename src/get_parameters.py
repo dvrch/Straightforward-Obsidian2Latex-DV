@@ -327,11 +327,11 @@ fi
     # apply parameter changes based on specific notes
         
     V__document_class = {'class': ID__DOCUMENT_CLASS__EXTARTICLE, 'fontsize': ''}
-    V__author = 'Marios Gkionis' # DJONTSO Victorien
+    V__author = 'DJONTSO Victorien'  # Marios Gkionis' 
         
     if version =='[[👆👆RL--writing--1]]':
         
-        V__document_class = {'class': ID__DOCUMENT_CLASS__EXTARTICLE, 'fontsize': '9pt'}
+        V__document_class = {'class': ID__DOCUMENT_CLASS__EXTARTICLE, 'fontsize': '12pt'}
         V__author = ''
         
     elif version =='[[✍⌛writing--FaultDiag--Drillstring--MAIN]]':
@@ -446,32 +446,32 @@ fi
                                     ['rotating',    None,                                       'for rotating text on tables']						
                                     ],
             'symbols-to-replace': [  # Obsidian symbol, latex symbol, type de remplacement (1 ou 2)
-    ['✔',              r'\\checkmark',                   1],
-    ['🟢',             r'$\\blacklozenge$',             2],
+    ['✔',              r'\checkmark',                   1],
+    ['🟢',             r'$\blacklozenge$',             2],
     ['🔴',             r'\\maltese',                     2],
-    ['➕',             r'\\twemoji{plus}',              1],
+    ['➕',             r'\twemoji{plus}',              1],
     ['🔗',             'LINK',                          1],
-    [r'\implies',      r'\\Rightarrow',                1],
+    [r'implies',      r'\Rightarrow',                1],
     ['❓❓',            '?',                             1],
     ['❓',             '?',                             1],
     ['❌',             'NO',                            1],
-    ['🤔',            r'\\twemoji{thinking-face}',     1],
-    ['⚠',              r'\\twemoji{warning}',    1],
-    ['📚',             r'\\twemoji{books}',      1],
-    ['📜',            r'\\twemoji{page with curl}',                      1],
-    ['⌛',               r'\\twemoji{hourglass}',                     1],
-    ['🔭',              r'\\twemoji{telescope}',                     1],
-    ['👆',              r'\\twemoji{index pointing up}',                      1],
-    ['💭',              r'\\twemoji{thought balloon}',                      1],
-    ['🔧',              r'\\twemoji{screwdriver}', 1],
-           									['⛏',				 r'\\twemoji{pick}',        1],
-											['⏳',				 r'\\twemoji{hourglass}',   1],
-                                            ['🧪',                  r'\\twemoji{test tube}',           1],
-                                            ['⭐',                  r'\\twemoji{star}',           1],
-                                            ['💡',                  r'\\twemoji{light bulb}',           1],
-											['📅',                  r'\\twemoji{date}',           1],
-                                            ['📍',                r'\\twemoji{round pushpin}',           1],
-                                            ['📜',                  r'\\twemoji{scroll}',          1] ,
+    ['🤔',            r'\twemoji{thinking-face}',     1],
+    ['⚠',              r'\twemoji{warning}',    1],
+    ['📚',             r'\twemoji{books}',      1],
+    ['📜',            r'\twemoji{page with curl}',                      1],
+    ['⌛',               r'\twemoji{hourglass}',                     1],
+    ['🔭',              r'\twemoji{telescope}',                     1],
+    ['👆',              r'\twemoji{index pointing up}',                      1],
+    ['💭',              r'\twemoji{thought balloon}',                      1],
+    ['🔧',              r'\twemoji{screwdriver}', 1],
+           									['⛏',				 r'\twemoji{pick}',        1],
+											['⏳',				 r'\twemoji{hourglass}',   1],
+                                            ['🧪',                  r'\twemoji{test tube}',           1],
+                                            ['⭐',                  r'\twemoji{star}',           1],
+                                            ['💡',                  r'\twemoji{light bulb}',           1],
+											['📅',                  r'\twemoji{date}',           1],
+                                            ['📍',                r'\twemoji{round pushpin}',           1],
+                                            ['📜',                  r'\twemoji{scroll}',          1] ,
                                             ]
             },
             #                                        ['\\text',          '\\textnormal',          1],
