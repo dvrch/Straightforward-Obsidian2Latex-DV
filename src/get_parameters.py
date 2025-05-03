@@ -66,33 +66,33 @@ def get_parameters(version = 'default'):
         config = yaml.safe_load(f)
 
     # Fonction utilitaire pour gérer les chemins vides ou invalides
-    def get_path_or_default(config_dict, key, default_path):
-        path_str = config_dict.get(key, '')
+    def get_path_or_default(key, default_path):
+        path_str = config.get(key, '')
         if path_str and os.path.exists(path_str):
             return Path(path_str)
         else:
             return default_path
-
-    work_dir_tex = get_path_or_default(config, 'work_dir_tex', Path(os.getcwd())) # work_dir_tex =Path(__file__).parent.parent  >>> a patir du fichier
-    path_vault = get_path_or_default(config, 'path_vault', work_dir_tex/'example_vault')
-    path_writing = get_path_or_default(config, 'path_writing', path_vault/'✍Writing')
-    path_templates = get_path_or_default(config, 'path_templates', path_vault/'👨‍💻Automations')
-    path_table_block_template = get_path_or_default(config, 'path_table_block_template', path_templates/'table_block.md')
-    path_equation_block_template = get_path_or_default(config, 'path_equation_block_template', path_vault/'👨‍💻Automations'/'equation_block_single.md')  # corrected line
-    path_table_blocks = get_path_or_default(config, 'path_table_blocks', path_writing/'table blocks')
-    path_equation_blocks = get_path_or_default(config, 'path_equation_blocks', path_writing/'equation blocks')
-    path_list_note_paths = get_path_or_default(config, 'path_list_note_paths', path_vault/'DO_NOT_DELETE__note_paths.txt')
-    path_BIBTEX = get_path_or_default(config, 'path_BIBTEX', path_writing/'BIBTEX')
-
+    GE_=get_path_or_default
+    work_dir_tex = GE_('work_dir_tex', Path(os.getcwd())) # work_dir_tex =Path(__file__).parent.parent  >>> a patir du fichier
+    path_vault = GE_('path_vault', work_dir_tex/'example_vault')
+    path_writing = GE_('path_writing', path_vault/'✍Writing')
+    path_templates = GE_('path_templates', path_vault/'👨‍💻Automations')
+    path_table_block_template = GE_('path_table_block_template', path_templates/'table_block.md')
+    path_equation_block_template = GE_('path_equation_block_template', path_vault/'👨‍💻Automations'/'equation_block_single.md')  # corrected line
+    path_table_blocks = GE_('path_table_blocks', path_writing/'table blocks')
+    path_equation_blocks = GE_('path_equation_blocks', path_writing/'equation blocks')
+    path_list_note_paths = GE_('path_list_note_paths', path_vault/'DO_NOT_DELETE__note_paths.txt')
+    path_BIBTEX_bib = GE_('path_BIBTEX_bib', path_writing/'BIBTEX')
     # Ajout des nouveaux chemins
-    convert_file = get_path_or_default(config, 'convert_file', path_vault/'✍Writing'/'👨‍💻convert_to_latex.md')
-    path_compile_script = get_path_or_default(config, 'path_compile_script', path_vault/'✍Writing'/'compile_and_open.sh')
-    path_converter = get_path_or_default(config, 'path_converter', work_dir_tex/'converter.py')
-    path_example_pdf = get_path_or_default(config, 'path_example_pdf', path_writing/'example_writing.pdf')
-    path_example_tex = get_path_or_default(config, 'path_example_tex', path_writing/'example_writing.tex')
+    convert_file_md = GE_('convert_file_md', path_vault/'✍Writing'/'👨‍💻convert_to_latex.md')
+    path_compile_script = GE_('path_compile_script', path_vault/'✍Writing'/'compile_and_open.sh')
+    path_converter = GE_('path_converter', work_dir_tex/'converter.py')
+    path_example_pdf = GE_('path_example_pdf', path_writing/'example_writing.pdf')
+    path_example_tex = GE_('path_example_tex', path_writing/'example_writing.tex')
    
-    file_name4sh = get_path_or_default(config, 'file_name4sh', 'example_writing')  # your bibtex file name
-    path_custom_latex_commands = get_path_or_default(config, 'path_custom_latex_commands', path_vault/'✍Writing'/'custom_latex_functions.tex')
+    file_name4sh = GE_('file_name4sh', 'example_writing.tex')
+
+    path_custom_latex_commands = GE_('path_custom_latex_commands', path_vault/'✍Writing'/'custom_latex_functions.tex')
 
     
     # Intégrer directement ici les scripts bash et python pour éviter la duplication des chemins et variables
@@ -100,8 +100,8 @@ def get_parameters(version = 'default'):
     def update_paths():
                 # Mise à jour du fichier convert_to_latex.md
 
-        if convert_file.exists():
-            with open(convert_file, 'r', encoding='utf-8') as f:
+        if convert_file_md.exists():
+            with open(convert_file_md, 'r', encoding='utf-8') as f:
                 content = f.read()
 
             # Pour code_run::
@@ -128,12 +128,12 @@ def get_parameters(version = 'default'):
                 content
             )
 
-            with open(convert_file, 'w', encoding='utf-8') as f:
+            with open(convert_file_md, 'w', encoding='utf-8') as f:
                 f.write(content)
-                print(f"✅ Mise à jour de {convert_file.name}")
+                print(f"✅ Mise à jour de {convert_file_md.name}")
         else : # write the file whith r'''
 
-            with open(convert_file, 'w', encoding='utf-8') as f:
+            with open(convert_file_md, 'w', encoding='utf-8') as f:
                 f.write(rf'''
 # %%
 # ℹ Instructions
@@ -169,7 +169,7 @@ def get_parameters(version = 'default'):
 # ---
 
 ''')
-                print(f"✅ Création de {convert_file.name}")
+                print(f"✅ Création de {convert_file_md.name}")
 
             
 
@@ -210,7 +210,7 @@ pdflatex -interaction=nonstopmode -shell-escape "$TEXFILE"
 if [ $? -ne 0 ]; then
     echo "pdflatex compilation failed."
     exit 1
-f
+fi
 
 # Open the resulting PDF file
 # Use 'start' on Windows (Git Bash) and 'xdg-open' on Linux/macOS
@@ -224,55 +224,6 @@ fi
 
     # Appeler la fonction à l'import si besoin
     update_paths()
-    # ------------
-    # def update_paths():
-    #     # Chemins des fichiers à modifier
-    #     convert_file = path_vault / "✍Writing" / "👨‍💻convert_to_latex.md"
-    #     compile_file = work_dir_tex / "compile_and_open.sh"
-        
-    #     # Nouveaux chemins
-    #     converter_path = path_converter
-    #     compile_script_path = path_compile_script
-    #     example_tex = path_example_tex
-    #     example_pdf = path_example_pdf
-
-    #     # Mise à jour du fichier convert_to_latex.md
-    #     if convert_file.exists():
-    #         with open(convert_file, 'r', encoding='utf-8') as f:
-    #             content = f.read()
-                
-    #         # Remplacer les chemins
-    #         content = content.replace(
-    #             "code_run::", 
-    #             f'code_run:: [1. 👨‍💻🖱convert](<file:///{converter_path}>) , [2. 👨‍💻compile to .pdf](<file:///{compile_script_path}>)\n--'
-    #         )
-    #         content = content.replace(
-    #             "files::", 
-    #             f'files::  [📁tex file](<file:///{example_tex}>), [📁.pdf file](<file:///{example_pdf}>)\n--'
-    #         )
-            
-    #         with open(convert_file, 'w', encoding='utf-8') as f:
-    #             f.write(content)
-    #         print(f"✅ Mise à jour de {convert_file.name}")
-
-    #     # Mise à jour du fichier compile_and_open.sh
-    #     if compile_file.exists():
-    #         with open(compile_file, 'r', encoding='utf-8') as f:
-    #             content = f.readlines()
-                
-    #         # Mettre à jour les chemins dans le fichier bash
-    #         for i, line in enumerate(content):
-    #             if line.startswith('BASE_PATH='):
-    #                 content[i] = f'BASE_PATH="{path_writing}"\n'
-    #             elif line.startswith('FILE_NAME='):
-    #                 content[i] = 'FILE_NAME="example_writing"\n'
-                    
-    #         with open(compile_file, 'w', encoding='utf-8', newline='\n') as f:
-    #             f.writelines(content)
-    #         print(f"✅ Mise à jour de {compile_file.name}")
-
-    # # Appeler la fonction à l'import si besoin
-    # update_paths()
     # %%
 
     
@@ -288,7 +239,7 @@ fi
 
     # path_equation_blocks = Path(path_writing/'equation blocks')
     # path_list_note_paths = Path(path_vault/'DO_NOT_DELETE__note_paths.txt')
-    # path_BIBTEX          = Path(path_writing/'BIBTEX')
+    # path_BIBTEX_bib          = Path(path_writing/'BIBTEX')
     
     if not os.path.exists(path_list_note_paths):
         with open(path_list_note_paths, 'w', encoding='utf-8') as file:
@@ -403,13 +354,14 @@ fi
             }},
         '📁': # Paths 
             {
-                    'command_note': Path(path_vault/'✍Writing\\👨‍💻convert_to_latex.md'),
+                    'command_note': Path(path_vault/'✍Writing''👨‍💻convert_to_latex.md'),
                            'vault': path_vault,
                  'equation_blocks': path_equation_blocks,
                 'list_paths_notes': path_list_note_paths, # saves time from searching of the note's path
-                     'bash_script': Path(path_vault/'✍Writing\\compile_and_open.sh'),
-                'bibtex_file_name': 'BIBTEX',           # your bibtex file name 
-            'custom_latex_commands': Path(path_vault/'✍Writing\\custom_latex_functions.tex'),
+                     'bash_script': path_compile_script,
+                'bibtex_file_name': file_name4sh, # your bibtex file name
+                     'bibtex_path': path_BIBTEX_bib,
+            'custom_latex_commands': path_custom_latex_commands,
                 },
         'par':
             {
@@ -446,32 +398,32 @@ fi
                                     ['rotating',    None,                                       'for rotating text on tables']						
                                     ],
             'symbols-to-replace': [  # Obsidian symbol, latex symbol, type de remplacement (1 ou 2)
-    ['✔',              r'\checkmark',                   1],
+    ['✔',              r'\\checkmark',                   1],
     ['🟢',             r'$\blacklozenge$',             2],
     ['🔴',             r'\\maltese',                     2],
-    ['➕',             r'\twemoji{plus}',              1],
+    ['➕',             r'\\twemoji{plus}',              1],
     ['🔗',             'LINK',                          1],
-    [r'implies',      r'\Rightarrow',                1],
+    [r'implies',      r'\\Rightarrow',                1],
     ['❓❓',            '?',                             1],
     ['❓',             '?',                             1],
     ['❌',             'NO',                            1],
-    ['🤔',            r'\twemoji{thinking-face}',     1],
-    ['⚠',              r'\twemoji{warning}',    1],
-    ['📚',             r'\twemoji{books}',      1],
-    ['📜',            r'\twemoji{page with curl}',                      1],
-    ['⌛',               r'\twemoji{hourglass}',                     1],
-    ['🔭',              r'\twemoji{telescope}',                     1],
-    ['👆',              r'\twemoji{index pointing up}',                      1],
-    ['💭',              r'\twemoji{thought balloon}',                      1],
-    ['🔧',              r'\twemoji{screwdriver}', 1],
-           									['⛏',				 r'\twemoji{pick}',        1],
-											['⏳',				 r'\twemoji{hourglass}',   1],
-                                            ['🧪',                  r'\twemoji{test tube}',           1],
-                                            ['⭐',                  r'\twemoji{star}',           1],
-                                            ['💡',                  r'\twemoji{light bulb}',           1],
-											['📅',                  r'\twemoji{date}',           1],
-                                            ['📍',                r'\twemoji{round pushpin}',           1],
-                                            ['📜',                  r'\twemoji{scroll}',          1] ,
+    ['🤔',            r'\\twemoji{thinking-face}',     1],
+    ['⚠',              r'\\twemoji{warning}',    1],
+    ['📚',             r'\\twemoji{books}',      1],
+    ['📜',            r'\\twemoji{page with curl}',                      1],
+    ['⌛',               r'\\twemoji{hourglass}',                     1],
+    ['🔭',              r'\\twemoji{telescope}',                     1],
+    ['👆',              r'\\twemoji{index pointing up}',                      1],
+    ['💭',              r'\\twemoji{thought balloon}',                      1],
+    ['🔧',              r'\\twemoji{screwdriver}', 1],
+           									['⛏',				 r'\\twemoji{pick}',        1],
+											['⏳',				 r'\\twemoji{hourglass}',   1],
+                                            ['🧪',                  r'\\twemoji{test tube}',           1],
+                                            ['⭐',                  r'\\twemoji{star}',           1],
+                                            ['💡',                  r'\\twemoji{light bulb}',           1],
+											['📅',                  r'\\twemoji{date}',           1],
+                                            ['📍',                r'\\twemoji{round pushpin}',           1],
+                                            ['📜',                  r'\\twemoji{scroll}',          1] ,
                                             ]
             },
             #                                        ['\\text',          '\\textnormal',          1],

@@ -74,7 +74,7 @@ def package_loader():
     tables_package      = settings['TABLES']['package']
     page_margin         = settings['margin']
 
-    out = [fr'\usepackage[table]{{xcolor}}']
+    out = ['\\usepackage[table]{xcolor}']
     packages_to_load.append(['tabularx', None, ''])
     packages_to_load.append(['longtable', None, ''])
     packages_to_load.append(['tabularray', None, ''])
@@ -85,11 +85,11 @@ def package_loader():
 
     out.append('\\usepackage{enumitem,amssymb}')
     out.append('\\newlist{todolist}{itemize}{2}')
-    out.append('\\setlist[todolist]{label=$\\square$}')
+    out.append('\setlist[todolist]{label=$\square$}')
     
-    out.append('\\newtotcounter{citnum} %From the package documentation')
-    out.append('\\def\\oldbibitem{} \\let\\oldbibitem=\\bibitem')
-    out.append('\\def\\bibitem{\\stepcounter{citnum}\\oldbibitem}')
+    out.append(r'\newtotcounter{citnum} %From the package documentation')
+    out.append(r'\def\oldbibitem{} \let\oldbibitem=\bibitem')
+    out.append(r'\def\bibitem{\stepcounter{citnum}\oldbibitem}')
 
     paragraph_indent = fr'\setlength{{\parindent}}{{{str(settings["paragraph"]["indent_length_of_first_line"])+"pt"}}}'
     out.append(paragraph_indent)
@@ -106,9 +106,9 @@ def package_loader():
 def replace_hyperlinks(S):
     
     # Anything that isn't a square closing bracket
-    name_regex = "[^]]+"
+    name_regex = r"[^]]+"
     # http:// or https:// followed by anything but a closing paren
-    url_regex = "http[s]?://[^)]+"
+    url_regex = r"http[s]?://[^)]+"
 
     markup_regex = r'\[({0})]\(\s*({1})\s*\)'.format(name_regex, url_regex)
     markup_regex_no_alias = r'(http[s]?://\S+)' # Non-greedy regex to match URLs, stopping at the first space or punctuation after the URL
@@ -594,7 +594,7 @@ if not PARS['⚙']['SEARCH_IN_FILE']['condition']:
     text_before_first_section = ''
 
     for i, s in enum(content):
-        if s.startswith('\\section'):
+        if s.startswith(r'\section'):
             line_first_section = i
             break
 
@@ -634,49 +634,45 @@ if not PARS['⚙']['SEARCH_IN_FILE']['condition']:
         custom_latex = []
     
     PREAMBLE = (
-        # Class et options de base
-        [fr"\documentclass{doc_class_fontsize}{{{document_class['class']}}}",
-         "\n% Packages de base"] +
-        package_loader() +
-        
-        # Configuration principale
-        ["\n% Configuration principale",
-         r"\setlength{\parindent}{0pt}",
-         r"\usepackage[margin=0.9in]{geometry}",
-         
-         # Hyperref setup
-         fr"{PARS['⚙']['hyperlink_setup']}",
+        [
+            # Classe du document
+            fr"\documentclass{doc_class_fontsize}{{{document_class['class']}}}",
+            
+            # Packages
+            "\n% Packages de base",
+            *package_loader(),
+            
+            # Configuration principale
+            "\n% Configuration principale",
+            r"\setlength{\parindent}{0pt}",
+            fr"{PARS['⚙']['hyperlink_setup']}",
 
-         # Configuration des listes
-         r"\usepackage{enumitem,amssymb}",
-         r"\newlist{todolist}{itemize}{2}",
-         r"\setlist[todolist]{label=$\square$}",
-         
-         # Autres configurations
-         r"\sethlcolor{yellow}",
-         r"\setcounter{secnumdepth}{4}",
-         r"\setlength{\parskip}{7pt}",
-         r"\let\oldmarginpar\marginpar",
-         r"\renewcommand\marginpar[1]{\oldmarginpar{\tiny #1}}",
-         
-         # Commandes personnalisées
-         r"\newcommand{\ignore}[1]{}"] +
-        
-        # Fonctions LaTeX personnalisées
-        custom_latex +
-        
-        # Début du document
-        [r"\begin{document}"] +
-        
-        # En-tête du document
-        ([fr"\date{{}}"] if PARS['⚙']['use_date'] else []) +
-        [fr"\author{{{PARS['⚙']['author']}}}"*(len(PARS['⚙']['author'])>0),
-         fr"\title{{{PARS['⚙']['title'] if PARS['⚙']['title'] else 'Document sans titre'}}}",
-         r"\maketitle",
-         "\n"] +
-        
-        # Table des matières
-        [r"\tableofcontents" + "\n" + r"\newpage"]*paragraph['add_table_of_contents']
+            # Configuration des listes et du document
+            r"\sethlcolor{yellow}",
+            r"\setcounter{secnumdepth}{4}",
+            r"\setlength{\parskip}{7pt} % paragraph spacing",
+            r"\let\oldmarginpar\marginpar",
+            r"\renewcommand\marginpar[1]{\oldmarginpar{\tiny #1}} % Change 'small' to your desired font size",
+            r"\newcommand{\ignore}[1]{}",
+            
+            # Fonctions personnalisées
+            "% CUSTOM FUNCTIONS",
+            *custom_latex,
+            
+            "% =======================================",
+            r"\begin{document}",
+            fr"\allowdisplaybreaks{{{ paragraph['allowdisplaybreaks'] if paragraph['allowdisplaybreaks'] else ''}}}",
+            # En-tête du document
+            fr"\date{{{PARS['⚙']['use_date'] if not PARS['⚙']['use_date'] else ''}}}",
+            fr"\author{{{PARS['⚙']['author']}}}" if len(PARS['⚙']['author']) > 0 else "",
+            fr"\title{{{title} else 'Document san²s titre'}}",
+            fr"\maketitle{{{title*(len(title)>0)}}}",
+            fr"{{{paragraph['text_before_first_section'] if paragraph['text_before_first_section'] else ''}}}",
+            
+            # Table des matières
+            fr"\tableofcontents{{{paragraph['add_table_of_contents'] if paragraph['add_table_of_contents'] else ''}}}",
+            fr"\newpage{{{paragraph['add_table_of_contents'] if paragraph['add_table_of_contents'] else ""}}}",
+        ]
     )
 
     # LATEX = symbol_replacement(LATEX, [['_', '\_', 0]])
@@ -748,3 +744,7 @@ else:
 
     print("Finished Searching")
 #
+f_sh = r'c:\Users\dvrch\Desktop\Memoire 2024\Straightforward-Obsidian2Latex\Straightforward-Obsidian2Latex-DV\example_vault\✍Writing\compile_and_open.sh'
+# ececuter ce sh dans gitbash
+import subprocess
+subprocess.run('bash compile_and_open.sh', shell=True, check=True, stdout=subprocess.PIPE, stderr=subprocess.PIPE)
