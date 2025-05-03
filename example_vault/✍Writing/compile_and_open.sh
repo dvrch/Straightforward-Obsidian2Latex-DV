@@ -6,8 +6,13 @@
 # Set base path and file name
 BASE_PATH="C:\Users\dvrch\Desktop\Memoire 2024\Straightforward-Obsidian2Latex\Straightforward-Obsidian2Latex-DV\example_vault\✍Writing"
 FILE_NAME="example_writing"
+
+
 TEXFILE="$BASE_PATH/$FILE_NAME.tex"
 PDFFILE="$BASE_PATH/$FILE_NAME.pdf"
+
+# Replace \begin{tabularx} with \begin{tabularx}{1.0\textwidth}
+sed -i "s/\\\\begin{tabularx}{p/\\\\begin{tabularx}{1.0\\\\textwidth}{p/g" "$TEXFILE"
 
 # Print paths for debugging
 echo "TEXFILE: $TEXFILE"

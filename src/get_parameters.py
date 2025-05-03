@@ -66,35 +66,40 @@ def get_parameters(version = 'default'):
         config = yaml.safe_load(f)
 
     # Fonction utilitaire pour gérer les chemins vides ou invalides
-    def get_path_or_default(key, default_path):
-        path_str = config.get(key, '')
+    def get_path_or_default(config_content, key, default_path):
+        path_str = config_content.get(key, '')
         if path_str and os.path.exists(path_str):
+            print(f"✅ personalisation de {key}: {path_str}")  # Ajout de cette ligne
             return Path(path_str)
         else:
             return default_path
-    GE_=get_path_or_default
-    work_dir_tex = GE_('work_dir_tex', Path(os.getcwd())) # work_dir_tex =Path(__file__).parent.parent  >>> a patir du fichier
-    path_vault = GE_('path_vault', work_dir_tex/'example_vault')
-    path_writing = GE_('path_writing', path_vault/'✍Writing')
-    path_templates = GE_('path_templates', path_vault/'👨‍💻Automations')
-    path_table_block_template = GE_('path_table_block_template', path_templates/'table_block.md')
-    path_equation_block_template = GE_('path_equation_block_template', path_vault/'👨‍💻Automations'/'equation_block_single.md')  # corrected line
-    path_table_blocks = GE_('path_table_blocks', path_writing/'table blocks')
-    path_equation_blocks = GE_('path_equation_blocks', path_writing/'equation blocks')
-    path_list_note_paths = GE_('path_list_note_paths', path_vault/'DO_NOT_DELETE__note_paths.txt')
-    path_BIBTEX_bib = GE_('path_BIBTEX_bib', path_writing/'BIBTEX')
+        #  %%
+
+    GP_D = get_path_or_default
+    work_dir_tex = GP_D(config, 'work_dir_tex', Path(os.getcwd())) # work_dir_tex =Path(__file__).parent.parent  >>> a patir du fichier
+    path_vault = GP_D(config, 'path_vault', work_dir_tex/'example_vault')
+    path_writing = GP_D(config, 'path_writing', path_vault/'✍Writing')
+    path_templates = GP_D(config, 'path_templates', path_vault/'👨‍💻Automations')
+    path_table_block_template = GP_D(config, 'path_table_block_template', path_templates/'table_block.md')
+    path_equation_block_template = GP_D(config, 'path_equation_block_template', path_vault/'👨‍💻Automations'/'equation_block_single.md')  # corrected line
+    path_table_blocks = GP_D(config, 'path_table_blocks', path_writing/'table blocks')
+    path_equation_blocks = GP_D(config, 'path_equation_blocks', path_writing/'equation blocks')
+    path_list_note_paths = GP_D(config, 'path_list_note_paths', path_vault/'DO_NOT_DELETE__note_paths.txt')
+    path_BIBTEX_bib = GP_D(config, 'path_BIBTEX_bib','BIBTEX.bib') # fichier>>>+ tard, diviser en fplder/file
+    # path_BIBTEX_path = GP_D(config, 'path_BIBTEX_path', path_writing/'BIBTEX.bib') # a voir
+
     # Ajout des nouveaux chemins
-    convert_file_md = GE_('convert_file_md', path_vault/'✍Writing'/'👨‍💻convert_to_latex.md')
-    path_compile_script = GE_('path_compile_script', path_vault/'✍Writing'/'compile_and_open.sh')
-    path_converter = GE_('path_converter', work_dir_tex/'converter.py')
-    path_example_pdf = GE_('path_example_pdf', path_writing/'example_writing.pdf')
-    path_example_tex = GE_('path_example_tex', path_writing/'example_writing.tex')
-   
-    file_name4sh = GE_('file_name4sh', 'example_writing.tex')
+    convert_file_md = GP_D(config, 'convert_file_md', path_vault/'✍Writing'/'👨‍💻convert_to_latex.md')
+    path_compile_script = GP_D(config, 'path_compile_script', path_vault/'✍Writing'/'compile_and_open.sh')
+    path_converter = GP_D(config, 'path_converter', work_dir_tex/'converter.py')
+    path_example_pdf = GP_D(config, 'path_example_pdf', path_writing/'example_writing.pdf')
+    path_example_tex = GP_D(config, 'path_example_tex', path_writing/'example_writing.tex')
 
-    path_custom_latex_commands = GE_('path_custom_latex_commands', path_vault/'✍Writing'/'custom_latex_functions.tex')
+    file_name4sh = GP_D(config, 'file_name4sh', 'example_writing')
 
-    
+    path_custom_latex_commands = GP_D(config, 'path_custom_latex_commands', path_vault/'✍Writing'/'custom_latex_functions.tex')
+
+
     # Intégrer directement ici les scripts bash et python pour éviter la duplication des chemins et variables
 
     def update_paths():
@@ -174,8 +179,8 @@ def get_parameters(version = 'default'):
             
 
         # Mise à jour du fichier compile_and_open.sh
-        if path_example_tex.exists():
-            with open(path_example_tex, 'r', encoding='utf-8') as f:
+        if path_compile_script.exists():
+            with open(path_compile_script, 'r', encoding='utf-8') as f:
                 content = f.readlines()
                 
             # Mettre à jour les chemins dans le fichier bash
@@ -185,12 +190,12 @@ def get_parameters(version = 'default'):
                 elif line.startswith('FILE_NAME='):
                     content[i] = f'FILE_NAME="{str(file_name4sh)}"\n'
                     
-            with open(path_example_tex, 'w', encoding='utf-8', newline='\n') as f:
+            with open(path_compile_script, 'w', encoding='utf-8', newline='\n') as f:
                 f.writelines(content)
-            print(f"✅ Mise à jour de {path_example_tex.name}")
+            print(f"✅ Mise à jour de {path_compile_script.name}")
         
         else:
-            with open(path_example_tex, 'w', encoding='utf-8') as f:
+            with open(path_compile_script, 'w', encoding='utf-8') as f:
                 f.write(rf'''
 #!/bin/bash
 # This file compiles the latex file to .pdf
@@ -293,6 +298,8 @@ fi
     # elif version =='[✍⌛writing--THESIS--high-level-structure]]':
         
     #     #\documentclass[a4paper, 12pt, openany]{book}
+
+    # %%
     PARS = conv_dict({
         '⚙': # SETTINGS 
             {'SEARCH_IN_FILE': {'condition':'🔴', 'text_to_seach': 'w_{E_{2}}','replace_with': '\\beta_{2}'},
@@ -354,12 +361,12 @@ fi
             }},
         '📁': # Paths 
             {
-                    'command_note': Path(path_vault/'✍Writing''👨‍💻convert_to_latex.md'),
+                    'command_note': Path(path_vault/'✍Writing'/'👨‍💻convert_to_latex.md'),
                            'vault': path_vault,
                  'equation_blocks': path_equation_blocks,
-                'list_paths_notes': path_list_note_paths, # saves time from searching of the note's path
+                'list_paths_notes': path_list_note_paths, # saves time from searching of the note's path (the DO_NOT_DELETE
                      'bash_script': path_compile_script,
-                'bibtex_file_name': file_name4sh, # your bibtex file name
+                'bibtex_file_name': path_BIBTEX_bib, # your bibtex file name
                      'bibtex_path': path_BIBTEX_bib,
             'custom_latex_commands': path_custom_latex_commands,
                 },
@@ -464,8 +471,8 @@ datav__file_column_name::
     
     
 def quick_add_table_block_text():
-    templatePath = "👨‍💻Automations/table_block"
-    destinationPath = "✍Writing/table_blocks"
+    templatePath = r"👨‍💻Automations/table_block"
+    destinationPath = r"✍Writing/table_blocks"
     
     text = f"""
     {{

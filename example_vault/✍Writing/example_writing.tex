@@ -1,7 +1,6 @@
 \documentclass{extarticle}
 
-
-% Loading packages that were defined in `src\get_parameters.py`
+% Packages de base
 \usepackage[table]{xcolor}
 \usepackage{hyperref}
 \usepackage{graphicx}
@@ -35,8 +34,8 @@
 \newlist{todolist}{itemize}{2}
 \setlist[todolist]{label=$\square$}
 \newtotcounter{citnum} %From the package documentation
-\def\oldbibitem{} \let\oldbibitem=\\bibitem
-\def\\bibitem{\stepcounter{citnum}\oldbibitem}
+\def\oldbibitem{} \let\oldbibitem=\bibitem
+\def\bibitem{\stepcounter{citnum}\oldbibitem}
 \setlength{\parindent}{0pt}
 \usepackage[margin=0.9in]{geometry}
 
@@ -47,26 +46,34 @@
     citecolor    = blue      % Colour of citations
     }
     
-\n
+
+% Configuration principale
+\setlength{\parindent}{0pt}
+
+    \hypersetup{
+    colorlinks   = true,    % Colours links instead of ugly boxes
+    urlcolor     = blue,    % Colour for external hyperlinks
+    linkcolor    = blue,    % Colour of internal links
+    citecolor    = blue      % Colour of citations
+    }
+    
 \sethlcolor{yellow}
-\n
-\n\n
 \setcounter{secnumdepth}{4}
 \setlength{\parskip}{7pt} % paragraph spacing
 \let\oldmarginpar\marginpar
-\\renewcommand\marginpar[1]{\oldmarginpar{\tiny #1}} % Change "small" to your desired font size]
-\n\n
-\\newcommand{\ignore}[1]{}
+\renewcommand\marginpar[1]{\oldmarginpar{\tiny #1}} % Change 'small' to your desired font size
+\newcommand{\ignore}[1]{}
 % CUSTOM FUNCTIONS
 % =======================================
-\n\n\n
 \begin{document}
-
-
-\author{Marios Gkionis}
-
-
-
+\allowdisplaybreaks{}
+\date{False}
+\author{DJONTSO Victorien}
+\title{Titre du document(default value)}
+\maketitle{Titre du document(default value)}
+{}
+\tableofcontents{False}
+\newpage{False}
 
 
 % Start obsidian ref:
@@ -277,16 +284,30 @@ See \Cref{fig:1}.
 %figure__block_1\\#\#fig
 \begin{figure}[htb]
 \centering
-\begin{subfigure}[b]{0.5\textwidth}
+\begin{subfigure}[b]{0.25\textwidth}
 \centering
 \includegraphics[width=\linewidth]{"C:/Users/dvrch/Desktop/Memoire 2024/Straightforward-Obsidian2Latex/Straightforward-Obsidian2Latex-DV/example_vault/✍Writing/figure blocks/Pasted image 20240609012221.png"}
 \caption[]
 
 
 \end{subfigure}\hfill
-\begin{subfigure}[b]{0.5\textwidth}
+\begin{subfigure}[b]{0.25\textwidth}
+\centering
+\includegraphics[width=\linewidth]{"C:/Users/dvrch/Desktop/Memoire 2024/Straightforward-Obsidian2Latex/Straightforward-Obsidian2Latex-DV/example_vault/✍Writing/figure blocks/Pasted image 20240609012221.png"}
+\caption[]
+
+
+\end{subfigure}\hfill
+\begin{subfigure}[b]{0.25\textwidth}
 \centering
 \includegraphics[width=\linewidth]{"C:/Users/dvrch/Desktop/Memoire 2024/Straightforward-Obsidian2Latex/Straightforward-Obsidian2Latex-DV/example_vault/✍Writing/figure blocks/Pasted image 20240609012251.png"}
+\caption[]
+
+
+\end{subfigure}\hfill
+\begin{subfigure}[b]{0.25\textwidth}
+\centering
+\includegraphics[width=\linewidth]{"C:/Users/dvrch/Desktop/Memoire 2024/Straightforward-Obsidian2Latex/Straightforward-Obsidian2Latex-DV/example_vault/✍Writing/figure blocks/DV Logo 128 carré.jpg"}
 \caption[]
 
 
@@ -430,7 +451,7 @@ Reference \Cref{eq:1} & 1 & 1 & 1 \\
 \centering
 \caption{Table with customized widths and row color formatting}
 \label{tab:2}
-\begin{tabularx}{p{1cm}p{1cm}p{5cm}p{3cm}}
+\begin{tabularx}{1.0\textwidth}{p{1cm}p{1cm}p{5cm}p{3cm}}
 \hline
 \textbf{Col1} & \textbf{Col2} & \textbf{Col3} & \textbf{Col4} \\
 \rowcolor{lightgray}  a11 & a12 & Some more text & even more text \\
@@ -522,13 +543,13 @@ When there is something niche, or some translation functionality that hasn't bee
 
 
 
-\newpage 
-\newpage 
+\newpage
 
 
+\newpage
 
 
-
+% newpage{{{paragraph['add_new_page_before_bibliography'] if paragraph['add_new_page_before_bibliography'] else ''}}}
 \bibliographystyle{apacite}
-\bibliography{BIBTEX}
+\bibliography{BIBTEX.bib}
 \end{document}
