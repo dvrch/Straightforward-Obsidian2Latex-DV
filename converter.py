@@ -25,8 +25,6 @@ from equations import *
 from path_searching import *
 from get_parameters import *
 
-
-
 # Global constants
 ID__TABLES__alignment__center = 0
 ID__TABLES__alignment__right  = 1
@@ -74,18 +72,18 @@ def package_loader():
     tables_package      = settings['TABLES']['package']
     page_margin         = settings['margin']
 
-    out = ['\\usepackage[table]{xcolor}']
+    out = [r'\usepackage[table]{xcolor}']
     packages_to_load.append(['tabularx', None, ''])
     packages_to_load.append(['longtable', None, ''])
     packages_to_load.append(['tabularray', None, ''])
     
     doc_class = PARS['⚙']['document_class']['class']
-    
-    out += [f"{(pkg[1]==doc_class)*'%💀'}\\usepackage{{{pkg[0]}}}{(' % ' + pkg[2]) if len(pkg[2]) > 0 else ''}" for pkg in packages_to_load]
 
-    out.append('\\usepackage{enumitem,amssymb}')
-    out.append('\\newlist{todolist}{itemize}{2}')
-    out.append('\setlist[todolist]{label=$\square$}')
+    out += [fr"{(pkg[1]==doc_class)*'%💀'}\usepackage{{{pkg[0]}}}{(' % ' + pkg[2]) if len(pkg[2]) > 0 else ''}" for pkg in packages_to_load]
+
+    out.append(r'\usepackage{enumitem,amssymb}')
+    out.append(r'\newlist{todolist}{itemize}{2}')
+    out.append(r'\setlist[todolist]{label=$\square$}')
     
     out.append(r'\newtotcounter{citnum} %From the package documentation')
     out.append(r'\def\oldbibitem{} \let\oldbibitem=\bibitem')
@@ -633,55 +631,80 @@ if not PARS['⚙']['SEARCH_IN_FILE']['condition']:
     except:
         custom_latex = []
     
-    PREAMBLE = (
-        [
-            # Classe du document
-            fr"\documentclass{doc_class_fontsize}{{{document_class['class']}}}",
-            
-            # Packages
-            "\n% Packages de base",
-            *package_loader(),
-            
-            # Configuration principale
-            "\n% Configuration principale",
-            r"\setlength{\parindent}{0pt}",
-            fr"{PARS['⚙']['hyperlink_setup']}",
+# Préparation des variables
+    format_args = {
+        'document_class': document_class['class'],
+        'hyperlink_setup': PARS['⚙']['hyperlink_setup'],
+        'allowbreaks': paragraph.get('allowdisplaybreaks', ''),
+        'date': PARS['⚙']['use_date'] if not PARS['⚙']['use_date'] else '',
+        'author': PARS['⚙']['author'],
+        'doc_title': title or 'Document sans titre',
+        'make_title': title * (len(title) > 0),
+        'before_text': paragraph.get('if_text_before_first_section___place_before_table_of_contents', ''),
+        'toc': paragraph['add_table_of_contents'],
+        'newpage': paragraph['add_table_of_contents']
+    }
+ 
+    # Template LaTeX en fr-string multiligne (plus besoin d'échapper les \)
+    # 1. Vérifiez d'abord la structure de vos données
+    print("Debug - paragraph:", paragraph)
+    print("Debug - PARS:", PARS['⚙'])
 
-            # Configuration des listes et du document
-            r"\sethlcolor{yellow}",
-            r"\setcounter{secnumdepth}{4}",
-            r"\setlength{\parskip}{7pt} % paragraph spacing",
-            r"\let\oldmarginpar\marginpar",
-            r"\renewcommand\marginpar[1]{\oldmarginpar{\tiny #1}} % Change 'small' to your desired font size",
-            r"\newcommand{\ignore}[1]{}",
-            
-            # Fonctions personnalisées
-            "% CUSTOM FUNCTIONS",
-            *custom_latex,
-            
-            "% =======================================",
-            r"\begin{document}",
-            fr"\allowdisplaybreaks{{{ paragraph['allowdisplaybreaks'] if paragraph['allowdisplaybreaks'] else ''}}}",
-            # En-tête du document
-            fr"\date{{{PARS['⚙']['use_date'] if not PARS['⚙']['use_date'] else ''}}}",
-            fr"\author{{{PARS['⚙']['author']}}}" if len(PARS['⚙']['author']) > 0 else "",
-            fr"\title{{{title} else 'Document san²s titre'}}",
-            fr"\maketitle{{{title*(len(title)>0)}}}",
-            fr"{{{paragraph['text_before_first_section'] if paragraph['text_before_first_section'] else ''}}}",
-            
-            # Table des matières
-            fr"\tableofcontents{{{paragraph['add_table_of_contents'] if paragraph['add_table_of_contents'] else ''}}}",
-            fr"\newpage{{{paragraph['add_table_of_contents'] if paragraph['add_table_of_contents'] else ""}}}",
-        ]
-    )
+    # 2. Version corrigée du template
+    PREAMBLE = fr"""
+\documentclass{{doc_class_fontsize}}{{{document_class['class']}}}
+
+% Packages de base
+{"\n".join(package_loader())}
+
+% Configuration principale
+\setlength{{\parindent}}{{0pt}}
+{PARS['⚙']['hyperlink_setup']}
+
+% Configuration des listes et du document
+\sethlcolor{{yellow}}
+\setcounter{{secnumdepth}}{{4}}
+\setlength{{\parskip}}{{7pt}}
+\let\oldmarginpar\marginpar
+\renewcommand\marginpar[1]{{\oldmarginpar{{\tiny #1}}}}
+\newcommand{{\ignore}}[1]{{}}
+
+% CUSTOM FUNCTIONS
+{"\n".join(custom_latex)}
+
+% =======================================
+\begin{{document}}
+\allowdisplaybreaks{{{paragraph.get('allowdisplaybreaks', '')}}}
+
+\date{{{PARS['⚙']['use_date'] if not PARS['⚙']['use_date'] else ''}}}
+{"\author{" + PARS['⚙']['author'] + "}" if PARS['⚙']['author'] else ""}
+\title{{{title or 'Document sans titre'}}}
+\maketitle{{{title * (len(title) > 0)}}}
+
+{paragraph.get('if_text_before_first_section___place_before_table_of_contents', '')}
+
+\tableofcontents{{{paragraph['add_table_of_contents']}}}
+\newpage{{{paragraph['add_table_of_contents']}}}
+
+"""
 
     # LATEX = symbol_replacement(LATEX, [['_', '\_', 0]])
     LATEX1 = []
     for line in LATEX:
         LATEX1.append(escape_underscores_in_texttt(line))
 
-    LATEX = PREAMBLE + LATEX1 + [(r'\newpage \n'*2 * paragraph['add_new_page_before_bibliography']) + '\n'*5 + r'\bibliographystyle{apacite}'] + \
-        [r'\bibliography{' + PATHS['bibtex_file_name'].replace(".bib","") + r'}'] + [r'\end{document}']
+    LATEX = [
+        *PREAMBLE,
+        *LATEX1,
+        r'\newpage',
+        '\n'*2,
+        r'\newpage',
+        '\n'*2,
+        r"newpage{{{paragraph['add_new_page_before_bibliography'] if paragraph['add_new_page_before_bibliography'] else ''}}}",
+        r'\bibliographystyle{apacite}',
+        fr'\bibliography{{{PATHS['bibtex_file_name'].replace(".bib", "")}}}',
+        r'\end{document}'
+    ]
 
     # if '[[✍⌛writing--FaultDiag--Drillstring--MAIN]]' in markdown_file:
     #     LATEX_1 = []
@@ -745,6 +768,6 @@ else:
     print("Finished Searching")
 #
 f_sh = r'c:\Users\dvrch\Desktop\Memoire 2024\Straightforward-Obsidian2Latex\Straightforward-Obsidian2Latex-DV\example_vault\✍Writing\compile_and_open.sh'
-# ececuter ce sh dans gitbash
+# # ececuter ce sh dans gitbash
 import subprocess
 subprocess.run('bash compile_and_open.sh', shell=True, check=True, stdout=subprocess.PIPE, stderr=subprocess.PIPE)

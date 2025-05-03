@@ -100,7 +100,7 @@ def get_parameters(version = 'default'):
     path_custom_latex_commands = GP_D(config, 'path_custom_latex_commands', path_vault/'✍Writing'/'custom_latex_functions.tex')
 
 
-    # Intégrer directement ici les scripts bash et python pour éviter la duplication des chemins et variables
+    # Intégrer directemoent ici les scripts bash et python pour éviter la duplication des chemins et variables
 
     def update_paths():
                 # Mise à jour du fichier convert_to_latex.md
