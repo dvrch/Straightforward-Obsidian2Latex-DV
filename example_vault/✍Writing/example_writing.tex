@@ -1,4 +1,4 @@
-\documentclass{doc_class_fontsize}{extarticle}
+\documentclass{extarticle}
 
 % Packages de base
 \usepackage[table]{xcolor}
@@ -185,7 +185,7 @@ Command: just mention that link that pertains to the literature file. I use the 
 
 
 
-Example: In \${p1}, we see that...  \hypertarget{ad3b86}{}
+Example: In \cite{p1}, we see that...  \hypertarget{ad3b86}{}
 
 
 
@@ -282,7 +282,8 @@ See \Cref{fig:1}.
 
 % Start obsidian ref:
 %figure__block_1\\#\#fig
-\begin{figure}[htb]\n\centering
+\begin{figure}[htb]
+\centering
 \begin{subfigure}[b]{0.25\textwidth}
 \centering
 \includegraphics[width=\linewidth]{"C:/Users/dvrch/Desktop/Memoire 2024/Straightforward-Obsidian2Latex/Straightforward-Obsidian2Latex-DV/example_vault/✍Writing/figure blocks/Pasted image 20240609012221.png"}
@@ -404,7 +405,7 @@ Notice in the latex file that the section hierarchy has been modified to adhere 
 
 \section{Hyperlinks}
 
-Click [here](\url{https://www.youtube.com/}).
+Click \href{https://www.youtube.com/}{here}.
 
 
 
@@ -450,7 +451,7 @@ Reference \Cref{eq:1} & 1 & 1 & 1 \\
 \centering
 \caption{Table with customized widths and row color formatting}
 \label{tab:2}
-\begin{tabularx}{p{1cm}p{1cm}p{5cm}p{3cm}}
+\begin{tabularx}{1.0\textwidth}{p{1cm}p{1cm}p{5cm}p{3cm}}
 \hline
 \textbf{Col1} & \textbf{Col2} & \textbf{Col3} & \textbf{Col4} \\
 \rowcolor{lightgray}  a11 & a12 & Some more text & even more text \\
