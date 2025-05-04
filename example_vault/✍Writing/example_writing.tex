@@ -1,4 +1,4 @@
-\documentclass{extarticle}
+\documentclass{doc_class_fontsize}{extarticle}
 
 % Packages de base
 \usepackage[table]{xcolor}
@@ -43,7 +43,7 @@
     colorlinks   = true,    % Colours links instead of ugly boxes
     urlcolor     = blue,    % Colour for external hyperlinks
     linkcolor    = blue,    % Colour of internal links
-    citecolor    = blue      % Colour of citations
+    citecolor    = green      % Colour of citations
     }
     
 
@@ -53,9 +53,9 @@
 % Configuration des listes et du document
 \sethlcolor{yellow}
 \setcounter{secnumdepth}{4}
-\setlength{\parskip}{7pt}
+\setlength{\parskip}{7pt} % paragraph spacing
 \let\oldmarginpar\marginpar
-\renewcommand\marginpar[1]{\oldmarginpar{\tiny #1}}
+\renewcommand\marginpar[1]{\oldmarginpar{\tiny #1}}  % Change "small" to your desired font size
 \newcommand{\ignore}[1]{}
 
 % CUSTOM FUNCTIONS
@@ -65,10 +65,11 @@
 \begin{document}
 \allowdisplaybreaks{}
 
-\date{}
+\date{} 
 \author{DJONTSO Victorien}
-\title{Titre du document(default value)}
-\maketitle{Titre du document(default value)}
+\title{Titre du document(default value)} % Title of the document; 
+\maketitle{Titre du document(default value)} % 
+% \thispagestyle{empty} % Remove the page number from the title page
 
 
 
@@ -185,8 +186,8 @@ Command: just mention that link that pertains to the literature file. I use the 
 
 
 
-Example: In \cite{p1}, we see that...  \hypertarget{ad3b86}{}
-
+Example: In \${p1}, we see that...  \hypertarget{ad3b86}{}
+% Example: In \cite{p1}, we see that...  \hypertarget{ad3b86}{} \label{ead3b86}
 
 
 \section{Equations}
@@ -277,13 +278,12 @@ See \Cref{fig:1}.
 
 
 \begin{itemize}
-\item \\twemoji{plus}  Allow user to create more complex configurations
+\item \twemoji{plus}  Allow user to create more complex configurations
 \end{itemize}
 
 % Start obsidian ref:
 %figure__block_1\\#\#fig
-\begin{figure}[htb]
-\centering
+\begin{figure}[htb]\n\centering
 \begin{subfigure}[b]{0.25\textwidth}
 \centering
 \includegraphics[width=\linewidth]{"C:/Users/dvrch/Desktop/Memoire 2024/Straightforward-Obsidian2Latex/Straightforward-Obsidian2Latex-DV/example_vault/✍Writing/figure blocks/Pasted image 20240609012221.png"}
@@ -346,6 +346,7 @@ This is a warning
 
 
 \begin{tcolorbox}[width=1.0\textwidth,colback={white},title={note},outer arc=0mm,colupper=black]
+% \begin{tcolorbox}[width=\textwidth,colback={white},title={note},outer arc=0mm,colupper=black]
 
 This is a note
 
@@ -397,7 +398,7 @@ Notice in the latex file that the section hierarchy has been modified to adhere 
 % Start obsidian ref:
 %embedded with sections
 \subsubsection{Section 1 of embedded By me}
-\paragraph{subsection 1 of embedded} \hspace{0pt} \\
+\paragraph{subsection 1 of embedded} % \hspace{0pt} \\
 % End obsidian ref
 
 
@@ -405,7 +406,7 @@ Notice in the latex file that the section hierarchy has been modified to adhere 
 
 \section{Hyperlinks}
 
-Click \href{https://www.youtube.com/}{here}.
+Click [here](\url{https://www.youtube.com/}).
 
 
 
@@ -446,21 +447,23 @@ Reference \Cref{eq:1} & 1 & 1 & 1 \\
 % Start obsidian ref:
 %table__block_2\\#\#table
 \newcolumntype{Y}{>{\centering\arraybackslash}X}
-%\begin{center}
+\begin{center}
+    
 \begin{table}[ht]
 \centering
 \caption{Table with customized widths and row color formatting}
 \label{tab:2}
 \begin{tabularx}{1.0\textwidth}{p{1cm}p{1cm}p{5cm}p{3cm}}
 \hline
-\textbf{Col1} & \textbf{Col2} & \textbf{Col3} & \textbf{Col4} \\
-\rowcolor{lightgray}  a11 & a12 & Some more text & even more text \\
+\textbf{Col1} & \textbf{Col2} & \textbf{Col3} & \textbf{Col4} \\ \hline
+\rowcolor{lightgray}  a11 & a12 & Some more text & even more text \\ \hline
 \rowcolor{yellow} a21 & Equation: $E=mc^{2}$ & Some more textSome more textSome more textSome more textSome more textSome more text & even more text even more text even more text even more text even more text \\
-Reference \Cref{eq:1} & 1 & 1 & 1 \\
+Reference \Cref{eq:1} & 1 & 1 & 1 \\ \hline
 \hline
 \end{tabularx}
 \end{table}
 
+\end{center}
 % End obsidian ref
 
 
@@ -472,16 +475,14 @@ Reference \Cref{eq:1} & 1 & 1 & 1 \\
 %\begin{center}
 \begin{longtable}{p{3cm}p{3cm}p{3cm}p{3cm}}
 \caption{A long table. Changed the package in the table file properties}
-\label{tab:long}\\
-\hline
-\textbf{Col1} & \textbf{Col2} & \textbf{Col3} & \textbf{Col4} \\
-\hline
+\label{tab:long}\\ \hline
+\textbf{Col1} & \textbf{Col2} & \textbf{Col3} & \textbf{Col4} \\ \hline
 \endfirsthead % Use \endfirsthead for the line after the first header
 \hline
 \endfoot
 a11 & a12 & Some more text & even more text \\
 a21 & Equation: $E=mc^{2}$ & Some more textSome more textSome more textSome more textSome more textSome more text & even more text even more text even more text even more text even more text \\
-Reference \Cref{eq:1} & 1 & 1 & 1 \\
+Reference \Cref{eq:1} & 1 & 1 & 1 \\ \hline
 Some more textSome more textSome more textSome more textSome more textSome more text & Some more textSome more textSome more textSome more textSome more textSome more text & Some more textSome more textSome more textSome more textSome more textSome more text & Some more textSome more textSome more textSome more textSome more textSome more text \\
 Some more textSome more textSome more textSome more textSome more textSome more text & Some more textSome more textSome more textSome more textSome more textSome more text & Some more textSome more textSome more textSome more textSome more textSome more text & Some more textSome more textSome more textSome more textSome more textSome more text \\
 Some more textSome more textSome more textSome more textSome more textSome more text & Some more textSome more textSome more textSome more textSome more textSome more text & Some more textSome more textSome more textSome more textSome more textSome more text & Some more textSome more textSome more textSome more textSome more textSome more text \\
@@ -541,15 +542,18 @@ When there is something niche, or some translation functionality that hasn't bee
 \lipsum[1-4]
 
 
-
+\section{Inline code parameterization}
 
 \newpage
 
+\appendix
+
+!example_writing--Appendix
 
 \newpage
 
 
 \newpage{True}
 \bibliographystyle{apacite}
-\bibliography{BIBTEX}
+\bibliography{BIBTEX.bib}
 \end{document}
