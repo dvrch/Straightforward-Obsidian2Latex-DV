@@ -1,15 +1,15 @@
 This is BibTeX, Version 0.99d
 Capacity: max_strings=200000, hash_size=200000, hash_prime=170003
-The top-level auxiliary file: example_writing.aux
+The top-level auxiliary file: C:\Users\dvrch\Desktop\Memoire 2024\Straightforward-Obsidian2Latex\Straightforward-Obsidian2Latex-DV\example_vault\✍Writing/example_writing.aux
 Reallocating 'name_of_file' (item size: 1) to 8 items.
 The style file: apacite.bst
 Reallocating 'name_of_file' (item size: 1) to 7 items.
 I couldn't open database file BIBTEX.bib
----line 52 of file example_writing.aux
+---line 35 of file C:\Users\dvrch\Desktop\Memoire 2024\Straightforward-Obsidian2Latex\Straightforward-Obsidian2Latex-DV\example_vault\✍Writing/example_writing.aux
  : \bibdata{BIBTEX
  :                }
 I'm skipping whatever remains of this command
-I found no database files---while reading file example_writing.aux
+I found no database files---while reading file C:\Users\dvrch\Desktop\Memoire 2024\Straightforward-Obsidian2Latex\Straightforward-Obsidian2Latex-DV\example_vault\✍Writing/example_writing.aux
 Reallocating 'glb_str_end' (item size: 4) to 20 items.
 Reallocating 'glb_str_ptr' (item size: 4) to 20 items.
 Reallocating 'global_strs' (item size: 1) to 4000000 items.
@@ -23,7 +23,7 @@ Warning--I didn't find a database entry for "p1"
 apacite.bst [2013/07/21 v6.03 APA bibliography style]
 You've used 0 entries,
             6951 wiz_defined-function locations,
-            1269 strings with 10664 characters,
+            1269 strings with 10916 characters,
 and the built_in function-call counts, 43 in all, are:
 = -- 0
 > -- 0

@@ -181,12 +181,12 @@ def internal_links__enforcer(S, sections_blocks, internal_links, options):
                         cnd__use_hyperhyperlink = (is_internal_ref_block) and (not (cnd__use_hyperref))
 
                         if cnd__use_hyperref:
-                            hyperref = f'\hyperref[{label_latex_format}]{hyperref_text}'
+                            hyperref = fr'\hyperref[{label_latex_format}]{hyperref_text}'
                             if options['add_section_number_after_referencing']:
-                                hyperref += f" (\\autoref{{{label_latex_format}}})"
+                                hyperref += fr" (\autoref{{{label_latex_format}}})"
                         elif cnd__use_hyperhyperlink:
                             # for blocks, better write "hyperlink"
-                            hyperref = f'\hyperlink{{{label_latex_format}}}{hyperref_text}'
+                            hyperref = fr'\hyperlink{{{label_latex_format}}}{hyperref_text}'
                         else:
                             raise NotImplementedError
                         
@@ -328,7 +328,7 @@ def replace_obsidian_bibliography_link_with_cite(s):
     """
 
     pattern = r'\[\[p(\d+)\]\]'  # Updated regular expression pattern with capturing group
-    replaced_string = re.sub(pattern, r'\\cite{p\1}', s)
+    replaced_string = re.sub(pattern, r'\${p\1}', s)
     return replaced_string
 
 
@@ -385,7 +385,7 @@ def formatting_rule__notes_with_tags(note_path, initial_text, formatting_paramet
         it_has_the_tag = search_note_for_tag(note_path, format[0])
         if it_has_the_tag:
             color = format[1]
-            return f'\\textcolor{{{color}}}{{{initial_text}}}'
+            return fr'\textcolor{{{color}}}{{{initial_text}}}'
 
     return initial_text
 

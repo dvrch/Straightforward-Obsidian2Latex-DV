@@ -16,3 +16,4 @@ table__block_2: C:\Users\dvrch\Desktop\Memoire 2024\Straightforward-Obsidian2Lat
 table__block_long: C:\Users\dvrch\Desktop\Memoire 2024\Straightforward-Obsidian2Latex\Straightforward-Obsidian2Latex-DV\example_vault\✍Writing\table_blocks\table__block_long.md
 fields_for_report: C:\Users\dvrch\Desktop\Memoire 2024\Straightforward-Obsidian2Latex\Straightforward-Obsidian2Latex-DV\example_vault\✍Writing\fields_for_report.md
 p1: C:\Users\dvrch\Desktop\Memoire 2024\Straightforward-Obsidian2Latex\Straightforward-Obsidian2Latex-DV\example_vault\📚Literature\p1.md
+DV Logo 128 carré.jpg: C:\Users\dvrch\Desktop\Memoire 2024\Straightforward-Obsidian2Latex\Straightforward-Obsidian2Latex-DV\example_vault\✍Writing\figure blocks\DV Logo 128 carré.jpg

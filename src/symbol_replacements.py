@@ -37,7 +37,7 @@ def escape_underscores_in_texttt(text):
         return match.group(0).replace('_', r'\_')
 
     # Regex pattern to find \texttt{...}
-    pattern = r'\\texttt\{.*?\}'
+    pattern = r'\texttt\{.*?\}'
     
     # Replace underscores only within \texttt{...} if any matches exist
     replaced_text = re.sub(pattern, replace_underscores, text)

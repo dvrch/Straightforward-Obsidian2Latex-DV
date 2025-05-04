@@ -108,7 +108,7 @@ def replace_hyperlinks(S):
     # http:// or https:// followed by anything but a closing paren
     url_regex = r"http[s]?://[^)]+"
 
-    markup_regex = r'\[({0})]\(\s*({1})\s*\)'.format(name_regex, url_regex)
+    markup_regex = fr'\[({0})]\(\s*({1})\s*\)'.format(name_regex, url_regex)
     markup_regex_no_alias = r'(http[s]?://\S+)' # Non-greedy regex to match URLs, stopping at the first space or punctuation after the URL
 
     S_1 = []
@@ -116,8 +116,8 @@ def replace_hyperlinks(S):
         s1 = s 
         matched_with_alias = False
         for match in re.findall(markup_regex, s1):
-            markdown_link = '[' + match[0] + '](' + match[1] + ')'
-            latex_link = fr"\href{{" + match[1] + "}}{" + match[0] + "}"
+            markdown_link = fr'[{match[0]}]({match[1]})'
+            latex_link = fr'\href{{{match[1]}}}{{{match[0]}}}'
             s1 = s1.replace(markdown_link, latex_link)
             matched_with_alias = True
         
@@ -125,7 +125,7 @@ def replace_hyperlinks(S):
             for match in re.findall(markup_regex_no_alias, s1):
                 match = match.rstrip('.,)')  # Remove trailing punctuation like .,)
                 markdown_link = match
-                latex_link = fr"\url{{"+match+"}}"
+                latex_link = fr'\url{{{match}}}'
                 s1 = s1.replace(markdown_link, latex_link)
                 matched_with_alias = True
 
@@ -197,19 +197,19 @@ def simple_stylistic_replacements(S, type=None):
 
     if type == ID__STYLE__BOLD:
         style_char = r'\*\*'
-        replacement_func = lambda repl, string:  repl.append(['**'+string+'**', r'\textbf{' + string + '}'])
+        replacement_func = lambda repl, string:  repl.append([fr'**{string}**', fr'\textbf{{{string}}}'])
         l = 2
         is_pair = True
     
     elif type == ID__STYLE__HIGHLIGHTER:
         style_char = r'\=\='
-        replacement_func = lambda repl, string:  repl.append(['=='+string+'==', r'\hl{' + string + '}'])
+        replacement_func = lambda repl, string:  repl.append([fr'=={string}==', fr'\hl{{{string}}}'])
         l = 2
         is_pair = True
 
     elif type == ID__STYLE__ITALIC:
         style_char = r'\*'
-        replacement_func = lambda repl, string:  repl.append(['*'+string+'*', r'\textit{' + string + '}'])
+        replacement_func = lambda repl, string:  repl.append([fr'*{string}*', fr'\textit{{{string}}}'])
         l = 1
         is_pair = True
     
@@ -245,8 +245,8 @@ def simple_stylistic_replacements(S, type=None):
                 s = s.replace(R[0], R[1])
         else:
             if RAISE_EXCEPTION_IN_STYLISTIC_USER_ERRORS:
-                raise Exception("You have added an odd number of the '" + style_char + "' character in the string: '" + s + "'")
-        
+                raise Exception(fr"You have added an odd number of the '{style_char}' character in the string: '{s}'")
+
         S1.append(s)
     
     return S1
@@ -271,13 +271,13 @@ def images_converter(images, PARAMETERS):
         figure_width = 0.7
         TO_PRINT.append(' \n'.join([
         r'\begin{figure}',
-        r'    \centering',
-        fr'    \includegraphics[width={figure_width}\linewidth]'+
-            '{"' + path_img + '"}',
-        fr'    \caption[{caption_short}]{{{caption_long}}}',
-        r'   \captionsetup{skip=-10pt} % Adjust the skip value as needed'*PARAMETERS['reduce spacing between figures'],
-        r'    \label{fig:'+label_img+r'}',
-        r'\end{figure}']))
+        r'\centering',
+        fr'\includegraphics[width={figure_width}\linewidth]{{{path_img}}}',
+        fr'\caption[{caption_short}]{{{caption_long}}}',
+        fr"\captionsetup{{skip=-10pt}} % Adjust the skip value as needed {PARAMETERS['reduce spacing between figures']}",
+        fr'\label{{fig:{label_img}}}',
+        r'\end{figure}'
+        ]))
 
     return TO_PRINT
 
@@ -390,7 +390,7 @@ for i_l, line in enumerate(reversed(content)):
     if line.startswith('# Appendix'):
         # Calculate the correct index in the original list
         original_index = len(content) - 1 - i_l
-        content[original_index] = content[original_index].replace('# Appendix', '\\appendix')
+        content[original_index] = content[original_index].replace('# Appendix', r'\appendix')
         break
 #
 
@@ -631,24 +631,24 @@ if not PARS['⚙']['SEARCH_IN_FILE']['condition']:
     except:
         custom_latex = []
     
-# Préparation des variables
-    format_args = {
-        'document_class': document_class['class'],
-        'hyperlink_setup': PARS['⚙']['hyperlink_setup'],
-        'allowbreaks': paragraph.get('allowdisplaybreaks', ''),
-        'date': PARS['⚙']['use_date'] if not PARS['⚙']['use_date'] else '',
-        'author': PARS['⚙']['author'],
-        'doc_title': title or 'Document sans titre',
-        'make_title': title * (len(title) > 0),
-        'before_text': paragraph.get('if_text_before_first_section___place_before_table_of_contents', ''),
-        'toc': paragraph['add_table_of_contents'],
-        'newpage': paragraph['add_table_of_contents']
-    }
+# # Préparation des variables
+#     format_args = {
+#         'document_class': document_class['class'],
+#         'hyperlink_setup': PARS['⚙']['hyperlink_setup'],
+#         'allowbreaks': paragraph.get('allowdisplaybreaks', ''),
+#         'date': PARS['⚙']['use_date'] if not PARS['⚙']['use_date'] else '',
+#         'author': PARS['⚙']['author'],
+#         'doc_title': title or 'Document sans titre',
+#         'make_title': title * (len(title) > 0),
+#         'before_text': paragraph.get('if_text_before_first_section___place_before_table_of_contents', ''),
+#         'toc': paragraph['add_table_of_contents'],
+#         'newpage': paragraph['add_table_of_contents']
+#     }
  
-    # Template LaTeX en fr-string multiligne (plus besoin d'échapper les \)
-    # 1. Vérifiez d'abord la structure de vos données
-    print("Debug - paragraph:", paragraph)
-    print("Debug - PARS:", PARS['⚙'])
+#     # Template LaTeX en fr-string multiligne (plus besoin d'échapper les \)
+#     # 1. Vérifiez d'abord la structure de vos données
+#     print("Debug - paragraph:", paragraph)
+#     print("Debug - PARS:", PARS['⚙'])
 
     # 2. Version corrigée du template
     PREAMBLE = fr"""
@@ -657,9 +657,10 @@ if not PARS['⚙']['SEARCH_IN_FILE']['condition']:
 % Packages de base
 {"\n".join(package_loader())}
 
-% Configuration principale
-\setlength{{\parindent}}{{0pt}}
-{PARS['⚙']['hyperlink_setup']}
+% Configuration principale 
+% \setlength{{\parindent}}{{0pt}}{
+   {PARS['⚙']['hyperlink_setup']}
+}
 
 % Configuration des listes et du document
 \sethlcolor{{yellow}}
@@ -674,17 +675,17 @@ if not PARS['⚙']['SEARCH_IN_FILE']['condition']:
 
 % =======================================
 \begin{{document}}
-\allowdisplaybreaks{{{paragraph.get('allowdisplaybreaks', '')}}}
+\allowdisplaybreaks{{{paragraph.get('allowdisplaybreaks') or ''}}}
 
-\date{{{PARS['⚙']['use_date'] if not PARS['⚙']['use_date'] else ''}}}
-{"\author{" + PARS['⚙']['author'] + "}" if PARS['⚙']['author'] else ""}
+\date{{{PARS['⚙']['use_date'] or ''}}}
+\author{{{PARS['⚙']['author'] or "Nom de l'auteur"}}}
 \title{{{title or 'Document sans titre'}}}
 \maketitle{{{title * (len(title) > 0)}}}
 
-{paragraph.get('if_text_before_first_section___place_before_table_of_contents', '')}
+{paragraph['if_text_before_first_section___place_before_table_of_contents'] or ''}
 
-\tableofcontents{{{paragraph['add_table_of_contents']}}}
-\newpage{{{paragraph['add_table_of_contents']}}}
+\tableofcontents{{{paragraph['add_table_of_contents'] or ''}}}
+\newpage{{{paragraph['add_table_of_contents'] or ''}}}
 
 """
 
@@ -694,13 +695,13 @@ if not PARS['⚙']['SEARCH_IN_FILE']['condition']:
         LATEX1.append(escape_underscores_in_texttt(line))
 
     LATEX = [
-        *PREAMBLE,
+        *PREAMBLE.strip().split('\n'),
         *LATEX1,
         r'\newpage',
         '\n'*2,
         r'\newpage',
         '\n'*2,
-        r"newpage{{{paragraph['add_new_page_before_bibliography'] if paragraph['add_new_page_before_bibliography'] else ''}}}",
+        fr"\newpage{{{paragraph['add_new_page_before_bibliography'] or ''}}}",
         r'\bibliographystyle{apacite}',
         fr'\bibliography{{{PATHS['bibtex_file_name'].replace(".bib", "")}}}',
         r'\end{document}'
@@ -713,7 +714,6 @@ if not PARS['⚙']['SEARCH_IN_FILE']['condition']:
             
     #     LATEX = LATEX_1
         
-
 
     with open(PATHS['tex-file'], 'w', encoding='utf8') as f:
         for l in LATEX:
@@ -767,7 +767,8 @@ else:
 
     print("Finished Searching")
 #
-f_sh = r'c:\Users\dvrch\Desktop\Memoire 2024\Straightforward-Obsidian2Latex\Straightforward-Obsidian2Latex-DV\example_vault\✍Writing\compile_and_open.sh'
-# # ececuter ce sh dans gitbash
+from pathlib import Path
+f_sh = Path(os.getcwd(), 'example_vault', '✍Writing', 'compile_and_open.sh')
+# # executer ce sh dans gitbash
 import subprocess
-subprocess.run('bash compile_and_open.sh', shell=True, check=True, stdout=subprocess.PIPE, stderr=subprocess.PIPE)
+subprocess.run(f'bash {f_sh}', shell=True, check=True, stdout=subprocess.PIPE, stderr=subprocess.PIPE)

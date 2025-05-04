@@ -531,9 +531,9 @@ def images_converter(images, PARAMETERS, fields, label, latex_file_path):
     y = []
     if cnd__include_subfigures:
         if PARAMETERS['put_figure_below_text']:
-            begin_fig_global = f'\\begin{{{str_figure}}}[htb]\n' # '\\begin{figure}[H]\n'
+            begin_fig_global = fr'\begin{{{str_figure}}}[htb]\n' # '\begin{figure}[H]\n'
         else:
-            begin_fig_global = f'\\begin{{{str_figure}}}\n'
+            begin_fig_global = fr'\begin{{{str_figure}}}\n'
         y.append(begin_fig_global)
         y.append('\centering\n')
         for fig_lines in TO_PRINT:
@@ -668,7 +668,7 @@ def convert__tables(S, caption, package, label, widths, use_hlines, use_vlines, 
     for s in S[iS_table_start+2:]:
         c = s.split('|')
         c = [x.lstrip().rstrip() for x in c if len(x.lstrip().rstrip())>0 and x!='\n']
-        c = ['\\newline'.join(ci.split('<br>')) for ci in c]
+        c = [r'\newline'.join(ci.split('<br>')) for ci in c]
         c = [escape_underscore(ci) for ci in c]
         # check for table commands
         latex_command_in_row = np.any([latex_table_prefix in ci for ci in c])
@@ -688,7 +688,7 @@ def convert__tables(S, caption, package, label, widths, use_hlines, use_vlines, 
                     raise Exception("You probably have written the syntax of latex table row color formatting wrong!")
 
                 text_to_replace = latex_table_prefix_row_format_color+color
-                replacement_text = f'\\rowcolor{{{color}}}'
+                replacement_text = fr'\rowcolor{{{color}}}'
                 cell_with_the_command = cell_with_the_command.replace(text_to_replace, replacement_text)
                 # Adding the replacement text in front, because it is inside commands (cheap patch for now ➕)
                 c[i_c] = (replacement_text + ' ')*0 + cell_with_the_command
