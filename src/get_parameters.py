@@ -60,7 +60,7 @@ def get_parameters(version = 'default'):
     from pathlib import Path
     import os
 
-    path_personalisation = r"c:\Users\dvrch\Desktop\Memoire 2024\Straightforward-Obsidian2Latex\Straightforward-Obsidian2Latex-DV\example_vault\✍Writing\personalisation des paths.yaml"
+    path_personalisation =  Path(os.getcwd(), "example_vault", "✍Writing", "personalisation des paths.yaml")
     # Charger les configurations depuis un fichier YAML externe
     with open(path_personalisation, 'r', encoding='utf-8') as f:
         config = yaml.safe_load(f)
@@ -68,7 +68,7 @@ def get_parameters(version = 'default'):
     # Fonction utilitaire pour gérer les chemins vides ou invalides
     def get_path_or_default(config_content, key, default_path):
         path_str = config_content.get(key, '')
-        if path_str and os.path.exists(path_str):
+        if path_str and Path(path_str).exists():
             print(f"✅ personalisation de {key}: {path_str}")  # Ajout de cette ligne
             return Path(path_str)
         else:
@@ -85,7 +85,7 @@ def get_parameters(version = 'default'):
     path_table_blocks = GP_D(config, 'path_table_blocks', path_writing/'table blocks')
     path_equation_blocks = GP_D(config, 'path_equation_blocks', path_writing/'equation blocks')
     path_list_note_paths = GP_D(config, 'path_list_note_paths', path_vault/'DO_NOT_DELETE__note_paths.txt')
-    path_BIBTEX_bib = GP_D(config, 'path_BIBTEX_bib','BIBTEX.bib') # fichier>>>+ tard, diviser en fplder/file
+    path_BIBTEX_bib = GP_D(config, 'path_BIBTEX','BIBTEX.bib') # fichier>>>+ tard, diviser en folder/file
     # path_BIBTEX_path = GP_D(config, 'path_BIBTEX_path', path_writing/'BIBTEX.bib') # a voir
 
     # Ajout des nouveaux chemins
@@ -405,32 +405,32 @@ fi
                                     ['rotating',    None,                                       'for rotating text on tables']						
                                     ],
             'symbols-to-replace': [  # Obsidian symbol, latex symbol, type de remplacement (1 ou 2)
-    ['✔',              r'\\checkmark',                   1],
-    ['🟢',             r'$\blacklozenge$',             2],
+    ['✔',              r'\checkmark',                   1],
+    ['🟢',             '$\\blacklozenge$',             2],
     ['🔴',             r'\\maltese',                     2],
-    ['➕',             r'\\twemoji{plus}',              1],
+    ['➕',             r'\twemoji{plus}',              1],
     ['🔗',             'LINK',                          1],
-    [r'implies',      r'\\Rightarrow',                1],
+    [r'implies',      r'\Rightarrow',                1],
     ['❓❓',            '?',                             1],
     ['❓',             '?',                             1],
     ['❌',             'NO',                            1],
-    ['🤔',            r'\\twemoji{thinking-face}',     1],
-    ['⚠',              r'\\twemoji{warning}',    1],
-    ['📚',             r'\\twemoji{books}',      1],
-    ['📜',            r'\\twemoji{page with curl}',                      1],
-    ['⌛',               r'\\twemoji{hourglass}',                     1],
-    ['🔭',              r'\\twemoji{telescope}',                     1],
-    ['👆',              r'\\twemoji{index pointing up}',                      1],
-    ['💭',              r'\\twemoji{thought balloon}',                      1],
-    ['🔧',              r'\\twemoji{screwdriver}', 1],
-           									['⛏',				 r'\\twemoji{pick}',        1],
-											['⏳',				 r'\\twemoji{hourglass}',   1],
-                                            ['🧪',                  r'\\twemoji{test tube}',           1],
-                                            ['⭐',                  r'\\twemoji{star}',           1],
-                                            ['💡',                  r'\\twemoji{light bulb}',           1],
-											['📅',                  r'\\twemoji{date}',           1],
-                                            ['📍',                r'\\twemoji{round pushpin}',           1],
-                                            ['📜',                  r'\\twemoji{scroll}',          1] ,
+    ['🤔',            r'\twemoji{thinking-face}',     1],
+    ['⚠',              r'\twemoji{warning}',    1],
+    ['📚',             r'\twemoji{books}',      1],
+    ['📜',            r'\twemoji{page with curl}',                      1],
+    ['⌛',               r'\twemoji{hourglass}',                     1],
+    ['🔭',              r'\twemoji{telescope}',                     1],
+    ['👆',              r'\twemoji{index pointing up}',                      1],
+    ['💭',              r'\twemoji{thought balloon}',                      1],
+    ['🔧',              r'\twemoji{screwdriver}', 1],
+           									['⛏',				 r'\twemoji{pick}',        1],
+											['⏳',				 r'\twemoji{hourglass}',   1],
+                                            ['🧪',                  r'\twemoji{test tube}',           1],
+                                            ['⭐',                  r'\twemoji{star}',           1],
+                                            ['💡',                  r'\twemoji{light bulb}',           1],
+											['📅',                  r'\twemoji{date}',           1],
+                                            ['📍',                r'\twemoji{round pushpin}',           1],
+                                            ['📜',                  r'\twemoji{scroll}',          1] ,
                                             ]
             },
             #                                        ['\\text',          '\\textnormal',          1],

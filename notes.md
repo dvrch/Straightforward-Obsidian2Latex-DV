@@ -31,3 +31,15 @@
 > with open(path_personalisation, 'r', encoding='utf-8') as f:
 >     print(f.read())
 > 
+
+
+---
+python
+emoji
+reference et table
+trace lignes table
+DONOTDELETE_ formtge
+
+page seule pour titre doc
+debut > document class
+toodolist n est pas imbriqué etn est pas complete

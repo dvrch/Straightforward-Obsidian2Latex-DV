@@ -62,8 +62,8 @@ def convert_inline_commands_with_choice(S, PARS):
                             with open(get_embedded_reference_path(arg2, PARS, search_in = 'vault'), 'r', encoding='utf8') as file: 
                                 tmp1 = '.'.join(file.readlines())
                                 tmp1 = tmp1.replace('\n', '')
-                                tmp1 = f'\\textcolor{{red}}{{{tmp1}}}'
-                                replace_with = f"\ignore{{{tmp1}}} "
+                                tmp1 = fr'\textcolor{{red}}{{{tmp1}}}'
+                                replace_with = fr"\ignore{{{tmp1}}} "
                     except:
                         replace_with = ''
                                 

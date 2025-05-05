@@ -605,7 +605,7 @@ if not PARS['⚙']['SEARCH_IN_FILE']['condition']:
 
     #
 
-    # LATEX = symbol_replacement(LATEX, [['_', '\_', 1]]) # DON'T UNCOMMENT!
+    # LATEX = symbol_replacement(LATEX, [['_', '\_', 1]])
     # title = PARS['⚙']['title'] if PARS['⚙']['title'] else symbol_replacement(path_file.split('\\')[-1].replace('_', '\_'), PARS['par']['symbols-to-replace'])[0]
     title = PARS['⚙']['title'] if PARS['⚙']['title'] else 'Titre du document(default value)'
     
@@ -652,7 +652,8 @@ if not PARS['⚙']['SEARCH_IN_FILE']['condition']:
 
     # 2. Version corrigée du template
     PREAMBLE = fr"""
-\documentclass{{doc_class_fontsize}}{{{document_class['class']}}}
+\documentclass{{{document_class['class']}}}
+% {{{doc_class_fontsize}}}
 
 % Packages de base
 {"\n".join(package_loader())}
@@ -662,8 +663,8 @@ if not PARS['⚙']['SEARCH_IN_FILE']['condition']:
    {PARS['⚙']['hyperlink_setup']}
 }
 
-% Configuration des listes et du document
-\sethlcolor{{yellow}}
+# Configuration des listes et du document
+\sethlcolor{{yellow}}      
 \setcounter{{secnumdepth}}{{4}}
 \setlength{{\parskip}}{{7pt}}
 \let\oldmarginpar\marginpar
@@ -703,7 +704,7 @@ if not PARS['⚙']['SEARCH_IN_FILE']['condition']:
         '\n'*2,
         fr"\newpage{{{paragraph['add_new_page_before_bibliography'] or ''}}}",
         r'\bibliographystyle{apacite}',
-        fr'\bibliography{{{PATHS['bibtex_file_name'].replace(".bib", "")}}}',
+        fr'\bibliography{{{PATHS['bibtex_file_name']}}}',
         r'\end{document}'
     ]
 

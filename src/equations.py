@@ -1,12 +1,14 @@
-import re
+import sys
 import os
+sys.path.append(os.path.join(os.path.dirname(__file__)))
+import re
 import numpy as np
 from dataview_parser import write_Obsidian_table_from_dataview_query
 from helper_functions import *
 
 
 # For recognizing file names, section names, block names
-SPECIAL_CHARACTERS = " ,'%💬⚠💼🟢➕❓❌🔴✔🧑☺📁⚙🔒🤔🟡🔲💊💡🤷‍♂️▶📧🔗🎾👨‍💻📞💭📖ℹ🤖🏢🧠🕒👇📚👉0-9\(\)\(\)\.\-\s"
+SPECIAL_CHARACTERS = " ,'%💬⚠💼🟢➕❓❌🔴✔🧑☺📁⚙🔒🤔🟡🔲💊💡🤷‍♂️▶📧🔗🎾👨‍💻📞💭📖ℹ🤖🏢🧠🕒👇📚👉0-9().-\\s"
 from remove_markdown_comment import *
 from path_searching import *
 
@@ -75,7 +77,7 @@ def EQUATIONS__convert_non_numbered_to_numbered(S0):
                 label_name = match[2] if match[2] else ""
 
                 # Create the modified equation with the label if present
-                modified_equation = f'\\begin{{equation}}' + (f' \\label{{eq:{label_name}}}' if label_name else '') + f'\n\t{equation}\n\\end{{equation}}'
+                modified_equation = fr'\begin{equation}' + (fr' \label{{eq:{label_name}}}' if label_name else '') + f'\n\t{equation}\n\\end{{equation}}'
 
                 # Bad programming patch (due to not being able to fix it with Regex)
                 # Doing this because the equation will not be corrected when there's any between the equation body and the |"$" symbol
@@ -93,7 +95,7 @@ def EQUATIONS__convert_non_numbered_to_numbered(S0):
 
 
     # Sometimes we still have unwanted "$" symbol before "\\begin{equation}", therefore need to remove it
-    pattern_remove_unwanted_previous_dollar = r'\$\s*(\\begin{equation})'
+    pattern_remove_unwanted_previous_dollar = r'$\s*(\begin{equation})'
     S = [re.sub(pattern_remove_unwanted_previous_dollar, r'\1', s) for s in S]
 
     return S
@@ -187,7 +189,7 @@ def EQUATIONS__correct_aligned_equation(latex_equations):
 
             label_name = ""
             if label_match:
-                label_name = re.search(r'\\label\{(eq__block_([^}]+))\}', label_match).group(1)
+                label_name = re.search(r'\\label{(eq__block_([^}]+))}', label_match).group(1)
                 label_name = label_name.replace("eq__block_", "")
 
             label_statement = rf"\label{{eq:{label_name}}}" if label_name else "%no_label_statement"
@@ -196,7 +198,7 @@ def EQUATIONS__correct_aligned_equation(latex_equations):
                 begin_end_eq = ['', '']
                 label_statement_alternative = label_statement
             else:
-                begin_end_eq = [f'\\begin{{equation}}{label_statement}', f'\end{{equation}}']
+                begin_end_eq = [fr'\\begin{{equation}}{label_statement}', fr'\\end{{equation}}']
                 label_statement_alternative = ''
                 
             new_equation = rf"""
@@ -208,7 +210,8 @@ def EQUATIONS__correct_aligned_equation(latex_equations):
             """
 
             new_equation = new_equation.split('\n')
-            new_equation = new_equation[1:-1]
+            new_equation = [line.rstrip() for line in new_equation]
+            new_equation = [line for line in new_equation if line.strip()]
             return new_equation
 
     else:
@@ -219,7 +222,7 @@ def EQUATIONS__check_and_correct_aligned_equations(S0):
     indexes_start = []
     indexes_end = []
     for cmdl in aligned_or_split:
-        indexes_start_add, indexes_end_add = get_start_and_end_indexes([f'\\begin{{{cmdl}}}', f'\end{{{cmdl}}}'], S0)
+        indexes_start_add, indexes_end_add = get_start_and_end_indexes([fr'\begin{{{cmdl}}}', fr'\end{{{cmdl}}}'], S0)
         indexes_start += indexes_start_add
         indexes_end += indexes_end_add
     
@@ -243,7 +246,7 @@ def EQUATIONS__check_and_correct_aligned_equations(S0):
         else:
             # need modification
             # Check if there is any text before the "$$ \\begin{aligned}" text, so we create a separate line with it
-            match_equation = re.search(r'^(.*?)\$\$\s*\\begin{aligned}', S0[j])
+            match_equation = re.search(r'^(.*?)$$\s*\begin{aligned}', S0[j])
             if match_equation:
                 text_before_equation_that_was_on_same_line = match_equation.group(1)
 
@@ -279,6 +282,7 @@ def EQUATIONS__convert_equation_referencing(S0, cleveref_allowed = False):
 
         S[i] = replaced_text
     return S
+
 
 def convert_referencing(S0, mode, cleveref_allowed = False):
     
@@ -343,7 +347,7 @@ def EQUATIONS__prepare_label_in_initial_Obsidian_equation(content__unfold, embed
     else:
         tmp1 = ''
 
-    content__unfold[-1] += f'\label{{{equation_label}}}{anything_after_equation_that_can_be_removed_by_rstrip}{tmp1}'
+    content__unfold[-1] += fr'\label{{{equation_label}}}{anything_after_equation_that_can_be_removed_by_rstrip}{tmp1}'
 
     return content__unfold
 
@@ -479,11 +483,11 @@ def images_converter(images, PARAMETERS, fields, label, latex_file_path):
         
     cnd__include_subfigures = len(images) > 1
     cnd__no_subfigures = (not cnd__include_subfigures)
-    begin_figure = f'\\begin{{{str_figure}}}'*cnd__no_subfigures + '\\begin{subfigure}'*cnd__include_subfigures
-    end_figure = f'\end{{{str_figure}}}'*cnd__no_subfigures + '\end{subfigure}'*cnd__include_subfigures 
-    
-    fig_label = '\label{fig:'+label+'}'
-    
+    begin_figure = fr'\begin{{{str_figure}}}'*cnd__no_subfigures + r'\begin{subfigure}'*cnd__include_subfigures
+    end_figure = fr'\end{{{str_figure}}}'*cnd__no_subfigures + r'\end{subfigure}'*cnd__include_subfigures
+
+    fig_label = fr'\label{{fig:{label}}}'
+
     if cnd__include_subfigures:
         if len(caption_sub)==0:
             caption_sub = ['' for i in range(len(images))]
@@ -521,10 +525,10 @@ def images_converter(images, PARAMETERS, fields, label, latex_file_path):
         caption_long_img = caption_sub[i_img]
         TO_PRINT.append(' \n'.join([
         begin_figure[i_img],
-        '	\centering',
-        f'	\includegraphics[width={str(figure_width)*cnd__no_subfigures}\linewidth]' + '{"'+path_img+'"}',
-        '	\caption['+caption_short+']'+('{'+caption_long_img+'}')*(len(caption_long)>0),
-        '   \captionsetup{skip=-10pt} % Adjust the skip value as needed'*PARAMETERS['reduce spacing between figures'],
+        '    \\centering',
+        f'    \\includegraphics[width={str(figure_width)*cnd__no_subfigures}\\linewidth]' + '{"'+path_img+'"}',
+        '    \\caption['+caption_short+']'+('{'+caption_long_img+'}')*(len(caption_long)>0),
+        '   \\captionsetup{skip=-10pt} % Adjust the skip value as needed'*PARAMETERS['reduce spacing between figures'],
         '   '+fig_label*cnd__no_subfigures,
         end_figure]))
 
@@ -535,14 +539,14 @@ def images_converter(images, PARAMETERS, fields, label, latex_file_path):
         else:
             begin_fig_global = fr'\begin{{{str_figure}}}\n'
         y.append(begin_fig_global)
-        y.append('\centering\n')
+        y.append('\\centering\n')
         for fig_lines in TO_PRINT:
             y.append(fig_lines)
-            y.append('\hfill\n')
+            y.append('\\hfill\n')
 
-        y.append(f'\caption{{{caption_long}}}\n')
+        y.append(f'\\caption{{{caption_long}}}\n')
         y.append(fig_label+'\n')
-        y.append(f'\end{{{str_figure}}}\n')
+        y.append(f'\\end{{{str_figure}}}\n')
     else:
         y = TO_PRINT
 
@@ -613,7 +617,7 @@ def convert__tables(S, caption, package, label, widths, use_hlines, use_vlines, 
     add_txt = ''
     if (ID__TABLES__alignment__center in TABLE_SETTINGS['alignment']) \
         and package == ID__TABLES__PACKAGE__longtblr:
-        add_txt = '\centering '
+        add_txt = '\\centering '
 
     has_custom_widths = False
     if len(widths[0])>0:
@@ -709,10 +713,10 @@ def convert__tables(S, caption, package, label, widths, use_hlines, use_vlines, 
         c1 = [add_txt + x for x in c]
         if i==0: 
             if TABLE_SETTINGS['any-hlines-at-all']:
-                addText = ' \hline' if use_hlines else ''
+                addText = r' \hline' if use_hlines else ''
         else:
             if TABLE_SETTINGS['hlines-to-all-rows']:
-                addText = ' \hline' if use_hlines else ''
+                addText = r' \hline' if use_hlines else ''
                 
         latex_table.append('    ' + " & ".join(c1) + ' \\\\' + addText)
 
@@ -741,17 +745,17 @@ def convert__tables(S, caption, package, label, widths, use_hlines, use_vlines, 
         latex_before_table = lbefore + [
             '%\\begin{center}',
             '\\begin{table}[ht]',
-            '\centering',
-            f'\caption{{{caption}}}',
-            '\label{tab:' + label + '}',
+            '\\centering',
+            f'\\caption{{{caption}}}',
+            '\\label{tab:' + label + '}',
             '\\begin' + PCKG_NAME + txt_textwith + '{' + table_width + '}',
-            '   \hline'
+            '   \\hline'
         ] 
 
         latex_after_table = [
-            '   \hline',
-            '\end'+PCKG_NAME,
-            '\end{table}'
+            '   \\hline',
+            '\\end'+PCKG_NAME,
+            '\\end{table}'
         ]
 
         LATEX = latex_before_table + latex_table + latex_after_table
@@ -771,25 +775,25 @@ def convert__tables(S, caption, package, label, widths, use_hlines, use_vlines, 
         latex_before_table = [
             '%\\begin{center}',
             '\\begin{table}[ht]',
-            '\centering',
-            '\caption{' + caption + '}',
-            '\label{tab:' + label + '}',
+            '\\centering',
+            '\\caption{' + caption + '}',
+            '\\label{tab:' + label + '}',
             '\\begin' + PCKG_NAME + '[',
-            '\caption = {' + caption + '},',
+            '\\caption = {' + caption + '},',
             'entry = {},',
             'note{a} = {},',
-            'note{$\dag$} = {}]',
-            '   {colspec = {'+ table_width +'}, width = ' + str(TABLE_SETTINGS['rel-width']) + '\linewidth, hlines, rowhead = 2, rowfoot = 1}'
+            'note{$\\dag$} = {}]',
+            '   {colspec = {'+ table_width +'}, width = ' + str(TABLE_SETTINGS['rel-width']) + '\\linewidth, hlines, rowhead = 2, rowfoot = 1}'
             ]  
 
         latex_after_table = [
-            '\end' + PCKG_NAME,
-            '\end{table}'
+            r'\end' + PCKG_NAME,
+            r'\end{table}'
         ]
 
         add_hline_at_end = False # to be moved to user settings
         if add_hline_at_end:
-            latex_after_table = '   \hline' + latex_after_table
+            latex_after_table = r'   \hline' + latex_after_table
 
 
         LATEX = latex_before_table + latex_table + latex_after_table
@@ -807,18 +811,18 @@ def convert__tables(S, caption, package, label, widths, use_hlines, use_vlines, 
         latex_before_table=[
         	'%\\begin{center}',
 		    '\\begin{longtable}{' + table_width + '}',            
-            f'\caption{{{caption}}}',
-            '\label{tab:' + label + '}\\\\',
-			'\hline',
+            f'\\caption{{{caption}}}',
+            '\\label{tab:' + label + '}\\\\',
+			'\\hline',
 			''+latex_table[0],
-			'\hline',
-			'\endfirsthead % Use \endfirsthead for the line after the first header',
-			'\hline',
-			'\endfoot',
+			'\\hline',
+			'\\endfirsthead % Use \\endfirsthead for the line after the first header',
+			'\\hline',
+			'\\endfoot',
             ]
 
         latex_after_table = [
-            '\end' + PCKG_NAME,
+            r'\end' + PCKG_NAME,
         ]
 
         LATEX = latex_before_table + ['    '+x for x in latex_table[1:]] + latex_after_table
@@ -834,20 +838,20 @@ def convert__tables(S, caption, package, label, widths, use_hlines, use_vlines, 
         latex_before_table = lbefore + [
             '%\\begin{center}',
             '\\begin{table}[ht]',
-            '\centering',
-            '\caption{' + caption + '}',
-            '\label{tab:' + label + '}',
-            f'\\begin{PCKG_NAME}{{{table_width}}}',
+            '\\centering',
+            '\\caption{' + caption + '}',
+            '\\label{tab:' + label + '}',
+            f'\\begin{{PCKG_NAME}}{{{table_width}}}',
             '   \\bottomrule',
         ] 
 
         latex_after_table = [
-            '   \hline',
-            '\end'+PCKG_NAME,
-            '\end{table}'
+            r'   \hline',
+            r'\\end'+PCKG_NAME,
+            r'\\end{table}'
         ]
 
-        latex_table[0] += '\midrule'
+        latex_table[0] += r'\midrule'
         LATEX = latex_before_table + latex_table + latex_after_table
         
     else:
