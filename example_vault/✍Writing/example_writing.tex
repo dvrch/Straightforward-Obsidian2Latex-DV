@@ -79,6 +79,11 @@
 
 % Start obsidian ref:
 %\twemoji{warning} warning to users
+\begin{enumerate}\section{Warnings to users}
+
+
+% Start obsidian ref:
+%\twemoji{warning} warning to users
 \begin{enumerate}
 \item Equations, tables, and figures should be written only inside the equation-block style (\texttt{README.md})
 \item Any syntactic violation that happens inside the obsidian note will be passed into LateX. So far, I have not included any diagnostic routine.
@@ -180,13 +185,13 @@
 \end{todolist}
 \item Task 4
 \end{todolist}
-\section{Adding citations} \label{sec:Adding-citations}
+\section{Adding citations}\label{sec:Adding-citations}
 
 Command: just mention that link that pertains to the literature file. I use the "p"+"number" naming convention. For example, "p1" would be the first literature file in my vault.
 
 
 
-Example: In \${p1}, we see that...  \hypertarget{ad3b86}{}
+Example: In \${p1}, we see that...\hypertarget{ad3b86}{}
 
 
 
@@ -213,38 +218,19 @@ Steps:
 \end{enumerate}
 
 
-
-% Start obsidian ref:
-%eq__block_Einstein\\#\#expr
-$\beginE=mc^{2} \label{eq:Einstein}
-	E=mc^{2}
-\end{equation}
-
-% End obsidian ref
+!\Cref{eq:Einstein\\\\#expr}
 
 
 
-
-It supports the aligned equations, as seen in \Cref{eq:1}.
-
+It supports the aligned equations, as seen in\Cref{eq:1}.
 
 
 
-% Start obsidian ref:
-%eq__block_1\\#\#expr
-\begin{equation}\label{eq:1}
-\begin{aligned}
-\Delta W_{rg} = -\alpha \sum_{s}&[R+\gamma V(s')-V(s)]  \\
-&[\nabla_{w} \gamma V(s')-\nabla_{w}V(s)]
-\end{aligned}
-\end{equation}
-
-% End obsidian ref
-
+!\Cref{eq:1\\\\#expr}
 
 \subsection{Referencing the equation}
 
-In \Cref{eq:Einstein}, we see that...
+In\Cref{eq:Einstein}, we see that...
 
 \section{Figures}
 
@@ -252,18 +238,7 @@ In \Cref{eq:Einstein}, we see that...
 
 \subsubsection{No subfigures}
 
-
-% Start obsidian ref:
-%figure__block_gradient_steps\\#\#fig
-\begin{figure}[htb]
-\centering
-\includegraphics[width=0.4\linewidth]{"C:/Users/dvrch/Desktop/Memoire_2024/Straightforward-Obsidian2Latex/Straightforward-Obsidian2Latex-DV/example_vault/✍Writing/figure blocks/Pasted image 20240609012140.png"}
-\caption[]{The caption.}
-
-\label{fig:gradient_steps}
-\end{figure}
-% End obsidian ref
-
+!\Cref{fig:gradient_steps\\\\#fig}
 
 
 
@@ -271,46 +246,16 @@ In \Cref{eq:Einstein}, we see that...
 
 \subsubsection{With subfigures}
 
-See \Cref{fig:1}.
+See\Cref{fig:1}.
 
 
 
 
 
 \begin{itemize}
-\item \twemoji{plus}  Allow user to create more complex configurations
+\item\twemoji{plus}  Allow user to create more complex configurations
 \end{itemize}
-
-% Start obsidian ref:
-%figure__block_1\\#\#fig
-\begin{figure}[htb]\n\centering
-\begin{subfigure}[b]{0.3333333333333333\textwidth}
-\centering
-\includegraphics[width=\linewidth]{"C:/Users/dvrch/Desktop/Memoire_2024/Straightforward-Obsidian2Latex/Straightforward-Obsidian2Latex-DV/example_vault/✍Writing/figure blocks/Pasted image 20240609012221.png"}
-\caption[]
-
-
-\end{subfigure}\hfill
-\begin{subfigure}[b]{0.3333333333333333\textwidth}
-\centering
-\includegraphics[width=\linewidth]{"C:/Users/dvrch/Desktop/Memoire_2024/Straightforward-Obsidian2Latex/Straightforward-Obsidian2Latex-DV/example_vault/✍Writing/figure blocks/Pasted image 20240609012221.png"}
-\caption[]
-
-
-\end{subfigure}\hfill
-\begin{subfigure}[b]{0.3333333333333333\textwidth}
-\centering
-\includegraphics[width=\linewidth]{"C:/Users/dvrch/Desktop/Memoire_2024/Straightforward-Obsidian2Latex/Straightforward-Obsidian2Latex-DV/example_vault/✍Writing/figure blocks/Pasted image 20240609012251.png"}
-\caption[]
-
-
-\end{subfigure}\hfill
-\caption{}
-\label{fig:1}
-\end{figure}
-
-% End obsidian ref
-
+!\Cref{fig:1\\\\#fig}
 
 
 
@@ -318,7 +263,7 @@ See \Cref{fig:1}.
 
 \subsection{Referencing figures}
 
-In \Cref{fig:1}, we can notice that...
+In\Cref{fig:1}, we can notice that...
 
 
 
@@ -362,7 +307,7 @@ print("this is another code block")
 
 \section{Cross-reference of section}
 
-Check \hyperref[sec:Adding-citations]{this section} (\autoref{sec:Adding-citations}) about adding citations.
+Check\hyperref[sec:Adding-citations]{this section} (\autoref{sec:Adding-citations}) about adding citations.
 
 
 
@@ -390,7 +335,7 @@ Notice in the latex file that the section hierarchy has been modified to adhere 
 % Start obsidian ref:
 %embedded with sections
 \subsubsection{Section 1 of embedded By me}
-\paragraph{subsection 1 of embedded} \hspace{0pt} \\
+\paragraph{subsection 1 of embedded}\hspace{0pt} \\
 % End obsidian ref
 
 
@@ -408,142 +353,16 @@ Click [here](\url{https://www.youtube.com/}).
 
 
 
-See \Cref{tab:1}, \Cref{tab:2}, and \Cref{tab:long}.
+See\Cref{tab:1},\Cref{tab:2}, and\Cref{tab:long}.
 
 
 
-
-% Start obsidian ref:
-%table__block_1\\#\#table
-%\begin{center}
-\begin{table}[ht]
-\centering
-\caption{Caption of table written in Obsidian}
-\label{tab:1}
-\begin{PCKG_NAME}{p{3cm}p{3cm}p{3cm}p{3cm}}
-\bottomrule
-\textbf{Col1} & \textbf{Col2} & \textbf{Col3} & \textbf{Col4} \\\midrule
-a11 & a12 & Some more text & even more text \\
-a21 & Equation: $E=mc^{2}$ & Some more textSome more textSome more textSome more text\begin{tabularx}{1.0\textwidth}{p{1cm}p{1cm}p{5cm}p{3cm}}
-xt even more text even more text even more text even more text \\
-Reference \Cref{eq:1} & 1 & 1& 1 \\
-\hline
-\end{tabular}
-\end{table}
-
-% End obsidian ref
+!\Cref{tab:1\\\\#table}
 
 
 
-
-
-% Start obsidian ref:
-%table__block_2\\#\#table
-\newcolumntype{Y}{>{\centering\arraybackslash}X}
-%\begin{center}
-\begin{table}[ht]
-\centering
-\caption{Table with customized widths and row color formatting}
-\label{tab:2}
-\begin{tabularx}{1.0\textwidth}{p{1cm}p{1cm}p{5cm}p{3cm}}
-\hline
-\textbf{Col1} & \textbf{Col2} & \textbf{Col3} & \textbf{Col4} \\
-\rowcolor{lightgray}  a11 & a12 & Some more text & even more text \\
-\rowcolor{yellow} a21 & Equation: $E=mc^{2}$ & Some more textSome more textSome more textSome more textSome more textSome more text & even more text even more text even more text even more text even more text \\
-Reference \Cref{eq:1} & 1 & 1 & 1 \\
-\hline
-\end{tabularx}
-\end{table}
-
-% End obsidian ref
+!\Cref{tab:2\\\\#table}
 
 
 
-
-
-% Start obsidian ref:
-%table__block_long\\#\#table
-%\begin{center}
-\begin{longtable}{p{3cm}p{3cm}p{3cm}p{3cm}}
-\caption{A long table. Changed the package in the table file properties}
-\label{tab:long}\\
-\hline
-\textbf{Col1} & \textbf{Col2} & \textbf{Col3} & \textbf{Col4} \\
-\hline
-\endfirsthead % Use \endfirsthead for the line after the first header
-\hline
-\endfoot
-a11 & a12 & Some more text & even more text \\
-a21 & Equation: $E=mc^{2}$ & Some more textSome more textSome more textSome more textSome more textSome more text & even more text even more text even more text even more text even more text \\
-Reference \Cref{eq:1} & 1 & 1 & 1 \\
-Some more textSome more textSome more textSome more textSome more textSome more text & Some more textSome more textSome more textSome more textSome more textSome more text & Some more textSome more textSome more textSome more textSome more textSome more text & Some more textSome more textSome more textSome more textSome more textSome more text \\
-Some more textSome more textSome more textSome more textSome more textSome more text & Some more textSome more textSome more textSome more textSome more textSome more text & Some more textSome more textSome more textSome more textSome more textSome more text & Some more textSome more textSome more textSome more textSome more textSome more text \\
-Some more textSome more textSome more textSome more textSome more textSome more text & Some more textSome more textSome more textSome more textSome more textSome more text & Some more textSome more textSome more textSome more textSome more textSome more text & Some more textSome more textSome more textSome more textSome more textSome more text \\
-Some more textSome more textSome more textSome more textSome more textSome more text & Some more textSome more textSome more textSome more textSome more textSome more text & Some more textSome more textSome more textSome more textSome more textSome more text & Some more textSome more textSome more textSome more textSome more textSome more text \\
-Some more textSome more textSome more textSome more textSome more textSome more text & Some more textSome more textSome more textSome more textSome more textSome more text & Some more textSome more textSome more textSome more textSome more textSome more text & Some more textSome more textSome more textSome more textSome more textSome more text \\
-Some more textSome more textSome more textSome more textSome more textSome more text & Some more textSome more textSome more textSome more textSome more textSome more text & Some more textSome more textSome more textSome more textSome more textSome more text & Some more textSome more textSome more textSome more textSome more textSome more text \\
-Some more textSome more textSome more textSome more textSome more textSome more text & Some more textSome more textSome more textSome more textSome more textSome more text & Some more textSome more textSome more textSome more textSome more textSome more text & Some more textSome more textSome more textSome more textSome more textSome more text \\
-Some more textSome more textSome more textSome more textSome more textSome more text & Some more textSome more textSome more textSome more textSome more textSome more text & Some more textSome more textSome more textSome more textSome more textSome more text & Some more textSome more textSome more textSome more textSome more textSome more text \\
-Some more textSome more textSome more textSome more textSome more textSome more text & Some more textSome more textSome more textSome more textSome more textSome more text & Some more textSome more textSome more textSome more textSome more textSome more text & Some more textSome more textSome more textSome more textSome more textSome more text \\
-Some more textSome more textSome more textSome more textSome more textSome more text & Some more textSome more textSome more textSome more textSome more textSome more text & Some more textSome more textSome more textSome more textSome more textSome more text & Some more textSome more textSome more textSome more textSome more textSome more text \\
-Some more textSome more textSome more textSome more textSome more textSome more text & Some more textSome more textSome more textSome more textSome more textSome more text & Some more textSome more textSome more textSome more textSome more textSome more text & Some more textSome more textSome more textSome more textSome more textSome more text \\
-Some more textSome more textSome more textSome more textSome more textSome more text & Some more textSome more textSome more textSome more textSome more textSome more text & Some more textSome more textSome more textSome more textSome more textSome more text & Some more textSome more textSome more textSome more textSome more textSome more text \\
-Some more textSome more textSome more textSome more textSome more textSome more text & Some more textSome more textSome more textSome more textSome more textSome more text & Some more textSome more textSome more textSome more textSome more textSome more text & Some more textSome more textSome more textSome more textSome more textSome more text \\
-Some more textSome more textSome more textSome more textSome more textSome more text & Some more textSome more textSome more textSome more textSome more textSome more text & Some more textSome more textSome more textSome more textSome more textSome more text & Some more textSome more textSome more textSome more textSome more textSome more text \\
-Some more textSome more textSome more textSome more textSome more textSome more text & Some more textSome more textSome more textSome more textSome more textSome more text & Some more textSome more textSome more textSome more textSome more textSome more text & Some more textSome more textSome more textSome more textSome more textSome more text \\
-Some more textSome more textSome more textSome more textSome more textSome more text & Some more textSome more textSome more textSome more textSome more textSome more text & Some more textSome more textSome more textSome more textSome more textSome more text & Some more textSome more textSome more textSome more textSome more textSome more text \\
-Some more textSome more textSome more textSome more textSome more textSome more text & Some more textSome more textSome more textSome more textSome more textSome more text & Some more textSome more textSome more textSome more textSome more textSome more text & Some more textSome more textSome more textSome more textSome more textSome more text \\
-Some more textSome more textSome more textSome more textSome more textSome more text & Some more textSome more textSome more textSome more textSome more textSome more text & Some more textSome more textSome more textSome more textSome more textSome more text & Some more textSome more textSome more textSome more textSome more textSome more text \\
-Some more textSome more textSome more textSome more textSome more textSome more text & Some more textSome more textSome more textSome more textSome more textSome more text & Some more textSome more textSome more textSome more textSome more textSome more text & Some more textSome more textSome more textSome more textSome more textSome more text \\
-Some more textSome more textSome more textSome more textSome more textSome more text & Some more textSome more textSome more textSome more textSome more textSome more text & Some more textSome more textSome more textSome more textSome more textSome more text & Some more textSome more textSome more textSome more textSome more textSome more text \\
-Some more textSome more textSome more textSome more textSome more textSome more text & Some more textSome more textSome more textSome more textSome more textSome more text & Some more textSome more textSome more textSome more textSome more textSome more text & Some more textSome more textSome more textSome more textSome more textSome more text \\
-Some more textSome more textSome more textSome more textSome more textSome more text & Some more textSome more textSome more textSome more textSome more textSome more text & Some more textSome more textSome more textSome more textSome more textSome more text & Some more textSome more textSome more textSome more textSome more textSome more text \\
-Some more textSome more textSome more textSome more textSome more textSome more text & Some more textSome more textSome more textSome more textSome more textSome more text & Some more textSome more textSome more textSome more textSome more textSome more text & Some more textSome more textSome more textSome more textSome more textSome more text \\
-Some more textSome more textSome more textSome more textSome more textSome more text & Some more textSome more textSome more textSome more textSome more textSome more text & Some more textSome more textSome more textSome more textSome more textSome more text & Some more textSome more textSome more textSome more textSome more textSome more text \\
-Some more textSome more textSome more textSome more textSome more textSome more text & Some more textSome more textSome more textSome more textSome more textSome more text & Some more textSome more textSome more textSome more textSome more textSome more text & Some more textSome more textSome more textSome more textSome more textSome more text \\
-Some more textSome more textSome more textSome more textSome more textSome more text & Some more textSome more textSome more textSome more textSome more textSome more text & Some more textSome more textSome more textSome more textSome more textSome more text & Some more textSome more textSome more textSome more textSome more textSome more text \\
-Some more textSome more textSome more textSome more textSome more textSome more text & Some more textSome more textSome more textSome more textSome more textSome more text & Some more textSome more textSome more textSome more textSome more textSome more text & Some more textSome more textSome more textSome more textSome more textSome more text \\
-Some more textSome more textSome more textSome more textSome more textSome more text & Some more textSome more textSome more textSome more textSome more textSome more text & Some more textSome more textSome more textSome more textSome more textSome more text & Some more textSome more textSome more textSome more textSome more textSome more text \\
-Some more textSome more textSome more textSome more textSome more textSome more text & Some more textSome more textSome more textSome more textSome more textSome more text & Some more textSome more textSome more textSome more textSome more textSome more text & Some more textSome more textSome more textSome more textSome more textSome more text \\
-Some more textSome more textSome more textSome more textSome more textSome more text & Some more textSome more textSome more textSome more textSome more textSome more text & Some more textSome more textSome more textSome more textSome more textSome more text & Some more textSome more textSome more textSome more textSome more textSome more text \\
-Some more textSome more textSome more textSome more textSome more textSome more text & Some more textSome more textSome more textSome more textSome more textSome more text & Some more textSome more textSome more textSome more textSome more textSome more text & Some more textSome more textSome more textSome more textSome more textSome more text \\
-Some more textSome more textSome more textSome more textSome more textSome more text & Some more textSome more textSome more textSome more textSome more textSome more text & Some more textSome more textSome more textSome more textSome more textSome more text & Some more textSome more textSome more textSome more textSome more textSome more text \\
-Some more textSome more textSome more textSome more textSome more textSome more text & Some more textSome more textSome more textSome more textSome more textSome more text & Some more textSome more textSome more textSome more textSome more textSome more text & Some more textSome more textSome more textSome more textSome more textSome more text \\
-Some more textSome more textSome more textSome more textSome more textSome more text & Some more textSome more textSome more textSome more textSome more textSome more text & Some more textSome more textSome more textSome more textSome more textSome more text & Some more textSome more textSome more textSome more textSome more textSome more text \\
-Some more textSome more textSome more textSome more textSome more textSome more text & Some more textSome more textSome more textSome more textSome more textSome more text & Some more textSome more textSome more textSome more textSome more textSome more text & Some more textSome more textSome more textSome more textSome more textSome more text \\
-Some more textSome more textSome more textSome more textSome more textSome more text & Some more textSome more textSome more textSome more textSome more textSome more text & Some more textSome more textSome more textSome more textSome more textSome more text & Some more textSome more textSome more textSome more textSome more textSome more text \\
-Some more textSome more textSome more textSome more textSome more textSome more text & Some more textSome more textSome more textSome more textSome more textSome more text & Some more textSome more textSome more textSome more textSome more textSome more text & Some more textSome more textSome more textSome more textSome more textSome more text \\
-Some more textSome more textSome more textSome more textSome more textSome more text & Some more textSome more textSome more textSome more textSome more textSome more text & Some more textSome more textSome more textSome more textSome more textSome more text & Some more textSome more textSome more textSome more textSome more textSome more text \\
-Some more textSome more textSome more textSome more textSome more textSome more text & Some more textSome more textSome more textSome more textSome more textSome more text & Some more textSome more textSome more textSome more textSome more textSome more text & Some more textSome more textSome more textSome more textSome more textSome more text \\
-Some more textSome more textSome more textSome more textSome more textSome more text & Some more textSome more textSome more textSome more textSome more textSome more text & Some more textSome more textSome more textSome more textSome more textSome more text & Some more textSome more textSome more textSome more textSome more textSome more text \\
-Some more textSome more textSome more textSome more textSome more textSome more text & Some more textSome more textSome more textSome more textSome more textSome more text & Some more textSome more textSome more textSome more textSome more textSome more text & Some more textSome more textSome more textSome more textSome more textSome more text \\
-\end{longtable}
-
-% End obsidian ref
-
-
-
-
-\section{Latex commands}
-
-When there is something niche, or some translation functionality that hasn't been developed yet, you can write a latex command within the code-block functionality of Obsidian, and the translator will not touch it. Use the syntax according to the following example:
-
-
-
-
-
-\lipsum[1-4]
-
-
-
-
-\newpage
-
-
-\newpage
-
-
-\newpage{True}
-\bibliographystyle{apacite}
-\bibliography{BIBTEX.bib}
-\end{document}
+!\Cref{tab:long\\\\#table}

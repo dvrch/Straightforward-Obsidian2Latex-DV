@@ -77,7 +77,7 @@ def EQUATIONS__convert_non_numbered_to_numbered(S0):
                 label_name = match[2] if match[2] else ""
 
                 # Create the modified equation with the label if present
-                modified_equation = fr'\begin{equation}' + (fr' \label{{eq:{label_name}}}' if label_name else '') + f'\n\t{equation}\n\\end{{equation}}'
+                modified_equation = '\\begin{equation}' + (f' \\label{{eq:{label_name}}}' if label_name else '') + f'\n\t{equation}\n\\end{{equation}}'
 
                 # Bad programming patch (due to not being able to fix it with Regex)
                 # Doing this because the equation will not be corrected when there's any between the equation body and the |"$" symbol
@@ -198,7 +198,7 @@ def EQUATIONS__correct_aligned_equation(latex_equations):
                 begin_end_eq = ['', '']
                 label_statement_alternative = label_statement
             else:
-                begin_end_eq = [fr'\\begin{{equation}}{label_statement}', fr'\\end{{equation}}']
+                begin_end_eq = [f'\\begin{{equation}}{label_statement}', fr'\\end{{equation}}']
                 label_statement_alternative = ''
                 
             new_equation = rf"""
@@ -841,7 +841,7 @@ def convert__tables(S, caption, package, label, widths, use_hlines, use_vlines, 
             '\\centering',
             '\\caption{' + caption + '}',
             '\\label{tab:' + label + '}',
-            f'\\begin{{PCKG_NAME}}{{{table_width}}}',
+            f'\\begin{{{PCKG_NAME}}}{{{table_width}}}',
             '   \\bottomrule',
         ] 
 

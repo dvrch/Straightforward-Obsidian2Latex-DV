@@ -768,8 +768,59 @@ else:
 
     print("Finished Searching")
 #
+# --------------------------------
 from pathlib import Path
-f_sh = Path(os.getcwd(), 'example_vault', '✍Writing', 'compile_and_open.sh')
+# f_sh = Path(os.getcwd(), 'example_vault', '✍Writing', 'compile_and_open.sh')
 # # executer ce sh dans gitbash
 import subprocess
-subprocess.run(f'bash {f_sh}', shell=True, check=True, stdout=subprocess.PIPE, stderr=subprocess.PIPE)
+# subprocess.run(f'bash {f_sh}', shell=True, check=True, stdout=subprocess.PIPE, stderr=subprocess.PIPE)
+
+# -------------------------------
+# def compile_latex_to_pdf(tex_file, output_dir=None):
+#     """
+#     Compile un fichier LaTeX en PDF en utilisant pdflatex
+    
+#     Args:
+#         tex_file (str): Chemin vers le fichier .tex
+#         output_dir (str, optional): Répertoire de sortie. Par défaut le même que le fichier .tex
+#     """
+#     if output_dir is None:
+#         output_dir = os.path.dirname(tex_file) or '.'
+    
+#     # Vérifier que le fichier existe
+#     if not os.path.isfile(tex_file):
+#         raise FileNotFoundError(f"Le fichier {tex_file} n'existe pas")
+    
+#     # Changer le répertoire de travail si nécessaire
+#     original_dir = os.getcwd()
+#     os.chdir(output_dir)
+    
+#     try:
+#         # Exécuter pdflatex (2 fois pour les références croisées)
+#         subprocess.run(['pdflatex', '-interaction=nonstopmode', tex_file], check=True)
+#         subprocess.run(['pdflatex', '-interaction=nonstopmode', tex_file], check=True)
+        
+#         # Vérifier que le PDF a été généré
+#         pdf_file = os.path.splitext(os.path.basename(tex_file))[0] + '.pdf'
+#         if not os.path.isfile(pdf_file):
+#             raise RuntimeError("La compilation a échoué - aucun PDF généré")
+            
+#         return os.path.join(output_dir, pdf_file)
+    
+#     finally:
+#         os.chdir(original_dir)
+
+# # Exemple d'utilisation
+# if __name__ == "__main__":
+#     tex_path = "mon_document.tex"  # Remplacez par votre fichier .tex
+#     try:
+#         pdf_path = compile_latex_to_pdf(tex_path)
+#         print(f"PDF généré avec succès : {pdf_path}")
+#     except Exception as e:
+#         print(f"Erreur lors de la compilation : {e}")
+
+
+# f_sh2 = Path(os.getcwd(), 'example_vault', '✍Writing', 'example_writing.tex'             ) 
+
+
+# compile_latex_to_pdf(f_sh2, output_dir = os.path.dirname(f_sh2))
