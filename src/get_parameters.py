@@ -55,7 +55,7 @@ def get_parameters(version = 'default'):
 
 
     # USER PARAMETERS
-    path_vault          = 'C:\\Users\\mariosg\\OneDrive - NTNU\\FILES\\workTips\\'
+    path_vault          = r'C:\Users\dvrch\Desktop\Straightforward-Obsidian2Latex\Straightforward-Obsidian2Latex\example_vault'+'\\' # path to your vault
     path_writing        = path_vault + '✍Writing\\'
     path_templates        = path_vault + '👨‍💻Automations\\'
     path_table_block_template = path_templates + 'table_block.md'
