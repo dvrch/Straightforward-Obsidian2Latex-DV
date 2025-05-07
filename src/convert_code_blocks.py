@@ -37,43 +37,51 @@ def convert_inline_field_placement_command(S, PARS):
 
 
 def convert_inline_commands_with_choice(S, PARS):
-    
     pattern = r"`= *choice\(.*?`"
     pattern2 = r"\]\]\.[a-zA-Z0-9_.-]+"
 
-    pp=[(i, l) for i, l in enumerate(S) if 'choice(' in l]
+    pp = [(i, l) for i, l in enumerate(S) if 'choice(' in l]
     
     for p_i in pp:
         p = p_i[1]
         mm = re.findall(pattern, p)
         for m in mm:
             ee = non_embedded_references_recognizer([m])
-            field = re.search(pattern2, m)[0].replace(']].', '') + ':: '
-            filePath = get_embedded_reference_path(f'{ee[0][1][0][0]}', PARS, search_in = 'vault')
-            fields_res = get_fields_from_Obsidian_note(filePath, [field])[0]
-            if fields_res[0] == 'true':
-                try:
-                    replace_with = fields_res[1]
-                except:
-                    try:
-                        arg2 = f'{ee[0][1][1][0]}'
-                        if arg2.startswith('💭ltx--'):
-                            # is latex comment
-                            with open(get_embedded_reference_path(arg2, PARS, search_in = 'vault'), 'r', encoding='utf8') as file: 
-                                tmp1 = '.'.join(file.readlines())
-                                tmp1 = tmp1.replace('\n', '')
-                                tmp1 = f'\\textcolor{{red}}{{{tmp1}}}'
-                                replace_with = f"\\ignore{{{tmp1}}} "
-                    except:
-                        replace_with = ''
-                                
-                            
-                    
-                if replace_with.startswith(2*' '): replace_with = replace_with[1:]
-            else:
-                replace_with = ''
+            # Vérifions que ee contient les données attendues
+            if not ee or not ee[0] or len(ee[0]) < 2 or not ee[0][1]:
+                continue
                 
-            S[p_i[0]] = S[p_i[0]].replace(m, replace_with)
+            try:
+                field = re.search(pattern2, m)[0].replace(']].', '') + ':: '
+                filePath = get_embedded_reference_path(f'{ee[0][1][0][0]}', PARS, search_in = 'vault')
+                fields_res = get_fields_from_Obsidian_note(filePath, [field])[0]
+                
+                if fields_res[0] == 'true':
+                    try:
+                        replace_with = fields_res[1]
+                    except:
+                        try:
+                            if len(ee[0][1]) > 1:
+                                arg2 = f'{ee[0][1][1][0]}'
+                                if arg2.startswith('💭ltx--'):
+                                    with open(get_embedded_reference_path(arg2, PARS, search_in = 'vault'), 'r', encoding='utf8') as file: 
+                                        tmp1 = '.'.join(file.readlines())
+                                        tmp1 = tmp1.replace('\n', '')
+                                        tmp1 = f'\\textcolor{{red}}{{{tmp1}}}'
+                                        replace_with = f"\\ignore{{{tmp1}}} "
+                        except:
+                            replace_with = ''
+                            
+                    if replace_with.startswith(2*' '): 
+                        replace_with = replace_with[1:]
+                else:
+                    replace_with = ''
+                    
+                S[p_i[0]] = S[p_i[0]].replace(m, replace_with)
+                
+            except (IndexError, KeyError) as e:
+                print(f"Warning: Could not process choice command: {m}")
+                continue
             
     return S, len(pp)>0
 

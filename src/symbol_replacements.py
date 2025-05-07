@@ -28,28 +28,52 @@ def escape_underscores_in_sections(text):
     
 
 def symbol_replacement(S, SYMBOLS_TO_REPLACE):
+    latex_special_chars = ['&', '_', '%', '$', '#', '{', '}', '~', '^', '\\']
     
     S_1 = []
     for s in S:
         s1 = s
+        # First handle LaTeX special characters that need escaping
+        in_command = False
+        in_mathmode = False
+        
+        # Don't escape if we're inside a LaTeX command or math mode
+        new_s = ""
+        i = 0
+        while i < len(s1):
+            if s1[i:i+1] == '$':
+                in_mathmode = not in_mathmode
+                new_s += s1[i]
+            elif s1[i:i+1] == '\\':
+                in_command = True
+                new_s += s1[i]
+            elif s1[i] == '{' and in_command:
+                in_command = False
+                new_s += s1[i]
+            elif s1[i] in latex_special_chars and not in_command and not in_mathmode:
+                new_s += '\\' + s1[i]
+            else:
+                new_s += s1[i]
+            i += 1
+            
+        s1 = new_s
+        
+        # Then handle symbol replacements from configuration
         for symbol in SYMBOLS_TO_REPLACE:
             obsidian_symbol, latex_replacement, replacement_type = symbol
             # Escape the replacement string for re.sub
             escaped_latex_replacement = re.escape(latex_replacement)
             
             if replacement_type == 0:
-                # Simple string replacement, re.sub not strictly needed but used for consistency
+                # Simple string replacement
                 s1 = re.sub(re.escape(obsidian_symbol), escaped_latex_replacement, s1)
             elif replacement_type == 1:
-                # Use re.sub with escaped replacement + space
+                # Add space after replacement
                 s1 = re.sub(re.escape(obsidian_symbol), escaped_latex_replacement + ' ', s1)
             elif replacement_type == 2:
-                # Use re.sub with regex pattern for obsidian_symbol and escaped replacement + space
-                # Note: This assumes obsidian_symbol is a valid regex pattern if type is 2
+                # Use regex pattern
                 s1 = re.sub(obsidian_symbol, escaped_latex_replacement + ' ', s1)
-            else:
-                raise Exception("Nothing coded for this case!")
-        
+            
         S_1.append(s1)
 
     return S_1

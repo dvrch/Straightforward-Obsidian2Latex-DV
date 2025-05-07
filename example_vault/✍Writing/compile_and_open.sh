@@ -11,12 +11,24 @@ PDFFILE="$BASE_PATH/$FILE_NAME.pdf"
 echo "TEXFILE: $TEXFILE"
 echo "PDFFILE: $PDFFILE"
 
-# Compile the LaTeX file
+# Run pdflatex twice to resolve references
 pdflatex -interaction=nonstopmode -shell-escape "$TEXFILE"
 if [ $? -ne 0 ]; then
-    echo "pdflatex compilation failed."
+    echo "First pdflatex compilation failed."
     exit 1
 fi
 
-# Open the resulting PDF file
-xdg-open "$PDFFILE"
+# Run second pass for references
+pdflatex -interaction=nonstopmode -shell-escape "$TEXFILE"
+if [ $? -ne 0 ]; then
+    echo "Second pdflatex compilation failed."
+    exit 1
+fi
+
+# Open the resulting PDF file using PowerShell Start-Process on Windows
+if [ -f "$PDFFILE" ]; then
+    powershell.exe "Start-Process '$PDFFILE'"
+else
+    echo "PDF file not found: $PDFFILE"
+    exit 1
+fi

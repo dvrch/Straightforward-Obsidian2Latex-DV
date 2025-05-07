@@ -55,6 +55,8 @@ def get_parameters(version = 'default'):
 
 
     # USER PARAMETERS
+    from pathlib import Path
+    # path_vault =  str(Path(__file__).parent.parent.absolute(), '\\')
     path_vault          = 'C:\\Users\\dvrch\\Desktop\\Straightforward-Obsidian2Latex\\Straightforward-Obsidian2Latex\\example_vault\\'
     path_writing        = path_vault + '✍Writing\\'
     path_templates        = path_vault + '👨‍💻Automations\\'
@@ -103,7 +105,7 @@ def get_parameters(version = 'default'):
     # apply parameter changes based on specific notes
         
     V__document_class = {'class': ID__DOCUMENT_CLASS__EXTARTICLE, 'fontsize': ''}
-    V__author = 'Marios Gkionis'
+    V__author = 'DJONTSO Victorien'
         
     if version =='[[👆👆RL--writing--1]]':
         
@@ -131,7 +133,7 @@ def get_parameters(version = 'default'):
                             'rel-width': 1.2,
                     },
             'margin': '0.9in',
-            'use_date': '🔴',
+            'use_date': '🟢',
             'EXCEPTIONS': 
                         {'raise_exception__when__embedded_reference_not_found': '🔴'},
             'INTERNAL_LINKS': 
@@ -153,7 +155,7 @@ def get_parameters(version = 'default'):
                         'indent_length_of_first_line': 0,    # 0 if no indent is desired. Recommended 20 for usual indent
                         'if_text_before_first_section___place_before_table_of_contents': '🔴',
                         'insert_new_line_symbol':                                        '---',
-                        'add_table_of_contents':                                        '🔴',
+                        'add_table_of_contents':                                        '🟢',
                         'add_new_page_before_bibliography':                             '🟢',
                         'allowdisplaybreaks':                                           '🔴',
             }, 
