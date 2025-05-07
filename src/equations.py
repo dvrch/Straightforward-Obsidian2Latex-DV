@@ -759,8 +759,8 @@ def convert__tables(S, caption, package, label, widths, use_hlines, use_vlines, 
         if not has_custom_widths:
             table_width = N_cols*'X'
         else:
-            # table_width = table_width_custom_0
-            raise NotImplementedError
+            # Convert custom widths to longtblr format
+            table_width = ''.join([f"p{{{w}}}" for w in widths])
 
 
         latex_before_table = [
