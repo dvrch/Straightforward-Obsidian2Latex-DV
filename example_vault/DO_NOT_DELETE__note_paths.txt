@@ -14,3 +14,6 @@ Pasted image 20240609012221.png: C:\Users\dvrch\Desktop\Straightforward-Obsidian
 Pasted image 20240609012251.png: C:\Users\dvrch\Desktop\Straightforward-Obsidian2Latex\Straightforward-Obsidian2Latex\example_vault\✍Writing\figure blocks\Pasted image 20240609012251.png
 table__block_1: C:\Users\dvrch\Desktop\Straightforward-Obsidian2Latex\Straightforward-Obsidian2Latex\example_vault\✍Writing\table_blocks\table__block_1.md
 table__block_2: C:\Users\dvrch\Desktop\Straightforward-Obsidian2Latex\Straightforward-Obsidian2Latex\example_vault\✍Writing\table_blocks\table__block_2.md
+table__block_long: C:\Users\dvrch\Desktop\Straightforward-Obsidian2Latex\Straightforward-Obsidian2Latex\example_vault\✍Writing\table_blocks\table__block_long.md
+fields_for_report: C:\Users\dvrch\Desktop\Straightforward-Obsidian2Latex\Straightforward-Obsidian2Latex\example_vault\✍Writing\fields_for_report.md
+p1: C:\Users\dvrch\Desktop\Straightforward-Obsidian2Latex\Straightforward-Obsidian2Latex\example_vault\📚Literature\p1.md

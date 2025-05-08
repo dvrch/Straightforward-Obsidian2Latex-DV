@@ -56,9 +56,12 @@ def internal_links__identifier(S):
     # pattern_sections_1 = r'\[\[\s*([^\[\]#]+)\s*#\s*([^\[\]|]+)(?:\|([^\[\]]+))?\s*\]\]'
     pattern_sections_1 = r'(?<!\!)\[\[\s*([^\[\]#]+)\s*#\s*([^\[\]|]+)(?:\|([^\[\]]+))?\s*\]\]'
 
-    MATCHES = []
-    for i, s in enum(S):
-        
+    MATCHES = []   
+    for i, s in enumerate(S):
+        # Skip None values or non-string elements
+        if not s or not isinstance(s, str):
+            continue
+            
         # match_sections = re.findall(pattern_sections, s)
         match_sections_1 = re.findall(pattern_sections_1, s)
         match_blocks = re.findall(pattern_blocks, s)
@@ -66,7 +69,6 @@ def internal_links__identifier(S):
             MATCHES.append([i, match_sections_1, match_blocks])
     
     return MATCHES
-# def external_links__identifier(S):
 #     '''
 #     Identifies external links in the document, in the form of '[[notename^linkname|name of reference]]'
 #     '''
@@ -258,7 +260,11 @@ def embedded_references_recognizer(S, options, mode):
     #     raise Exception('Nothing coded for this case!')
 
     MATCHES = []
-    for i, s in enum(S):
+    for i, s in enumerate(S):
+                # Skip None values or non-string elements
+        if not s or not isinstance(s, str):
+            continue
+
         match_pattern_embedded = re.findall(pattern_embedded_with_section, s)
         
         # adding a dirty patch, cause both me and ChatGPT can't find a proper regex expression

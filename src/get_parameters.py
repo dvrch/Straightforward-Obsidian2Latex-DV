@@ -52,10 +52,10 @@ def get_parameters(version = 'default'):
     # ⚠ does not work for longtblr!
     CMD__TABLE__TABULARX__CENTERING = '\\newcolumntype{Y}{>{\\centering\\arraybackslash}X}'
     #
-
+    # %%
 
     # USER PARAMETERS
-    path_vault          = r'C:\Users\dvrch\Desktop\Straightforward-Obsidian2Latex\Straightforward-Obsidian2Latex\example_vault'+'\\' # path to your vault
+    path_vault          = 'C:\\Users\\dvrch\\Desktop\\Straightforward-Obsidian2Latex\\Straightforward-Obsidian2Latex\\example_vault'+'\\' # path to your vault
     path_writing        = path_vault + '✍Writing\\'
     path_templates        = path_vault + '👨‍💻Automations\\'
     path_table_block_template = path_templates + 'table_block.md'
@@ -84,7 +84,8 @@ def get_parameters(version = 'default'):
             
     path_plugins = path_vault + '.obsidian\\plugins\\'
     path_quick_add = path_plugins+'quickadd\\'
-
+    
+    # %%
     # if not os.path.exists(path_quick_add):
     #     shutil.copytree('\\'.join(os.path.abspath(__file__).split('\\')[0:-2]) + '\\obsidian\\.obsidian\\plugins\\quickadd', path_plugins)
     # else:

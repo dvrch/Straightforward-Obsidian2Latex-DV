@@ -105,7 +105,9 @@ def package_loader():
     return out
 
 
-def replace_hyperlinks(S):
+def replace_hyperlinks(S, type=None):
+    if S is None:
+        return []
     
     # Anything that isn't a square closing bracket
     name_regex = "[^]]+"
@@ -117,6 +119,9 @@ def replace_hyperlinks(S):
 
     S_1 = []
     for s in S:
+        if s is None:
+            S_1.append('')
+            continue
         s1 = s 
         matched_with_alias = False
         for match in re.findall(markup_regex, s1):
@@ -188,7 +193,8 @@ def identify__tables(S):
 RAISE_EXCEPTION_IN_STYLISTIC_USER_ERRORS = False
 
 def simple_stylistic_replacements(S, type=None):
-
+    if S is None:
+        return []
 
     '''
     For simple stylistic replacements. Includes conversions of:
@@ -235,6 +241,7 @@ def simple_stylistic_replacements(S, type=None):
 
     S1 = []
     for s in S:
+        
         occurences = [x.start() for x in re.finditer(style_char, s)]
         L = len(occurences)
 
@@ -254,7 +261,6 @@ def simple_stylistic_replacements(S, type=None):
         S1.append(s)
     
     return S1
-
  
 
 def images_converter(images, PARAMETERS):
@@ -341,7 +347,7 @@ def check_for_skipped_content(content, markdown_file, PARS):
 
     content = copy.copy(content_1)
     
-    return content
+    return content if content else []
 
 def convert_any_tags(S):
     
@@ -449,15 +455,17 @@ for i in range(Lc+1):
 
 # \==================================================\==================================================
 
-table_new_col_symbol = [['&',               '\&',                     1]]
+table_new_col_symbol = [['&',               r'\&',                     1]]
 content = symbol_replacement(content, table_new_col_symbol)
 
 # find reference blocks \==================================================
 #---1. they have to be at the end of the sentence (i.e. before "\n")
-blocks = get_reference_blocks(content)
+blocks = get_reference_blocks(content) if content is not None else []
 # \==================================================
 
 # Find and apply internal links
+if not isinstance(content, list):
+    content = [content]  # Convert to a list if it's not already
 internal_links = internal_links__identifier(content)
 content = internal_links__enforcer(content, [sections, blocks], internal_links, PARS['⚙']['INTERNAL_LINKS'])
 #

@@ -223,6 +223,10 @@ def get_list_of_separate_string_lines(S):
     result_list = []
 
     for string in S:
+                # Skip None values or non-string elements
+        if not string or not isinstance(string, str):
+            continue
+
         # Check if the string contains line breaks
         if "\n" in string:
             # Split the string into separate lines
