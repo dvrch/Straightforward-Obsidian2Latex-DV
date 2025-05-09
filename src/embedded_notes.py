@@ -36,8 +36,8 @@ def internal_links__identifier(S):
     '''
 
     if not isinstance(S, list):
-        raise Exception('Input of the function must be a list of strings!')
-        return np.nan
+        print("Input of the function must be a list of strings!")
+        return []
 
     # OLD
     # pattern_sections = '\[\[([\w\s-]+)\#([\w' + SPECIAL_CHARACTERS + '\-]+)(\|[\w' + SPECIAL_CHARACTERS + '\-]+)?\]\]'
@@ -58,7 +58,8 @@ def internal_links__identifier(S):
 
     MATCHES = []
     for i, s in enum(S):
-        
+        if s is None:  # Add this check
+            continue
         # match_sections = re.findall(pattern_sections, s)
         match_sections_1 = re.findall(pattern_sections_1, s)
         match_blocks = re.findall(pattern_blocks, s)
@@ -423,7 +424,7 @@ def unfold_embedded_notes(S, md__files_embedded, PARS, mode='normal'):
     cnd__mode_is__normal                = mode=='normal'
     cnd__mode_is__equation_blocks_only  = mode=='equation_blocks_only'
     cnd__mode_is__figure_blocks_only    = mode=='figure_blocks_only'
-    cnd__mode_is__table_blocks_only     = mode=='table_blocks_only'
+    cnd__mode_is__table_blocks_only     = mode=='table_blocks'
     
     if cnd__mode_is__normal:
         where_to_search_for_embedded_notes = 'vault'

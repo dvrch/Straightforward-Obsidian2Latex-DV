@@ -105,7 +105,7 @@ def package_loader():
     return out
 
 
-def replace_hyperlinks(S):
+def replace_hyperlinks(S, type=None):
     
     # Anything that isn't a square closing bracket
     name_regex = "[^]]+"
@@ -116,7 +116,12 @@ def replace_hyperlinks(S):
     markup_regex_no_alias = r'(http[s]?://\S+)' # Non-greedy regex to match URLs, stopping at the first space or punctuation after the URL
 
     S_1 = []
+    if S is None:
+        return []
     for s in S:
+        if s is None:
+            S_1.append('')
+            continue
         s1 = s 
         matched_with_alias = False
         for match in re.findall(markup_regex, s1):
@@ -254,7 +259,6 @@ def simple_stylistic_replacements(S, type=None):
         S1.append(s)
     
     return S1
-
  
 
 def images_converter(images, PARAMETERS):
@@ -341,7 +345,7 @@ def check_for_skipped_content(content, markdown_file, PARS):
 
     content = copy.copy(content_1)
     
-    return content
+    return content if isinstance(content, list) else []
 
 def convert_any_tags(S):
     
@@ -394,13 +398,19 @@ content = copy.copy(content_1)
 content = remove_markdown_comments(content)
 
 # Convert bullet and numbered lists
+if content is None:
+    content = []
 content = bullet_list_converter(content)
 
 [content, md_notes_embedded] = unfold_all_embedded_notes(content, PARS)
 
+if content is None:
+    content = []
 content = check_for_skipped_content(content, markdown_file, PARS)
 
 # Convert bullet and numbered lists again, since we have unfolded a bunch of embedded notes
+if content is None:
+    content = []
 content = bullet_list_converter(content)
 
 # Look for Appendix (in reverse order)
@@ -454,10 +464,14 @@ content = symbol_replacement(content, table_new_col_symbol)
 
 # find reference blocks \==================================================
 #---1. they have to be at the end of the sentence (i.e. before "\n")
+if content is None:
+    content = []
 blocks = get_reference_blocks(content)
 # \==================================================
 
 # Find and apply internal links
+if content is None:
+    content = []
 internal_links = internal_links__identifier(content)
 content = internal_links__enforcer(content, [sections, blocks], internal_links, PARS['⚙']['INTERNAL_LINKS'])
 #
@@ -639,7 +653,7 @@ if not PARS['⚙']['SEARCH_IN_FILE']['condition']:
 
     #
 
-    # LATEX = symbol_replacement(LATEX, [['_', '\_', 1]]) # DON'T UNCOMMENT!
+    # LATEX = symbol_replacement(LATEX, [['_', '\_', 0]]) # DON'T UNCOMMENT!
     # title = PARS['⚙']['title'] if PARS['⚙']['title'] else symbol_replacement(path_file.split('\\')[-1].replace('_', '\_'), PARS['par']['symbols-to-replace'])[0]
     title = PARS['⚙']['title'] if PARS['⚙']['title'] else ''
     
